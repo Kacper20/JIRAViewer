@@ -9,9 +9,23 @@
 /* Begin PBXBuildFile section */
 		BBE003761E39534E00E1A2A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE003751E39534E00E1A2A4 /* AppDelegate.swift */; };
 		BBE003781E39534E00E1A2A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBE003771E39534E00E1A2A4 /* Assets.xcassets */; };
-		BBE0037B1E39534E00E1A2A4 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBE003791E39534E00E1A2A4 /* MainMenu.xib */; };
 		BBE003861E39534E00E1A2A4 /* JiraHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE003851E39534E00E1A2A4 /* JiraHelperTests.swift */; };
 		BBE003911E39534E00E1A2A4 /* JiraHelperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE003901E39534E00E1A2A4 /* JiraHelperUITests.swift */; };
+		BBE003A51E395E3D00E1A2A4 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE003A11E395E3D00E1A2A4 /* Alamofire.framework */; };
+		BBE003A61E395E3D00E1A2A4 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BBE003A11E395E3D00E1A2A4 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BBE003A71E395E3D00E1A2A4 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE003A21E395E3D00E1A2A4 /* RxCocoa.framework */; };
+		BBE003A81E395E3D00E1A2A4 /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BBE003A21E395E3D00E1A2A4 /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BBE003A91E395E3D00E1A2A4 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE003A31E395E3D00E1A2A4 /* RxSwift.framework */; };
+		BBE003AA1E395E3D00E1A2A4 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BBE003A31E395E3D00E1A2A4 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BBE003AB1E395E3D00E1A2A4 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE003A41E395E3D00E1A2A4 /* SnapKit.framework */; };
+		BBE003AC1E395E3D00E1A2A4 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BBE003A41E395E3D00E1A2A4 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BBE003B41E395EBB00E1A2A4 /* Alamofire.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBE003B01E395EBB00E1A2A4 /* Alamofire.framework.dSYM */; };
+		BBE003B51E395EBB00E1A2A4 /* RxCocoa.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBE003B11E395EBB00E1A2A4 /* RxCocoa.framework.dSYM */; };
+		BBE003B61E395EBB00E1A2A4 /* RxSwift.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBE003B21E395EBB00E1A2A4 /* RxSwift.framework.dSYM */; };
+		BBE003B71E395EBB00E1A2A4 /* SnapKit.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBE003B31E395EBB00E1A2A4 /* SnapKit.framework.dSYM */; };
+		BBE003BA1E3966EF00E1A2A4 /* MASShortcut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE003B91E3966EF00E1A2A4 /* MASShortcut.framework */; };
+		BBE003BB1E3966EF00E1A2A4 /* MASShortcut.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BBE003B91E3966EF00E1A2A4 /* MASShortcut.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BBE003BD1E39670400E1A2A4 /* MASShortcut.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBE003BC1E39670400E1A2A4 /* MASShortcut.framework.dSYM */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,11 +45,42 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		BBE003AD1E395E3D00E1A2A4 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BBE003BB1E3966EF00E1A2A4 /* MASShortcut.framework in Embed Frameworks */,
+				BBE003A81E395E3D00E1A2A4 /* RxCocoa.framework in Embed Frameworks */,
+				BBE003A61E395E3D00E1A2A4 /* Alamofire.framework in Embed Frameworks */,
+				BBE003AA1E395E3D00E1A2A4 /* RxSwift.framework in Embed Frameworks */,
+				BBE003AC1E395E3D00E1A2A4 /* SnapKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBE003AF1E395EA400E1A2A4 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				BBE003BD1E39670400E1A2A4 /* MASShortcut.framework.dSYM in CopyFiles */,
+				BBE003B41E395EBB00E1A2A4 /* Alamofire.framework.dSYM in CopyFiles */,
+				BBE003B51E395EBB00E1A2A4 /* RxCocoa.framework.dSYM in CopyFiles */,
+				BBE003B61E395EBB00E1A2A4 /* RxSwift.framework.dSYM in CopyFiles */,
+				BBE003B71E395EBB00E1A2A4 /* SnapKit.framework.dSYM in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		BBE003721E39534E00E1A2A4 /* JiraHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JiraHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBE003751E39534E00E1A2A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBE003771E39534E00E1A2A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BBE0037A1E39534E00E1A2A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		BBE0037C1E39534E00E1A2A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BBE003811E39534E00E1A2A4 /* JiraHelperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JiraHelperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBE003851E39534E00E1A2A4 /* JiraHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JiraHelperTests.swift; sourceTree = "<group>"; };
@@ -43,6 +88,17 @@
 		BBE0038C1E39534E00E1A2A4 /* JiraHelperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JiraHelperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBE003901E39534E00E1A2A4 /* JiraHelperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JiraHelperUITests.swift; sourceTree = "<group>"; };
 		BBE003921E39534E00E1A2A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BBE003A11E395E3D00E1A2A4 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/Mac/Alamofire.framework; sourceTree = "<group>"; };
+		BBE003A21E395E3D00E1A2A4 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/Mac/RxCocoa.framework; sourceTree = "<group>"; };
+		BBE003A31E395E3D00E1A2A4 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/Mac/RxSwift.framework; sourceTree = "<group>"; };
+		BBE003A41E395E3D00E1A2A4 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/Mac/SnapKit.framework; sourceTree = "<group>"; };
+		BBE003B01E395EBB00E1A2A4 /* Alamofire.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Alamofire.framework.dSYM; path = Carthage/Build/Mac/Alamofire.framework.dSYM; sourceTree = "<group>"; };
+		BBE003B11E395EBB00E1A2A4 /* RxCocoa.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = RxCocoa.framework.dSYM; path = Carthage/Build/Mac/RxCocoa.framework.dSYM; sourceTree = "<group>"; };
+		BBE003B21E395EBB00E1A2A4 /* RxSwift.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = RxSwift.framework.dSYM; path = Carthage/Build/Mac/RxSwift.framework.dSYM; sourceTree = "<group>"; };
+		BBE003B31E395EBB00E1A2A4 /* SnapKit.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SnapKit.framework.dSYM; path = Carthage/Build/Mac/SnapKit.framework.dSYM; sourceTree = "<group>"; };
+		BBE003B81E39617000E1A2A4 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		BBE003B91E3966EF00E1A2A4 /* MASShortcut.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MASShortcut.framework; path = Carthage/Build/Mac/MASShortcut.framework; sourceTree = "<group>"; };
+		BBE003BC1E39670400E1A2A4 /* MASShortcut.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = MASShortcut.framework.dSYM; path = Carthage/Build/Mac/MASShortcut.framework.dSYM; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +106,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBE003BA1E3966EF00E1A2A4 /* MASShortcut.framework in Frameworks */,
+				BBE003A71E395E3D00E1A2A4 /* RxCocoa.framework in Frameworks */,
+				BBE003A51E395E3D00E1A2A4 /* Alamofire.framework in Frameworks */,
+				BBE003A91E395E3D00E1A2A4 /* RxSwift.framework in Frameworks */,
+				BBE003AB1E395E3D00E1A2A4 /* SnapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,9 +131,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BB62DE751E5623C000AA3577 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		BBE003691E39534E00E1A2A4 = {
 			isa = PBXGroup;
 			children = (
+				BBE003AE1E395E6800E1A2A4 /* Frameworks */,
 				BBE003741E39534E00E1A2A4 /* JiraHelper */,
 				BBE003841E39534E00E1A2A4 /* JiraHelperTests */,
 				BBE0038F1E39534E00E1A2A4 /* JiraHelperUITests */,
@@ -93,10 +162,12 @@
 		BBE003741E39534E00E1A2A4 /* JiraHelper */ = {
 			isa = PBXGroup;
 			children = (
+				BB62DE751E5623C000AA3577 /* UI */,
+				BBE0039E1E39596A00E1A2A4 /* Events */,
 				BBE003751E39534E00E1A2A4 /* AppDelegate.swift */,
 				BBE003771E39534E00E1A2A4 /* Assets.xcassets */,
-				BBE003791E39534E00E1A2A4 /* MainMenu.xib */,
 				BBE0037C1E39534E00E1A2A4 /* Info.plist */,
+				BBE003B81E39617000E1A2A4 /* Bridging-Header.h */,
 			);
 			path = JiraHelper;
 			sourceTree = "<group>";
@@ -119,6 +190,30 @@
 			path = JiraHelperUITests;
 			sourceTree = "<group>";
 		};
+		BBE0039E1E39596A00E1A2A4 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Events;
+			sourceTree = "<group>";
+		};
+		BBE003AE1E395E6800E1A2A4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BBE003BC1E39670400E1A2A4 /* MASShortcut.framework.dSYM */,
+				BBE003B91E3966EF00E1A2A4 /* MASShortcut.framework */,
+				BBE003B01E395EBB00E1A2A4 /* Alamofire.framework.dSYM */,
+				BBE003B11E395EBB00E1A2A4 /* RxCocoa.framework.dSYM */,
+				BBE003B21E395EBB00E1A2A4 /* RxSwift.framework.dSYM */,
+				BBE003B31E395EBB00E1A2A4 /* SnapKit.framework.dSYM */,
+				BBE003A11E395E3D00E1A2A4 /* Alamofire.framework */,
+				BBE003A21E395E3D00E1A2A4 /* RxCocoa.framework */,
+				BBE003A31E395E3D00E1A2A4 /* RxSwift.framework */,
+				BBE003A41E395E3D00E1A2A4 /* SnapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -129,6 +224,8 @@
 				BBE0036E1E39534E00E1A2A4 /* Sources */,
 				BBE0036F1E39534E00E1A2A4 /* Frameworks */,
 				BBE003701E39534E00E1A2A4 /* Resources */,
+				BBE003AD1E395E3D00E1A2A4 /* Embed Frameworks */,
+				BBE003AF1E395EA400E1A2A4 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -230,7 +327,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBE003781E39534E00E1A2A4 /* Assets.xcassets in Resources */,
-				BBE0037B1E39534E00E1A2A4 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,17 +385,6 @@
 			targetProxy = BBE0038D1E39534E00E1A2A4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		BBE003791E39534E00E1A2A4 /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BBE0037A1E39534E00E1A2A4 /* Base */,
-			);
-			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		BBE003931E39534E00E1A2A4 /* Debug */ = {
@@ -398,10 +483,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 96TQV7B5LD;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = JiraHelper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.harasim.JiraHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "JiraHelper/Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -412,10 +502,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 96TQV7B5LD;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = JiraHelper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.harasim.JiraHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "JiraHelper/Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -501,6 +596,7 @@
 				BBE003971E39534E00E1A2A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BBE003981E39534E00E1A2A4 /* Build configuration list for PBXNativeTarget "JiraHelperTests" */ = {
 			isa = XCConfigurationList;
@@ -509,6 +605,7 @@
 				BBE0039A1E39534E00E1A2A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BBE0039B1E39534E00E1A2A4 /* Build configuration list for PBXNativeTarget "JiraHelperUITests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +614,7 @@
 				BBE0039D1E39534E00E1A2A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

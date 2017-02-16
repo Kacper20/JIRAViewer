@@ -1,0 +1,16 @@
+.DS_Store
+.idea
+JiraHelper.xcodeproj/project.xcworkspace/xcuserdata
+JiraHelper.xcodeproj/xcuserdata
+JiraHelper.xcworkspace/xcuserdata
+Pods/Pods.xcodeproj/xcuserdata
+.arc
+fastlane/README.md
+fastlane/report.xml
+Carthage/Checkouts/*
+!Carthage/Checkouts/Instabug-iOS
+Carthage/Build/macOS/
+Carthage/Build/Mac/
+Carthage/Build/watchOS/
+Carthage/Build/tvOS/
+Carthage/Build/iOS/*.bcsymbolmap
