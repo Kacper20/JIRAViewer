@@ -13,15 +13,22 @@ import AppKit
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    @IBOutlet weak var window: NSWindow!
+
+    private var windowController: MainWindowController?
 
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
+        windowController = MainWindowController()
+        windowController?.window?.makeKey()
 
         let shortcut = MASShortcut(keyCode: UInt(kVK_F9), modifierFlags: NSEventModifierFlags.command.rawValue)
         MASShortcutMonitor.shared().register(shortcut, withAction: {
-            NSApp.activate(ignoringOtherApps: true)
+            if NSApp.isActive {
+                NSApplication.shared().windows.last?.close()
+            } else {
+                NSApp.activate(ignoringOtherApps: true)
+            }
         })
     }
 
