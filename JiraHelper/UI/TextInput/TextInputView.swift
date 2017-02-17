@@ -23,6 +23,8 @@ final class TextInputView: NSView {
     }
 
     private func setupStyle() {
+        wantsLayer = true
+//        layer?.backgroundColor = NSColor.blue.cgColor
         textField.backgroundColor = .blue
         textField.isEditable = true
         textField.isSelectable = true
@@ -30,9 +32,9 @@ final class TextInputView: NSView {
     }
 
     private func setupConstraints() {
-        addSubview(textField)
-        textField.snp.makeConstraints { make in
-            make.edges.equalTo(self)
-        }
+//        addSubview(textField)
+//        textField.snp.makeConstraints { make in
+//            make.edges.equalTo(self)
+//        }
     }
 }

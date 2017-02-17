@@ -25,7 +25,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let shortcut = MASShortcut(keyCode: UInt(kVK_F9), modifierFlags: NSEventModifierFlags.command.rawValue)
         MASShortcutMonitor.shared().register(shortcut, withAction: {
             if NSApp.isActive {
-                NSApplication.shared().windows.last?.close()
+//                NSApplication.shared().windows.last?.close()
             } else {
                 NSApp.activate(ignoringOtherApps: true)
             }

@@ -10,8 +10,12 @@
 		BB62DE791E56293A00AA3577 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB62DE781E56293A00AA3577 /* MainWindow.xib */; };
 		BB62DE7B1E562CF500AA3577 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB62DE7A1E562CF500AA3577 /* MainViewController.swift */; };
 		BB62DE7D1E5634BA00AA3577 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB62DE7C1E5634BA00AA3577 /* MainMenu.xib */; };
-		BB62DE7F1E56393D00AA3577 /* TextInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB62DE7E1E56393D00AA3577 /* TextInputView.swift */; };
 		BB62DEBC1E565A7800AA3577 /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB62DEBB1E565A7800AA3577 /* MainWindow.swift */; };
+		BBA77B901E57782A00C9842C /* TextInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBA77B8F1E57782A00C9842C /* TextInputViewController.xib */; };
+		BBA77B941E57904100C9842C /* StylingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA77B931E57904100C9842C /* StylingProtocol.swift */; };
+		BBA77B9B1E57922C00C9842C /* TextFieldStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA77B9A1E57922C00C9842C /* TextFieldStyles.swift */; };
+		BBA77B9D1E579D1600C9842C /* SprintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA77B9C1E579D1600C9842C /* SprintViewController.swift */; };
+		BBA77B9F1E579D2700C9842C /* SprintViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBA77B9E1E579D2700C9842C /* SprintViewController.xib */; };
 		BBE003761E39534E00E1A2A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE003751E39534E00E1A2A4 /* AppDelegate.swift */; };
 		BBE003781E39534E00E1A2A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBE003771E39534E00E1A2A4 /* Assets.xcassets */; };
 		BBE003861E39534E00E1A2A4 /* JiraHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE003851E39534E00E1A2A4 /* JiraHelperTests.swift */; };
@@ -88,8 +92,12 @@
 		BB62DE781E56293A00AA3577 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		BB62DE7A1E562CF500AA3577 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		BB62DE7C1E5634BA00AA3577 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
-		BB62DE7E1E56393D00AA3577 /* TextInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextInputView.swift; sourceTree = "<group>"; };
 		BB62DEBB1E565A7800AA3577 /* MainWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
+		BBA77B8F1E57782A00C9842C /* TextInputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextInputViewController.xib; sourceTree = "<group>"; };
+		BBA77B931E57904100C9842C /* StylingProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StylingProtocol.swift; sourceTree = "<group>"; };
+		BBA77B9A1E57922C00C9842C /* TextFieldStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldStyles.swift; sourceTree = "<group>"; };
+		BBA77B9C1E579D1600C9842C /* SprintViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SprintViewController.swift; sourceTree = "<group>"; };
+		BBA77B9E1E579D2700C9842C /* SprintViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SprintViewController.xib; sourceTree = "<group>"; };
 		BBE003721E39534E00E1A2A4 /* JiraHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JiraHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBE003751E39534E00E1A2A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBE003771E39534E00E1A2A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -148,12 +156,55 @@
 		BB62DE751E5623C000AA3577 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				BBA77B921E578FE500C9842C /* Styles */,
+				BBA77B911E578E6700C9842C /* SprintView */,
 				BB62DE7C1E5634BA00AA3577 /* MainMenu.xib */,
 				FA6E3B792A42ED94A8684593 /* Window */,
 				BB62DE7A1E562CF500AA3577 /* MainViewController.swift */,
 				FA6E385260CF027AC4DC0830 /* TextInput */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		BBA77B911E578E6700C9842C /* SprintView */ = {
+			isa = PBXGroup;
+			children = (
+				BBA77B9C1E579D1600C9842C /* SprintViewController.swift */,
+				BBA77B9E1E579D2700C9842C /* SprintViewController.xib */,
+			);
+			path = SprintView;
+			sourceTree = "<group>";
+		};
+		BBA77B921E578FE500C9842C /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				BBA77B971E57915A00C9842C /* Label */,
+				BBA77B961E57915300C9842C /* TextField */,
+				BBA77B931E57904100C9842C /* StylingProtocol.swift */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
+		BBA77B961E57915300C9842C /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				BBA77B9A1E57922C00C9842C /* TextFieldStyles.swift */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
+		BBA77B971E57915A00C9842C /* Label */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Label;
+			sourceTree = "<group>";
+		};
+		BBA77BA01E579D3D00C9842C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		BBE003691E39534E00E1A2A4 = {
@@ -180,6 +231,7 @@
 		BBE003741E39534E00E1A2A4 /* JiraHelper */ = {
 			isa = PBXGroup;
 			children = (
+				BBA77BA01E579D3D00C9842C /* Model */,
 				BB62DE751E5623C000AA3577 /* UI */,
 				BBE0039E1E39596A00E1A2A4 /* Events */,
 				BBE003751E39534E00E1A2A4 /* AppDelegate.swift */,
@@ -236,7 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				FA6E3DCE04F5BFDCA73B1FEF /* TextInputViewController.swift */,
-				BB62DE7E1E56393D00AA3577 /* TextInputView.swift */,
+				BBA77B8F1E57782A00C9842C /* TextInputViewController.xib */,
 			);
 			path = TextInput;
 			sourceTree = "<group>";
@@ -363,8 +415,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBA77B901E57782A00C9842C /* TextInputViewController.xib in Resources */,
 				BBE003781E39534E00E1A2A4 /* Assets.xcassets in Resources */,
 				BB62DE791E56293A00AA3577 /* MainWindow.xib in Resources */,
+				BBA77B9F1E579D2700C9842C /* SprintViewController.xib in Resources */,
 				BB62DE7D1E5634BA00AA3577 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -390,11 +444,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB62DE7F1E56393D00AA3577 /* TextInputView.swift in Sources */,
+				BBA77B9B1E57922C00C9842C /* TextFieldStyles.swift in Sources */,
 				BBE003761E39534E00E1A2A4 /* AppDelegate.swift in Sources */,
 				FA6E3C6DED0B860D768D19B1 /* MainWindowController.swift in Sources */,
 				BB62DE7B1E562CF500AA3577 /* MainViewController.swift in Sources */,
+				BBA77B9D1E579D1600C9842C /* SprintViewController.swift in Sources */,
 				BB62DEBC1E565A7800AA3577 /* MainWindow.swift in Sources */,
+				BBA77B941E57904100C9842C /* StylingProtocol.swift in Sources */,
 				FA6E351536938100E1D24BBE /* TextInputViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

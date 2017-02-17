@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11762" systemVersion="16E154a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="TextInputViewController" customModule="JiraHelper" customModuleProvider="target">
+            <connections>
+                <outlet property="inputTextField" destination="0O1-z3-yvF" id="aLr-AD-BCu"/>
+                <outlet property="view" destination="c22-O7-iKe" id="axv-pv-e1G"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe">
+            <rect key="frame" x="0.0" y="0.0" width="462" height="95"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PXl-sR-pzd">
+                    <rect key="frame" x="16" y="19" width="60" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="32D-hp-beK"/>
+                        <constraint firstAttribute="height" constant="60" id="UQM-h7-JcX"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="jira_icon" id="kFf-bq-kxw"/>
+                </imageView>
+                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0O1-z3-yvF">
+                    <rect key="frame" x="92" y="27" width="354" height="44"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" placeholderString="Enter JIRA command" drawsBackground="YES" id="bo2-wc-2g1">
+                        <font key="font" metaFont="system" size="24"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstItem="PXl-sR-pzd" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="16" id="8Kk-3M-gKC"/>
+                <constraint firstItem="0O1-z3-yvF" firstAttribute="leading" secondItem="PXl-sR-pzd" secondAttribute="trailing" constant="16" id="Km6-EG-lj8"/>
+                <constraint firstAttribute="trailing" secondItem="0O1-z3-yvF" secondAttribute="trailing" constant="16" id="T3v-MU-ROl"/>
+                <constraint firstItem="0O1-z3-yvF" firstAttribute="bottom" secondItem="PXl-sR-pzd" secondAttribute="bottom" constant="-8" id="xG8-nt-qhx"/>
+                <constraint firstItem="0O1-z3-yvF" firstAttribute="top" secondItem="PXl-sR-pzd" secondAttribute="top" constant="8" id="xgQ-ue-Buf"/>
+                <constraint firstItem="PXl-sR-pzd" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="16" id="y3F-Er-35W"/>
+            </constraints>
+            <point key="canvasLocation" x="130" y="79.5"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="jira_icon" width="203" height="197"/>
+    </resources>
+</document>
