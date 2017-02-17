@@ -28,10 +28,10 @@
                 </imageView>
                 <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0O1-z3-yvF">
                     <rect key="frame" x="92" y="27" width="354" height="44"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" placeholderString="Enter JIRA command" drawsBackground="YES" id="bo2-wc-2g1">
+                    <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" placeholderString="Enter JIRA command" drawsBackground="YES" id="bo2-wc-2g1" customClass="VerticallyCenteredTextFieldCell" customModule="JiraHelper" customModuleProvider="target">
                         <font key="font" metaFont="system" size="24"/>
                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
+                        <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="0.48153895547945208" colorSpace="calibratedRGB"/>
                     </textFieldCell>
                 </textField>
             </subviews>

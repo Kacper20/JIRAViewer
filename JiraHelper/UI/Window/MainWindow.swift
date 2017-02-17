@@ -15,15 +15,14 @@ final class MainWindow: NSWindow {
     override var canBecomeKey: Bool {
         return true
     }
-
     override init(contentRect: NSRect, styleMask style: NSWindowStyleMask, backing bufferingType: NSBackingStoreType, defer flag: Bool) {
 
         super.init(contentRect: contentRect, styleMask: style, backing: bufferingType, defer: flag)
+        self.isMovable = false
         self.contentView = view
-        self.isOpaque = true
         view.wantsLayer = true
-        view.layer?.backgroundColor = NSColor.black.cgColor
-        view.layer?.cornerRadius = 20
+        self.isOpaque = false
+        self.backgroundColor = NSColor.clear
 
     }
 }

@@ -11,7 +11,10 @@ import Foundation
 struct TextFieldStyles {
     static var mainInput: NSViewStyle<NSTextField> {
         return NSViewStyle { textField in
-            textField.backgroundColor = .white
+            textField.isBordered = false
+            textField.maximumNumberOfLines = 1
+            textField.layer?.cornerRadius = 6.0
+            textField.focusRingType = .none
         }
     }
 

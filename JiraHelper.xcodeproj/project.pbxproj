@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		BB62DE791E56293A00AA3577 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB62DE781E56293A00AA3577 /* MainWindow.xib */; };
-		BB62DE7B1E562CF500AA3577 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB62DE7A1E562CF500AA3577 /* MainViewController.swift */; };
 		BB62DE7D1E5634BA00AA3577 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB62DE7C1E5634BA00AA3577 /* MainMenu.xib */; };
 		BB62DEBC1E565A7800AA3577 /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB62DEBB1E565A7800AA3577 /* MainWindow.swift */; };
 		BBA77B901E57782A00C9842C /* TextInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBA77B8F1E57782A00C9842C /* TextInputViewController.xib */; };
@@ -16,6 +15,10 @@
 		BBA77B9B1E57922C00C9842C /* TextFieldStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA77B9A1E57922C00C9842C /* TextFieldStyles.swift */; };
 		BBA77B9D1E579D1600C9842C /* SprintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA77B9C1E579D1600C9842C /* SprintViewController.swift */; };
 		BBA77B9F1E579D2700C9842C /* SprintViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBA77B9E1E579D2700C9842C /* SprintViewController.xib */; };
+		BBA77BA31E57A0C600C9842C /* VerticallyCenteredTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA77BA21E57A0C600C9842C /* VerticallyCenteredTextFieldCell.swift */; };
+		BBA77BA61E57A3F200C9842C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA77BA51E57A3F200C9842C /* MainViewController.swift */; };
+		BBA77BA81E57A3F800C9842C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA77BA71E57A3F800C9842C /* MainView.swift */; };
+		BBA77BAB1E57A62300C9842C /* MaskImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA77BAA1E57A62300C9842C /* MaskImage.swift */; };
 		BBE003761E39534E00E1A2A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE003751E39534E00E1A2A4 /* AppDelegate.swift */; };
 		BBE003781E39534E00E1A2A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBE003771E39534E00E1A2A4 /* Assets.xcassets */; };
 		BBE003861E39534E00E1A2A4 /* JiraHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE003851E39534E00E1A2A4 /* JiraHelperTests.swift */; };
@@ -90,14 +93,17 @@
 
 /* Begin PBXFileReference section */
 		BB62DE781E56293A00AA3577 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
-		BB62DE7A1E562CF500AA3577 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		BB62DE7C1E5634BA00AA3577 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		BB62DEBB1E565A7800AA3577 /* MainWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
 		BBA77B8F1E57782A00C9842C /* TextInputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextInputViewController.xib; sourceTree = "<group>"; };
 		BBA77B931E57904100C9842C /* StylingProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StylingProtocol.swift; sourceTree = "<group>"; };
-		BBA77B9A1E57922C00C9842C /* TextFieldStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldStyles.swift; sourceTree = "<group>"; };
+		BBA77B9A1E57922C00C9842C /* TextFieldStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextFieldStyles.swift; path = Styles/TextField/TextFieldStyles.swift; sourceTree = "<group>"; };
 		BBA77B9C1E579D1600C9842C /* SprintViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SprintViewController.swift; sourceTree = "<group>"; };
 		BBA77B9E1E579D2700C9842C /* SprintViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SprintViewController.xib; sourceTree = "<group>"; };
+		BBA77BA21E57A0C600C9842C /* VerticallyCenteredTextFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticallyCenteredTextFieldCell.swift; sourceTree = "<group>"; };
+		BBA77BA51E57A3F200C9842C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		BBA77BA71E57A3F800C9842C /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		BBA77BAA1E57A62300C9842C /* MaskImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaskImage.swift; sourceTree = "<group>"; };
 		BBE003721E39534E00E1A2A4 /* JiraHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JiraHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBE003751E39534E00E1A2A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBE003771E39534E00E1A2A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -156,11 +162,14 @@
 		BB62DE751E5623C000AA3577 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				BBA77BA91E57A60800C9842C /* Utilities */,
+				BBA77BA41E57A3D900C9842C /* Main */,
+				BBA77BA11E57A08300C9842C /* Controls */,
 				BBA77B921E578FE500C9842C /* Styles */,
+				BBA77B9A1E57922C00C9842C /* TextFieldStyles.swift */,
 				BBA77B911E578E6700C9842C /* SprintView */,
 				BB62DE7C1E5634BA00AA3577 /* MainMenu.xib */,
 				FA6E3B792A42ED94A8684593 /* Window */,
-				BB62DE7A1E562CF500AA3577 /* MainViewController.swift */,
 				FA6E385260CF027AC4DC0830 /* TextInput */,
 			);
 			path = UI;
@@ -188,7 +197,6 @@
 		BBA77B961E57915300C9842C /* TextField */ = {
 			isa = PBXGroup;
 			children = (
-				BBA77B9A1E57922C00C9842C /* TextFieldStyles.swift */,
 			);
 			path = TextField;
 			sourceTree = "<group>";
@@ -205,6 +213,31 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		BBA77BA11E57A08300C9842C /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				BBA77BA21E57A0C600C9842C /* VerticallyCenteredTextFieldCell.swift */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
+		BBA77BA41E57A3D900C9842C /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				BBA77BA51E57A3F200C9842C /* MainViewController.swift */,
+				BBA77BA71E57A3F800C9842C /* MainView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		BBA77BA91E57A60800C9842C /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				BBA77BAA1E57A62300C9842C /* MaskImage.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		BBE003691E39534E00E1A2A4 = {
@@ -446,10 +479,13 @@
 			files = (
 				BBA77B9B1E57922C00C9842C /* TextFieldStyles.swift in Sources */,
 				BBE003761E39534E00E1A2A4 /* AppDelegate.swift in Sources */,
+				BBA77BA31E57A0C600C9842C /* VerticallyCenteredTextFieldCell.swift in Sources */,
+				BBA77BA81E57A3F800C9842C /* MainView.swift in Sources */,
+				BBA77BAB1E57A62300C9842C /* MaskImage.swift in Sources */,
 				FA6E3C6DED0B860D768D19B1 /* MainWindowController.swift in Sources */,
-				BB62DE7B1E562CF500AA3577 /* MainViewController.swift in Sources */,
 				BBA77B9D1E579D1600C9842C /* SprintViewController.swift in Sources */,
 				BB62DEBC1E565A7800AA3577 /* MainWindow.swift in Sources */,
+				BBA77BA61E57A3F200C9842C /* MainViewController.swift in Sources */,
 				BBA77B941E57904100C9842C /* StylingProtocol.swift in Sources */,
 				FA6E351536938100E1D24BBE /* TextInputViewController.swift in Sources */,
 			);

@@ -8,6 +8,8 @@ import AppKit
 
 final class MainWindowController: NSWindowController {
 
+    @IBOutlet weak var visualEffectView: NSVisualEffectView!
+    
     private var mainViewController: MainViewController?
 
     override var windowNibName : String! {
@@ -20,6 +22,11 @@ final class MainWindowController: NSWindowController {
 
     override func windowDidLoad() {
         super.windowDidLoad()
+
+        visualEffectView.state = .active
+        visualEffectView.material = .dark
+        visualEffectView.maskImage = MaskImage.create(withRadius: 18)
+
         let mainViewController = MainViewController()
         self.mainViewController = mainViewController
         window?.contentView?.addSubview(mainViewController.view)

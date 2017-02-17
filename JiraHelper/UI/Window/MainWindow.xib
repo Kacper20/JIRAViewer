@@ -8,6 +8,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MainWindowController" customModule="JiraHelper" customModuleProvider="target">
             <connections>
+                <outlet property="visualEffectView" destination="Pd2-lw-cek" id="2if-0a-RfB"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="8Q7-zp-YNg"/>
             </connections>
         </customObject>
@@ -21,6 +22,17 @@
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <visualEffectView appearanceType="vibrantDark" blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="Pd2-lw-cek">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                    </visualEffectView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Pd2-lw-cek" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="2A7-h9-Hzc"/>
+                    <constraint firstAttribute="bottom" secondItem="Pd2-lw-cek" secondAttribute="bottom" id="ac2-tk-bFL"/>
+                    <constraint firstAttribute="trailing" secondItem="Pd2-lw-cek" secondAttribute="trailing" id="bov-AF-zdg"/>
+                    <constraint firstItem="Pd2-lw-cek" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" id="bxK-S4-8K7"/>
+                </constraints>
             </view>
             <connections>
                 <outlet property="delegate" destination="-2" id="eKw-MQ-OhC"/>

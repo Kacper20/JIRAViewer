@@ -11,14 +11,14 @@ import Foundation
 final class MainViewController: NSViewController {
     init() {
         super.init(nibName: nil, bundle: nil)!
-        setupTextInputVC()
+        setupChildVCs()
     }
 
     override func loadView() {
         view = NSView()
     }
 
-    private func setupTextInputVC() {
+    private func setupChildVCs() {
         let controller = TextInputViewController()
         controller.addChildViewController(controller)
         controller.view.frame = view.bounds
