@@ -14,7 +14,6 @@
 		BBA77B941E57904100C9842C /* StylingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA77B931E57904100C9842C /* StylingProtocol.swift */; };
 		BBA77B9B1E57922C00C9842C /* TextFieldStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA77B9A1E57922C00C9842C /* TextFieldStyles.swift */; };
 		BBA77B9D1E579D1600C9842C /* SprintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA77B9C1E579D1600C9842C /* SprintViewController.swift */; };
-		BBA77B9F1E579D2700C9842C /* SprintViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBA77B9E1E579D2700C9842C /* SprintViewController.xib */; };
 		BBA77BA31E57A0C600C9842C /* VerticallyCenteredTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA77BA21E57A0C600C9842C /* VerticallyCenteredTextFieldCell.swift */; };
 		BBA77BA61E57A3F200C9842C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA77BA51E57A3F200C9842C /* MainViewController.swift */; };
 		BBA77BA81E57A3F800C9842C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA77BA71E57A3F800C9842C /* MainView.swift */; };
@@ -99,7 +98,6 @@
 		BBA77B931E57904100C9842C /* StylingProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StylingProtocol.swift; sourceTree = "<group>"; };
 		BBA77B9A1E57922C00C9842C /* TextFieldStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextFieldStyles.swift; path = Styles/TextField/TextFieldStyles.swift; sourceTree = "<group>"; };
 		BBA77B9C1E579D1600C9842C /* SprintViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SprintViewController.swift; sourceTree = "<group>"; };
-		BBA77B9E1E579D2700C9842C /* SprintViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SprintViewController.xib; sourceTree = "<group>"; };
 		BBA77BA21E57A0C600C9842C /* VerticallyCenteredTextFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticallyCenteredTextFieldCell.swift; sourceTree = "<group>"; };
 		BBA77BA51E57A3F200C9842C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		BBA77BA71E57A3F800C9842C /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -179,7 +177,6 @@
 			isa = PBXGroup;
 			children = (
 				BBA77B9C1E579D1600C9842C /* SprintViewController.swift */,
-				BBA77B9E1E579D2700C9842C /* SprintViewController.xib */,
 			);
 			path = SprintView;
 			sourceTree = "<group>";
@@ -451,7 +448,6 @@
 				BBA77B901E57782A00C9842C /* TextInputViewController.xib in Resources */,
 				BBE003781E39534E00E1A2A4 /* Assets.xcassets in Resources */,
 				BB62DE791E56293A00AA3577 /* MainWindow.xib in Resources */,
-				BBA77B9F1E579D2700C9842C /* SprintViewController.xib in Resources */,
 				BB62DE7D1E5634BA00AA3577 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -569,6 +565,7 @@
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.1;
 			};
 			name = Debug;
 		};
@@ -610,6 +607,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.1;
 			};
 			name = Release;
 		};
@@ -628,7 +626,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.harasim.JiraHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "JiraHelper/Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 3.1;
 			};
 			name = Debug;
 		};
@@ -647,7 +645,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.harasim.JiraHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "JiraHelper/Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 3.1;
 			};
 			name = Release;
 		};
@@ -662,7 +660,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.harasim.JiraHelperTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 3.1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JiraHelper.app/Contents/MacOS/JiraHelper";
 			};
 			name = Debug;
@@ -678,7 +676,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.harasim.JiraHelperTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 3.1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JiraHelper.app/Contents/MacOS/JiraHelper";
 			};
 			name = Release;
@@ -693,7 +691,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.harasim.JiraHelperUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 3.1;
 				TEST_TARGET_NAME = JiraHelper;
 			};
 			name = Debug;
@@ -708,7 +706,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.harasim.JiraHelperUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 3.1;
 				TEST_TARGET_NAME = JiraHelper;
 			};
 			name = Release;

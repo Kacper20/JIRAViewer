@@ -8,6 +8,6 @@
 
 import Foundation
 
-final class SprintViewController {
+final class SprintViewController: NSViewController {
 
 }

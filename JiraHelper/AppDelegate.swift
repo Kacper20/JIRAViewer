@@ -23,11 +23,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         windowController?.window?.makeKey()
 
         let shortcut = MASShortcut(keyCode: UInt(kVK_F9), modifierFlags: NSEventModifierFlags.command.rawValue)
-        MASShortcutMonitor.shared().register(shortcut, withAction: {
+        MASShortcutMonitor.shared().register(shortcut, withAction: { [unowned self] in
             if NSApp.isActive {
-//                NSApplication.shared().windows.last?.close()
+                self.windowController?.window?.orderOut(nil)
             } else {
-                NSApp.activate(ignoringOtherApps: true)
+                self.windowController?.window?.makeKeyAndOrderFront(nil)
             }
         })
     }
@@ -36,6 +36,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to tear down your application
     }
 
-
+    func applicationDidResignActive(_ notification: Notification) {
+        windowController?.window?.orderOut(nil)
+    }
 }
 

@@ -1,20 +1,20 @@
 {
   "commitish" : "3.4.1",
-  "iOS" : [
+  "Mac" : [
     {
-      "hash" : "d25bfd4b4de82ed4294ce625e93cef785fac58b26f97d075ba7f4cfa063060e2",
+      "hash" : "55bec0690c53eeaa81a98e02c0be09e20b3c22da90ef4d97ae72852741117020",
       "name" : "RxBlocking"
     },
     {
-      "hash" : "ff02fc4b0f71666432b23dbb70e5fb8a296a51b2e9fdf7cc9ef79800f9551dd7",
+      "hash" : "d817fdb69cb18c7b2a940842b59ff9b362ee57a9556984cf3d0611cfca82fa48",
       "name" : "RxTest"
     },
     {
-      "hash" : "2e79445b93ef992b51cc0d0b3e5d149c8cfadf97218f798d75c4d4117a18b3d2",
+      "hash" : "11c961f05d97c2f2c7b7d6d33f60aae82f97a7143b799ba82f1d091a8f0b9a2b",
       "name" : "RxCocoa"
     },
     {
-      "hash" : "b5a7dc501d0c5797c59ddb962df2d81a0785372deacd68fbcddadb16a2073bc3",
+      "hash" : "8647d70e9709642b84ee21b1a2294ae740beec20fb990f1b2701f6d077d9664d",
       "name" : "RxSwift"
     }
   ]

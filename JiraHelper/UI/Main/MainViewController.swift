@@ -9,8 +9,15 @@
 import Foundation
 
 final class MainViewController: NSViewController {
+
+    private let textInputController: TextInputViewController
+    private let sprintViewController: SprintViewController
+
     init() {
+        textInputController = TextInputViewController()
+        sprintViewController = SprintViewController()
         super.init(nibName: nil, bundle: nil)!
+
         setupChildVCs()
     }
 
@@ -19,18 +26,28 @@ final class MainViewController: NSViewController {
     }
 
     private func setupChildVCs() {
-        let controller = TextInputViewController()
-        controller.addChildViewController(controller)
-        controller.view.frame = view.bounds
-        view.addSubview(controller.view)
-        controller.view.snp.makeConstraints { make in
+
+        addChildViewController(textInputController)
+        textInputController.view.frame = view.bounds
+        view.addSubview(textInputController.view)
+        textInputController.view.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
             make.height.equalTo(100)
         }
+        addChildViewController(sprintViewController)
+        sprintViewController.view.frame = view.bounds
+        view.addSubview(sprintViewController.view)
+        sprintViewController.view.snp.makeConstraints { make in
+            make.top.equalTo(textInputController.view.snp.bottom)
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+            make.height.equalTo(100)
+            make.width.equalTo(300)
+        }
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

@@ -8,13 +8,14 @@
 
 import AppKit
 
-final class MainWindow: NSWindow {
+final class MainWindow: NSPanel {
 
     let view = NSView()
 
     override var canBecomeKey: Bool {
         return true
     }
+
     override init(contentRect: NSRect, styleMask style: NSWindowStyleMask, backing bufferingType: NSBackingStoreType, defer flag: Bool) {
 
         super.init(contentRect: contentRect, styleMask: style, backing: bufferingType, defer: flag)
@@ -23,6 +24,5 @@ final class MainWindow: NSWindow {
         view.wantsLayer = true
         self.isOpaque = false
         self.backgroundColor = NSColor.clear
-
     }
 }

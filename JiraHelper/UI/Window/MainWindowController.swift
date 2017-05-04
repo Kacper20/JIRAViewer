@@ -24,7 +24,7 @@ final class MainWindowController: NSWindowController {
         super.windowDidLoad()
 
         visualEffectView.state = .active
-        visualEffectView.material = .dark
+        visualEffectView.material = .mediumLight
         visualEffectView.maskImage = MaskImage.create(withRadius: 18)
 
         let mainViewController = MainViewController()
