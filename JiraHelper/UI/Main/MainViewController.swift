@@ -26,9 +26,7 @@ final class MainViewController: NSViewController {
     }
 
     private func setupChildVCs() {
-
         addChildViewController(textInputController)
-        textInputController.view.frame = view.bounds
         view.addSubview(textInputController.view)
         textInputController.view.snp.makeConstraints { make in
             make.top.equalToSuperview()
@@ -37,7 +35,6 @@ final class MainViewController: NSViewController {
             make.height.equalTo(100)
         }
         addChildViewController(sprintViewController)
-        sprintViewController.view.frame = view.bounds
         view.addSubview(sprintViewController.view)
         sprintViewController.view.snp.makeConstraints { make in
             make.top.equalTo(textInputController.view.snp.bottom)
