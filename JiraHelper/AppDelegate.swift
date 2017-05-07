@@ -30,6 +30,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 self.windowController?.window?.makeKeyAndOrderFront(nil)
             }
         })
+
+        let 
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

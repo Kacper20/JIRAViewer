@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		BB0A2BC91EBE45AB00A19D60 /* SprintCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0A2BC81EBE45AB00A19D60 /* SprintCollectionView.swift */; };
+		BB0A2BCF1EBF448100A19D60 /* EndpointConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0A2BCE1EBF448100A19D60 /* EndpointConfiguration.swift */; };
+		BB0A2BD31EBF47B600A19D60 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0A2BD21EBF47B600A19D60 /* Logger.swift */; };
+		BB0A2BDA1EBF49AC00A19D60 /* SwiftyBeaver.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BB0A2BD91EBF49AC00A19D60 /* SwiftyBeaver.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BB0A2BDC1EBF49C400A19D60 /* SwiftyBeaver.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = BB0A2BDB1EBF49C400A19D60 /* SwiftyBeaver.framework.dSYM */; };
+		BB0A2BDE1EBF4B8A00A19D60 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0A2BDD1EBF4B8A00A19D60 /* NetworkService.swift */; };
+		BB0A2BE01EBF665D00A19D60 /* Mapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB0A2BDF1EBF665D00A19D60 /* Mapper.framework */; };
+		BB0A2BE11EBF665D00A19D60 /* Mapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BB0A2BDF1EBF665D00A19D60 /* Mapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BB0A2BE31EBF66B600A19D60 /* Mapper.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = BB0A2BE21EBF66B600A19D60 /* Mapper.framework.dSYM */; };
+		BB0A2BE71EBF6C5A00A19D60 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0A2BE61EBF6C5A00A19D60 /* Board.swift */; };
 		BB2046B71EBE095700084F34 /* KanbanCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2046B61EBE095700084F34 /* KanbanCollectionViewLayout.swift */; };
 		BB2046BC1EBE0AB000084F34 /* SprintViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB2046BB1EBE0AB000084F34 /* SprintViewController.xib */; };
 		BB2046C11EBE0F7300084F34 /* Optionals.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2046C01EBE0F7300084F34 /* Optionals.swift */; };
@@ -71,9 +80,11 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				BB0A2BDA1EBF49AC00A19D60 /* SwiftyBeaver.framework in Embed Frameworks */,
 				BBE003BB1E3966EF00E1A2A4 /* MASShortcut.framework in Embed Frameworks */,
 				BBE003A81E395E3D00E1A2A4 /* RxCocoa.framework in Embed Frameworks */,
 				BBE003A61E395E3D00E1A2A4 /* Alamofire.framework in Embed Frameworks */,
+				BB0A2BE11EBF665D00A19D60 /* Mapper.framework in Embed Frameworks */,
 				BBE003AA1E395E3D00E1A2A4 /* RxSwift.framework in Embed Frameworks */,
 				BBE003AC1E395E3D00E1A2A4 /* SnapKit.framework in Embed Frameworks */,
 			);
@@ -86,6 +97,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				BB0A2BE31EBF66B600A19D60 /* Mapper.framework.dSYM in CopyFiles */,
+				BB0A2BDC1EBF49C400A19D60 /* SwiftyBeaver.framework.dSYM in CopyFiles */,
 				BBE003BD1E39670400E1A2A4 /* MASShortcut.framework.dSYM in CopyFiles */,
 				BBE003B41E395EBB00E1A2A4 /* Alamofire.framework.dSYM in CopyFiles */,
 				BBE003B51E395EBB00E1A2A4 /* RxCocoa.framework.dSYM in CopyFiles */,
@@ -98,6 +111,14 @@
 
 /* Begin PBXFileReference section */
 		BB0A2BC81EBE45AB00A19D60 /* SprintCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SprintCollectionView.swift; sourceTree = "<group>"; };
+		BB0A2BCE1EBF448100A19D60 /* EndpointConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointConfiguration.swift; sourceTree = "<group>"; };
+		BB0A2BD21EBF47B600A19D60 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		BB0A2BD91EBF49AC00A19D60 /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/Mac/SwiftyBeaver.framework; sourceTree = "<group>"; };
+		BB0A2BDB1EBF49C400A19D60 /* SwiftyBeaver.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftyBeaver.framework.dSYM; path = Carthage/Build/Mac/SwiftyBeaver.framework.dSYM; sourceTree = "<group>"; };
+		BB0A2BDD1EBF4B8A00A19D60 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		BB0A2BDF1EBF665D00A19D60 /* Mapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapper.framework; path = Carthage/Build/Mac/Mapper.framework; sourceTree = "<group>"; };
+		BB0A2BE21EBF66B600A19D60 /* Mapper.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Mapper.framework.dSYM; path = Carthage/Build/Mac/Mapper.framework.dSYM; sourceTree = "<group>"; };
+		BB0A2BE61EBF6C5A00A19D60 /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		BB2046B61EBE095700084F34 /* KanbanCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanbanCollectionViewLayout.swift; sourceTree = "<group>"; };
 		BB2046BB1EBE0AB000084F34 /* SprintViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SprintViewController.xib; sourceTree = "<group>"; };
 		BB2046C01EBE0F7300084F34 /* Optionals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Optionals.swift; sourceTree = "<group>"; };
@@ -147,6 +168,7 @@
 				BBE003BA1E3966EF00E1A2A4 /* MASShortcut.framework in Frameworks */,
 				BBE003A71E395E3D00E1A2A4 /* RxCocoa.framework in Frameworks */,
 				BBE003A51E395E3D00E1A2A4 /* Alamofire.framework in Frameworks */,
+				BB0A2BE01EBF665D00A19D60 /* Mapper.framework in Frameworks */,
 				BBE003A91E395E3D00E1A2A4 /* RxSwift.framework in Frameworks */,
 				BBE003AB1E395E3D00E1A2A4 /* SnapKit.framework in Frameworks */,
 			);
@@ -169,6 +191,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BB0A2BCC1EBF43F400A19D60 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				BB0A2BCE1EBF448100A19D60 /* EndpointConfiguration.swift */,
+				BB0A2BDD1EBF4B8A00A19D60 /* NetworkService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		BB0A2BD11EBF47A600A19D60 /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				BB0A2BD21EBF47B600A19D60 /* Logger.swift */,
+			);
+			path = Logger;
+			sourceTree = "<group>";
+		};
+		BB0A2BE41EBF6BB300A19D60 /* JIRA */ = {
+			isa = PBXGroup;
+			children = (
+				BB0A2BE51EBF6BD100A19D60 /* Board */,
+			);
+			path = JIRA;
+			sourceTree = "<group>";
+		};
+		BB0A2BE51EBF6BD100A19D60 /* Board */ = {
+			isa = PBXGroup;
+			children = (
+				BB0A2BE61EBF6C5A00A19D60 /* Board.swift */,
+			);
+			path = Board;
+			sourceTree = "<group>";
+		};
 		BB2046B41EBE093C00084F34 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +253,7 @@
 		BB2046BF1EBE0DBD00084F34 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				BB0A2BD11EBF47A600A19D60 /* Logger */,
 				BB2046C01EBE0F7300084F34 /* Optionals.swift */,
 			);
 			path = Utilities;
@@ -257,6 +313,8 @@
 		BBA77BA01E579D3D00C9842C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BB0A2BE41EBF6BB300A19D60 /* JIRA */,
+				BB0A2BCC1EBF43F400A19D60 /* Networking */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -350,6 +408,10 @@
 		BBE003AE1E395E6800E1A2A4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BB0A2BE21EBF66B600A19D60 /* Mapper.framework.dSYM */,
+				BB0A2BDF1EBF665D00A19D60 /* Mapper.framework */,
+				BB0A2BDB1EBF49C400A19D60 /* SwiftyBeaver.framework.dSYM */,
+				BB0A2BD91EBF49AC00A19D60 /* SwiftyBeaver.framework */,
 				BBE003BC1E39670400E1A2A4 /* MASShortcut.framework.dSYM */,
 				BBE003B91E3966EF00E1A2A4 /* MASShortcut.framework */,
 				BBE003B01E395EBB00E1A2A4 /* Alamofire.framework.dSYM */,
@@ -529,9 +591,12 @@
 				BBA77B9B1E57922C00C9842C /* TextFieldStyles.swift in Sources */,
 				BBE003761E39534E00E1A2A4 /* AppDelegate.swift in Sources */,
 				BB2046C41EBE112900084F34 /* SprintCollectionViewItem.swift in Sources */,
+				BB0A2BDE1EBF4B8A00A19D60 /* NetworkService.swift in Sources */,
 				BBA77BA31E57A0C600C9842C /* VerticallyCenteredTextFieldCell.swift in Sources */,
 				BBA77BA81E57A3F800C9842C /* MainView.swift in Sources */,
+				BB0A2BCF1EBF448100A19D60 /* EndpointConfiguration.swift in Sources */,
 				BBA77BAB1E57A62300C9842C /* MaskImage.swift in Sources */,
+				BB0A2BD31EBF47B600A19D60 /* Logger.swift in Sources */,
 				FA6E3C6DED0B860D768D19B1 /* MainWindowController.swift in Sources */,
 				BBA77B9D1E579D1600C9842C /* SprintViewController.swift in Sources */,
 				BB2046B71EBE095700084F34 /* KanbanCollectionViewLayout.swift in Sources */,
@@ -539,6 +604,7 @@
 				BB0A2BC91EBE45AB00A19D60 /* SprintCollectionView.swift in Sources */,
 				BBA77BA61E57A3F200C9842C /* MainViewController.swift in Sources */,
 				BBA77B941E57904100C9842C /* StylingProtocol.swift in Sources */,
+				BB0A2BE71EBF6C5A00A19D60 /* Board.swift in Sources */,
 				FA6E351536938100E1D24BBE /* TextInputViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
