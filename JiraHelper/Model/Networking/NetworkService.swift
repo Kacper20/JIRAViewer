@@ -10,11 +10,12 @@ import Foundation
 import RxSwift
 import Alamofire
 
+enum NetworkServiceError: Error {
+    case parsingError(Error)
+    case respons
+}
+
 final class NetworkService {
-    enum Error {
-        case parsingError(Swift.Error)
-        case respons
-    }
 
     private let manager: SessionManager
 
@@ -25,8 +26,7 @@ final class NetworkService {
 
     func request<T>(
         basePath: String,
-        configuration: EndpointConfiguration,
-        parse: @escaping ([String : AnyObject]) -> T?)
+        configuration: EndpointConfiguration<T>)
         -> Observable<T> {
         let path = basePath + configuration.path
         logRequest(path: basePath, configuration: configuration)
@@ -43,9 +43,15 @@ final class NetworkService {
             .responseJSON { [weak self] response in
                 self?.logResponse(response)
                 if let data = response.data, let json = try? JSONSerialization.jsonObject(with: data, options: []),
-                   let dict = json as? [String : AnyObject], let result = parse(dict) {
-                    observer.onNext(result)
-                    observer.onCompleted()
+                   let dict = json as? [String : AnyObject] {
+                    do {
+                        let object = try configuration.resource(dict)
+                        observer.onNext(object)
+                        observer.onCompleted()
+                    } catch {
+                        observer.onError(NetworkServiceError.parsingError(error))
+                        return
+                    }
                 }
             }
             return Disposables.create {
@@ -54,7 +60,7 @@ final class NetworkService {
         }
     }
 
-    private func logRequest(path: String, configuration: EndpointConfiguration) {
+    private func logRequest<T>(path: String, configuration: EndpointConfiguration<T>) {
 
     }
 

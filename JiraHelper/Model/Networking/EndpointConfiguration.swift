@@ -14,10 +14,11 @@ typealias NetworkRequestParameterEncoding = Alamofire.ParameterEncoding
 typealias JSONEncoding = Alamofire.JSONEncoding
 typealias URLEncoding = Alamofire.URLEncoding
 
-struct EndpointConfiguration {
+struct EndpointConfiguration<Resource> {
     let path: String
     let method: NetworkRequestMethod
     let encoding: NetworkRequestParameterEncoding
     let headers: [String : String]
     let parameters: [String : AnyObject]
+    let resource: ([String : AnyObject]) throws -> Resource
 }

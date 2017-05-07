@@ -15,7 +15,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 
     private var windowController: MainWindowController?
-
+    private var n: NetworkService?
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
@@ -31,7 +31,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }
         })
 
-        let 
+        let network = NetworkService()
+        self.n = network
+        let boardService = BoardService(networkService: network, authenticationProvider: AuthenticationProvider())
+        _ = boardService.allBoards()
+            .subscribe { event in
+                print(event)
+                print("End")
+        }
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
