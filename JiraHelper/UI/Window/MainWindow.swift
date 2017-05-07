@@ -8,7 +8,8 @@
 
 import AppKit
 
-final class MainWindow: NSPanel {
+//TODO: Make nspanel later
+final class MainWindow: NSWindow {
 
     let view = NSView()
 

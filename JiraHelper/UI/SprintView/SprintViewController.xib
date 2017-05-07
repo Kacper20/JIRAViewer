@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="12120" systemVersion="16F43c" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12120"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="SprintViewController" customModule="JiraHelper" customModuleProvider="target">
+            <connections>
+                <outlet property="collectionView" destination="DYI-iw-0Da" id="uDg-j3-eA6"/>
+                <outlet property="view" destination="c22-O7-iKe" id="axv-pv-e1G"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe">
+            <rect key="frame" x="0.0" y="0.0" width="759" height="390"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="koW-wD-vkj">
+                    <rect key="frame" x="0.0" y="0.0" width="759" height="390"/>
+                    <clipView key="contentView" drawsBackground="NO" id="a5r-Vb-ish">
+                        <rect key="frame" x="1" y="1" width="757" height="388"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView id="DYI-iw-0Da" customClass="SprintCollectionView" customModule="JiraHelper" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="757" height="388"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="BAU-9t-zFJ">
+                                    <size key="itemSize" width="50" height="50"/>
+                                </collectionViewFlowLayout>
+                                <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </clipView>
+                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="zjl-dR-0aj">
+                        <rect key="frame" x="-100" y="-100" width="233" height="15"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="DWr-6a-3dG">
+                        <rect key="frame" x="-100" y="-100" width="15" height="143"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="koW-wD-vkj" secondAttribute="trailing" id="1WP-LJ-ymn"/>
+                <constraint firstAttribute="bottom" secondItem="koW-wD-vkj" secondAttribute="bottom" id="6pz-du-guc"/>
+                <constraint firstItem="koW-wD-vkj" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="FH0-3e-vuN"/>
+                <constraint firstItem="koW-wD-vkj" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="aI0-w0-UZ7"/>
+            </constraints>
+            <point key="canvasLocation" x="150.5" y="-10"/>
+        </customView>
+    </objects>
+</document>

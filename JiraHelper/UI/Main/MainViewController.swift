@@ -40,8 +40,8 @@ final class MainViewController: NSViewController {
             make.top.equalTo(textInputController.view.snp.bottom)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
-            make.height.equalTo(100)
-            make.width.equalTo(300)
+            make.height.equalTo(400)
+            make.width.equalTo(700)
         }
     }
 

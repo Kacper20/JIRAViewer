@@ -37,7 +37,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func applicationDidResignActive(_ notification: Notification) {
-        windowController?.window?.orderOut(nil)
+//        windowController?.window?.orderOut(nil)
     }
 }
 
