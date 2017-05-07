@@ -16,9 +16,6 @@
 		BB62DE791E56293A00AA3577 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB62DE781E56293A00AA3577 /* MainWindow.xib */; };
 		BB62DE7D1E5634BA00AA3577 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB62DE7C1E5634BA00AA3577 /* MainMenu.xib */; };
 		BB62DEBC1E565A7800AA3577 /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB62DEBB1E565A7800AA3577 /* MainWindow.swift */; };
-		BB6BF4241EBBBDE3008CD220 /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB6BF4231EBBBDE3008CD220 /* Swinject.framework */; };
-		BB6BF4251EBBBDE3008CD220 /* Swinject.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BB6BF4231EBBBDE3008CD220 /* Swinject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		BB6BF4271EBBBE1C008CD220 /* Swinject.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = BB6BF4261EBBBE1C008CD220 /* Swinject.framework.dSYM */; };
 		BBA77B901E57782A00C9842C /* TextInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBA77B8F1E57782A00C9842C /* TextInputViewController.xib */; };
 		BBA77B941E57904100C9842C /* StylingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA77B931E57904100C9842C /* StylingProtocol.swift */; };
 		BBA77B9B1E57922C00C9842C /* TextFieldStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA77B9A1E57922C00C9842C /* TextFieldStyles.swift */; };
@@ -77,7 +74,6 @@
 				BBE003BB1E3966EF00E1A2A4 /* MASShortcut.framework in Embed Frameworks */,
 				BBE003A81E395E3D00E1A2A4 /* RxCocoa.framework in Embed Frameworks */,
 				BBE003A61E395E3D00E1A2A4 /* Alamofire.framework in Embed Frameworks */,
-				BB6BF4251EBBBDE3008CD220 /* Swinject.framework in Embed Frameworks */,
 				BBE003AA1E395E3D00E1A2A4 /* RxSwift.framework in Embed Frameworks */,
 				BBE003AC1E395E3D00E1A2A4 /* SnapKit.framework in Embed Frameworks */,
 			);
@@ -90,7 +86,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
-				BB6BF4271EBBBE1C008CD220 /* Swinject.framework.dSYM in CopyFiles */,
 				BBE003BD1E39670400E1A2A4 /* MASShortcut.framework.dSYM in CopyFiles */,
 				BBE003B41E395EBB00E1A2A4 /* Alamofire.framework.dSYM in CopyFiles */,
 				BBE003B51E395EBB00E1A2A4 /* RxCocoa.framework.dSYM in CopyFiles */,
@@ -111,8 +106,6 @@
 		BB62DE781E56293A00AA3577 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		BB62DE7C1E5634BA00AA3577 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		BB62DEBB1E565A7800AA3577 /* MainWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
-		BB6BF4231EBBBDE3008CD220 /* Swinject.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swinject.framework; path = Carthage/Build/Mac/Swinject.framework; sourceTree = "<group>"; };
-		BB6BF4261EBBBE1C008CD220 /* Swinject.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Swinject.framework.dSYM; path = Carthage/Build/Mac/Swinject.framework.dSYM; sourceTree = "<group>"; };
 		BBA77B8F1E57782A00C9842C /* TextInputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextInputViewController.xib; sourceTree = "<group>"; };
 		BBA77B931E57904100C9842C /* StylingProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StylingProtocol.swift; sourceTree = "<group>"; };
 		BBA77B9A1E57922C00C9842C /* TextFieldStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextFieldStyles.swift; path = Styles/TextField/TextFieldStyles.swift; sourceTree = "<group>"; };
@@ -154,7 +147,6 @@
 				BBE003BA1E3966EF00E1A2A4 /* MASShortcut.framework in Frameworks */,
 				BBE003A71E395E3D00E1A2A4 /* RxCocoa.framework in Frameworks */,
 				BBE003A51E395E3D00E1A2A4 /* Alamofire.framework in Frameworks */,
-				BB6BF4241EBBBDE3008CD220 /* Swinject.framework in Frameworks */,
 				BBE003A91E395E3D00E1A2A4 /* RxSwift.framework in Frameworks */,
 				BBE003AB1E395E3D00E1A2A4 /* SnapKit.framework in Frameworks */,
 			);
@@ -297,8 +289,6 @@
 		BBE003691E39534E00E1A2A4 = {
 			isa = PBXGroup;
 			children = (
-				BB6BF4261EBBBE1C008CD220 /* Swinject.framework.dSYM */,
-				BB6BF4231EBBBDE3008CD220 /* Swinject.framework */,
 				BBE003AE1E395E6800E1A2A4 /* Frameworks */,
 				BBE003741E39534E00E1A2A4 /* JiraHelper */,
 				BBE003841E39534E00E1A2A4 /* JiraHelperTests */,

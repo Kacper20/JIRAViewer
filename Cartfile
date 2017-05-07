@@ -2,4 +2,3 @@ github "ReactiveX/RxSwift" ~> 3.0
 github "SnapKit/SnapKit" ~> 3.0
 github "Alamofire/Alamofire" ~> 4.0
 github "shpakovski/MASShortcut"
-github "Swinject/Swinject" ~> 2.0.0
