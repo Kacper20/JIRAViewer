@@ -1,0 +1,9 @@
+{
+  "commitish" : "1.2.2",
+  "Mac" : [
+    {
+      "hash" : "f05c877c284796b6aa55fa3f9868f93f81d6e57d1b7251ce0cd478ee527cb040",
+      "name" : "SwiftyBeaver"
+    }
+  ]
+}
