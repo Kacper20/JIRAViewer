@@ -22,12 +22,20 @@
 		BB0A2BEE1EBF8A2600A19D60 /* JIRARestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0A2BED1EBF8A2600A19D60 /* JIRARestAPI.swift */; };
 		BB0A2BF11EBF8D4100A19D60 /* PagingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0A2BF01EBF8D4100A19D60 /* PagingData.swift */; };
 		BB0A2BF41EBF9C8400A19D60 /* AuthenticationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0A2BF31EBF9C8400A19D60 /* AuthenticationProvider.swift */; };
+		BB0A2BF71EBFB4AA00A19D60 /* RootFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0A2BF61EBFB4AA00A19D60 /* RootFlowController.swift */; };
+		BB0A2BFF1EBFB8C500A19D60 /* LoginWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0A2BFD1EBFB8C500A19D60 /* LoginWindowController.swift */; };
+		BB0A2C001EBFB8C500A19D60 /* LoginWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB0A2BFE1EBFB8C500A19D60 /* LoginWindowController.xib */; };
+		BB0A2C041EBFBB3100A19D60 /* TeamPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0A2C021EBFBB3100A19D60 /* TeamPickerViewController.swift */; };
+		BB0A2C051EBFBB3100A19D60 /* TeamPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB0A2C031EBFBB3100A19D60 /* TeamPickerViewController.xib */; };
+		BB0A2C071EBFBDF500A19D60 /* LoginFlowContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0A2C061EBFBDF500A19D60 /* LoginFlowContainerViewController.swift */; };
+		BB0A2C0A1EC12EF400A19D60 /* TeamCheckService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0A2C091EC12EF400A19D60 /* TeamCheckService.swift */; };
+		BB0A2C0C1EC12F0400A19D60 /* TeamCheckEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0A2C0B1EC12F0400A19D60 /* TeamCheckEndpoints.swift */; };
 		BB2046B71EBE095700084F34 /* KanbanCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2046B61EBE095700084F34 /* KanbanCollectionViewLayout.swift */; };
 		BB2046BC1EBE0AB000084F34 /* SprintViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB2046BB1EBE0AB000084F34 /* SprintViewController.xib */; };
 		BB2046C11EBE0F7300084F34 /* Optionals.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2046C01EBE0F7300084F34 /* Optionals.swift */; };
 		BB2046C41EBE112900084F34 /* SprintCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2046C21EBE112900084F34 /* SprintCollectionViewItem.swift */; };
 		BB2046C51EBE112900084F34 /* SprintCollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB2046C31EBE112900084F34 /* SprintCollectionViewItem.xib */; };
-		BB62DE791E56293A00AA3577 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB62DE781E56293A00AA3577 /* MainWindow.xib */; };
+		BB62DE791E56293A00AA3577 /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB62DE781E56293A00AA3577 /* MainWindowController.xib */; };
 		BB62DE7D1E5634BA00AA3577 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB62DE7C1E5634BA00AA3577 /* MainMenu.xib */; };
 		BB62DEBC1E565A7800AA3577 /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB62DEBB1E565A7800AA3577 /* MainWindow.swift */; };
 		BBA77B901E57782A00C9842C /* TextInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBA77B8F1E57782A00C9842C /* TextInputViewController.xib */; };
@@ -129,12 +137,20 @@
 		BB0A2BED1EBF8A2600A19D60 /* JIRARestAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JIRARestAPI.swift; sourceTree = "<group>"; };
 		BB0A2BF01EBF8D4100A19D60 /* PagingData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingData.swift; sourceTree = "<group>"; };
 		BB0A2BF31EBF9C8400A19D60 /* AuthenticationProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationProvider.swift; sourceTree = "<group>"; };
+		BB0A2BF61EBFB4AA00A19D60 /* RootFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootFlowController.swift; sourceTree = "<group>"; };
+		BB0A2BFD1EBFB8C500A19D60 /* LoginWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginWindowController.swift; path = JiraHelper/UI/Login/LoginWindowController.swift; sourceTree = SOURCE_ROOT; };
+		BB0A2BFE1EBFB8C500A19D60 /* LoginWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginWindowController.xib; path = JiraHelper/UI/Login/LoginWindowController.xib; sourceTree = SOURCE_ROOT; };
+		BB0A2C021EBFBB3100A19D60 /* TeamPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamPickerViewController.swift; sourceTree = "<group>"; };
+		BB0A2C031EBFBB3100A19D60 /* TeamPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamPickerViewController.xib; sourceTree = "<group>"; };
+		BB0A2C061EBFBDF500A19D60 /* LoginFlowContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginFlowContainerViewController.swift; path = JiraHelper/UI/Login/LoginFlowContainerViewController.swift; sourceTree = SOURCE_ROOT; };
+		BB0A2C091EC12EF400A19D60 /* TeamCheckService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamCheckService.swift; sourceTree = "<group>"; };
+		BB0A2C0B1EC12F0400A19D60 /* TeamCheckEndpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamCheckEndpoints.swift; sourceTree = "<group>"; };
 		BB2046B61EBE095700084F34 /* KanbanCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanbanCollectionViewLayout.swift; sourceTree = "<group>"; };
 		BB2046BB1EBE0AB000084F34 /* SprintViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SprintViewController.xib; sourceTree = "<group>"; };
 		BB2046C01EBE0F7300084F34 /* Optionals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Optionals.swift; sourceTree = "<group>"; };
 		BB2046C21EBE112900084F34 /* SprintCollectionViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SprintCollectionViewItem.swift; sourceTree = "<group>"; };
 		BB2046C31EBE112900084F34 /* SprintCollectionViewItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SprintCollectionViewItem.xib; sourceTree = "<group>"; };
-		BB62DE781E56293A00AA3577 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		BB62DE781E56293A00AA3577 /* MainWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindowController.xib; sourceTree = "<group>"; };
 		BB62DE7C1E5634BA00AA3577 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		BB62DEBB1E565A7800AA3577 /* MainWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
 		BBA77B8F1E57782A00C9842C /* TextInputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextInputViewController.xib; sourceTree = "<group>"; };
@@ -221,6 +237,7 @@
 		BB0A2BE41EBF6BB300A19D60 /* JIRA */ = {
 			isa = PBXGroup;
 			children = (
+				BB0A2C081EC12DD200A19D60 /* TeamCheck */,
 				BB0A2BF21EBF9B9700A19D60 /* Authentication */,
 				BB0A2BEF1EBF8CD700A19D60 /* Paging */,
 				BB0A2BEC1EBF89AE00A19D60 /* API */,
@@ -263,6 +280,46 @@
 			path = Authentication;
 			sourceTree = "<group>";
 		};
+		BB0A2BF51EBFB48B00A19D60 /* RootFlow */ = {
+			isa = PBXGroup;
+			children = (
+				BB0A2BF61EBFB4AA00A19D60 /* RootFlowController.swift */,
+			);
+			name = RootFlow;
+			path = MainFlow;
+			sourceTree = "<group>";
+		};
+		BB0A2BF81EBFB58C00A19D60 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				BB0A2C011EBFBAC600A19D60 /* TeamPicker */,
+				BB0A2BFD1EBFB8C500A19D60 /* LoginWindowController.swift */,
+				BB0A2BFE1EBFB8C500A19D60 /* LoginWindowController.xib */,
+				BB0A2C061EBFBDF500A19D60 /* LoginFlowContainerViewController.swift */,
+			);
+			name = Login;
+			path = LoginFlow;
+			sourceTree = "<group>";
+		};
+		BB0A2C011EBFBAC600A19D60 /* TeamPicker */ = {
+			isa = PBXGroup;
+			children = (
+				BB0A2C021EBFBB3100A19D60 /* TeamPickerViewController.swift */,
+				BB0A2C031EBFBB3100A19D60 /* TeamPickerViewController.xib */,
+			);
+			name = TeamPicker;
+			path = ../Login/TeamPicker;
+			sourceTree = "<group>";
+		};
+		BB0A2C081EC12DD200A19D60 /* TeamCheck */ = {
+			isa = PBXGroup;
+			children = (
+				BB0A2C091EC12EF400A19D60 /* TeamCheckService.swift */,
+				BB0A2C0B1EC12F0400A19D60 /* TeamCheckEndpoints.swift */,
+			);
+			path = TeamCheck;
+			sourceTree = "<group>";
+		};
 		BB2046B41EBE093C00084F34 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,6 +358,8 @@
 		BB62DE751E5623C000AA3577 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				BB0A2BF81EBFB58C00A19D60 /* Login */,
+				BB0A2BF51EBFB48B00A19D60 /* RootFlow */,
 				BB2046B41EBE093C00084F34 /* Views */,
 				BBA77BA91E57A60800C9842C /* Utilities */,
 				BBA77BA41E57A3D900C9842C /* Main */,
@@ -478,7 +537,7 @@
 			isa = PBXGroup;
 			children = (
 				FA6E3E0F84798393906871DE /* MainWindowController.swift */,
-				BB62DE781E56293A00AA3577 /* MainWindow.xib */,
+				BB62DE781E56293A00AA3577 /* MainWindowController.xib */,
 				BB62DEBB1E565A7800AA3577 /* MainWindow.swift */,
 			);
 			path = Window;
@@ -597,11 +656,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBA77B901E57782A00C9842C /* TextInputViewController.xib in Resources */,
+				BB0A2C051EBFBB3100A19D60 /* TeamPickerViewController.xib in Resources */,
 				BB2046C51EBE112900084F34 /* SprintCollectionViewItem.xib in Resources */,
 				BBE003781E39534E00E1A2A4 /* Assets.xcassets in Resources */,
-				BB62DE791E56293A00AA3577 /* MainWindow.xib in Resources */,
+				BB62DE791E56293A00AA3577 /* MainWindowController.xib in Resources */,
 				BB2046BC1EBE0AB000084F34 /* SprintViewController.xib in Resources */,
 				BB62DE7D1E5634BA00AA3577 /* MainMenu.xib in Resources */,
+				BB0A2C001EBFB8C500A19D60 /* LoginWindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -630,14 +691,19 @@
 				BBA77B9B1E57922C00C9842C /* TextFieldStyles.swift in Sources */,
 				BBE003761E39534E00E1A2A4 /* AppDelegate.swift in Sources */,
 				BB2046C41EBE112900084F34 /* SprintCollectionViewItem.swift in Sources */,
+				BB0A2BFF1EBFB8C500A19D60 /* LoginWindowController.swift in Sources */,
 				BB0A2BDE1EBF4B8A00A19D60 /* NetworkService.swift in Sources */,
 				BBA77BA31E57A0C600C9842C /* VerticallyCenteredTextFieldCell.swift in Sources */,
 				BB0A2BF11EBF8D4100A19D60 /* PagingData.swift in Sources */,
+				BB0A2C071EBFBDF500A19D60 /* LoginFlowContainerViewController.swift in Sources */,
 				BBA77BA81E57A3F800C9842C /* MainView.swift in Sources */,
 				BB0A2BCF1EBF448100A19D60 /* EndpointConfiguration.swift in Sources */,
 				BBA77BAB1E57A62300C9842C /* MaskImage.swift in Sources */,
+				BB0A2C0C1EC12F0400A19D60 /* TeamCheckEndpoints.swift in Sources */,
 				BB0A2BF41EBF9C8400A19D60 /* AuthenticationProvider.swift in Sources */,
 				BB0A2BD31EBF47B600A19D60 /* Logger.swift in Sources */,
+				BB0A2C041EBFBB3100A19D60 /* TeamPickerViewController.swift in Sources */,
+				BB0A2C0A1EC12EF400A19D60 /* TeamCheckService.swift in Sources */,
 				BB0A2BE91EBF838200A19D60 /* BoardService.swift in Sources */,
 				BB0A2BEB1EBF839000A19D60 /* BoardEndpoints.swift in Sources */,
 				FA6E3C6DED0B860D768D19B1 /* MainWindowController.swift in Sources */,
@@ -649,6 +715,7 @@
 				BBA77B941E57904100C9842C /* StylingProtocol.swift in Sources */,
 				BB0A2BE71EBF6C5A00A19D60 /* Board.swift in Sources */,
 				BB0A2BEE1EBF8A2600A19D60 /* JIRARestAPI.swift in Sources */,
+				BB0A2BF71EBFB4AA00A19D60 /* RootFlowController.swift in Sources */,
 				FA6E351536938100E1D24BBE /* TextInputViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

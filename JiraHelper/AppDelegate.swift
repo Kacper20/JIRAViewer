@@ -13,32 +13,20 @@ import AppKit
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-
-    private var windowController: MainWindowController?
-    private var n: NetworkService?
+    private var rootFlowController: RootFlowController?
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
-        windowController = MainWindowController()
-        windowController?.window?.makeKey()
+//        let shortcut = MASShortcut(keyCode: UInt(kVK_F9), modifierFlags: NSEventModifierFlags.command.rawValue)
+//        MASShortcutMonitor.shared().register(shortcut, withAction: { [unowned self] in
+//            if NSApp.isActive {
+//                self.windowController?.window?.orderOut(nil)
+//            } else {
+//                self.windowController?.window?.makeKeyAndOrderFront(nil)
+//            }
+//        })
 
-        let shortcut = MASShortcut(keyCode: UInt(kVK_F9), modifierFlags: NSEventModifierFlags.command.rawValue)
-        MASShortcutMonitor.shared().register(shortcut, withAction: { [unowned self] in
-            if NSApp.isActive {
-                self.windowController?.window?.orderOut(nil)
-            } else {
-                self.windowController?.window?.makeKeyAndOrderFront(nil)
-            }
-        })
-
-        let network = NetworkService()
-        self.n = network
-        let boardService = BoardService(networkService: network, authenticationProvider: AuthenticationProvider())
-        _ = boardService.allBoards()
-            .subscribe { event in
-                print(event)
-                print("End")
-        }
+        rootFlowController = RootFlowController()
+        rootFlowController?.present()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

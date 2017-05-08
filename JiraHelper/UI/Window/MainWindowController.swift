@@ -13,7 +13,7 @@ final class MainWindowController: NSWindowController {
     private var mainViewController: MainViewController?
 
     override var windowNibName : String! {
-        return "MainWindow"
+        return "MainWindowController"
     }
 
     convenience init() {
