@@ -42,21 +42,46 @@ final class NetworkService {
             .validate(statusCode: 200...299)
             .responseJSON { [weak self] response in
                 self?.logResponse(response)
-                if let data = response.data, let json = try? JSONSerialization.jsonObject(with: data, options: []),
-                   let dict = json as? [String : AnyObject] {
-                    do {
-                        let object = try configuration.resource(dict)
-                        observer.onNext(object)
-                        observer.onCompleted()
-                    } catch {
-                        observer.onError(NetworkServiceError.parsingError(error))
-                        return
+                if let data = response.data {
+                    switch configuration.resourceType {
+                    case .fromData(generation: let generationFunc):
+                        self?.parseResourceAndNotifyObserver(
+                            observer: observer,
+                            data: data,
+                            resourceGeneration: generationFunc
+                        )
+                    case .fromDictionary(generation: let generationFunc):
+                        if let json = try? JSONSerialization.jsonObject(with: data, options: []),
+                            let dict = json as? [String : AnyObject] {
+                            self?.parseResourceAndNotifyObserver(
+                                observer: observer,
+                                data: dict,
+                                resourceGeneration: generationFunc
+                            )
+                        } else {
+                            //TODO: Errors
+                        }
                     }
+                } else {
+                    //TODO: Errors
                 }
             }
             return Disposables.create {
                 request.cancel()
             }
+        }
+    }
+
+    private func parseResourceAndNotifyObserver<T, Y>(
+        observer: AnyObserver<T>,
+        data: Y,
+        resourceGeneration: (Y) throws -> T) {
+        do {
+            let object = try resourceGeneration(data)
+            observer.onNext(object)
+            observer.onCompleted()
+        } catch {
+            observer.onError(error)
         }
     }
 

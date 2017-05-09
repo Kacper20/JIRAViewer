@@ -23,12 +23,12 @@ struct BoardEndpoints {
             encoding: JSONEncoding.default,
             headers: authHeaders,
             parameters: [:],
-            resource: { dict in
+            resourceType: .fromDictionary(generation: { dict in
                 return try ArrayOfValuesWithPagingData(
                     map: Mapper(JSON: dict as NSDictionary),
                     valuesKey: JIRARestAPI.paginationValuesKey
                 )
-            }
+            })
         )
     }
 }

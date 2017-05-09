@@ -16,19 +16,14 @@ struct TeamCheckEndpoints {
         self.teamName = teamName
     }
 
-    func boards() -> EndpointConfiguration<ArrayOfValuesWithPagingData<Board>> {
+    func team() -> EndpointConfiguration<Void> {
         return EndpointConfiguration(
-            path: JIRARestAPI.buildUrl(with: "/board"),
+            path: "https://\(teamName).atlassian.net/",
             method: .get,
             encoding: JSONEncoding.default,
-            headers: nil,
+            headers: [:],
             parameters: [:],
-            resource: { dict in
-                return try ArrayOfValuesWithPagingData(
-                    map: Mapper(JSON: dict as NSDictionary),
-                    valuesKey: JIRARestAPI.paginationValuesKey
-                )
-        }
+            resourceType: .fromData(generation: { _ in return })
         )
     }
 }

@@ -15,10 +15,15 @@ typealias JSONEncoding = Alamofire.JSONEncoding
 typealias URLEncoding = Alamofire.URLEncoding
 
 struct EndpointConfiguration<Resource> {
+    enum ResourceType<T> {
+        case fromDictionary(generation: ([String : AnyObject]) throws -> Resource)
+        case fromData(generation: (Data) throws -> Resource)
+    }
+
     let path: String
     let method: NetworkRequestMethod
     let encoding: NetworkRequestParameterEncoding
     let headers: [String : String]
     let parameters: [String : AnyObject]
-    let resource: ([String : AnyObject]) throws -> Resource
+    let resourceType: ResourceType<Resource>
 }
