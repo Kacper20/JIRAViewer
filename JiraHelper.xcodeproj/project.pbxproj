@@ -297,8 +297,7 @@
 				BB0A2BFE1EBFB8C500A19D60 /* LoginWindowController.xib */,
 				BB0A2C061EBFBDF500A19D60 /* LoginFlowContainerViewController.swift */,
 			);
-			name = Login;
-			path = LoginFlow;
+			path = Login;
 			sourceTree = "<group>";
 		};
 		BB0A2C011EBFBAC600A19D60 /* TeamPicker */ = {
@@ -307,8 +306,7 @@
 				BB0A2C021EBFBB3100A19D60 /* TeamPickerViewController.swift */,
 				BB0A2C031EBFBB3100A19D60 /* TeamPickerViewController.xib */,
 			);
-			name = TeamPicker;
-			path = ../Login/TeamPicker;
+			path = TeamPicker;
 			sourceTree = "<group>";
 		};
 		BB0A2C081EC12DD200A19D60 /* TeamCheck */ = {

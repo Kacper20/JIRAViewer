@@ -7,3 +7,20 @@
 //
 
 import Foundation
+import RxSwift
+
+final class TeamCheckService {
+
+    private let networkService: NetworkService
+
+    init(networkService: NetworkService) {
+        self.networkService = networkService
+    }
+
+    func checkTeamAvailability(for name: String) -> Observable<Bool> {
+        return networkService.request(
+            basePath: "https://\(name).atlassian.net/",
+            configuration: TeamCheckEndpoints.team()
+        ).map { _ in true }
+    }
+}

@@ -10,15 +10,11 @@ import Foundation
 
 struct TeamCheckEndpoints {
 
-    private let teamName: String
+    private init() { }
 
-    init(teamName: String) {
-        self.teamName = teamName
-    }
-
-    func team() -> EndpointConfiguration<Void> {
+    static func team() -> EndpointConfiguration<Void> {
         return EndpointConfiguration(
-            path: "https://\(teamName).atlassian.net/",
+            path: "",
             method: .get,
             encoding: JSONEncoding.default,
             headers: [:],
