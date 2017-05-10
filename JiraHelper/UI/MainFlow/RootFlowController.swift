@@ -17,8 +17,8 @@ final class RootFlowController {
 
     var currentFlow: CurrentFlow
 
-    init() {
-        currentFlow = .login(LoginWindowController())
+    init(teamCheckService: TeamCheckService) {
+        currentFlow = .login(LoginWindowController(teamCheckService: teamCheckService))
     }
 
     func present() {

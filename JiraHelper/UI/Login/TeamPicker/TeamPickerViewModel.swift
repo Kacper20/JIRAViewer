@@ -12,8 +12,13 @@ import RxSwift
 final class TeamPickerViewModel {
 
     let teamName = Variable<String>("")
-
     private let nonEmptyValidator = CommonValidators.nonEmptyString(message: "")
+
+    private let teamCheckService: TeamCheckService
+
+    init(teamCheckService: TeamCheckService) {
+        self.teamCheckService = teamCheckService
+    }
 
     var isValid: Observable<Bool> {
         return teamName

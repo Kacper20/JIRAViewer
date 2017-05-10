@@ -45,5 +45,7 @@ final class TeamPickerViewController: NSViewController {
             .bind(to: viewModel.teamName)
             .disposed(by: disposeBag)
 
+        processButton.rx.tap
+            .flatMap {  }
     }
 }

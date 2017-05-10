@@ -24,8 +24,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //                self.windowController?.window?.makeKeyAndOrderFront(nil)
 //            }
 //        })
-
-        rootFlowController = RootFlowController()
+        let networkService = NetworkService()
+        let teamCheckService = TeamCheckService(networkService: networkService)
+        rootFlowController = RootFlowController(teamCheckService: teamCheckService)
         rootFlowController?.present()
     }
 

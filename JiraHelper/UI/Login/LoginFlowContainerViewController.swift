@@ -12,8 +12,9 @@ final class LoginFlowContainerViewController: NSViewController {
 
     private let teamPickerVc: TeamPickerViewController
 
-    init() {
-        teamPickerVc = TeamPickerViewController(viewModel: TeamPickerViewModel())
+    init(teamCheckService: TeamCheckService) {
+        let viewModel = TeamPickerViewModel(teamCheckService: teamCheckService)
+        teamPickerVc = TeamPickerViewController(viewModel: viewModel)
         super.init(nibName: nil, bundle: nil)!
     }
     
