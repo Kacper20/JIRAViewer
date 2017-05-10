@@ -10,9 +10,10 @@ import Foundation
 
 final class LoginFlowContainerViewController: NSViewController {
 
-    private let teamPickerVc = TeamPickerViewController()
+    private let teamPickerVc: TeamPickerViewController
 
     init() {
+        teamPickerVc = TeamPickerViewController(viewModel: TeamPickerViewModel())
         super.init(nibName: nil, bundle: nil)!
     }
     

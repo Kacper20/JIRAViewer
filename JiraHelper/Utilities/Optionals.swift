@@ -17,3 +17,14 @@ func !! <T>(wrapped: T?, failureText: @autoclosure () -> String) -> T {
     }
     fatalError(failureText())
 }
+
+/*
+ Protocol that allows for writing certain types of extensions on types operating on optionals that
+ wouldn't be available in other way
+ */
+protocol OptionalType {
+    associatedtype Wrapped
+    func map<U>(_ f: (Wrapped) throws -> U) rethrows -> U?
+}
+
+extension Optional: OptionalType {}
