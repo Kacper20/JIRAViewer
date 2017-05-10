@@ -9,6 +9,8 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="TeamPickerViewController" customModule="JiraHelper" customModuleProvider="target">
             <connections>
+                <outlet property="inputPicker" destination="HzD-pY-31k" id="aQd-RU-5DC"/>
+                <outlet property="processButton" destination="fnk-NN-BBI" id="1G4-U6-mCI"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -63,7 +65,7 @@
                 <constraint firstItem="fnk-NN-BBI" firstAttribute="centerX" secondItem="HzD-pY-31k" secondAttribute="centerX" id="icT-UW-WPy"/>
                 <constraint firstItem="HzD-pY-31k" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="qFs-bx-YMV"/>
             </constraints>
-            <point key="canvasLocation" x="31" y="20"/>
+            <point key="canvasLocation" x="14" y="4"/>
         </customView>
     </objects>
 </document>

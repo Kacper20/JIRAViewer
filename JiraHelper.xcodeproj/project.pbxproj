@@ -35,6 +35,7 @@
 		BB2046C11EBE0F7300084F34 /* Optionals.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2046C01EBE0F7300084F34 /* Optionals.swift */; };
 		BB2046C41EBE112900084F34 /* SprintCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2046C21EBE112900084F34 /* SprintCollectionViewItem.swift */; };
 		BB2046C51EBE112900084F34 /* SprintCollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB2046C31EBE112900084F34 /* SprintCollectionViewItem.xib */; };
+		BB2FC6751EC264BD0031917B /* TeamPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2FC6741EC264BD0031917B /* TeamPickerViewModel.swift */; };
 		BB62DE791E56293A00AA3577 /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB62DE781E56293A00AA3577 /* MainWindowController.xib */; };
 		BB62DE7D1E5634BA00AA3577 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB62DE7C1E5634BA00AA3577 /* MainMenu.xib */; };
 		BB62DEBC1E565A7800AA3577 /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB62DEBB1E565A7800AA3577 /* MainWindow.swift */; };
@@ -46,6 +47,9 @@
 		BBA77BA61E57A3F200C9842C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA77BA51E57A3F200C9842C /* MainViewController.swift */; };
 		BBA77BA81E57A3F800C9842C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA77BA71E57A3F800C9842C /* MainView.swift */; };
 		BBA77BAB1E57A62300C9842C /* MaskImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA77BAA1E57A62300C9842C /* MaskImage.swift */; };
+		BBD571FB1EC37D3E0061AD67 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD571FA1EC37D3E0061AD67 /* Validator.swift */; };
+		BBD571FD1EC37F620061AD67 /* CommonValidators.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD571FC1EC37F620061AD67 /* CommonValidators.swift */; };
+		BBD571FF1EC3B2C60061AD67 /* Observable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD571FE1EC3B2C60061AD67 /* Observable+Extensions.swift */; };
 		BBE003761E39534E00E1A2A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE003751E39534E00E1A2A4 /* AppDelegate.swift */; };
 		BBE003781E39534E00E1A2A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBE003771E39534E00E1A2A4 /* Assets.xcassets */; };
 		BBE003861E39534E00E1A2A4 /* JiraHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE003851E39534E00E1A2A4 /* JiraHelperTests.swift */; };
@@ -150,6 +154,7 @@
 		BB2046C01EBE0F7300084F34 /* Optionals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Optionals.swift; sourceTree = "<group>"; };
 		BB2046C21EBE112900084F34 /* SprintCollectionViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SprintCollectionViewItem.swift; sourceTree = "<group>"; };
 		BB2046C31EBE112900084F34 /* SprintCollectionViewItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SprintCollectionViewItem.xib; sourceTree = "<group>"; };
+		BB2FC6741EC264BD0031917B /* TeamPickerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamPickerViewModel.swift; sourceTree = "<group>"; };
 		BB62DE781E56293A00AA3577 /* MainWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindowController.xib; sourceTree = "<group>"; };
 		BB62DE7C1E5634BA00AA3577 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		BB62DEBB1E565A7800AA3577 /* MainWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
@@ -161,6 +166,9 @@
 		BBA77BA51E57A3F200C9842C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		BBA77BA71E57A3F800C9842C /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		BBA77BAA1E57A62300C9842C /* MaskImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaskImage.swift; sourceTree = "<group>"; };
+		BBD571FA1EC37D3E0061AD67 /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		BBD571FC1EC37F620061AD67 /* CommonValidators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonValidators.swift; sourceTree = "<group>"; };
+		BBD571FE1EC3B2C60061AD67 /* Observable+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+Extensions.swift"; sourceTree = "<group>"; };
 		BBE003721E39534E00E1A2A4 /* JiraHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JiraHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBE003751E39534E00E1A2A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBE003771E39534E00E1A2A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -305,6 +313,7 @@
 			children = (
 				BB0A2C021EBFBB3100A19D60 /* TeamPickerViewController.swift */,
 				BB0A2C031EBFBB3100A19D60 /* TeamPickerViewController.xib */,
+				BB2FC6741EC264BD0031917B /* TeamPickerViewModel.swift */,
 			);
 			path = TeamPicker;
 			sourceTree = "<group>";
@@ -349,6 +358,7 @@
 			children = (
 				BB0A2BD11EBF47A600A19D60 /* Logger */,
 				BB2046C01EBE0F7300084F34 /* Optionals.swift */,
+				BBD571FE1EC3B2C60061AD67 /* Observable+Extensions.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -409,6 +419,7 @@
 		BBA77BA01E579D3D00C9842C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BBD571F91EC37D2F0061AD67 /* Validators */,
 				BB0A2BE41EBF6BB300A19D60 /* JIRA */,
 				BB0A2BCC1EBF43F400A19D60 /* Networking */,
 			);
@@ -438,6 +449,15 @@
 				BBA77BAA1E57A62300C9842C /* MaskImage.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		BBD571F91EC37D2F0061AD67 /* Validators */ = {
+			isa = PBXGroup;
+			children = (
+				BBD571FA1EC37D3E0061AD67 /* Validator.swift */,
+				BBD571FC1EC37F620061AD67 /* CommonValidators.swift */,
+			);
+			path = Validators;
 			sourceTree = "<group>";
 		};
 		BBE003691E39534E00E1A2A4 = {
@@ -685,6 +705,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB2FC6751EC264BD0031917B /* TeamPickerViewModel.swift in Sources */,
 				BB2046C11EBE0F7300084F34 /* Optionals.swift in Sources */,
 				BBA77B9B1E57922C00C9842C /* TextFieldStyles.swift in Sources */,
 				BBE003761E39534E00E1A2A4 /* AppDelegate.swift in Sources */,
@@ -700,6 +721,7 @@
 				BB0A2C0C1EC12F0400A19D60 /* TeamCheckEndpoints.swift in Sources */,
 				BB0A2BF41EBF9C8400A19D60 /* AuthenticationProvider.swift in Sources */,
 				BB0A2BD31EBF47B600A19D60 /* Logger.swift in Sources */,
+				BBD571FB1EC37D3E0061AD67 /* Validator.swift in Sources */,
 				BB0A2C041EBFBB3100A19D60 /* TeamPickerViewController.swift in Sources */,
 				BB0A2C0A1EC12EF400A19D60 /* TeamCheckService.swift in Sources */,
 				BB0A2BE91EBF838200A19D60 /* BoardService.swift in Sources */,
@@ -712,6 +734,8 @@
 				BBA77BA61E57A3F200C9842C /* MainViewController.swift in Sources */,
 				BBA77B941E57904100C9842C /* StylingProtocol.swift in Sources */,
 				BB0A2BE71EBF6C5A00A19D60 /* Board.swift in Sources */,
+				BBD571FD1EC37F620061AD67 /* CommonValidators.swift in Sources */,
+				BBD571FF1EC3B2C60061AD67 /* Observable+Extensions.swift in Sources */,
 				BB0A2BEE1EBF8A2600A19D60 /* JIRARestAPI.swift in Sources */,
 				BB0A2BF71EBFB4AA00A19D60 /* RootFlowController.swift in Sources */,
 				FA6E351536938100E1D24BBE /* TextInputViewController.swift in Sources */,

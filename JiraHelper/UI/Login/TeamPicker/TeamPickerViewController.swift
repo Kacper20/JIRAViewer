@@ -7,12 +7,43 @@
 //
 
 import Cocoa
+import RxSwift
+import RxCocoa
 
-class TeamPickerViewController: NSViewController {
+final class TeamPickerViewController: NSViewController {
+    
+    @IBOutlet weak var inputPicker: NSTextField!
+    @IBOutlet weak var processButton: NSButton!
+
+    private let disposeBag = DisposeBag()
+
+    private let viewModel: TeamPickerViewModel
+
+    init(viewModel: TeamPickerViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: String(describing: TeamPickerViewController.self), bundle: nil)!
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do view setup here.
+        setupBindings()
     }
-    
+
+    private func setupBindings() {
+
+        viewModel.isValid
+            .bind(to: processButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+
+        inputPicker.rx.text
+            .asObservable()
+            .filterNils()
+            .bind(to: viewModel.teamName)
+            .disposed(by: disposeBag)
+
+    }
 }
