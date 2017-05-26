@@ -9,6 +9,8 @@
 import Cocoa
 import RxSwift
 import RxCocoa
+import Foundation
+import AppKit
 
 final class TeamPickerViewController: NSViewController {
     
@@ -18,6 +20,9 @@ final class TeamPickerViewController: NSViewController {
     private let disposeBag = DisposeBag()
 
     private let viewModel: TeamPickerViewModel
+
+    private let pasteboardService = PasteboardService()
+    private let teamURLExtractor = TeamURLExtractor()
 
     init(viewModel: TeamPickerViewModel) {
         self.viewModel = viewModel
@@ -33,6 +38,10 @@ final class TeamPickerViewController: NSViewController {
         setupBindings()
     }
 
+    private func setupPasteboardListening() {
+
+    }
+
     private func setupBindings() {
 
         viewModel.isValid
@@ -45,7 +54,16 @@ final class TeamPickerViewController: NSViewController {
             .bind(to: viewModel.teamName)
             .disposed(by: disposeBag)
 
-        processButton.rx.tap
-            .flatMap {  }
+        _ = NotificationCenter.default.rx.notification(NSNotification.Name.NSApplicationDidBecomeActive)
+            .map { [unowned self] _ -> String? in
+                if let value = self.pasteboardService.readLastString(),
+                    let team = self.teamURLExtractor.extractTeamName(from: value) { return team }
+                return nil
+            }
+            .filterNils()
+            .bind(to: inputPicker.rx.text)
+
+//        processButton.rx.tap
+//            .flatMap {  }
     }
 }

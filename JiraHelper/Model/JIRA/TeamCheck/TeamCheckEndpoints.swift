@@ -19,7 +19,7 @@ struct TeamCheckEndpoints {
             encoding: JSONEncoding.default,
             headers: [:],
             parameters: [:],
-            resourceType: .fromData(generation: { _ in return })
+            resourceType: .data(generation: { _ in return })
         )
     }
 }

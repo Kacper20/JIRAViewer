@@ -20,3 +20,9 @@ extension Observable where Element: OptionalType {
         }
     }
 }
+
+extension Observable {
+    func discardType() -> Observable<Void> {
+        return self.map { _ in return () }
+    }
+}
