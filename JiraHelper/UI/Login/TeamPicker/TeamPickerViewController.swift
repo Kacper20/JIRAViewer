@@ -12,6 +12,10 @@ import RxCocoa
 import Foundation
 import AppKit
 
+enum TeamPickerAction {
+    case teamPicked(JIRATeam)
+}
+
 final class TeamPickerViewController: NSViewController {
     
     @IBOutlet weak var inputPicker: NSTextField!
@@ -20,12 +24,11 @@ final class TeamPickerViewController: NSViewController {
     private let disposeBag = DisposeBag()
 
     private let viewModel: TeamPickerViewModel
+    private let actionHandler: (TeamPickerAction) -> Void
 
-    private let pasteboardService = PasteboardService()
-    private let teamURLExtractor = TeamURLExtractor()
-
-    init(viewModel: TeamPickerViewModel) {
+    init(viewModel: TeamPickerViewModel, actionHandler: @escaping (TeamPickerAction) -> Void) {
         self.viewModel = viewModel
+        self.actionHandler = actionHandler
         super.init(nibName: String(describing: TeamPickerViewController.self), bundle: nil)!
     }
     
@@ -33,37 +36,32 @@ final class TeamPickerViewController: NSViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    var viewStateSink: AnyObserver<TeamPickerViewState> {
+        return AnyObserver { [weak self] event in
+            guard let `self` = self else { return }
+            switch event {
+            case .completed:
+                self.actionHandler(.teamPicked(self.viewModel.pickedTeam))
+            default: break
+            }
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBindings()
     }
 
-    private func setupPasteboardListening() {
-
-    }
-
     private func setupBindings() {
-
         viewModel.isValid
             .bind(to: processButton.rx.isEnabled)
             .disposed(by: disposeBag)
 
-        inputPicker.rx.text
-            .asObservable()
-            .filterNils()
-            .bind(to: viewModel.teamName)
+        (inputPicker.rx.text <-> viewModel.teamName).disposed(by: disposeBag)
+
+        processButton.rx.tap
+            .flatMap { [unowned self] in self.viewModel.proceedWithRequest() }
+            .bind(to: viewStateSink)
             .disposed(by: disposeBag)
-
-        _ = NotificationCenter.default.rx.notification(NSNotification.Name.NSApplicationDidBecomeActive)
-            .map { [unowned self] _ -> String? in
-                if let value = self.pasteboardService.readLastString(),
-                    let team = self.teamURLExtractor.extractTeamName(from: value) { return team }
-                return nil
-            }
-            .filterNils()
-            .bind(to: inputPicker.rx.text)
-
-//        processButton.rx.tap
-//            .flatMap {  }
     }
 }

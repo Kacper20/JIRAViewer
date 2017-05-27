@@ -17,6 +17,5 @@ struct TeamURLExtractor {
         let lengthDiff = host.length - hostSuffix.length
         guard lengthDiff > 0 else { return nil }
         return String(host.characters.prefix(lengthDiff))
-
     }
 }
