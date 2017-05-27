@@ -13,6 +13,8 @@ import Alamofire
 enum NetworkServiceError: Error {
     case parsingError(Error)
     case respons
+    case networkUnreachable
+    case invalidStatusCode(code: Int, response: [String : AnyObject]?)
 }
 
 final class NetworkService {
@@ -39,18 +41,25 @@ final class NetworkService {
                 encoding: configuration.encoding,
                 headers: configuration.headers
             )
-            .validate(statusCode: 200...299)
             .responseJSON { [weak self] response in
+                guard let code = response.response?.statusCode else {
+                    observer.onError(NetworkServiceError.networkUnreachable)
+                    return
+                }
+                guard code >= 200 && code <= 299 else {
+                    //TODO: error
+                    return
+                }
                 self?.logResponse(response)
                 if let data = response.data {
                     switch configuration.resourceType {
-                    case .fromData(generation: let generationFunc):
+                    case .data(generation: let generationFunc):
                         self?.parseResourceAndNotifyObserver(
                             observer: observer,
                             data: data,
                             resourceGeneration: generationFunc
                         )
-                    case .fromDictionary(generation: let generationFunc):
+                    case .dictionary(generation: let generationFunc):
                         if let json = try? JSONSerialization.jsonObject(with: data, options: []),
                             let dict = json as? [String : AnyObject] {
                             self?.parseResourceAndNotifyObserver(
@@ -61,6 +70,8 @@ final class NetworkService {
                         } else {
                             //TODO: Errors
                         }
+                    case let .none(value):
+                        observer.onNext(value)
                     }
                 } else {
                     //TODO: Errors
@@ -71,6 +82,8 @@ final class NetworkService {
             }
         }
     }
+
+
 
     private func parseResourceAndNotifyObserver<T, Y>(
         observer: AnyObserver<T>,

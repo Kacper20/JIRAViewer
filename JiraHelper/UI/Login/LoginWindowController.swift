@@ -11,7 +11,16 @@ import Cocoa
 class LoginWindowController: NSWindowController {
 
     private var loginFlowContainer: LoginFlowContainerViewController?
+    private let teamCheckService: TeamCheckService
 
+    init(teamCheckService: TeamCheckService) {
+        self.teamCheckService = teamCheckService
+        super.init(window: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     override var windowNibName : String! {
         return "LoginWindowController"
     }
@@ -19,7 +28,7 @@ class LoginWindowController: NSWindowController {
     override func windowDidLoad() {
         super.windowDidLoad()
 
-        let loginFlowContainer = LoginFlowContainerViewController()
+        let loginFlowContainer = LoginFlowContainerViewController(teamCheckService: teamCheckService)
         self.loginFlowContainer = loginFlowContainer
         window?.contentView?.addSubview(loginFlowContainer.view)
         loginFlowContainer.view.snp.makeConstraints { make in

@@ -10,10 +10,10 @@ import Foundation
 
 final class LoginFlowContainerViewController: NSViewController {
 
-    private let teamPickerVc: TeamPickerViewController
+    private let teamCheckService: TeamCheckService
 
-    init() {
-        teamPickerVc = TeamPickerViewController(viewModel: TeamPickerViewModel())
+    init(teamCheckService: TeamCheckService) {
+        self.teamCheckService = teamCheckService
         super.init(nibName: nil, bundle: nil)!
     }
     
@@ -27,6 +27,21 @@ final class LoginFlowContainerViewController: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        presentTeamPickerVC()
+    }
+
+    private func presentTeamPickerVC() {
+        let viewModel = TeamPickerViewModel(teamCheckService: teamCheckService)
+        let teamPickerVc = TeamPickerViewController(
+            viewModel: viewModel,
+            actionHandler: { action in
+                switch action {
+                case let .teamPicked(team):
+                    print(team)
+                    break
+                }
+            }
+        )
         addChildViewController(teamPickerVc)
         view.addSubview(teamPickerVc.view)
         teamPickerVc.view.snp.makeConstraints { make in
