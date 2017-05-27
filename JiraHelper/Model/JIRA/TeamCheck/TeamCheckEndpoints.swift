@@ -16,7 +16,7 @@ struct TeamCheckEndpoints {
         return EndpointConfiguration(
             path: "",
             method: .get,
-            encoding: JSONEncoding.default,
+            encoding: URLEncoding.default,
             headers: [:],
             parameters: [:],
             resourceType: .data(generation: { _ in return })
