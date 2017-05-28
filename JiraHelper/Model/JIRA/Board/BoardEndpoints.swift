@@ -9,19 +9,13 @@
 import Foundation
 import Mapper
 
-struct BoardEndpoints {
-    private let authHeaders: [String : String]
-
-    init(authenticationProvider: AuthenticationProvider) {
-        self.authHeaders = authenticationProvider.headers
-    }
-
-    func boards() -> EndpointConfiguration<ArrayOfValuesWithPagingData<Board>> {
+enum BoardEndpoints {
+    static func boards() -> EndpointConfiguration<ArrayOfValuesWithPagingData<Board>> {
         return EndpointConfiguration(
             path: JIRARestAPI.buildUrl(with: "/board"),
             method: .get,
             encoding: JSONEncoding.default,
-            headers: authHeaders,
+            headers: [:],
             parameters: [:],
             resourceType: .dictionary(generation: { dict in
                 return try ArrayOfValuesWithPagingData(

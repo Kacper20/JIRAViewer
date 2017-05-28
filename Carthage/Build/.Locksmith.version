@@ -1,0 +1,9 @@
+{
+  "commitish" : "3.0.0",
+  "Mac" : [
+    {
+      "hash" : "4b738fd7ae97a6f4407f3d3feeabdeb3376a223d6c4b8bb078eea4c72d6efc68",
+      "name" : "Locksmith"
+    }
+  ]
+}

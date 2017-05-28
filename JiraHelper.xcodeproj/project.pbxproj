@@ -39,6 +39,8 @@
 		BB2046C41EBE112900084F34 /* SprintCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2046C21EBE112900084F34 /* SprintCollectionViewItem.swift */; };
 		BB2046C51EBE112900084F34 /* SprintCollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB2046C31EBE112900084F34 /* SprintCollectionViewItem.xib */; };
 		BB2FC6751EC264BD0031917B /* TeamPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2FC6741EC264BD0031917B /* TeamPickerViewModel.swift */; };
+		BB503C6A1EDACCA0002BDF54 /* BasicAuthenticationStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB503C691EDACCA0002BDF54 /* BasicAuthenticationStorage.swift */; };
+		BB503C6F1EDB0043002BDF54 /* AuthenticatedNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB503C6E1EDB0043002BDF54 /* AuthenticatedNetworkService.swift */; };
 		BB53D42D1EDA060500BBC607 /* AppLifecycleMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB53D42C1EDA060500BBC607 /* AppLifecycleMonitor.swift */; };
 		BB53D4301EDA0D5700BBC607 /* TwoWayBindingOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB53D42F1EDA0D5700BBC607 /* TwoWayBindingOperator.swift */; };
 		BB53D4321EDA123A00BBC607 /* JIRATeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB53D4311EDA123A00BBC607 /* JIRATeam.swift */; };
@@ -164,6 +166,8 @@
 		BB2046C21EBE112900084F34 /* SprintCollectionViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SprintCollectionViewItem.swift; sourceTree = "<group>"; };
 		BB2046C31EBE112900084F34 /* SprintCollectionViewItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SprintCollectionViewItem.xib; sourceTree = "<group>"; };
 		BB2FC6741EC264BD0031917B /* TeamPickerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamPickerViewModel.swift; sourceTree = "<group>"; };
+		BB503C691EDACCA0002BDF54 /* BasicAuthenticationStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicAuthenticationStorage.swift; sourceTree = "<group>"; };
+		BB503C6E1EDB0043002BDF54 /* AuthenticatedNetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticatedNetworkService.swift; sourceTree = "<group>"; };
 		BB53D42C1EDA060500BBC607 /* AppLifecycleMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLifecycleMonitor.swift; sourceTree = "<group>"; };
 		BB53D42F1EDA0D5700BBC607 /* TwoWayBindingOperator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoWayBindingOperator.swift; sourceTree = "<group>"; };
 		BB53D4311EDA123A00BBC607 /* JIRATeam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JIRATeam.swift; sourceTree = "<group>"; };
@@ -242,6 +246,7 @@
 			children = (
 				BB0A2BCE1EBF448100A19D60 /* EndpointConfiguration.swift */,
 				BB0A2BDD1EBF4B8A00A19D60 /* NetworkService.swift */,
+				BB503C6E1EDB0043002BDF54 /* AuthenticatedNetworkService.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -296,6 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				BB0A2BF31EBF9C8400A19D60 /* AuthenticationProvider.swift */,
+				BB503C691EDACCA0002BDF54 /* BasicAuthenticationStorage.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -378,6 +384,7 @@
 		BB2046BF1EBE0DBD00084F34 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				BB503C6B1EDAF679002BDF54 /* Serialization */,
 				BB53D42E1EDA0D4600BBC607 /* Rx */,
 				BB0A2BD11EBF47A600A19D60 /* Logger */,
 				BB2046C01EBE0F7300084F34 /* Optionals.swift */,
@@ -385,6 +392,13 @@
 				BB12D6EF1ED780A900FEA52A /* String+Extensions.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		BB503C6B1EDAF679002BDF54 /* Serialization */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Serialization;
 			sourceTree = "<group>";
 		};
 		BB53D42B1EDA034C00BBC607 /* Lifecycle */ = {
@@ -756,12 +770,14 @@
 				BB12D6F01ED780A900FEA52A /* String+Extensions.swift in Sources */,
 				BB2046C41EBE112900084F34 /* SprintCollectionViewItem.swift in Sources */,
 				BB0A2BFF1EBFB8C500A19D60 /* LoginWindowController.swift in Sources */,
+				BB503C6A1EDACCA0002BDF54 /* BasicAuthenticationStorage.swift in Sources */,
 				BB0A2BDE1EBF4B8A00A19D60 /* NetworkService.swift in Sources */,
 				BBA77BA31E57A0C600C9842C /* VerticallyCenteredTextFieldCell.swift in Sources */,
 				BB0A2BF11EBF8D4100A19D60 /* PagingData.swift in Sources */,
 				BB0A2C071EBFBDF500A19D60 /* LoginFlowContainerViewController.swift in Sources */,
 				BBA77BA81E57A3F800C9842C /* MainView.swift in Sources */,
 				BB53D4321EDA123A00BBC607 /* JIRATeam.swift in Sources */,
+				BB503C6F1EDB0043002BDF54 /* AuthenticatedNetworkService.swift in Sources */,
 				BB0A2BCF1EBF448100A19D60 /* EndpointConfiguration.swift in Sources */,
 				BBA77BAB1E57A62300C9842C /* MaskImage.swift in Sources */,
 				BB0A2C0C1EC12F0400A19D60 /* TeamCheckEndpoints.swift in Sources */,

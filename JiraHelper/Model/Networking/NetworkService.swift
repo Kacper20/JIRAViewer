@@ -42,44 +42,56 @@ final class NetworkService {
                 headers: configuration.headers
             )
             .responseJSON { [weak self] response in
-                guard let code = response.response?.statusCode else {
-                    observer.onError(NetworkServiceError.networkUnreachable)
-                    return
-                }
-                guard code >= 200 && code <= 299 else {
-                    //TODO: error
-                    return
-                }
-                self?.logResponse(response)
-                if let data = response.data {
-                    switch configuration.resourceType {
-                    case .data(generation: let generationFunc):
-                        self?.parseResourceAndNotifyObserver(
-                            observer: observer,
-                            data: data,
-                            resourceGeneration: generationFunc
-                        )
-                    case .dictionary(generation: let generationFunc):
-                        if let json = try? JSONSerialization.jsonObject(with: data, options: []),
-                            let dict = json as? [String : AnyObject] {
-                            self?.parseResourceAndNotifyObserver(
-                                observer: observer,
-                                data: dict,
-                                resourceGeneration: generationFunc
-                            )
-                        } else {
-                            //TODO: Errors
-                        }
-                    case let .none(value):
-                        observer.onNext(value)
-                    }
-                } else {
-                    //TODO: Errors
-                }
+                self?.handleResponse(configuration: configuration, response: response, observer: observer)
             }
             return Disposables.create {
                 request.cancel()
             }
+        }
+    }
+
+    private func handleResponse<Resource>(
+        configuration: EndpointConfiguration<Resource>,
+        response: Alamofire.DataResponse<Any>,
+        observer: AnyObserver<Resource>
+        ) {
+
+        guard let code = response.response?.statusCode else {
+            observer.onError(NetworkServiceError.networkUnreachable)
+            return
+        }
+        guard code >= 200 && code <= 299 else {
+            observer.onError(NetworkServiceError.invalidStatusCode(
+                code: code,
+                response: response.result.value as? [String : AnyObject]
+            ))
+            return
+        }
+        logResponse(response)
+        if let data = response.data {
+            switch configuration.resourceType {
+            case .data(generation: let generationFunc):
+                parseResourceAndNotifyObserver(
+                    observer: observer,
+                    data: data,
+                    resourceGeneration: generationFunc
+                )
+            case .dictionary(generation: let generationFunc):
+                if let json = try? JSONSerialization.jsonObject(with: data, options: []),
+                    let dict = json as? [String : AnyObject] {
+                    parseResourceAndNotifyObserver(
+                        observer: observer,
+                        data: dict,
+                        resourceGeneration: generationFunc
+                    )
+                } else {
+                    //TODO: Errors
+                }
+            case let .none(value):
+                observer.onNext(value)
+            }
+        } else {
+            //TODO: Errors
         }
     }
 

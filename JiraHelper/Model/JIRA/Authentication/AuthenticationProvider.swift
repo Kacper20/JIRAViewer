@@ -8,6 +8,24 @@
 
 import Foundation
 
+enum AuthenticationType {
+    case basicAuth(BasicAuthenticationStorage)
+}
+
 final class AuthenticationProvider {
-    var headers: [String : String] = [:]
+
+    func readAuthentication() -> AuthenticationType? {
+        if let basicAuth = readBasicAuthentication() {
+            return .basicAuth(basicAuth)
+        }
+        return nil
+    }
+
+    private func readBasicAuthentication() -> BasicAuthenticationStorage? {
+        if let authData = BasicAuthenticationStorage().readFromSecureStore()?.data,
+            let data = try? BasicAuthenticationStorage(data: authData) {
+            return data
+        }
+        return nil
+    }
 }
