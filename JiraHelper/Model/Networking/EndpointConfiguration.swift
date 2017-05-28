@@ -24,7 +24,7 @@ struct EndpointConfiguration<Resource> {
     let path: String
     let method: NetworkRequestMethod
     let encoding: NetworkRequestParameterEncoding
-    let headers: [String : String]
+    var headers: [String : String]
     let parameters: [String : AnyObject]
     let resourceType: ResourceOrigin
 }

@@ -12,7 +12,7 @@ final class RootFlowController {
 
     enum CurrentFlow {
         case login(LoginWindowController)
-        case main
+        case main(MainWindowController)
     }
 
     var currentFlow: CurrentFlow
@@ -22,8 +22,11 @@ final class RootFlowController {
     }
 
     func present() {
-        if case let .login(controller) = currentFlow {
+        switch currentFlow {
+        case let .login(controller):
             controller.present()
+        case let .main(controller):
+            break
         }
     }
 }
