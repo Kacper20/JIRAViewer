@@ -44,6 +44,7 @@
 		BB53D42D1EDA060500BBC607 /* AppLifecycleMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB53D42C1EDA060500BBC607 /* AppLifecycleMonitor.swift */; };
 		BB53D4301EDA0D5700BBC607 /* TwoWayBindingOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB53D42F1EDA0D5700BBC607 /* TwoWayBindingOperator.swift */; };
 		BB53D4321EDA123A00BBC607 /* JIRATeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB53D4311EDA123A00BBC607 /* JIRATeam.swift */; };
+		BB53D4341EDA1A8400BBC607 /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB53D4331EDA1A8400BBC607 /* NetworkLogger.swift */; };
 		BB62DE791E56293A00AA3577 /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB62DE781E56293A00AA3577 /* MainWindowController.xib */; };
 		BB62DE7D1E5634BA00AA3577 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB62DE7C1E5634BA00AA3577 /* MainMenu.xib */; };
 		BB62DEBC1E565A7800AA3577 /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB62DEBB1E565A7800AA3577 /* MainWindow.swift */; };
@@ -171,6 +172,7 @@
 		BB53D42C1EDA060500BBC607 /* AppLifecycleMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLifecycleMonitor.swift; sourceTree = "<group>"; };
 		BB53D42F1EDA0D5700BBC607 /* TwoWayBindingOperator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoWayBindingOperator.swift; sourceTree = "<group>"; };
 		BB53D4311EDA123A00BBC607 /* JIRATeam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JIRATeam.swift; sourceTree = "<group>"; };
+		BB53D4331EDA1A8400BBC607 /* NetworkLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
 		BB62DE781E56293A00AA3577 /* MainWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindowController.xib; sourceTree = "<group>"; };
 		BB62DE7C1E5634BA00AA3577 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		BB62DEBB1E565A7800AA3577 /* MainWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 				BB0A2BCE1EBF448100A19D60 /* EndpointConfiguration.swift */,
 				BB0A2BDD1EBF4B8A00A19D60 /* NetworkService.swift */,
 				BB503C6E1EDB0043002BDF54 /* AuthenticatedNetworkService.swift */,
+				BB53D4331EDA1A8400BBC607 /* NetworkLogger.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -774,6 +777,7 @@
 				BB0A2BDE1EBF4B8A00A19D60 /* NetworkService.swift in Sources */,
 				BBA77BA31E57A0C600C9842C /* VerticallyCenteredTextFieldCell.swift in Sources */,
 				BB0A2BF11EBF8D4100A19D60 /* PagingData.swift in Sources */,
+				BB53D4341EDA1A8400BBC607 /* NetworkLogger.swift in Sources */,
 				BB0A2C071EBFBDF500A19D60 /* LoginFlowContainerViewController.swift in Sources */,
 				BBA77BA81E57A3F800C9842C /* MainView.swift in Sources */,
 				BB53D4321EDA123A00BBC607 /* JIRATeam.swift in Sources */,

@@ -20,8 +20,10 @@ enum NetworkServiceError: Error {
 final class NetworkService {
 
     private let manager: SessionManager
+    private let networkLogger: NetworkLogger
 
     init() {
+        networkLogger = NetworkLogger()
         let configuration = URLSessionConfiguration.default
         manager = SessionManager(configuration: configuration)
     }
@@ -31,7 +33,7 @@ final class NetworkService {
         configuration: EndpointConfiguration<T>)
         -> Observable<T> {
         let path = basePath + configuration.path
-        logRequest(path: basePath, configuration: configuration)
+        networkLogger.logRequest(path: basePath, configuration: configuration)
         return Observable.create { [weak self] observer in
             guard let `self` = self else { return Disposables.create() }
             let request = self.manager.request(
@@ -67,7 +69,7 @@ final class NetworkService {
             ))
             return
         }
-        logResponse(response)
+        networkLogger.logResponse(response)
         if let data = response.data {
             switch configuration.resourceType {
             case .data(generation: let generationFunc):
@@ -108,13 +110,5 @@ final class NetworkService {
         } catch {
             observer.onError(error)
         }
-    }
-
-    private func logRequest<T>(path: String, configuration: EndpointConfiguration<T>) {
-
-    }
-
-    private func logResponse(_ response: Alamofire.DataResponse<Any>) {
-
     }
 }
