@@ -34,17 +34,33 @@ final class LoginFlowContainerViewController: NSViewController {
         let viewModel = TeamPickerViewModel(teamCheckService: teamCheckService)
         let teamPickerVc = TeamPickerViewController(
             viewModel: viewModel,
-            actionHandler: { action in
+            actionHandler: { [weak self] action in
                 switch action {
                 case let .teamPicked(team):
-                    print(team)
-                    break
+                    self?.presentBasicAuthLoginVC(withTeam: team)
                 }
             }
         )
-        addChildViewController(teamPickerVc)
-        view.addSubview(teamPickerVc.view)
-        teamPickerVc.view.snp.makeConstraints { make in
+        setVCAsCurrent(vc: teamPickerVc)
+    }
+
+    private func presentBasicAuthLoginVC(withTeam team: JIRATeam) {
+        let basicAuthViewModel = BasicAuthLoginViewModel(service: teamCheckService.loginService(forTeam: team))
+
+        let loginVc = BasicAuthLoginViewController(
+            team: team,
+            viewModel: basicAuthViewModel
+        )
+        setVCAsCurrent(vc: loginVc)
+    }
+
+    private func setVCAsCurrent(vc: NSViewController) {
+        childViewControllers.forEach { controller in
+            controller.removeFromParentViewController()
+        }
+        addChildViewController(vc)
+        view.addSubview(vc.view)
+        vc.view.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
     }

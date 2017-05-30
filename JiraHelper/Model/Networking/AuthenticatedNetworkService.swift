@@ -7,3 +7,24 @@
 //
 
 import Foundation
+import RxSwift
+
+final class AuthenticatedNetworkService {
+
+    private let networkService: NetworkService
+    private let authenticationType: AuthenticationType
+
+    init(networkService: NetworkService, authenticationType: AuthenticationType) {
+        self.networkService = networkService
+        self.authenticationType = authenticationType
+    }
+
+    func requestAuthenticated<T>(
+        basePath: String,
+        configuration: EndpointConfiguration<T>)
+        -> Observable<T> {
+            fatalError()
+    }
+
+
+}
