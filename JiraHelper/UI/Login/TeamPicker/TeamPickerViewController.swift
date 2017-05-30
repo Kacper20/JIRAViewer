@@ -40,7 +40,7 @@ final class TeamPickerViewController: NSViewController {
         return AnyObserver { [weak self] event in
             guard let `self` = self else { return }
             switch event {
-            case .completed:
+            case .next(.complete):
                 self.actionHandler(.teamPicked(self.viewModel.pickedTeam))
             default: break
             }

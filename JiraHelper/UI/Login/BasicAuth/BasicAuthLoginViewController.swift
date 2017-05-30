@@ -10,13 +10,18 @@ import Cocoa
 
 class BasicAuthLoginViewController: NSViewController {
 
+    @IBOutlet weak var usernameField: NSTextField!
+    @IBOutlet weak var passwordField: NSTextField!
+
+    @IBOutlet weak var loginButton: NSButton!
+
     private let team: JIRATeam
     private let basicAuthViewModel: BasicAuthLoginViewModel
 
     init(team: JIRATeam, viewModel: BasicAuthLoginViewModel) {
         self.team = team
         self.basicAuthViewModel = viewModel
-        super.init(nibName: String(describing: TeamPickerViewController.self), bundle: nil)!
+        super.init(nibName: String(describing: BasicAuthLoginViewController.self), bundle: nil)!
     }
     
     required init?(coder: NSCoder) {
@@ -26,5 +31,9 @@ class BasicAuthLoginViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+    }
+
+    private func setupBindings() {
+        
     }
 }

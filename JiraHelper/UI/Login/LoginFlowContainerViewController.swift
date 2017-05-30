@@ -57,6 +57,7 @@ final class LoginFlowContainerViewController: NSViewController {
     private func setVCAsCurrent(vc: NSViewController) {
         childViewControllers.forEach { controller in
             controller.removeFromParentViewController()
+            controller.view.removeFromSuperview()
         }
         addChildViewController(vc)
         view.addSubview(vc.view)

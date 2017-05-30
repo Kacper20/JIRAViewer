@@ -55,6 +55,7 @@
 		BB5695AA1EDB653F00B87510 /* BasicAuthLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5695A91EDB653F00B87510 /* BasicAuthLoginService.swift */; };
 		BB5695BC1EDDF6D300B87510 /* BasicAuthLoginEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5695BB1EDDF6D300B87510 /* BasicAuthLoginEndpoints.swift */; };
 		BB5695BE1EDDFC9C00B87510 /* BasicAuthLoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5695BD1EDDFC9C00B87510 /* BasicAuthLoginData.swift */; };
+		BB5695C01EDE0AB800B87510 /* Collections+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5695BF1EDE0AB800B87510 /* Collections+Extensions.swift */; };
 		BB62DE791E56293A00AA3577 /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB62DE781E56293A00AA3577 /* MainWindowController.xib */; };
 		BB62DE7D1E5634BA00AA3577 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB62DE7C1E5634BA00AA3577 /* MainMenu.xib */; };
 		BB62DEBC1E565A7800AA3577 /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB62DEBB1E565A7800AA3577 /* MainWindow.swift */; };
@@ -195,6 +196,7 @@
 		BB5695A91EDB653F00B87510 /* BasicAuthLoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicAuthLoginService.swift; sourceTree = "<group>"; };
 		BB5695BB1EDDF6D300B87510 /* BasicAuthLoginEndpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicAuthLoginEndpoints.swift; sourceTree = "<group>"; };
 		BB5695BD1EDDFC9C00B87510 /* BasicAuthLoginData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicAuthLoginData.swift; sourceTree = "<group>"; };
+		BB5695BF1EDE0AB800B87510 /* Collections+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collections+Extensions.swift"; sourceTree = "<group>"; };
 		BB62DE781E56293A00AA3577 /* MainWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindowController.xib; sourceTree = "<group>"; };
 		BB62DE7C1E5634BA00AA3577 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		BB62DEBB1E565A7800AA3577 /* MainWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
@@ -419,6 +421,7 @@
 				BB2046C01EBE0F7300084F34 /* Optionals.swift */,
 				BBD571FE1EC3B2C60061AD67 /* Observable+Extensions.swift */,
 				BB12D6EF1ED780A900FEA52A /* String+Extensions.swift */,
+				BB5695BF1EDE0AB800B87510 /* Collections+Extensions.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -835,6 +838,7 @@
 				BBA77B9B1E57922C00C9842C /* TextFieldStyles.swift in Sources */,
 				BBE003761E39534E00E1A2A4 /* AppDelegate.swift in Sources */,
 				BB12D6F31ED7825900FEA52A /* PasteboardService.swift in Sources */,
+				BB5695C01EDE0AB800B87510 /* Collections+Extensions.swift in Sources */,
 				BB12D6F01ED780A900FEA52A /* String+Extensions.swift in Sources */,
 				BB2046C41EBE112900084F34 /* SprintCollectionViewItem.swift in Sources */,
 				BB0A2BFF1EBFB8C500A19D60 /* LoginWindowController.swift in Sources */,
