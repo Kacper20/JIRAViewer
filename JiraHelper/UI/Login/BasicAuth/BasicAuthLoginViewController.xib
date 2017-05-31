@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="12120" systemVersion="16F43c" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12120"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="BasicAuthLoginViewController" customModule="JiraHelper" customModuleProvider="target">
+            <connections>
+                <outlet property="loginButton" destination="v1V-Fq-iOm" id="EcS-wb-e5i"/>
+                <outlet property="passwordField" destination="RMS-Dh-XoN" id="hQ5-KZ-cxA"/>
+                <outlet property="usernameField" destination="Uoq-cb-OPp" id="SDg-kY-RaQ"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="471" height="211"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RMS-Dh-XoN">
+                    <rect key="frame" x="20" y="137" width="431" height="22"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="9bL-Hk-RP3">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uoq-cb-OPp">
+                    <rect key="frame" x="20" y="169" width="431" height="22"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="6HI-fB-vd3">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="v1V-Fq-iOm">
+                    <rect key="frame" x="195" y="73" width="81" height="32"/>
+                    <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="jSt-hy-Qqu">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="Uoq-cb-OPp" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" symbolic="YES" id="7sm-Go-zW1"/>
+                <constraint firstItem="v1V-Fq-iOm" firstAttribute="centerX" secondItem="RMS-Dh-XoN" secondAttribute="centerX" id="AfG-0U-ZQ2"/>
+                <constraint firstItem="RMS-Dh-XoN" firstAttribute="top" secondItem="Uoq-cb-OPp" secondAttribute="bottom" constant="10" symbolic="YES" id="Mmo-ze-4OR"/>
+                <constraint firstAttribute="trailing" secondItem="Uoq-cb-OPp" secondAttribute="trailing" constant="20" symbolic="YES" id="RJs-fU-25F"/>
+                <constraint firstItem="v1V-Fq-iOm" firstAttribute="top" secondItem="RMS-Dh-XoN" secondAttribute="bottom" constant="36" id="WuE-uC-4Pp"/>
+                <constraint firstItem="v1V-Fq-iOm" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="Hz6-mo-xeY" secondAttribute="bottom" constant="20" symbolic="YES" id="Zi4-V9-Nap"/>
+                <constraint firstItem="Uoq-cb-OPp" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" symbolic="YES" id="lhw-BM-IbA"/>
+                <constraint firstItem="Uoq-cb-OPp" firstAttribute="leading" secondItem="RMS-Dh-XoN" secondAttribute="leading" id="ppP-q0-mjM"/>
+                <constraint firstItem="Uoq-cb-OPp" firstAttribute="trailing" secondItem="RMS-Dh-XoN" secondAttribute="trailing" id="ufb-SE-YVd"/>
+            </constraints>
+            <point key="canvasLocation" x="107" y="157"/>
+        </customView>
+    </objects>
+</document>

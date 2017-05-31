@@ -15,11 +15,33 @@ final class RootFlowController {
         case main(MainWindowController)
     }
 
+    private let networkService: NetworkService
+    private let authenticationProvider: AuthenticationProvider
+
     var currentFlow: CurrentFlow
 
-    init(teamCheckService: TeamCheckService) {
-        currentFlow = .login(LoginWindowController(teamCheckService: teamCheckService))
+    init(networkService: NetworkService, authenticationProvider: AuthenticationProvider) {
+        self.networkService = networkService
+        self.authenticationProvider = authenticationProvider
+
+        if let authentication = authenticationProvider.readAuthentication() {
+            let authenticatedService = AuthenticatedNetworkService(
+                networkService: networkService,
+                authenticationType: authentication
+            )
+            currentFlow = .main(MainWindowController(authenticatedNetworkService: authenticatedService))
+        } else {
+            let teamCheckService = TeamCheckService(networkService: networkService)
+            let loginWindowController = LoginWindowController(
+                teamCheckService: teamCheckService,
+                onFinished: { data in
+
+                }
+            )
+            currentFlow = .login(loginWindowController)
+        }
     }
+
 
     func present() {
         switch currentFlow {

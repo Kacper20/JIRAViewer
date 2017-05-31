@@ -91,6 +91,7 @@ final class NetworkService {
                 }
             case let .none(value):
                 observer.onNext(value)
+                observer.onCompleted()
             }
         } else {
             //TODO: Errors

@@ -19,8 +19,12 @@ final class TeamCheckService {
 
     func checkTeamAvailability(for name: String) -> Observable<Bool> {
         return networkService.request(
-            basePath: "https://\(name).atlassian.net/",
+            basePath: JIRARestAPI.host(for: name),
             configuration: TeamCheckEndpoints.team()
         ).map { _ in true }
+    }
+
+    func loginService(forTeam team: JIRATeam) -> BasicAuthLoginService {
+        return BasicAuthLoginService(networkService: networkService, team: team)
     }
 }

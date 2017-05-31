@@ -13,15 +13,15 @@ enum TeamPickerViewState {
     case loading
     case error(String)
     case normal
+    case complete //TODO: HACK
 }
 
 final class TeamPickerViewModel {
+    let teamName = Variable<String>("")
 
     private let disposeBag = DisposeBag()
 
-    let teamName = Variable<String>("")
     private let nonEmptyValidator = CommonValidators.nonEmptyString(message: "")
-
     private let teamCheckService: TeamCheckService
 
     //TODO: Inject these four
@@ -39,9 +39,10 @@ final class TeamPickerViewModel {
     }
 
     var isValid: Observable<Bool> {
+        let validatorUsed = nonEmptyValidator
         return teamName
             .asObservable()
-            .map(nonEmptyValidator.validate)
+            .map(validatorUsed.validate)
             .map { $0.isValid }
     }
 
@@ -52,9 +53,10 @@ final class TeamPickerViewModel {
 
             let disposable = self.teamCheckService.checkTeamAvailability(for: self.teamName.value)
                 .subscribe(onNext: { value in
-                    observer.onNext(.normal)
+                    observer.onNext(.complete)
                     observer.onCompleted()
                     }, onError: { error in
+                        //TODO: Handling errors
                 })
             return disposable
         }

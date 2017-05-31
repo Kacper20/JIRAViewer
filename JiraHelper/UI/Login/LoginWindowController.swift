@@ -12,9 +12,11 @@ class LoginWindowController: NSWindowController {
 
     private var loginFlowContainer: LoginFlowContainerViewController?
     private let teamCheckService: TeamCheckService
+    private let onFinished: (LoginFlowCompletedData) -> Void
 
-    init(teamCheckService: TeamCheckService) {
+    init(teamCheckService: TeamCheckService, onFinished: @escaping (LoginFlowCompletedData) -> Void) {
         self.teamCheckService = teamCheckService
+        self.onFinished = onFinished
         super.init(window: nil)
     }
     
@@ -28,7 +30,11 @@ class LoginWindowController: NSWindowController {
     override func windowDidLoad() {
         super.windowDidLoad()
 
-        let loginFlowContainer = LoginFlowContainerViewController(teamCheckService: teamCheckService)
+        let loginFlowContainer = LoginFlowContainerViewController(
+            teamCheckService: teamCheckService,
+            onFinished: { [weak self] data in
+                self?.onFinished(data)
+            })
         self.loginFlowContainer = loginFlowContainer
         window?.contentView?.addSubview(loginFlowContainer.view)
         loginFlowContainer.view.snp.makeConstraints { make in

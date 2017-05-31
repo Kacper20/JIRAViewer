@@ -16,4 +16,15 @@ struct JIRARestAPI {
     static func buildUrl(with resourcePath: String) -> String {
         return apiPath + resourcePath
     }
+
+    static func host(for teamName: String) -> String {
+        return "https://\(teamName).atlassian.net/"
+    }
+
+    static func basicAuthHeaders(username: String, password: String) -> [String : String] {
+        let passwordString = "\(username):\(password)"
+        guard let data = passwordString.data(using: .utf8) else { return [:] }
+        let base64Encoded = data.base64EncodedString()
+        return ["Authorization" : "Basic \(base64Encoded)"]
+    }
 }
