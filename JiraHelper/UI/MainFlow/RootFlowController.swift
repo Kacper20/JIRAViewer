@@ -36,7 +36,7 @@ final class RootFlowController {
                 teamCheckService: teamCheckService,
                 onFinished: { data in
 
-            }
+                }
             )
             currentFlow = .login(loginWindowController)
         }
