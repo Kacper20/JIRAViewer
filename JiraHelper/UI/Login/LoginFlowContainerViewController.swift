@@ -8,12 +8,22 @@
 
 import Foundation
 
+struct LoginFlowCompletedData {
+    let team: JIRATeam
+    let authData: BasicAuthLoginData
+}
+
 final class LoginFlowContainerViewController: NSViewController {
 
     private let teamCheckService: TeamCheckService
+    private let onFinished: (LoginFlowCompletedData) -> Void
 
-    init(teamCheckService: TeamCheckService) {
+    init(
+        teamCheckService: TeamCheckService,
+        onFinished: @escaping (LoginFlowCompletedData) -> Void
+        ) {
         self.teamCheckService = teamCheckService
+        self.onFinished = onFinished
         super.init(nibName: nil, bundle: nil)!
     }
     
@@ -49,7 +59,12 @@ final class LoginFlowContainerViewController: NSViewController {
 
         let loginVc = BasicAuthLoginViewController(
             team: team,
-            viewModel: basicAuthViewModel
+            viewModel: basicAuthViewModel,
+            onLoggedIn: { [weak self] data in
+                self?.onFinished(
+                    LoginFlowCompletedData(team: team, authData: data)
+                )
+            }
         )
         setVCAsCurrent(vc: loginVc)
     }
