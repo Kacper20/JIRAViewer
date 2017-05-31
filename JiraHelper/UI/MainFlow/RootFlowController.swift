@@ -29,6 +29,7 @@ final class RootFlowController {
                 networkService: networkService,
                 authenticationType: authentication
             )
+            currentFlow = .main(MainWindowController(authenticatedNetworkService: authenticatedService))
         } else {
             let teamCheckService = TeamCheckService(networkService: networkService)
             let loginWindowController = LoginWindowController(
@@ -40,6 +41,7 @@ final class RootFlowController {
             currentFlow = .login(loginWindowController)
         }
     }
+
 
     func present() {
         switch currentFlow {

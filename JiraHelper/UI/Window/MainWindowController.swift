@@ -9,6 +9,8 @@ import AppKit
 final class MainWindowController: NSWindowController {
 
     @IBOutlet weak var visualEffectView: NSVisualEffectView!
+
+    private let authenticatedNetworkService: AuthenticatedNetworkService
     
     private var mainViewController: MainViewController?
 
@@ -16,8 +18,13 @@ final class MainWindowController: NSWindowController {
         return "MainWindowController"
     }
 
-    convenience init() {
-        self.init(window: nil)
+    init(authenticatedNetworkService: AuthenticatedNetworkService) {
+        self.authenticatedNetworkService = authenticatedNetworkService
+        super.init(window: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     override func windowDidLoad() {

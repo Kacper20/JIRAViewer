@@ -25,7 +25,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //            }
 //        })
         let networkService = NetworkService()
-        rootFlowController = RootFlowController(networkService: networkService)
+        let authenticationProvider = AuthenticationProvider()
+        rootFlowController = RootFlowController(
+            networkService: networkService,
+            authenticationProvider: authenticationProvider
+        )
         rootFlowController?.present()
     }
 
