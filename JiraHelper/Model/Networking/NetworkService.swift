@@ -8,6 +8,7 @@
 
 import Foundation
 import RxSwift
+import Mapper
 import Alamofire
 
 enum NetworkServiceError: Error {
@@ -81,9 +82,10 @@ final class NetworkService {
             case .dictionary(generation: let generationFunc):
                 if let json = try? JSONSerialization.jsonObject(with: data, options: []),
                     let dict = json as? [String : AnyObject] {
+                    let mapper = Mapper(JSON: dict as NSDictionary)
                     parseResourceAndNotifyObserver(
                         observer: observer,
-                        data: dict,
+                        data: mapper,
                         resourceGeneration: generationFunc
                     )
                 } else {

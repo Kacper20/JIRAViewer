@@ -1,15 +1,15 @@
 //
-//  BasicAuthLoginService.swift
+//  CookiesAuthLoginService.swift
 //  JiraHelper
 //
-//  Created by Kacper Harasim on 28.05.2017.
+//  Created by Kacper Harasim on 02.06.2017.
 //  Copyright © 2017 Kacper Harasim. All rights reserved.
 //
 
 import Foundation
 import RxSwift
 
-final class BasicAuthLoginService {
+final class CookiesAuthLoginService {
     private let networkService: NetworkService
     private let team: JIRATeam
 
@@ -18,10 +18,10 @@ final class BasicAuthLoginService {
         self.team = team
     }
 
-    func login(with data: BasicAuthLoginData) -> Observable<Void> {
+    func login(with data: LoginData) -> Observable<CookieSession> {
         return networkService.request(
             basePath: JIRARestAPI.host(for: team.name),
-            configuration: BasicAuthLoginEndpoints.login(with: data)
+            configuration: CookieAuthLoginEndpoints.login(with: data)
         )
     }
 }

@@ -27,4 +27,17 @@ struct JIRARestAPI {
         let base64Encoded = data.base64EncodedString()
         return ["Authorization" : "Basic \(base64Encoded)"]
     }
+
+    enum RequestType {
+        case authorization
+        case api
+    }
+
+    static func buildApiPath(for resourcePath: String) -> String {
+        return "/rest/agile/1" + resourcePath
+    }
+
+    static func buildAuthPath(for resourcePath: String) -> String {
+        return "/rest/auth/1" + resourcePath
+    }
 }

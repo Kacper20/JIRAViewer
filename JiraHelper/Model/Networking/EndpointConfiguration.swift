@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import Mapper
 
 typealias NetworkRequestMethod = Alamofire.HTTPMethod
 typealias NetworkRequestParameterEncoding = Alamofire.ParameterEncoding
@@ -16,7 +17,7 @@ typealias URLEncoding = Alamofire.URLEncoding
 
 struct EndpointConfiguration<Resource> {
     indirect enum ResourceOrigin {
-        case dictionary(generation: ([String : AnyObject]) throws -> Resource)
+        case dictionary(generation: (Mapper) throws -> Resource)
         case data(generation: (Data) throws -> Resource)
         case none(Resource)
     }

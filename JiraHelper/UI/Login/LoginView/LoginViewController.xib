@@ -6,7 +6,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="BasicAuthLoginViewController" customModule="JiraHelper" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="LoginViewController" customModule="JiraHelper" customModuleProvider="target">
             <connections>
                 <outlet property="loginButton" destination="v1V-Fq-iOm" id="EcS-wb-e5i"/>
                 <outlet property="passwordField" destination="RMS-Dh-XoN" id="hQ5-KZ-cxA"/>

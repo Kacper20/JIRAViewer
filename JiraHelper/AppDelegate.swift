@@ -31,6 +31,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             authenticationProvider: authenticationProvider
         )
         rootFlowController?.present()
+
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

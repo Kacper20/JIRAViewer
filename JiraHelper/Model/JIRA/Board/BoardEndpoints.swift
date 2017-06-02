@@ -17,9 +17,9 @@ enum BoardEndpoints {
             encoding: JSONEncoding.default,
             headers: [:],
             parameters: [:],
-            resourceType: .dictionary(generation: { dict in
+            resourceType: .dictionary(generation: { mapper in
                 return try ArrayOfValuesWithPagingData(
-                    map: Mapper(JSON: dict as NSDictionary),
+                    map: mapper,
                     valuesKey: JIRARestAPI.paginationValuesKey
                 )
             })

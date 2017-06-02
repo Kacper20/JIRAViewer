@@ -10,7 +10,7 @@ import Foundation
 
 struct LoginFlowCompletedData {
     let team: JIRATeam
-    let authData: BasicAuthLoginData
+    let authData: LoginData
 }
 
 final class LoginFlowContainerViewController: NSViewController {
@@ -55,9 +55,9 @@ final class LoginFlowContainerViewController: NSViewController {
     }
 
     private func presentBasicAuthLoginVC(withTeam team: JIRATeam) {
-        let basicAuthViewModel = BasicAuthLoginViewModel(service: teamCheckService.loginService(forTeam: team))
+        let basicAuthViewModel = LoginViewModel(service: teamCheckService.loginService(forTeam: team))
 
-        let loginVc = BasicAuthLoginViewController(
+        let loginVc = LoginViewController(
             team: team,
             viewModel: basicAuthViewModel,
             onLoggedIn: { [weak self] data in

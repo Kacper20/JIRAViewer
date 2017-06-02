@@ -1,5 +1,5 @@
 //
-//  BasicAuthLoginViewModel.swift
+//  LoginViewModel.swift
 //  JiraHelper
 //
 //  Created by Kacper Harasim on 28.05.2017.
@@ -9,14 +9,14 @@
 import Foundation
 import RxSwift
 
-enum BasicAuthLoginViewState {
+enum LoginViewState<CompletionResult> {
     case loading
     case error(String)
     case normal
-    case complete(data: BasicAuthLoginData)
+    case complete(data: CompletionResult)
 }
 
-final class BasicAuthLoginViewModel {
+final class LoginViewModel {
 
     let username = Variable<String>("")
     let password = Variable<String>("")
@@ -37,12 +37,12 @@ final class BasicAuthLoginViewModel {
         }
     }
 
-    func proceedWithRequest() -> Observable<BasicAuthLoginViewState> {
+    func proceedWithRequest() -> Observable<LoginViewState> {
         return Observable.create { [weak self] observer in
             guard let `self` = self else { return Disposables.create() }
             observer.onNext(.loading)
 
-            let loginData = BasicAuthLoginData(
+            let loginData = LoginData(
                 username: self.username.value,
                 password: self.password.value
             )

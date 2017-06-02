@@ -49,12 +49,9 @@
 		BB56959B1EDB5B8A00B87510 /* Locksmith.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BB56959A1EDB5B8A00B87510 /* Locksmith.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BB56959D1EDB5B9A00B87510 /* Locksmith.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = BB56959C1EDB5B9A00B87510 /* Locksmith.framework.dSYM */; };
 		BB5695A01EDB5C7000B87510 /* CheckMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB56959F1EDB5C7000B87510 /* CheckMarkView.swift */; };
-		BB5695A41EDB5D5300B87510 /* BasicAuthLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5695A21EDB5D5300B87510 /* BasicAuthLoginViewController.swift */; };
-		BB5695A51EDB5D5300B87510 /* BasicAuthLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB5695A31EDB5D5300B87510 /* BasicAuthLoginViewController.xib */; };
-		BB5695A71EDB647000B87510 /* BasicAuthLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5695A61EDB647000B87510 /* BasicAuthLoginViewModel.swift */; };
-		BB5695AA1EDB653F00B87510 /* BasicAuthLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5695A91EDB653F00B87510 /* BasicAuthLoginService.swift */; };
-		BB5695BC1EDDF6D300B87510 /* BasicAuthLoginEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5695BB1EDDF6D300B87510 /* BasicAuthLoginEndpoints.swift */; };
-		BB5695BE1EDDFC9C00B87510 /* BasicAuthLoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5695BD1EDDFC9C00B87510 /* BasicAuthLoginData.swift */; };
+		BB5695A41EDB5D5300B87510 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5695A21EDB5D5300B87510 /* LoginViewController.swift */; };
+		BB5695A51EDB5D5300B87510 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB5695A31EDB5D5300B87510 /* LoginViewController.xib */; };
+		BB5695A71EDB647000B87510 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5695A61EDB647000B87510 /* LoginViewModel.swift */; };
 		BB5695C01EDE0AB800B87510 /* Collections+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5695BF1EDE0AB800B87510 /* Collections+Extensions.swift */; };
 		BB62DE791E56293A00AA3577 /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB62DE781E56293A00AA3577 /* MainWindowController.xib */; };
 		BB62DE7D1E5634BA00AA3577 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB62DE7C1E5634BA00AA3577 /* MainMenu.xib */; };
@@ -89,6 +86,12 @@
 		BBE003BA1E3966EF00E1A2A4 /* MASShortcut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE003B91E3966EF00E1A2A4 /* MASShortcut.framework */; };
 		BBE003BB1E3966EF00E1A2A4 /* MASShortcut.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BBE003B91E3966EF00E1A2A4 /* MASShortcut.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BBE003BD1E39670400E1A2A4 /* MASShortcut.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBE003BC1E39670400E1A2A4 /* MASShortcut.framework.dSYM */; };
+		BBFC65391EE1FDCC005C1EFB /* LoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFC65381EE1FDCC005C1EFB /* LoginData.swift */; };
+		BBFC653D1EE1FDFA005C1EFB /* BasicAuthLoginEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFC653B1EE1FDFA005C1EFB /* BasicAuthLoginEndpoints.swift */; };
+		BBFC653E1EE1FDFA005C1EFB /* BasicAuthLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFC653C1EE1FDFA005C1EFB /* BasicAuthLoginService.swift */; };
+		BBFC65411EE2020D005C1EFB /* CookiesAuthLoginEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFC65401EE2020D005C1EFB /* CookiesAuthLoginEndpoints.swift */; };
+		BBFC65431EE20319005C1EFB /* CookieSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFC65421EE20319005C1EFB /* CookieSession.swift */; };
+		BBFC65451EE20557005C1EFB /* CookiesAuthLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFC65441EE20557005C1EFB /* CookiesAuthLoginService.swift */; };
 		FA6E351536938100E1D24BBE /* TextInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E3DCE04F5BFDCA73B1FEF /* TextInputViewController.swift */; };
 		FA6E3C6DED0B860D768D19B1 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E3E0F84798393906871DE /* MainWindowController.swift */; };
 /* End PBXBuildFile section */
@@ -190,12 +193,9 @@
 		BB56959A1EDB5B8A00B87510 /* Locksmith.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Locksmith.framework; path = Carthage/Build/Mac/Locksmith.framework; sourceTree = "<group>"; };
 		BB56959C1EDB5B9A00B87510 /* Locksmith.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Locksmith.framework.dSYM; path = Carthage/Build/Mac/Locksmith.framework.dSYM; sourceTree = "<group>"; };
 		BB56959F1EDB5C7000B87510 /* CheckMarkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckMarkView.swift; sourceTree = "<group>"; };
-		BB5695A21EDB5D5300B87510 /* BasicAuthLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BasicAuthLoginViewController.swift; path = BasicAuth/BasicAuthLoginViewController.swift; sourceTree = "<group>"; };
-		BB5695A31EDB5D5300B87510 /* BasicAuthLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BasicAuthLoginViewController.xib; path = BasicAuth/BasicAuthLoginViewController.xib; sourceTree = "<group>"; };
-		BB5695A61EDB647000B87510 /* BasicAuthLoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicAuthLoginViewModel.swift; sourceTree = "<group>"; };
-		BB5695A91EDB653F00B87510 /* BasicAuthLoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicAuthLoginService.swift; sourceTree = "<group>"; };
-		BB5695BB1EDDF6D300B87510 /* BasicAuthLoginEndpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicAuthLoginEndpoints.swift; sourceTree = "<group>"; };
-		BB5695BD1EDDFC9C00B87510 /* BasicAuthLoginData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicAuthLoginData.swift; sourceTree = "<group>"; };
+		BB5695A21EDB5D5300B87510 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		BB5695A31EDB5D5300B87510 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		BB5695A61EDB647000B87510 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		BB5695BF1EDE0AB800B87510 /* Collections+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collections+Extensions.swift"; sourceTree = "<group>"; };
 		BB62DE781E56293A00AA3577 /* MainWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindowController.xib; sourceTree = "<group>"; };
 		BB62DE7C1E5634BA00AA3577 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
@@ -232,6 +232,12 @@
 		BBE003B81E39617000E1A2A4 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		BBE003B91E3966EF00E1A2A4 /* MASShortcut.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MASShortcut.framework; path = Carthage/Build/Mac/MASShortcut.framework; sourceTree = "<group>"; };
 		BBE003BC1E39670400E1A2A4 /* MASShortcut.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = MASShortcut.framework.dSYM; path = Carthage/Build/Mac/MASShortcut.framework.dSYM; sourceTree = "<group>"; };
+		BBFC65381EE1FDCC005C1EFB /* LoginData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginData.swift; sourceTree = "<group>"; };
+		BBFC653B1EE1FDFA005C1EFB /* BasicAuthLoginEndpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicAuthLoginEndpoints.swift; sourceTree = "<group>"; };
+		BBFC653C1EE1FDFA005C1EFB /* BasicAuthLoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicAuthLoginService.swift; sourceTree = "<group>"; };
+		BBFC65401EE2020D005C1EFB /* CookiesAuthLoginEndpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CookiesAuthLoginEndpoints.swift; sourceTree = "<group>"; };
+		BBFC65421EE20319005C1EFB /* CookieSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CookieSession.swift; sourceTree = "<group>"; };
+		BBFC65441EE20557005C1EFB /* CookiesAuthLoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CookiesAuthLoginService.swift; sourceTree = "<group>"; };
 		FA6E3DCE04F5BFDCA73B1FEF /* TextInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextInputViewController.swift; sourceTree = "<group>"; };
 		FA6E3E0F84798393906871DE /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -289,7 +295,7 @@
 		BB0A2BE41EBF6BB300A19D60 /* JIRA */ = {
 			isa = PBXGroup;
 			children = (
-				BB5695A81EDB651600B87510 /* BasicAuthLogin */,
+				BBFC65371EE1FDA5005C1EFB /* Login */,
 				BB0A2C081EC12DD200A19D60 /* TeamCheck */,
 				BB0A2BF21EBF9B9700A19D60 /* Authentication */,
 				BB0A2BEF1EBF8CD700A19D60 /* Paging */,
@@ -346,7 +352,7 @@
 		BB0A2BF81EBFB58C00A19D60 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				BB5695A11EDB5D3400B87510 /* BasicAuth */,
+				BB5695A11EDB5D3400B87510 /* LoginView */,
 				BB0A2C011EBFBAC600A19D60 /* TeamPicker */,
 				BB0A2BFD1EBFB8C500A19D60 /* LoginWindowController.swift */,
 				BB0A2BFE1EBFB8C500A19D60 /* LoginWindowController.xib */,
@@ -465,24 +471,14 @@
 			path = Icons;
 			sourceTree = "<group>";
 		};
-		BB5695A11EDB5D3400B87510 /* BasicAuth */ = {
+		BB5695A11EDB5D3400B87510 /* LoginView */ = {
 			isa = PBXGroup;
 			children = (
-				BB5695A21EDB5D5300B87510 /* BasicAuthLoginViewController.swift */,
-				BB5695A31EDB5D5300B87510 /* BasicAuthLoginViewController.xib */,
-				BB5695A61EDB647000B87510 /* BasicAuthLoginViewModel.swift */,
+				BB5695A21EDB5D5300B87510 /* LoginViewController.swift */,
+				BB5695A31EDB5D5300B87510 /* LoginViewController.xib */,
+				BB5695A61EDB647000B87510 /* LoginViewModel.swift */,
 			);
-			name = BasicAuth;
-			sourceTree = "<group>";
-		};
-		BB5695A81EDB651600B87510 /* BasicAuthLogin */ = {
-			isa = PBXGroup;
-			children = (
-				BB5695A91EDB653F00B87510 /* BasicAuthLoginService.swift */,
-				BB5695BB1EDDF6D300B87510 /* BasicAuthLoginEndpoints.swift */,
-				BB5695BD1EDDFC9C00B87510 /* BasicAuthLoginData.swift */,
-			);
-			path = BasicAuthLogin;
+			path = LoginView;
 			sourceTree = "<group>";
 		};
 		BB62DE751E5623C000AA3577 /* UI */ = {
@@ -668,6 +664,35 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BBFC65371EE1FDA5005C1EFB /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				BBFC653F1EE1FE02005C1EFB /* Cookies */,
+				BBFC653A1EE1FDDB005C1EFB /* BasicAuth */,
+				BBFC65381EE1FDCC005C1EFB /* LoginData.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		BBFC653A1EE1FDDB005C1EFB /* BasicAuth */ = {
+			isa = PBXGroup;
+			children = (
+				BBFC653B1EE1FDFA005C1EFB /* BasicAuthLoginEndpoints.swift */,
+				BBFC653C1EE1FDFA005C1EFB /* BasicAuthLoginService.swift */,
+			);
+			path = BasicAuth;
+			sourceTree = "<group>";
+		};
+		BBFC653F1EE1FE02005C1EFB /* Cookies */ = {
+			isa = PBXGroup;
+			children = (
+				BBFC65401EE2020D005C1EFB /* CookiesAuthLoginEndpoints.swift */,
+				BBFC65421EE20319005C1EFB /* CookieSession.swift */,
+				BBFC65441EE20557005C1EFB /* CookiesAuthLoginService.swift */,
+			);
+			name = Cookies;
+			sourceTree = "<group>";
+		};
 		FA6E385260CF027AC4DC0830 /* TextInput */ = {
 			isa = PBXGroup;
 			children = (
@@ -806,7 +831,7 @@
 				BB62DE791E56293A00AA3577 /* MainWindowController.xib in Resources */,
 				BB2046BC1EBE0AB000084F34 /* SprintViewController.xib in Resources */,
 				BB62DE7D1E5634BA00AA3577 /* MainMenu.xib in Resources */,
-				BB5695A51EDB5D5300B87510 /* BasicAuthLoginViewController.xib in Resources */,
+				BB5695A51EDB5D5300B87510 /* LoginViewController.xib in Resources */,
 				BB0A2C001EBFB8C500A19D60 /* LoginWindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -834,6 +859,7 @@
 			files = (
 				BB2FC6751EC264BD0031917B /* TeamPickerViewModel.swift in Sources */,
 				BB53D42D1EDA060500BBC607 /* AppLifecycleMonitor.swift in Sources */,
+				BBFC65391EE1FDCC005C1EFB /* LoginData.swift in Sources */,
 				BB2046C11EBE0F7300084F34 /* Optionals.swift in Sources */,
 				BBA77B9B1E57922C00C9842C /* TextFieldStyles.swift in Sources */,
 				BBE003761E39534E00E1A2A4 /* AppDelegate.swift in Sources */,
@@ -841,8 +867,9 @@
 				BB5695C01EDE0AB800B87510 /* Collections+Extensions.swift in Sources */,
 				BB12D6F01ED780A900FEA52A /* String+Extensions.swift in Sources */,
 				BB2046C41EBE112900084F34 /* SprintCollectionViewItem.swift in Sources */,
+				BBFC65411EE2020D005C1EFB /* CookiesAuthLoginEndpoints.swift in Sources */,
 				BB0A2BFF1EBFB8C500A19D60 /* LoginWindowController.swift in Sources */,
-				BB5695A41EDB5D5300B87510 /* BasicAuthLoginViewController.swift in Sources */,
+				BB5695A41EDB5D5300B87510 /* LoginViewController.swift in Sources */,
 				BB503C6A1EDACCA0002BDF54 /* BasicAuthenticationStorage.swift in Sources */,
 				BB0A2BDE1EBF4B8A00A19D60 /* NetworkService.swift in Sources */,
 				BBA77BA31E57A0C600C9842C /* VerticallyCenteredTextFieldCell.swift in Sources */,
@@ -855,9 +882,11 @@
 				BB503C6F1EDB0043002BDF54 /* AuthenticatedNetworkService.swift in Sources */,
 				BB0A2BCF1EBF448100A19D60 /* EndpointConfiguration.swift in Sources */,
 				BBA77BAB1E57A62300C9842C /* MaskImage.swift in Sources */,
+				BBFC65451EE20557005C1EFB /* CookiesAuthLoginService.swift in Sources */,
 				BB0A2C0C1EC12F0400A19D60 /* TeamCheckEndpoints.swift in Sources */,
 				BB0A2BF41EBF9C8400A19D60 /* AuthenticationProvider.swift in Sources */,
 				BB0A2BD31EBF47B600A19D60 /* Logger.swift in Sources */,
+				BBFC65431EE20319005C1EFB /* CookieSession.swift in Sources */,
 				BBD571FB1EC37D3E0061AD67 /* Validator.swift in Sources */,
 				BB0A2C041EBFBB3100A19D60 /* TeamPickerViewController.swift in Sources */,
 				BB0A2C0A1EC12EF400A19D60 /* TeamCheckService.swift in Sources */,
@@ -865,17 +894,15 @@
 				BB0A2BEB1EBF839000A19D60 /* BoardEndpoints.swift in Sources */,
 				FA6E3C6DED0B860D768D19B1 /* MainWindowController.swift in Sources */,
 				BBA77B9D1E579D1600C9842C /* SprintViewController.swift in Sources */,
-				BB5695BE1EDDFC9C00B87510 /* BasicAuthLoginData.swift in Sources */,
 				BB2046B71EBE095700084F34 /* KanbanCollectionViewLayout.swift in Sources */,
-				BB5695A71EDB647000B87510 /* BasicAuthLoginViewModel.swift in Sources */,
-				BB5695BC1EDDF6D300B87510 /* BasicAuthLoginEndpoints.swift in Sources */,
+				BB5695A71EDB647000B87510 /* LoginViewModel.swift in Sources */,
 				BB5695991EDB5A9700B87510 /* JIRASpotlightStyleKit.swift in Sources */,
 				BB62DEBC1E565A7800AA3577 /* MainWindow.swift in Sources */,
-				BB5695AA1EDB653F00B87510 /* BasicAuthLoginService.swift in Sources */,
 				BB53D4301EDA0D5700BBC607 /* TwoWayBindingOperator.swift in Sources */,
 				BB0A2BC91EBE45AB00A19D60 /* SprintCollectionView.swift in Sources */,
 				BBA77BA61E57A3F200C9842C /* MainViewController.swift in Sources */,
 				BB19FBBA1ED624B00094E83F /* TeamURLExtractor.swift in Sources */,
+				BBFC653E1EE1FDFA005C1EFB /* BasicAuthLoginService.swift in Sources */,
 				BBA77B941E57904100C9842C /* StylingProtocol.swift in Sources */,
 				BB0A2BE71EBF6C5A00A19D60 /* Board.swift in Sources */,
 				BBD571FD1EC37F620061AD67 /* CommonValidators.swift in Sources */,
@@ -883,6 +910,7 @@
 				BB0A2BEE1EBF8A2600A19D60 /* JIRARestAPI.swift in Sources */,
 				BB0A2BF71EBFB4AA00A19D60 /* RootFlowController.swift in Sources */,
 				FA6E351536938100E1D24BBE /* TextInputViewController.swift in Sources */,
+				BBFC653D1EE1FDFA005C1EFB /* BasicAuthLoginEndpoints.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
