@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 
-final class CookiesAuthLoginService {
+final class CookiesAuthLoginService: LoginService {
     private let networkService: NetworkService
     private let team: JIRATeam
 

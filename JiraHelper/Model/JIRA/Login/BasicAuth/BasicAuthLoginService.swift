@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 
-final class BasicAuthLoginService {
+final class BasicAuthLoginService: LoginService {
     private let networkService: NetworkService
     private let team: JIRATeam
 
@@ -18,10 +18,10 @@ final class BasicAuthLoginService {
         self.team = team
     }
 
-    func login(with data: LoginData) -> Observable<Void> {
+    func login(with data: LoginData) -> Observable<LoginData> {
         return networkService.request(
             basePath: JIRARestAPI.host(for: team.name),
             configuration: BasicAuthLoginEndpoints.login(with: data)
-        )
+        ).map { _ in data }
     }
 }

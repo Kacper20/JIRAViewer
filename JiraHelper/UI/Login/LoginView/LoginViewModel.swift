@@ -16,16 +16,16 @@ enum LoginViewState<CompletionResult> {
     case complete(data: CompletionResult)
 }
 
-final class LoginViewModel {
+final class LoginViewModel<T: LoginService> {
 
     let username = Variable<String>("")
     let password = Variable<String>("")
 
     private let nonEmptyValidator = CommonValidators.nonEmptyString(message: "")
 
-    private let service: BasicAuthLoginService
+    private let service: T
 
-    init(service: BasicAuthLoginService) {
+    init(service: T) {
         self.service = service
     }
 
@@ -37,7 +37,7 @@ final class LoginViewModel {
         }
     }
 
-    func proceedWithRequest() -> Observable<LoginViewState> {
+    func proceedWithRequest() -> Observable<LoginViewState<T.Result>> {
         return Observable.create { [weak self] observer in
             guard let `self` = self else { return Disposables.create() }
             observer.onNext(.loading)
@@ -49,7 +49,7 @@ final class LoginViewModel {
             let disposable = self.service.login(
                 with: loginData)
                 .subscribe(onNext: { value in
-                    observer.onNext(.complete(data: loginData))
+//                    observer.onNext(.complete(data: loginData))
                     observer.onCompleted()
                 }, onError: { error in
                     //TODO: Handle error
