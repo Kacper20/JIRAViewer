@@ -16,7 +16,18 @@ enum LoginViewState<CompletionResult> {
     case complete(data: CompletionResult)
 }
 
-final class LoginViewModel<T: LoginService> {
+protocol LoginViewModelType {
+    var username: Variable<String> { get }
+    var password: Variable<String> { get }
+
+    var isValid: Observable<Bool> { get }
+
+    associatedtype LoginResult
+
+    func proceedWithRequest() -> Observable<LoginViewState<LoginResult>>
+}
+
+final class LoginViewModel<T: LoginService>: LoginViewModelType {
 
     let username = Variable<String>("")
     let password = Variable<String>("")

@@ -93,6 +93,7 @@
 		BBFC65431EE20319005C1EFB /* CookieSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFC65421EE20319005C1EFB /* CookieSession.swift */; };
 		BBFC65451EE20557005C1EFB /* CookiesAuthLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFC65441EE20557005C1EFB /* CookiesAuthLoginService.swift */; };
 		BBFC65471EE218B0005C1EFB /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFC65461EE218B0005C1EFB /* LoginService.swift */; };
+		BBFC654A1EE307EA005C1EFB /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFC65491EE307EA005C1EFB /* Environment.swift */; };
 		FA6E351536938100E1D24BBE /* TextInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E3DCE04F5BFDCA73B1FEF /* TextInputViewController.swift */; };
 		FA6E3C6DED0B860D768D19B1 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E3E0F84798393906871DE /* MainWindowController.swift */; };
 /* End PBXBuildFile section */
@@ -240,6 +241,7 @@
 		BBFC65421EE20319005C1EFB /* CookieSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CookieSession.swift; sourceTree = "<group>"; };
 		BBFC65441EE20557005C1EFB /* CookiesAuthLoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CookiesAuthLoginService.swift; sourceTree = "<group>"; };
 		BBFC65461EE218B0005C1EFB /* LoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		BBFC65491EE307EA005C1EFB /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		FA6E3DCE04F5BFDCA73B1FEF /* TextInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextInputViewController.swift; sourceTree = "<group>"; };
 		FA6E3E0F84798393906871DE /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -539,6 +541,7 @@
 		BBA77BA01E579D3D00C9842C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BBFC65481EE306BC005C1EFB /* Environment */,
 				BB12D6F11ED7815000FEA52A /* Pasteboard */,
 				BBD571F91EC37D2F0061AD67 /* Validators */,
 				BB0A2BE41EBF6BB300A19D60 /* JIRA */,
@@ -694,6 +697,14 @@
 				BBFC65441EE20557005C1EFB /* CookiesAuthLoginService.swift */,
 			);
 			name = Cookies;
+			sourceTree = "<group>";
+		};
+		BBFC65481EE306BC005C1EFB /* Environment */ = {
+			isa = PBXGroup;
+			children = (
+				BBFC65491EE307EA005C1EFB /* Environment.swift */,
+			);
+			path = Environment;
 			sourceTree = "<group>";
 		};
 		FA6E385260CF027AC4DC0830 /* TextInput */ = {
@@ -877,6 +888,7 @@
 				BB0A2BDE1EBF4B8A00A19D60 /* NetworkService.swift in Sources */,
 				BBA77BA31E57A0C600C9842C /* VerticallyCenteredTextFieldCell.swift in Sources */,
 				BB0A2BF11EBF8D4100A19D60 /* PagingData.swift in Sources */,
+				BBFC654A1EE307EA005C1EFB /* Environment.swift in Sources */,
 				BBFC65471EE218B0005C1EFB /* LoginService.swift in Sources */,
 				BB53D4341EDA1A8400BBC607 /* NetworkLogger.swift in Sources */,
 				BB0A2C071EBFBDF500A19D60 /* LoginFlowContainerViewController.swift in Sources */,

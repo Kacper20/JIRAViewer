@@ -55,18 +55,32 @@ final class LoginFlowContainerViewController: NSViewController {
     }
 
     private func presentBasicAuthLoginVC(withTeam team: JIRATeam) {
-        let basicAuthViewModel = LoginViewModel(service: teamCheckService.loginService(forTeam: team))
-
-        let loginVc = LoginViewController(
-            team: team,
-            viewModel: basicAuthViewModel,
-            onLoggedIn: { [weak self] data in
-                self?.onFinished(
-                    LoginFlowCompletedData(team: team, authData: data)
-                )
-            }
-        )
-        setVCAsCurrent(vc: loginVc)
+        switch teamCheckService.loginService(forTeam: team) {
+        case .basicAuth(let service):
+            let viewModel = LoginViewModel(service: service)
+            let loginVc = LoginViewController(
+                team: team,
+                viewModel: viewModel,
+                onLoggedIn: { [weak self] data in
+                    self?.onFinished(
+                        LoginFlowCompletedData(team: team, authData: data)
+                    )
+                }
+            )
+            setVCAsCurrent(vc: loginVc)
+        case .cookies(let service):
+            let viewModel = LoginViewModel(service: service)
+            let loginVc = LoginViewController(
+                team: team,
+                viewModel: viewModel,
+                onLoggedIn: { [weak self] data in
+                    self?.onFinished(
+                        LoginFlowCompletedData(team: team, authData: data)
+                    )
+                }
+            )
+            setVCAsCurrent(vc: loginVc)
+        }
     }
 
     private func setVCAsCurrent(vc: NSViewController) {

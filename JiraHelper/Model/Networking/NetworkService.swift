@@ -34,7 +34,7 @@ final class NetworkService {
         configuration: EndpointConfiguration<T>)
         -> Observable<T> {
         let path = basePath + configuration.path
-        networkLogger.logRequest(path: basePath, configuration: configuration)
+        networkLogger.logRequest(path: path, configuration: configuration)
         return Observable.create { [weak self] observer in
             guard let `self` = self else { return Disposables.create() }
             let request = self.manager.request(
