@@ -41,4 +41,8 @@ final class MainWindowController: NSWindowController {
             make.edges.equalToSuperview()
         }
     }
+
+    func present() {
+        window?.makeKey()
+    }
 }

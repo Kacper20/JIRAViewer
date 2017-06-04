@@ -25,7 +25,7 @@ extension BasicAuthenticationStorage: ReadableSecureStorable, GenericPasswordSec
         static let team = "team"
     }
     var service: String {
-        return "JiraSpotlight"
+        return "JiraHelper"
     }
     var account: String {
         return "BasicAuthKeys"
@@ -34,6 +34,7 @@ extension BasicAuthenticationStorage: ReadableSecureStorable, GenericPasswordSec
         return [
             Keys.username: username,
             Keys.password: password,
+            Keys.team: team.name
         ]
     }
 

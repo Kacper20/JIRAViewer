@@ -738,6 +738,7 @@
 				BBE003701E39534E00E1A2A4 /* Resources */,
 				BBE003AD1E395E3D00E1A2A4 /* Embed Frameworks */,
 				BBE003AF1E395EA400E1A2A4 /* CopyFiles */,
+				BBFC65781EE325A6005C1EFB /* Linting */,
 			);
 			buildRules = (
 			);
@@ -865,6 +866,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BBFC65781EE325A6005C1EFB /* Linting */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Linting;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BBE0036E1E39534E00E1A2A4 /* Sources */ = {

@@ -32,9 +32,7 @@ final class SprintViewController: NSViewController {
 
 
         collectionView.collectionViewLayout = flowLayout
-        // 2
         view.wantsLayer = true
-        // 3
         collectionView.dataSource = self
     }
 }
@@ -50,6 +48,9 @@ extension SprintViewController: NSCollectionViewDataSource {
 
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
         let item = collectionView.makeItem(withIdentifier: SprintCollectionViewItem.identifier, for: indexPath)
+        guard let sprintItem = item as? SprintCollectionViewItem else { return item }
+
+        sprintItem.itemNameField.stringValue = "S\(indexPath.section), I: \(indexPath.item)"
         return item
     }
 

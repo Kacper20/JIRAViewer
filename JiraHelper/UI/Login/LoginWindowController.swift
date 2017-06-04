@@ -12,14 +12,13 @@ class LoginWindowController: NSWindowController {
 
     private var loginFlowContainer: LoginFlowContainerViewController?
     private let teamCheckService: TeamCheckService
-    private let onFinished: (LoginFlowCompletedData) -> Void
+    var onFinished: ((LoginFlowCompletedData) -> Void)!
 
-    init(teamCheckService: TeamCheckService, onFinished: @escaping (LoginFlowCompletedData) -> Void) {
+    init(teamCheckService: TeamCheckService) {
         self.teamCheckService = teamCheckService
-        self.onFinished = onFinished
         super.init(window: nil)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -45,5 +44,4 @@ class LoginWindowController: NSWindowController {
     func present() {
         window?.makeKey()
     }
-    
 }

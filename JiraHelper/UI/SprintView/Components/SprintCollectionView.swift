@@ -9,12 +9,11 @@
 import Foundation
 
 final class SprintCollectionView: NSCollectionView {
-
     override func setFrameSize(_ newSize: NSSize) {
-        var newSize = newSize
-        if let width = collectionViewLayout?.collectionViewContentSize.width, newSize.width != width  {
-            newSize.width = width
+        let size = collectionViewLayout?.collectionViewContentSize ?? newSize
+        super.setFrameSize(size)
+        if let scrollView = enclosingScrollView {
+            scrollView.hasHorizontalScroller = size.width > scrollView.frame.width
         }
-        super.setFrameSize(newSize)
     }
 }

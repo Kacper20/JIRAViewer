@@ -60,7 +60,7 @@ final class LoginViewModel<T: LoginService>: LoginViewModelType {
             let disposable = self.service.login(
                 with: loginData)
                 .subscribe(onNext: { value in
-//                    observer.onNext(.complete(data: loginData))
+                    observer.onNext(.complete(data: value))
                     observer.onCompleted()
                 }, onError: { error in
                     //TODO: Handle error

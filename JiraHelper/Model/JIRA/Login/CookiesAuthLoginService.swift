@@ -18,10 +18,10 @@ final class CookiesAuthLoginService: LoginService {
         self.team = team
     }
 
-    func login(with data: LoginData) -> Observable<CookieSession> {
+    func login(with data: LoginData) -> Observable<CookieSessionWithLoginData> {
         return networkService.request(
             basePath: JIRARestAPI.host(for: team.name),
             configuration: CookieAuthLoginEndpoints.login(with: data)
-        )
+        ).map { CookieSessionWithLoginData(session: $0, loginData: data) }
     }
 }

@@ -9,6 +9,11 @@
 import Foundation
 import Mapper
 
+struct CookieSessionWithLoginData {
+    let session: CookieSession
+    let loginData: LoginData
+}
+
 struct CookieSession {
     let name: String
     let value: String

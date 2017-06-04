@@ -8,17 +8,28 @@
 
 import Foundation
 
-enum AuthenticationType {
+enum AuthenticationDataType {
+    case basic(LoginData)
+    case cookie(CookieSessionWithLoginData)
+}
+
+enum AuthenticationStorageType {
     case basicAuth(BasicAuthenticationStorage)
 }
 
 final class AuthenticationProvider {
 
-    func readAuthentication() -> AuthenticationType? {
+    func readAuthentication() -> AuthenticationStorageType? {
         if let basicAuth = readBasicAuthentication() {
             return .basicAuth(basicAuth)
         }
         return nil
+    }
+
+    func writeBasicAuthentication(data: LoginData, team: JIRATeam) -> BasicAuthenticationStorage {
+        let storage = BasicAuthenticationStorage(username: data.username, password: data.password, team: team)
+        try? storage.createInSecureStore()
+        return storage
     }
 
     private func readBasicAuthentication() -> BasicAuthenticationStorage? {

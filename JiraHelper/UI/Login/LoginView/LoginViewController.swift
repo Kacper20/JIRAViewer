@@ -31,7 +31,7 @@ class LoginViewController<T: LoginViewModelType>: NSViewController {
         self.team = team
         self.viewModel = viewModel
         self.onLoggedIn = onLoggedIn
-        super.init(nibName: String(describing: LoginViewController.self), bundle: nil)!
+        super.init(nibName: "LoginViewController", bundle: nil)!
     }
     
     required init?(coder: NSCoder) {

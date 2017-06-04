@@ -10,7 +10,7 @@ import Foundation
 
 struct LoginFlowCompletedData {
     let team: JIRATeam
-    let authData: LoginData
+    let authenticationData: AuthenticationDataType
 }
 
 final class LoginFlowContainerViewController: NSViewController {
@@ -63,7 +63,7 @@ final class LoginFlowContainerViewController: NSViewController {
                 viewModel: viewModel,
                 onLoggedIn: { [weak self] data in
                     self?.onFinished(
-                        LoginFlowCompletedData(team: team, authData: data)
+                        LoginFlowCompletedData(team: team, authenticationData: .basic(data))
                     )
                 }
             )
@@ -75,7 +75,7 @@ final class LoginFlowContainerViewController: NSViewController {
                 viewModel: viewModel,
                 onLoggedIn: { [weak self] data in
                     self?.onFinished(
-                        LoginFlowCompletedData(team: team, authData: data)
+                        LoginFlowCompletedData(team: team, authenticationData: .cookie(data))
                     )
                 }
             )

@@ -17,6 +17,7 @@ final class RootFlowController {
 
     private let networkService: NetworkService
     private let authenticationProvider: AuthenticationProvider
+    private let environment = Environment()
 
     var currentFlow: CurrentFlow
 
@@ -25,30 +26,53 @@ final class RootFlowController {
         self.authenticationProvider = authenticationProvider
 
         if let authentication = authenticationProvider.readAuthentication() {
-            let authenticatedService = AuthenticatedNetworkService(
-                networkService: networkService,
-                authenticationType: authentication
-            )
-            currentFlow = .main(MainWindowController(authenticatedNetworkService: authenticatedService))
+            if case let .basicAuth(storage) = authentication {
+                let authenticatedService = AuthenticatedNetworkService(
+                    networkService: networkService,
+                    authentication: storage
+                )
+                currentFlow = .main(MainWindowController(authenticatedNetworkService: authenticatedService))
+            } else {
+                fatalError()
+            }
         } else {
-            let teamCheckService = TeamCheckService(networkService: networkService)
+            let teamCheckService = TeamCheckService(networkService: networkService, environment: environment)
             let loginWindowController = LoginWindowController(
-                teamCheckService: teamCheckService,
-                onFinished: { data in
-
-                }
+                teamCheckService: teamCheckService
             )
             currentFlow = .login(loginWindowController)
+            loginWindowController.onFinished = { [weak self] data in
+                self?.performLogin(withAuthentication: data.authenticationData, team: data.team)
+            }
         }
     }
 
+    private func performLogin(withAuthentication authenticationType: AuthenticationDataType, team: JIRATeam) {
+        switch authenticationType {
+        case let .basic(loginData):
+            let storage = authenticationProvider.writeBasicAuthentication(data: loginData, team: team)
+            let authenticatedService = AuthenticatedNetworkService(
+                networkService: networkService,
+                authentication: storage
+            )
+            if case let .login(controller) = currentFlow {
+                controller.close()
+            }
+            //TODO: Should be generic
+            currentFlow = .main(MainWindowController(authenticatedNetworkService: authenticatedService))
+        case .cookie(_):
+            fatalError()
+        }
+    }
 
     func present() {
-        switch currentFlow {
+        let flow: CurrentFlow = currentFlow
+        switch flow {
         case let .login(controller):
+            
             controller.present()
         case let .main(controller):
-            break
+            controller.present()
         }
     }
 }
