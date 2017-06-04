@@ -34,7 +34,7 @@ final class NetworkService {
         configuration: EndpointConfiguration<T>)
         -> Observable<T> {
         let path = basePath + configuration.path
-        networkLogger.logRequest(path: basePath, configuration: configuration)
+        networkLogger.logRequest(path: path, configuration: configuration)
         return Observable.create { [weak self] observer in
             guard let `self` = self else { return Disposables.create() }
             let request = self.manager.request(
@@ -58,7 +58,7 @@ final class NetworkService {
         response: Alamofire.DataResponse<Any>,
         observer: AnyObserver<Resource>
         ) {
-
+        networkLogger.logResponse(response)
         guard let code = response.response?.statusCode else {
             observer.onError(NetworkServiceError.networkUnreachable)
             return
@@ -70,7 +70,6 @@ final class NetworkService {
             ))
             return
         }
-        networkLogger.logResponse(response)
         if let data = response.data {
             switch configuration.resourceType {
             case .data(generation: let generationFunc):

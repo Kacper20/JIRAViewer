@@ -9,7 +9,7 @@
 import Cocoa
 import RxSwift
 
-class LoginViewController: NSViewController {
+class LoginViewController<T: LoginViewModelType>: NSViewController {
 
     @IBOutlet weak var usernameField: NSTextField!
     @IBOutlet weak var passwordField: NSTextField!
@@ -19,26 +19,26 @@ class LoginViewController: NSViewController {
     private let disposeBag = DisposeBag()
 
     private let team: JIRATeam
-    private let viewModel: LoginViewModel
+    private let viewModel: T
 
-    private let onLoggedIn: (LoginData) -> Void
+    private let onLoggedIn: (T.LoginResult) -> Void
 
     init(
         team: JIRATeam,
-        viewModel: LoginViewModel,
-        onLoggedIn: @escaping (LoginData) -> Void
+        viewModel: T,
+        onLoggedIn: @escaping (T.LoginResult) -> Void
         ) {
         self.team = team
         self.viewModel = viewModel
         self.onLoggedIn = onLoggedIn
-        super.init(nibName: String(describing: LoginViewController.self), bundle: nil)!
+        super.init(nibName: "LoginViewController", bundle: nil)!
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    var viewStateSink: AnyObserver<LoginViewState> {
+    var viewStateSink: AnyObserver<LoginViewState<T.LoginResult>> {
         return AnyObserver { [weak self] event in
             guard let `self` = self else { return }
             switch event {

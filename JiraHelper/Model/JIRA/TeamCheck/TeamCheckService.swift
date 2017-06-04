@@ -12,9 +12,11 @@ import RxSwift
 final class TeamCheckService {
 
     private let networkService: NetworkService
+    private let environment: Environment
 
-    init(networkService: NetworkService) {
+    init(networkService: NetworkService, environment: Environment) {
         self.networkService = networkService
+        self.environment = environment
     }
 
     func checkTeamAvailability(for name: String) -> Observable<Bool> {
@@ -24,7 +26,17 @@ final class TeamCheckService {
         ).map { _ in true }
     }
 
-    func loginService(forTeam team: JIRATeam) -> BasicAuthLoginService {
-        return BasicAuthLoginService(networkService: networkService, team: team)
+    enum LoginServiceKind {
+        case basicAuth(BasicAuthLoginService)
+        case cookies(CookiesAuthLoginService)
+    }
+
+    func loginService(forTeam team: JIRATeam) -> LoginServiceKind {
+        switch environment.authentication {
+        case .basicAuth:
+            return .basicAuth(BasicAuthLoginService(networkService: networkService, team: team))
+        case .cookies:
+            return .cookies(CookiesAuthLoginService(networkService: networkService, team: team))
+        }
     }
 }

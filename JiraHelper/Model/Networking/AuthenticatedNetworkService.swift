@@ -12,11 +12,11 @@ import RxSwift
 final class AuthenticatedNetworkService {
 
     private let networkService: NetworkService
-    private let authenticationType: AuthenticationType
+    private let authentication: BasicAuthenticationStorage
 
-    init(networkService: NetworkService, authenticationType: AuthenticationType) {
+    init(networkService: NetworkService, authentication: BasicAuthenticationStorage) {
         self.networkService = networkService
-        self.authenticationType = authenticationType
+        self.authentication = authentication
     }
 
     func requestAuthenticated<T>(
@@ -25,6 +25,4 @@ final class AuthenticatedNetworkService {
         -> Observable<T> {
             fatalError()
     }
-
-
 }
