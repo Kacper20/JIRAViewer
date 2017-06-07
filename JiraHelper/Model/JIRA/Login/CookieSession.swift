@@ -13,19 +13,7 @@ struct CookieSessionWithLoginData {
     let loginData: LoginData
 }
 
-struct CookieSession {
+struct CookieSession: Codable {
     let name: String
     let value: String
-}
-
-extension CookieSession: Mappable {
-    struct Keys {
-        static let name = "name"
-        static let value = "value"
-    }
-    
-    init(map: Mapper) throws {
-        try name = map.from(Keys.name)
-        try value = map.from(Keys.value)
-    }
 }

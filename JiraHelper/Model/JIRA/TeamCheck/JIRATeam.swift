@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct JIRATeam {
+struct JIRATeam: Codable {
     let name: String
 }
