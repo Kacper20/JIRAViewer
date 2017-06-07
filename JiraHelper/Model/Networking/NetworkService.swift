@@ -77,7 +77,7 @@ final class NetworkService {
                     observer: observer,
                     data: data,
                     resourceGeneration: {
-                        try self.decoder.decode(Resource, from: $0)
+                        try self.decoder.decode(Resource.self, from: $0)
                     }
                 )
             case let .none(value):

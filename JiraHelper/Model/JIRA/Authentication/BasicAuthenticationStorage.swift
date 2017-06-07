@@ -16,7 +16,7 @@ struct BasicAuthenticationStorage {
 }
 
 extension BasicAuthenticationStorage: ReadableSecureStorable, GenericPasswordSecureStorable,
-    CreateableSecureStorable, DeleteableSecureStorable, Mappable {
+    CreateableSecureStorable, DeleteableSecureStorable {
 
     struct Keys {
         static let username = "username"
