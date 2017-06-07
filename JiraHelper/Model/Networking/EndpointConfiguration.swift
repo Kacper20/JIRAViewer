@@ -8,7 +8,6 @@
 
 import Foundation
 import Alamofire
-import Mapper
 
 typealias NetworkRequestMethod = Alamofire.HTTPMethod
 typealias NetworkRequestParameterEncoding = Alamofire.ParameterEncoding

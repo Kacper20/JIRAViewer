@@ -8,7 +8,6 @@
 
 import Foundation
 import RxSwift
-import Mapper
 import Alamofire
 
 enum NetworkServiceError: Error {

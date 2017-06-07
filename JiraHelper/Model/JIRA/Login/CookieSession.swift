@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Mapper
 
 struct CookieSessionWithLoginData {
     let session: CookieSession

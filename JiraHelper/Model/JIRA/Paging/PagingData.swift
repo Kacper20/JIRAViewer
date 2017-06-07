@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Mapper
 
 struct PagingData {
     let startAt: Int

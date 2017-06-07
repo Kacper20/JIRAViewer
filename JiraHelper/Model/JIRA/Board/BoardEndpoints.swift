@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Mapper
 
 enum BoardEndpoints {
     static func boards() -> EndpointConfiguration<ArrayOfValuesWithPagingData<Board>> {
