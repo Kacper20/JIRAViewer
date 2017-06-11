@@ -7,17 +7,16 @@
 //
 
 import Foundation
-import Mapper
 import Locksmith
 
-struct BasicAuthenticationStorage {
+struct BasicAuthenticationStorage: Codable {
     let username: String
     let password: String
     let team: JIRATeam
 }
 
 extension BasicAuthenticationStorage: ReadableSecureStorable, GenericPasswordSecureStorable,
-    CreateableSecureStorable, DeleteableSecureStorable, Mappable {
+    CreateableSecureStorable, DeleteableSecureStorable {
 
     struct Keys {
         static let username = "username"
@@ -38,21 +37,9 @@ extension BasicAuthenticationStorage: ReadableSecureStorable, GenericPasswordSec
         ]
     }
 
-    init(map: Mapper) throws {
-        try username = map.from(Keys.username)
-        try password = map.from(Keys.password)
-        let teamName: String = try map.from(Keys.team)
-        team = JIRATeam(name: teamName)
-    }
-
     init() {
         username = ""
         password = ""
         team = JIRATeam(name: "")
-    }
-
-    init(data: [String : Any]) throws {
-        let mapper = Mapper(JSON: data as NSDictionary)
-        try self.init(map: mapper)
     }
 }

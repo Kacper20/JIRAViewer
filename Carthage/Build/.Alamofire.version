@@ -1,0 +1,9 @@
+{
+  "commitish" : "4.4.0",
+  "Mac" : [
+    {
+      "hash" : "a801a141208f150b9817a9bfb0df76c1793e482e398e4fe3e9d5ba125f4f7e8f",
+      "name" : "Alamofire"
+    }
+  ]
+}

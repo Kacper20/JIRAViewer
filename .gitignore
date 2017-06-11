@@ -9,7 +9,6 @@ fastlane/README.md
 fastlane/report.xml
 Carthage/Checkouts/*
 !Carthage/Checkouts/Instabug-iOS
-Carthage/Build/*
 Carthage/Build/macOS/
 Carthage/Build/Mac/
 Carthage/Build/watchOS/

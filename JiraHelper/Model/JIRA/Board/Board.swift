@@ -7,24 +7,15 @@
 //
 
 import Foundation
-import Mapper
 
-struct Board {
+struct Board: Codable {
     let id: Int
     let url: String
     let name: String
-}
 
-extension Board: Mappable {
-    struct Keys {
-        static let id = "id"
-        static let url = "self"
-        static let name = "name"
-    }
-
-    init(map: Mapper) throws {
-        try id = map.from(Keys.id)
-        try url = map.from(Keys.url)
-        try name = map.from(Keys.name)
+    private enum CodingKeys: String, CodingKey {
+        case url = "self"
+        case name
+        case id
     }
 }

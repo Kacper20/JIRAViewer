@@ -1,0 +1,21 @@
+{
+  "commitish" : "3.5.0",
+  "Mac" : [
+    {
+      "hash" : "d551549e1032645fb41b67f2d246176776830456c1673d4032a223875589f2ea",
+      "name" : "RxBlocking"
+    },
+    {
+      "hash" : "c85500189792f7b47e13db4ff729205dca0a984ff07ee6ffd8c0fbce9cae3d56",
+      "name" : "RxTest"
+    },
+    {
+      "hash" : "d486476d46a41029ebe9fc00dce04f155ebf502af555120ee2a7ddc65e8fcc4a",
+      "name" : "RxCocoa"
+    },
+    {
+      "hash" : "e2d08843c48fcfe91732188be8318e7458d223493553da40f6d8cf93db9ee0ea",
+      "name" : "RxSwift"
+    }
+  ]
+}

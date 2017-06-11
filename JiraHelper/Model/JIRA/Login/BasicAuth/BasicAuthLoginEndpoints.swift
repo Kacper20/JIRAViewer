@@ -9,15 +9,14 @@
 import Foundation
 
 enum BasicAuthLoginEndpoints {
-
-    static func login(with data: LoginData) -> EndpointConfiguration<Void> {
+    static func login(with data: LoginData) -> EndpointConfiguration<Nothing> {
         return EndpointConfiguration(
             path: "",
             method: .get,
             encoding: URLEncoding.default,
             headers: JIRARestAPI.basicAuthHeaders(username: data.username, password: data.password),
             parameters: [:],
-            resourceType: .none(())
+            resourceType: .none(Nothing())
         )
     }
 }

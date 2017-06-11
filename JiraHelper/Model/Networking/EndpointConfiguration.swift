@@ -8,17 +8,19 @@
 
 import Foundation
 import Alamofire
-import Mapper
 
 typealias NetworkRequestMethod = Alamofire.HTTPMethod
 typealias NetworkRequestParameterEncoding = Alamofire.ParameterEncoding
 typealias JSONEncoding = Alamofire.JSONEncoding
 typealias URLEncoding = Alamofire.URLEncoding
 
-struct EndpointConfiguration<Resource> {
+struct Nothing: Codable {
+
+}
+
+struct EndpointConfiguration<Resource: Codable> {
     indirect enum ResourceOrigin {
-        case dictionary(generation: (Mapper) throws -> Resource)
-        case data(generation: (Data) throws -> Resource)
+        case dictionary
         case none(Resource)
     }
 

@@ -10,14 +10,14 @@ import Foundation
 
 enum TeamCheckEndpoints {
 
-    static func team() -> EndpointConfiguration<Void> {
+    static func team() -> EndpointConfiguration<Nothing> {
         return EndpointConfiguration(
             path: "",
             method: .get,
             encoding: URLEncoding.default,
             headers: [:],
             parameters: [:],
-            resourceType: .none(())
+            resourceType: .none(Nothing())
         )
     }
 }

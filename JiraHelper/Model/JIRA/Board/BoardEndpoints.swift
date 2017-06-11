@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Mapper
 
 enum BoardEndpoints {
     static func boards() -> EndpointConfiguration<ArrayOfValuesWithPagingData<Board>> {
@@ -17,12 +16,7 @@ enum BoardEndpoints {
             encoding: JSONEncoding.default,
             headers: [:],
             parameters: [:],
-            resourceType: .dictionary(generation: { mapper in
-                return try ArrayOfValuesWithPagingData(
-                    map: mapper,
-                    valuesKey: JIRARestAPI.paginationValuesKey
-                )
-            })
+            resourceType: .dictionary
         )
     }
 }

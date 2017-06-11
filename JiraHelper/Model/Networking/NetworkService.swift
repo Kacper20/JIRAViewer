@@ -8,7 +8,6 @@
 
 import Foundation
 import RxSwift
-import Mapper
 import Alamofire
 
 enum NetworkServiceError: Error {
@@ -22,6 +21,7 @@ final class NetworkService {
 
     private let manager: SessionManager
     private let networkLogger: NetworkLogger
+    private let decoder = JSONDecoder()
 
     init() {
         networkLogger = NetworkLogger()
@@ -72,24 +72,14 @@ final class NetworkService {
         }
         if let data = response.data {
             switch configuration.resourceType {
-            case .data(generation: let generationFunc):
+            case .dictionary:
                 parseResourceAndNotifyObserver(
                     observer: observer,
                     data: data,
-                    resourceGeneration: generationFunc
+                    resourceGeneration: {
+                        try self.decoder.decode(Resource.self, from: $0)
+                    }
                 )
-            case .dictionary(generation: let generationFunc):
-                if let json = try? JSONSerialization.jsonObject(with: data, options: []),
-                    let dict = json as? [String : AnyObject] {
-                    let mapper = Mapper(JSON: dict as NSDictionary)
-                    parseResourceAndNotifyObserver(
-                        observer: observer,
-                        data: mapper,
-                        resourceGeneration: generationFunc
-                    )
-                } else {
-                    //TODO: Errors
-                }
             case let .none(value):
                 observer.onNext(value)
                 observer.onCompleted()
@@ -98,8 +88,6 @@ final class NetworkService {
             //TODO: Errors
         }
     }
-
-
 
     private func parseResourceAndNotifyObserver<T, Y>(
         observer: AnyObserver<T>,
