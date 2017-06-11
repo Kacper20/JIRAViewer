@@ -14,6 +14,10 @@ typealias NetworkRequestParameterEncoding = Alamofire.ParameterEncoding
 typealias JSONEncoding = Alamofire.JSONEncoding
 typealias URLEncoding = Alamofire.URLEncoding
 
+struct Nothing: Codable {
+
+}
+
 struct EndpointConfiguration<Resource: Codable> {
     indirect enum ResourceOrigin {
         case dictionary

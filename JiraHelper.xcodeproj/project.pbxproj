@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB05A2FB1EEDE6B2000EFC1C /* Serialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB05A2FA1EEDE6B2000EFC1C /* Serialization.swift */; };
 		BB0A2BC91EBE45AB00A19D60 /* SprintCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0A2BC81EBE45AB00A19D60 /* SprintCollectionView.swift */; };
 		BB0A2BCF1EBF448100A19D60 /* EndpointConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0A2BCE1EBF448100A19D60 /* EndpointConfiguration.swift */; };
 		BB0A2BD31EBF47B600A19D60 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0A2BD21EBF47B600A19D60 /* Logger.swift */; };
@@ -149,6 +150,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BB05A2FA1EEDE6B2000EFC1C /* Serialization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Serialization.swift; sourceTree = "<group>"; };
 		BB0A2BC81EBE45AB00A19D60 /* SprintCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SprintCollectionView.swift; sourceTree = "<group>"; };
 		BB0A2BCE1EBF448100A19D60 /* EndpointConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointConfiguration.swift; sourceTree = "<group>"; };
 		BB0A2BD21EBF47B600A19D60 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 				BB0A2BDD1EBF4B8A00A19D60 /* NetworkService.swift */,
 				BB503C6E1EDB0043002BDF54 /* AuthenticatedNetworkService.swift */,
 				BB53D4331EDA1A8400BBC607 /* NetworkLogger.swift */,
+				BB05A2FA1EEDE6B2000EFC1C /* Serialization.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -925,6 +928,7 @@
 				BB53D4301EDA0D5700BBC607 /* TwoWayBindingOperator.swift in Sources */,
 				BB0A2BC91EBE45AB00A19D60 /* SprintCollectionView.swift in Sources */,
 				BBA77BA61E57A3F200C9842C /* MainViewController.swift in Sources */,
+				BB05A2FB1EEDE6B2000EFC1C /* Serialization.swift in Sources */,
 				BB19FBBA1ED624B00094E83F /* TeamURLExtractor.swift in Sources */,
 				BBFC653E1EE1FDFA005C1EFB /* BasicAuthLoginService.swift in Sources */,
 				BBA77B941E57904100C9842C /* StylingProtocol.swift in Sources */,

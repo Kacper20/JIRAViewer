@@ -10,4 +10,8 @@ import Foundation
 
 struct JIRATeam: Codable {
     let name: String
+
+    private enum CodingKeys: String, CodingKey {
+        case name = "team"
+    }
 }
