@@ -25,5 +25,8 @@ final class MainWindow: NSWindow {
         view.wantsLayer = true
         self.isOpaque = false
         self.backgroundColor = NSColor.clear
+        styleMask.remove(.closable)
+        styleMask.remove(.miniaturizable)
+        titleVisibility = .hidden
     }
 }
