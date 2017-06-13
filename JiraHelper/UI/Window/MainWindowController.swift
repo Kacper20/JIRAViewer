@@ -47,8 +47,4 @@ final class MainWindowController: NSWindowController {
 //        toolbar.allowsUserCustomization = true
 //        toolbar.autosavesConfiguration = true
     }
-
-    func present() {
-        window?.makeKey()
-    }
 }
