@@ -431,6 +431,13 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		BB4725141EF081260070D323 /* MainLoadingView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MainLoadingView;
+			sourceTree = "<group>";
+		};
 		BB503C6B1EDAF679002BDF54 /* Serialization */ = {
 			isa = PBXGroup;
 			children = (
@@ -556,6 +563,7 @@
 		BBA77BA41E57A3D900C9842C /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				BB4725141EF081260070D323 /* MainLoadingView */,
 				BBA77BA51E57A3F200C9842C /* MainViewController.swift */,
 				BBA77BA71E57A3F800C9842C /* MainView.swift */,
 			);
@@ -1081,7 +1089,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.harasim.JiraHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "JiraHelper/Bridging-Header.h";
-				SWIFT_VERSION = 3.1;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -1100,7 +1108,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.harasim.JiraHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "JiraHelper/Bridging-Header.h";
-				SWIFT_VERSION = 3.1;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

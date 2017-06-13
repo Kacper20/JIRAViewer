@@ -37,6 +37,15 @@ extension BasicAuthenticationStorage: ReadableSecureStorable, GenericPasswordSec
         ]
     }
 
+    //TODO: Try to implement it in other way
+    init?(dictData: [String : Any]) {
+        guard let team = dictData[Keys.team] as? String, let username = dictData[Keys.username] as? String,
+            let password = dictData[Keys.password] as? String else { return nil }
+        self.team = JIRATeam(name: team)
+        self.username = username
+        self.password = password
+    }
+
     init() {
         username = ""
         password = ""

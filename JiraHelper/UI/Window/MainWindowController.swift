@@ -11,6 +11,7 @@ final class MainWindowController: NSWindowController {
     @IBOutlet weak var visualEffectView: NSVisualEffectView!
 
     private let authenticatedNetworkService: AuthenticatedNetworkService
+    //TODO: Should be injected
     
     private var mainViewController: MainViewController?
 
@@ -34,15 +35,18 @@ final class MainWindowController: NSWindowController {
         visualEffectView.material = .mediumLight
         visualEffectView.maskImage = MaskImage.create(withRadius: 18)
 
+        //TODO: Loaded Here, but probably will refactor it out later
+    }
+
+    func present() {
+
+
         let mainViewController = MainViewController()
         self.mainViewController = mainViewController
         window?.contentView?.addSubview(mainViewController.view)
         mainViewController.view.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-    }
-
-    func present() {
         window?.makeKey()
     }
 }

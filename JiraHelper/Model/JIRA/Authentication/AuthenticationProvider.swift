@@ -34,7 +34,7 @@ final class AuthenticationProvider {
 
     private func readBasicAuthentication() -> BasicAuthenticationStorage? {
         if let authData = BasicAuthenticationStorage().readFromSecureStore()?.data,
-            let data = try? BasicAuthenticationStorage(data: authData) {
+            let data = BasicAuthenticationStorage(dictData: authData) {
             return data
         }
         return nil
