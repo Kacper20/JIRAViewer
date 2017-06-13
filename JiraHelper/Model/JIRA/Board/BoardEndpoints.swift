@@ -11,7 +11,7 @@ import Foundation
 enum BoardEndpoints {
     static func boards() -> EndpointConfiguration<ArrayOfValuesWithPagingData<Board>> {
         return EndpointConfiguration(
-            path: JIRARestAPI.buildUrl(with: "/board"),
+            path: "/board",
             method: .get,
             encoding: JSONEncoding.default,
             headers: [:],

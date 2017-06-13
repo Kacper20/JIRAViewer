@@ -5,13 +5,16 @@
 
 import SnapKit
 import AppKit
+import RxSwift
 
 final class MainWindowController: NSWindowController {
 
     @IBOutlet weak var toolbar: NSToolbar!
 
+    private let disposeBag = DisposeBag()
     private let authenticatedNetworkService: AuthenticatedNetworkService
-    //TODO: Should be injected
+    //TODO: Injected?
+    private let boardsService: BoardService
     
     private var mainViewController: MainViewController?
 
@@ -21,6 +24,7 @@ final class MainWindowController: NSWindowController {
 
     init(authenticatedNetworkService: AuthenticatedNetworkService) {
         self.authenticatedNetworkService = authenticatedNetworkService
+        self.boardsService = BoardService(networkService: authenticatedNetworkService)
         super.init(window: nil)
     }
     
@@ -33,12 +37,26 @@ final class MainWindowController: NSWindowController {
     }
 
     func present() {
+
+        //TODO: Kanban boards only for now
+        boardsService
+            .boards()
+            .subscribe(onNext: { [unowned self] boards in
+                print(boards)
+                self.presentVC()
+            }, onError: { error in
+
+            }).disposed(by: disposeBag)
+    }
+
+    private func presentVC() {
         let mainViewController = MainViewController()
         self.mainViewController = mainViewController
         window?.contentView?.addSubview(mainViewController.view)
         mainViewController.view.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        window?.makeKey()
 
         configureToolbar()
     }

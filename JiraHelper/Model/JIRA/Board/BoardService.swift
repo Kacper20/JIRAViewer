@@ -9,6 +9,15 @@
 import Foundation
 import RxSwift
 
+enum BoardServiceError: Error {
+    case noValidBoards
+}
+
+struct BoardsResult {
+    let selectedBoard: Board
+    let rest: [Board]
+}
+
 final class BoardService {
     private let networkService: AuthenticatedNetworkService
 
@@ -16,10 +25,16 @@ final class BoardService {
         self.networkService = networkService
     }
 
-    func allBoards() -> Observable<[Board]> {
+    func boards() -> Observable<BoardsResult> {
         return networkService.request(
             configuration: BoardEndpoints.boards()
         )
         .map { $0.values }
+        .flatMap { boards -> Observable<BoardsResult> in
+            guard let first = boards.first else {
+                return .error(BoardServiceError.noValidBoards)
+            }
+            return .just(BoardsResult(selectedBoard: first, rest: Array(boards.dropFirst())))
+        }
     }
 }
