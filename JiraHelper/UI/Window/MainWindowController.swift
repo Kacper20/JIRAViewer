@@ -8,7 +8,7 @@ import AppKit
 
 final class MainWindowController: NSWindowController {
 
-    @IBOutlet weak var visualEffectView: NSVisualEffectView!
+    @IBOutlet weak var toolbar: NSToolbar!
 
     private let authenticatedNetworkService: AuthenticatedNetworkService
     //TODO: Should be injected
@@ -30,23 +30,25 @@ final class MainWindowController: NSWindowController {
 
     override func windowDidLoad() {
         super.windowDidLoad()
-
-        visualEffectView.state = .active
-        visualEffectView.material = .mediumLight
-        visualEffectView.maskImage = MaskImage.create(withRadius: 18)
-
-        //TODO: Loaded Here, but probably will refactor it out later
     }
 
     func present() {
-
-
         let mainViewController = MainViewController()
         self.mainViewController = mainViewController
         window?.contentView?.addSubview(mainViewController.view)
         mainViewController.view.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+
+        configureToolbar()
+    }
+
+    private func configureToolbar() {
+//        toolbar.allowsUserCustomization = true
+//        toolbar.autosavesConfiguration = true
+    }
+
+    func present() {
         window?.makeKey()
     }
 }

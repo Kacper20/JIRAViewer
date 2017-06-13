@@ -294,6 +294,7 @@
 		BB0A2BE41EBF6BB300A19D60 /* JIRA */ = {
 			isa = PBXGroup;
 			children = (
+				BBD848BC1EE47C6A004949BA /* Sprint */,
 				BBFC65371EE1FDA5005C1EFB /* Login */,
 				BB0A2C081EC12DD200A19D60 /* TeamCheck */,
 				BB0A2BF21EBF9B9700A19D60 /* Authentication */,
@@ -586,6 +587,13 @@
 				BBD571FC1EC37F620061AD67 /* CommonValidators.swift */,
 			);
 			path = Validators;
+			sourceTree = "<group>";
+		};
+		BBD848BC1EE47C6A004949BA /* Sprint */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Sprint;
 			sourceTree = "<group>";
 		};
 		BBE003691E39534E00E1A2A4 = {

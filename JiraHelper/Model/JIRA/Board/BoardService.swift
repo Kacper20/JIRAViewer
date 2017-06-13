@@ -10,16 +10,14 @@ import Foundation
 import RxSwift
 
 final class BoardService {
-    private let networkService: NetworkService
+    private let networkService: AuthenticatedNetworkService
 
-    init(networkService: NetworkService) {
+    init(networkService: AuthenticatedNetworkService) {
         self.networkService = networkService
     }
 
     func allBoards() -> Observable<[Board]> {
-        //TODO: Hardcoded URL
         return networkService.request(
-            basePath: "",
             configuration: BoardEndpoints.boards()
         )
         .map { $0.values }

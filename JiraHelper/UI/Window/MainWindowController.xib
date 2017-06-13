@@ -8,35 +8,35 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MainWindowController" customModule="JiraHelper" customModuleProvider="target">
             <connections>
-                <outlet property="visualEffectView" destination="Pd2-lw-cek" id="2if-0a-RfB"/>
+                <outlet property="toolbar" destination="JkJ-aM-Bck" id="sLb-b8-9nw"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="8Q7-zp-YNg"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <window title="dududu" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="QvC-M9-y7g" customClass="MainWindow" customModule="JiraHelper" customModuleProvider="target">
-            <windowStyleMask key="styleMask" closable="YES" miniaturizable="YES"/>
-            <rect key="contentRect" x="200" y="200" width="1000" height="500"/>
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" unifiedTitleAndToolbar="YES"/>
+            <rect key="contentRect" x="200" y="200" width="1013" height="539"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="1000" height="500"/>
+                <rect key="frame" x="0.0" y="0.0" width="1013" height="539"/>
                 <autoresizingMask key="autoresizingMask"/>
-                <subviews>
-                    <visualEffectView appearanceType="vibrantDark" blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="Pd2-lw-cek">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="500"/>
-                    </visualEffectView>
-                </subviews>
-                <constraints>
-                    <constraint firstItem="Pd2-lw-cek" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="2A7-h9-Hzc"/>
-                    <constraint firstAttribute="bottom" secondItem="Pd2-lw-cek" secondAttribute="bottom" id="ac2-tk-bFL"/>
-                    <constraint firstAttribute="trailing" secondItem="Pd2-lw-cek" secondAttribute="trailing" id="bov-AF-zdg"/>
-                    <constraint firstItem="Pd2-lw-cek" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" id="bxK-S4-8K7"/>
-                </constraints>
             </view>
+            <toolbar key="toolbar" implicitIdentifier="B92C1EB8-0B22-43C8-B22C-2263BC3EF3EA" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="JkJ-aM-Bck">
+                <allowedToolbarItems>
+                    <toolbarItem implicitItemIdentifier="NSToolbarShowFontsItem" id="Z8C-2T-hMu"/>
+                    <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="TQ9-Si-szj"/>
+                    <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="v5G-bH-hsT"/>
+                </allowedToolbarItems>
+                <defaultToolbarItems>
+                    <toolbarItem reference="Z8C-2T-hMu"/>
+                    <toolbarItem reference="v5G-bH-hsT"/>
+                </defaultToolbarItems>
+            </toolbar>
             <connections>
                 <outlet property="delegate" destination="-2" id="eKw-MQ-OhC"/>
             </connections>
-            <point key="canvasLocation" x="-71" y="-150"/>
+            <point key="canvasLocation" x="-98" y="-196"/>
         </window>
     </objects>
 </document>
