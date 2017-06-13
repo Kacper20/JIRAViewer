@@ -11,13 +11,14 @@ import Foundation
 struct JIRARestAPI {
 
     static let apiPath = "/rest/agile/1.0"
+    static let paginationValuesKey = "values"
 
     static func buildUrl(with resourcePath: String) -> String {
         return apiPath + resourcePath
     }
 
     static func host(for teamName: String) -> String {
-        return "https://\(teamName).atlassian.net/"
+        return "https://\(teamName).atlassian.net"
     }
 
     static func basicAuthHeaders(username: String, password: String) -> [String : String] {
@@ -30,10 +31,6 @@ struct JIRARestAPI {
     enum RequestType {
         case authorization
         case api
-    }
-
-    static func buildApiPath(for resourcePath: String) -> String {
-        return "/rest/agile/1" + resourcePath
     }
 
     static func buildAuthPath(for resourcePath: String) -> String {

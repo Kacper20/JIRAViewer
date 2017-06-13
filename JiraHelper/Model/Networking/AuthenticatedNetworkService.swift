@@ -19,10 +19,16 @@ final class AuthenticatedNetworkService {
         self.authentication = authentication
     }
 
-    func requestAuthenticated<T>(
-        basePath: String,
+    func request<T>(
         configuration: EndpointConfiguration<T>)
         -> Observable<T> {
-            fatalError()
+        let hostUrl = JIRARestAPI.host(for: authentication.team.name)
+        let basePath = hostUrl + JIRARestAPI.apiPath
+        var configuration = configuration
+        configuration.headers = JIRARestAPI.basicAuthHeaders(
+            username: authentication.username,
+            password: authentication.password
+        )
+        return networkService.request(basePath: basePath, configuration: configuration)
     }
 }
