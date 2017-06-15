@@ -27,6 +27,9 @@ final class NetworkService {
         networkLogger = NetworkLogger()
         let configuration = URLSessionConfiguration.default
         manager = SessionManager(configuration: configuration)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        decoder.dateDecodingStrategy = .formatted(formatter)
     }
 
     func request<T>(
@@ -72,7 +75,7 @@ final class NetworkService {
         }
         if let data = response.data {
             switch configuration.resourceType {
-            case .dictionary:
+            case .json:
                 parseResourceAndNotifyObserver(
                     observer: observer,
                     data: data,

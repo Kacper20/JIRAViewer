@@ -14,7 +14,7 @@ enum BoardServiceError: Error {
 }
 
 struct BoardsResult {
-    let selectedBoard: Board
+   t let selectedBoard: Board
     let rest: [Board]
 }
 

@@ -16,7 +16,7 @@ enum BoardEndpoints {
             encoding: JSONEncoding.default,
             headers: [:],
             parameters: [:],
-            resourceType: .dictionary
+            resourceType: .json
         )
     }
 }

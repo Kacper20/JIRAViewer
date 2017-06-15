@@ -12,19 +12,16 @@ final class MainWindowController: NSWindowController {
     @IBOutlet weak var toolbar: NSToolbar!
 
     private let disposeBag = DisposeBag()
-    private let authenticatedNetworkService: AuthenticatedNetworkService
-    //TODO: Injected?
-    private let boardsService: BoardService
-    
+    private let mainViewModelCreator: MainViewStartDataService
+
     private var mainViewController: MainViewController?
 
     override var windowNibName : String! {
         return "MainWindowController"
     }
 
-    init(authenticatedNetworkService: AuthenticatedNetworkService) {
-        self.authenticatedNetworkService = authenticatedNetworkService
-        self.boardsService = BoardService(networkService: authenticatedNetworkService)
+    init(mainViewModelCreator: MainViewModelCreator) {
+        self.mainViewModelCreator = mainViewModelCreator
         super.init(window: nil)
     }
     
@@ -37,19 +34,10 @@ final class MainWindowController: NSWindowController {
     }
 
     func present() {
-
-        //TODO: Kanban boards only for now
-        boardsService
-            .boards()
-            .subscribe(onNext: { [unowned self] boards in
-                print(boards)
-                self.presentVC()
-            }, onError: { error in
-
-            }).disposed(by: disposeBag)
+        return mainV
     }
 
-    private func presentVC() {
+    private func presentVC(with viewModel: MainViewModel) {
         let mainViewController = MainViewController()
         self.mainViewController = mainViewController
         window?.contentView?.addSubview(mainViewController.view)

@@ -16,7 +16,7 @@ enum CookieAuthLoginEndpoints {
             encoding: URLEncoding.default,
             headers: JIRARestAPI.basicAuthHeaders(username: data.username, password: data.password),
             parameters: [:],
-            resourceType: .dictionary
+            resourceType: .json
         )
     }
 }

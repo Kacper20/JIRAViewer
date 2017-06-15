@@ -16,10 +16,10 @@ typealias URLEncoding = Alamofire.URLEncoding
 
 class Nothing: Codable { }
 
-struct EndpointConfiguration<Resource: Codable> {
+struct EndpointConfiguration<Resource: Decodable> {
     enum ResourceOrigin {
         indirect case none(Resource)
-        case dictionary
+        case json
     }
 
     let path: String
