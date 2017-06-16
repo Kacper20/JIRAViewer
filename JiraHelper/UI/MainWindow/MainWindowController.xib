@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="12120" systemVersion="16F43c" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13122.17" systemVersion="16F43c" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12120"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13122.17"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MainWindowController" customModule="JiraHelper" customModuleProvider="target">
             <connections>
-                <outlet property="toolbar" destination="JkJ-aM-Bck" id="sLb-b8-9nw"/>
+                <outlet property="toolbar" destination="JkJ-aM-Bck" id="YJ0-vW-tfX"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="8Q7-zp-YNg"/>
             </connections>
         </customObject>
@@ -23,15 +23,8 @@
                 <autoresizingMask key="autoresizingMask"/>
             </view>
             <toolbar key="toolbar" implicitIdentifier="B92C1EB8-0B22-43C8-B22C-2263BC3EF3EA" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="JkJ-aM-Bck">
-                <allowedToolbarItems>
-                    <toolbarItem implicitItemIdentifier="NSToolbarShowFontsItem" id="Z8C-2T-hMu"/>
-                    <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="TQ9-Si-szj"/>
-                    <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="v5G-bH-hsT"/>
-                </allowedToolbarItems>
-                <defaultToolbarItems>
-                    <toolbarItem reference="Z8C-2T-hMu"/>
-                    <toolbarItem reference="v5G-bH-hsT"/>
-                </defaultToolbarItems>
+                <allowedToolbarItems/>
+                <defaultToolbarItems/>
             </toolbar>
             <connections>
                 <outlet property="delegate" destination="-2" id="eKw-MQ-OhC"/>

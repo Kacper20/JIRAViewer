@@ -15,6 +15,7 @@ final class MainWindowController: NSWindowController {
     private let mainViewModelCreator: MainViewModelCreator
 
     private var mainViewController: MainViewController?
+    private var toolbarManager: ToolbarManager?
 
     override var windowNibName : String! {
         return "MainWindowController"
@@ -50,13 +51,11 @@ final class MainWindowController: NSWindowController {
         mainViewController.view.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        configureToolbar(boardsChoice: viewModel.boardsChoice, sprintChoice: viewModel.sprintChoice)
         window?.makeKey()
-
-        configureToolbar()
     }
 
-    private func configureToolbar() {
-//        toolbar.allowsUserCustomization = true
-//        toolbar.autosavesConfiguration = true
+    private func configureToolbar(boardsChoice: BoardsChoice, sprintChoice: ActiveSprintChoice) {
+        toolbarManager = ToolbarManager(toolbar: toolbar, boardsChoice: boardsChoice, sprintChoice: sprintChoice)
     }
 }

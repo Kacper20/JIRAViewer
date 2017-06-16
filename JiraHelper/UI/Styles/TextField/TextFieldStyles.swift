@@ -17,5 +17,4 @@ struct TextFieldStyles {
             textField.focusRingType = .none
         }
     }
-
 }

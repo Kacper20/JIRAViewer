@@ -28,9 +28,14 @@
 		BB0A2C071EBFBDF500A19D60 /* LoginFlowContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0A2C061EBFBDF500A19D60 /* LoginFlowContainerViewController.swift */; };
 		BB0A2C0A1EC12EF400A19D60 /* TeamCheckService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0A2C091EC12EF400A19D60 /* TeamCheckService.swift */; };
 		BB0A2C0C1EC12F0400A19D60 /* TeamCheckEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0A2C0B1EC12F0400A19D60 /* TeamCheckEndpoints.swift */; };
+		BB0BA4341EF42ACC003BE8C5 /* ToolbarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0BA4331EF42ACC003BE8C5 /* ToolbarManager.swift */; };
+		BB0BA4381EF43468003BE8C5 /* PopupButtonToolbarItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0BA4371EF43468003BE8C5 /* PopupButtonToolbarItemManager.swift */; };
+		BB0BA43A1EF43961003BE8C5 /* BoardsChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0BA4391EF43961003BE8C5 /* BoardsChoice.swift */; };
+		BB0BA43C1EF439A8003BE8C5 /* ToolbarManagerDataSourceHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0BA43B1EF439A8003BE8C5 /* ToolbarManagerDataSourceHelpers.swift */; };
 		BB12D6F01ED780A900FEA52A /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB12D6EF1ED780A900FEA52A /* String+Extensions.swift */; };
 		BB12D6F31ED7825900FEA52A /* PasteboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB12D6F21ED7825900FEA52A /* PasteboardService.swift */; };
 		BB17145B1EF3480C00BFB942 /* ActiveSprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB17145A1EF3480C00BFB942 /* ActiveSprint.swift */; };
+		BB17145E1EF4280100BFB942 /* ToolbarItemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB17145D1EF4280100BFB942 /* ToolbarItemProvider.swift */; };
 		BB19FBBA1ED624B00094E83F /* TeamURLExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB19FBB91ED624B00094E83F /* TeamURLExtractor.swift */; };
 		BB2046B71EBE095700084F34 /* KanbanCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2046B61EBE095700084F34 /* KanbanCollectionViewLayout.swift */; };
 		BB2046BC1EBE0AB000084F34 /* SprintViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB2046BB1EBE0AB000084F34 /* SprintViewController.xib */; };
@@ -177,9 +182,14 @@
 		BB0A2C061EBFBDF500A19D60 /* LoginFlowContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginFlowContainerViewController.swift; path = JiraHelper/UI/Login/LoginFlowContainerViewController.swift; sourceTree = SOURCE_ROOT; };
 		BB0A2C091EC12EF400A19D60 /* TeamCheckService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamCheckService.swift; sourceTree = "<group>"; };
 		BB0A2C0B1EC12F0400A19D60 /* TeamCheckEndpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamCheckEndpoints.swift; sourceTree = "<group>"; };
+		BB0BA4331EF42ACC003BE8C5 /* ToolbarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarManager.swift; sourceTree = "<group>"; };
+		BB0BA4371EF43468003BE8C5 /* PopupButtonToolbarItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupButtonToolbarItemManager.swift; sourceTree = "<group>"; };
+		BB0BA4391EF43961003BE8C5 /* BoardsChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardsChoice.swift; sourceTree = "<group>"; };
+		BB0BA43B1EF439A8003BE8C5 /* ToolbarManagerDataSourceHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarManagerDataSourceHelpers.swift; sourceTree = "<group>"; };
 		BB12D6EF1ED780A900FEA52A /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		BB12D6F21ED7825900FEA52A /* PasteboardService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteboardService.swift; sourceTree = "<group>"; };
 		BB17145A1EF3480C00BFB942 /* ActiveSprint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveSprint.swift; sourceTree = "<group>"; };
+		BB17145D1EF4280100BFB942 /* ToolbarItemProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarItemProvider.swift; sourceTree = "<group>"; };
 		BB19FBB91ED624B00094E83F /* TeamURLExtractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamURLExtractor.swift; sourceTree = "<group>"; };
 		BB2046B61EBE095700084F34 /* KanbanCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanbanCollectionViewLayout.swift; sourceTree = "<group>"; };
 		BB2046BB1EBE0AB000084F34 /* SprintViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SprintViewController.xib; sourceTree = "<group>"; };
@@ -323,6 +333,7 @@
 				BB0A2BE61EBF6C5A00A19D60 /* Board.swift */,
 				BB0A2BE81EBF838200A19D60 /* BoardsService.swift */,
 				BB0A2BEA1EBF839000A19D60 /* BoardEndpoints.swift */,
+				BB0BA4391EF43961003BE8C5 /* BoardsChoice.swift */,
 			);
 			path = Board;
 			sourceTree = "<group>";
@@ -394,12 +405,46 @@
 			path = TeamCheck;
 			sourceTree = "<group>";
 		};
+		BB0BA4321EF42ABD003BE8C5 /* ToolbarManager */ = {
+			isa = PBXGroup;
+			children = (
+				BB0BA4361EF43454003BE8C5 /* Items */,
+				BB0BA4331EF42ACC003BE8C5 /* ToolbarManager.swift */,
+				BB0BA43B1EF439A8003BE8C5 /* ToolbarManagerDataSourceHelpers.swift */,
+			);
+			path = ToolbarManager;
+			sourceTree = "<group>";
+		};
+		BB0BA4351EF4331F003BE8C5 /* Items */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Items;
+			sourceTree = "<group>";
+		};
+		BB0BA4361EF43454003BE8C5 /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				BB0BA4371EF43468003BE8C5 /* PopupButtonToolbarItemManager.swift */,
+			);
+			path = Items;
+			sourceTree = "<group>";
+		};
 		BB12D6F11ED7815000FEA52A /* Pasteboard */ = {
 			isa = PBXGroup;
 			children = (
 				BB12D6F21ED7825900FEA52A /* PasteboardService.swift */,
 			);
 			path = Pasteboard;
+			sourceTree = "<group>";
+		};
+		BB17145C1EF427F200BFB942 /* Toolbar */ = {
+			isa = PBXGroup;
+			children = (
+				BB0BA4351EF4331F003BE8C5 /* Items */,
+				BB17145D1EF4280100BFB942 /* ToolbarItemProvider.swift */,
+			);
+			path = Toolbar;
 			sourceTree = "<group>";
 		};
 		BB2046B41EBE093C00084F34 /* Views */ = {
@@ -511,6 +556,7 @@
 		BB62DE751E5623C000AA3577 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				BB17145C1EF427F200BFB942 /* Toolbar */,
 				BB0A2BF81EBFB58C00A19D60 /* Login */,
 				BB0A2BF51EBFB48B00A19D60 /* RootFlow */,
 				BB2046B41EBE093C00084F34 /* Views */,
@@ -584,6 +630,7 @@
 		BBA77BA41E57A3D900C9842C /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				BB0BA4321EF42ABD003BE8C5 /* ToolbarManager */,
 				BB5FB9A71EF311F100972AC5 /* ViewModel */,
 				BB4725141EF081260070D323 /* MainLoadingView */,
 				BBA77BA51E57A3F200C9842C /* MainViewController.swift */,
@@ -924,8 +971,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB0BA43C1EF439A8003BE8C5 /* ToolbarManagerDataSourceHelpers.swift in Sources */,
 				BB2FC6751EC264BD0031917B /* TeamPickerViewModel.swift in Sources */,
 				BB53D42D1EDA060500BBC607 /* AppLifecycleMonitor.swift in Sources */,
+				BB0BA43A1EF43961003BE8C5 /* BoardsChoice.swift in Sources */,
 				BBFC65391EE1FDCC005C1EFB /* LoginData.swift in Sources */,
 				BB2046C11EBE0F7300084F34 /* Optionals.swift in Sources */,
 				BBA77B9B1E57922C00C9842C /* TextFieldStyles.swift in Sources */,
@@ -947,6 +996,7 @@
 				BBFC654A1EE307EA005C1EFB /* Environment.swift in Sources */,
 				BBFC65471EE218B0005C1EFB /* LoginService.swift in Sources */,
 				BB53D4341EDA1A8400BBC607 /* NetworkLogger.swift in Sources */,
+				BB0BA4341EF42ACC003BE8C5 /* ToolbarManager.swift in Sources */,
 				BB0A2C071EBFBDF500A19D60 /* LoginFlowContainerViewController.swift in Sources */,
 				BB5695A01EDB5C7000B87510 /* CheckMarkView.swift in Sources */,
 				BB5FB9A91EF3121300972AC5 /* MainViewModelCreator.swift in Sources */,
@@ -961,6 +1011,7 @@
 				BB0A2BD31EBF47B600A19D60 /* Logger.swift in Sources */,
 				BBFC65431EE20319005C1EFB /* CookieSession.swift in Sources */,
 				BBD571FB1EC37D3E0061AD67 /* Validator.swift in Sources */,
+				BB17145E1EF4280100BFB942 /* ToolbarItemProvider.swift in Sources */,
 				BB0A2C041EBFBB3100A19D60 /* TeamPickerViewController.swift in Sources */,
 				BB0A2C0A1EC12EF400A19D60 /* TeamCheckService.swift in Sources */,
 				BB0A2BE91EBF838200A19D60 /* BoardsService.swift in Sources */,
@@ -981,6 +1032,7 @@
 				BB0A2BE71EBF6C5A00A19D60 /* Board.swift in Sources */,
 				BBD571FD1EC37F620061AD67 /* CommonValidators.swift in Sources */,
 				BBD571FF1EC3B2C60061AD67 /* Observable+Extensions.swift in Sources */,
+				BB0BA4381EF43468003BE8C5 /* PopupButtonToolbarItemManager.swift in Sources */,
 				BB0A2BEE1EBF8A2600A19D60 /* JIRARestAPI.swift in Sources */,
 				BB7AD73F1EF2E07300E436C4 /* SprintEndpoints.swift in Sources */,
 				BB0A2BF71EBFB4AA00A19D60 /* RootFlowController.swift in Sources */,

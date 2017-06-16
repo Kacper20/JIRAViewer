@@ -9,17 +9,6 @@
 import Foundation
 import RxSwift
 
-struct BoardsChoice {
-    let selected: Board
-    let rest: [Board]
-
-    init?(boards: [Board]) {
-        guard let (head, tail) = boards.decomposed() else { return nil }
-        self.selected = head
-        self.rest = tail
-    }
-}
-
 enum BoardsServiceError: Error {
     case noValidBoards
 }
