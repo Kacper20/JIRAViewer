@@ -8,11 +8,13 @@
 
 import Foundation
 
-final class BoardChoiceToolbarItemManager {
+final class PopupButtonToolbarItemManager {
 
     var item: NSToolbarItem!
+    let identifier: String
 
     init(identifier: String, texts: [String], selectedIndex: Int) {
+        self.identifier = identifier
         let button = NSPopUpButton()
         button.addItems(withTitles: texts)
         button.selectItem(at: selectedIndex)
@@ -25,7 +27,7 @@ final class BoardChoiceToolbarItemManager {
             toolTip: "",
             target: self,
             itemContentType: .customView(button),
-            action: #selector(BoardChoiceToolbarItemManager.targetAction),
+            action: #selector(PopupButtonToolbarItemManager.targetAction),
             menu: nil
         ) ?? NSToolbarItem()
     }

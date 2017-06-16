@@ -29,7 +29,7 @@
 		BB0A2C0A1EC12EF400A19D60 /* TeamCheckService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0A2C091EC12EF400A19D60 /* TeamCheckService.swift */; };
 		BB0A2C0C1EC12F0400A19D60 /* TeamCheckEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0A2C0B1EC12F0400A19D60 /* TeamCheckEndpoints.swift */; };
 		BB0BA4341EF42ACC003BE8C5 /* ToolbarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0BA4331EF42ACC003BE8C5 /* ToolbarManager.swift */; };
-		BB0BA4381EF43468003BE8C5 /* BoardChoiceToolbarItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0BA4371EF43468003BE8C5 /* BoardChoiceToolbarItemManager.swift */; };
+		BB0BA4381EF43468003BE8C5 /* PopupButtonToolbarItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0BA4371EF43468003BE8C5 /* PopupButtonToolbarItemManager.swift */; };
 		BB0BA43A1EF43961003BE8C5 /* BoardsChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0BA4391EF43961003BE8C5 /* BoardsChoice.swift */; };
 		BB0BA43C1EF439A8003BE8C5 /* ToolbarManagerDataSourceHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0BA43B1EF439A8003BE8C5 /* ToolbarManagerDataSourceHelpers.swift */; };
 		BB12D6F01ED780A900FEA52A /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB12D6EF1ED780A900FEA52A /* String+Extensions.swift */; };
@@ -183,7 +183,7 @@
 		BB0A2C091EC12EF400A19D60 /* TeamCheckService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamCheckService.swift; sourceTree = "<group>"; };
 		BB0A2C0B1EC12F0400A19D60 /* TeamCheckEndpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamCheckEndpoints.swift; sourceTree = "<group>"; };
 		BB0BA4331EF42ACC003BE8C5 /* ToolbarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarManager.swift; sourceTree = "<group>"; };
-		BB0BA4371EF43468003BE8C5 /* BoardChoiceToolbarItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardChoiceToolbarItemManager.swift; sourceTree = "<group>"; };
+		BB0BA4371EF43468003BE8C5 /* PopupButtonToolbarItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupButtonToolbarItemManager.swift; sourceTree = "<group>"; };
 		BB0BA4391EF43961003BE8C5 /* BoardsChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardsChoice.swift; sourceTree = "<group>"; };
 		BB0BA43B1EF439A8003BE8C5 /* ToolbarManagerDataSourceHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarManagerDataSourceHelpers.swift; sourceTree = "<group>"; };
 		BB12D6EF1ED780A900FEA52A /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
@@ -425,7 +425,7 @@
 		BB0BA4361EF43454003BE8C5 /* Items */ = {
 			isa = PBXGroup;
 			children = (
-				BB0BA4371EF43468003BE8C5 /* BoardChoiceToolbarItemManager.swift */,
+				BB0BA4371EF43468003BE8C5 /* PopupButtonToolbarItemManager.swift */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -1032,7 +1032,7 @@
 				BB0A2BE71EBF6C5A00A19D60 /* Board.swift in Sources */,
 				BBD571FD1EC37F620061AD67 /* CommonValidators.swift in Sources */,
 				BBD571FF1EC3B2C60061AD67 /* Observable+Extensions.swift in Sources */,
-				BB0BA4381EF43468003BE8C5 /* BoardChoiceToolbarItemManager.swift in Sources */,
+				BB0BA4381EF43468003BE8C5 /* PopupButtonToolbarItemManager.swift in Sources */,
 				BB0A2BEE1EBF8A2600A19D60 /* JIRARestAPI.swift in Sources */,
 				BB7AD73F1EF2E07300E436C4 /* SprintEndpoints.swift in Sources */,
 				BB0A2BF71EBFB4AA00A19D60 /* RootFlowController.swift in Sources */,

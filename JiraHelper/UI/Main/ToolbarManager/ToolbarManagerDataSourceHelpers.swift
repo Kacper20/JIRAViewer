@@ -13,3 +13,9 @@ extension BoardsChoice {
         return ([selected] + rest).map { $0.name }
     }
 }
+
+extension ActiveSprintChoice {
+    var texts: [String] {
+        return ([selected] + rest).map { $0.name }
+    }
+}

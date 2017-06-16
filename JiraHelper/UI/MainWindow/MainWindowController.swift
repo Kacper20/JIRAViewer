@@ -51,11 +51,11 @@ final class MainWindowController: NSWindowController {
         mainViewController.view.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        configureToolbar(boardsChoice: viewModel.boardsChoice)
+        configureToolbar(boardsChoice: viewModel.boardsChoice, sprintChoice: viewModel.sprintChoice)
         window?.makeKey()
     }
 
-    private func configureToolbar(boardsChoice: BoardsChoice) {
-        toolbarManager = ToolbarManager(toolbar: toolbar, boardsChoice: boardsChoice)
+    private func configureToolbar(boardsChoice: BoardsChoice, sprintChoice: ActiveSprintChoice) {
+        toolbarManager = ToolbarManager(toolbar: toolbar, boardsChoice: boardsChoice, sprintChoice: sprintChoice)
     }
 }
