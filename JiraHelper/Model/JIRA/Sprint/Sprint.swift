@@ -8,17 +8,18 @@
 
 import Foundation
 
+struct SprintSetupData: Decodable {
+    let originBoardId: Int
+    let startDate: Date
+    let endDate: Date
+}
+
 struct Sprint: Decodable {
-    struct SetupData: Decodable {
-        let originBoardId: Int
-        let startDate: Date
-        let endDate: Date
-    }
 
     enum State: Decodable {
         case future
-        case closed(SetupData, completionDate: Date)
-        case active(SetupData)
+        case closed(SprintSetupData, completionDate: Date)
+        case active(SprintSetupData)
 
         private enum CodingKeys: String, CodingKey {
             case state
@@ -34,11 +35,11 @@ struct Sprint: Decodable {
             switch state {
             case CodingKeys.closed.rawValue:
                 self = .closed(
-                    try SetupData(from: decoder),
+                    try SprintSetupData(from: decoder),
                     completionDate: try keyedContainer.decode(Date.self, forKey: .completeDate)
                 )
             case CodingKeys.active.rawValue:
-                self = .active(try SetupData(from: decoder))
+                self = .active(try SprintSetupData(from: decoder))
             case CodingKeys.future.rawValue:
                 self = .future
             default:

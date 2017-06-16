@@ -9,7 +9,6 @@
 import Foundation
 
 extension Sequence {
-
     func find(_ predicate: (Iterator.Element) -> Bool) -> Iterator.Element? {
         for elem in self where predicate(elem) {
             return elem
@@ -26,6 +25,13 @@ extension Sequence {
             return false
         }
         return true
+    }
+}
+
+extension Array {
+    func decomposed() -> (head: Element, tail: [Element])? {
+        guard let first = first else { return nil }
+        return (first, Array(dropFirst()))
     }
 }
 

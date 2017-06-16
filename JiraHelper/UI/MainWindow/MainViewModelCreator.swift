@@ -11,26 +11,30 @@ import RxSwift
 
 final class MainViewModelCreator {
     private let networkService: AuthenticatedNetworkService
-    private let boardsService: BoardService
+    private let boardsService: BoardsService
     private let sprintsService: SprintsService
 
     init(networkService: AuthenticatedNetworkService) {
         self.networkService = networkService
-        self.boardsService = BoardService(networkService: networkService)
+        self.boardsService = BoardsService(networkService: networkService)
         self.sprintsService = SprintsService(networkService: networkService)
     }
 
     func create() -> Observable<MainViewModel> {
         return boardsService
             .boards()
-            .flatMap { [unowned self] boardsResult in
-                return self.sprintsService.allActive(for: $0.selectedBoard).map { }
+            .flatMap { [weak self] boardsChoice -> Observable<(BoardsChoice, ActiveSprintChoice)> in
+                guard let `self` = self else { return .empty() }
+                return self.sprintsService.allActive(for: boardsChoice.selected).map { (boardsChoice, $0) }
             }
-            .subscribe(onNext: { [unowned self] sprints in
-                self.presentVC()
-                }, onError: { error in
-                    print(error)
-            }).disposed(by: disposeBag)
-
+            .flatMap { [weak self] (boardsChoice, activeSprintChoice) -> Observable<MainViewModel> in
+                guard let `self` = self else { return .empty() }
+                return .just(MainViewModel(
+                    boardsService: self.boardsService,
+                    sprintsService: self.sprintsService,
+                    boardsChoice: boardsChoice,
+                    sprintChoice: activeSprintChoice)
+                )
+            }
     }
 }

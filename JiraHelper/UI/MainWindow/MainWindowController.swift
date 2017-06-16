@@ -12,7 +12,7 @@ final class MainWindowController: NSWindowController {
     @IBOutlet weak var toolbar: NSToolbar!
 
     private let disposeBag = DisposeBag()
-    private let mainViewModelCreator: MainViewStartDataService
+    private let mainViewModelCreator: MainViewModelCreator
 
     private var mainViewController: MainViewController?
 
@@ -34,7 +34,13 @@ final class MainWindowController: NSWindowController {
     }
 
     func present() {
-        return mainV
+        mainViewModelCreator
+            .create()
+            .subscribe(onNext: { [unowned self] viewModel in
+                self.presentVC(with: viewModel)
+            }, onError: { [unowned self] error in
+                Logger.shared.error("Error occured: \(error)")
+            }).disposed(by: disposeBag)
     }
 
     private func presentVC(with viewModel: MainViewModel) {

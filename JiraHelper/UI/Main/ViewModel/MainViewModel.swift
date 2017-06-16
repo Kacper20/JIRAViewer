@@ -10,19 +10,20 @@ import Foundation
 
 final class MainViewModel {
 
-    private let boardService: BoardService
+    private let boardsService: BoardsService
     private let sprintsService: SprintsService
-    private var boardsResult: BoardsResult
-    private var sprints: [Sprints]
+    private let boardsChoice: BoardsChoice
+    private let sprintChoice: ActiveSprintChoice
 
     init(
-        boardService: BoardService,
+        boardsService: BoardsService,
         sprintsService: SprintsService,
-        boardsResult: BoardsResult
-        sprints: [Sprint]
+        boardsChoice: BoardsChoice,
+        sprintChoice: ActiveSprintChoice
      ) {
-        <#statements#>
+        self.boardsService = boardsService
+        self.sprintsService = sprintsService
+        self.boardsChoice = boardsChoice
+        self.sprintChoice = sprintChoice
     }
-
-    
 }
