@@ -5,22 +5,23 @@
 
 import SnapKit
 import AppKit
+import RxSwift
 
 final class MainWindowController: NSWindowController {
 
     @IBOutlet weak var toolbar: NSToolbar!
 
-    private let authenticatedNetworkService: AuthenticatedNetworkService
-    //TODO: Should be injected
-    
+    private let disposeBag = DisposeBag()
+    private let mainViewModelCreator: MainViewModelCreator
+
     private var mainViewController: MainViewController?
 
     override var windowNibName : String! {
         return "MainWindowController"
     }
 
-    init(authenticatedNetworkService: AuthenticatedNetworkService) {
-        self.authenticatedNetworkService = authenticatedNetworkService
+    init(mainViewModelCreator: MainViewModelCreator) {
+        self.mainViewModelCreator = mainViewModelCreator
         super.init(window: nil)
     }
     
@@ -33,12 +34,23 @@ final class MainWindowController: NSWindowController {
     }
 
     func present() {
+        mainViewModelCreator
+            .create()
+            .subscribe(onNext: { [unowned self] viewModel in
+                self.presentVC(with: viewModel)
+            }, onError: { [unowned self] error in
+                Logger.shared.error("Error occured: \(error)")
+            }).disposed(by: disposeBag)
+    }
+
+    private func presentVC(with viewModel: MainViewModel) {
         let mainViewController = MainViewController()
         self.mainViewController = mainViewController
         window?.contentView?.addSubview(mainViewController.view)
         mainViewController.view.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        window?.makeKey()
 
         configureToolbar()
     }

@@ -27,11 +27,7 @@ final class RootFlowController {
 
         if let authentication = authenticationProvider.readAuthentication() {
             if case let .basicAuth(storage) = authentication {
-                let authenticatedService = AuthenticatedNetworkService(
-                    networkService: networkService,
-                    authentication: storage
-                )
-                currentFlow = .main(MainWindowController(authenticatedNetworkService: authenticatedService))
+                currentFlow = RootFlowController.createMainFlowChoice(for: storage, networkService: networkService)
             } else {
                 fatalError()
             }
@@ -51,18 +47,24 @@ final class RootFlowController {
         switch authenticationType {
         case let .basic(loginData):
             let storage = authenticationProvider.writeBasicAuthentication(data: loginData, team: team)
-            let authenticatedService = AuthenticatedNetworkService(
-                networkService: networkService,
-                authentication: storage
-            )
             if case let .login(controller) = currentFlow {
                 controller.close()
             }
-            //TODO: Should be generic
-            currentFlow = .main(MainWindowController(authenticatedNetworkService: authenticatedService))
+            currentFlow = RootFlowController.createMainFlowChoice(for: storage, networkService: networkService)
         case .cookie(_):
             fatalError()
         }
+    }
+
+    private static func createMainFlowChoice(
+        for storage: BasicAuthenticationStorage,
+        networkService: NetworkService
+        ) -> CurrentFlow {
+        let authenticatedService = AuthenticatedNetworkService(networkService: networkService, authentication: storage)
+        let mainController = MainWindowController(
+            mainViewModelCreator: MainViewModelCreator(networkService: authenticatedService)
+        )
+        return .main(mainController)
     }
 
     func present() {
