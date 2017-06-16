@@ -2,7 +2,7 @@
   "commitish" : "3.2.0",
   "Mac" : [
     {
-      "hash" : "71a8b052a69893ec8cc31e094235e8508bfaa35d7b0e91fd39fe44dc374aab9b",
+      "hash" : "21f354b4e09f101e1bda8573ee024c8b5cba3bf6caff75fea269e06045c843b9",
       "name" : "SnapKit"
     }
   ]

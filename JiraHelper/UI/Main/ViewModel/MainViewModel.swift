@@ -12,8 +12,8 @@ final class MainViewModel {
 
     private let boardsService: BoardsService
     private let sprintsService: SprintsService
-    private let boardsChoice: BoardsChoice
-    private let sprintChoice: ActiveSprintChoice
+    let boardsChoice: BoardsChoice
+    let sprintChoice: ActiveSprintChoice
 
     init(
         boardsService: BoardsService,

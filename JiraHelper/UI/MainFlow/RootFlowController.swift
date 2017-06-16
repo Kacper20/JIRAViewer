@@ -71,7 +71,6 @@ final class RootFlowController {
         let flow: CurrentFlow = currentFlow
         switch flow {
         case let .login(controller):
-            
             controller.present()
         case let .main(controller):
             controller.present()
