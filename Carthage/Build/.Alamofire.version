@@ -2,7 +2,7 @@
   "commitish" : "4.5.0",
   "Mac" : [
     {
-      "hash" : "d8bebb36492f69f725ec54a1a2aa6307384554b733cdc7ae266c159fe9f8b2a0",
+      "hash" : "a6b38b8924c7e0b6f2f1c64de49948daa5e87b3903d474a7b869e5fbfa5304fe",
       "name" : "Alamofire"
     }
   ]

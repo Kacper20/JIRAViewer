@@ -28,7 +28,7 @@
 		BB0A2C071EBFBDF500A19D60 /* LoginFlowContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0A2C061EBFBDF500A19D60 /* LoginFlowContainerViewController.swift */; };
 		BB0A2C0A1EC12EF400A19D60 /* TeamCheckService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0A2C091EC12EF400A19D60 /* TeamCheckService.swift */; };
 		BB0A2C0C1EC12F0400A19D60 /* TeamCheckEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0A2C0B1EC12F0400A19D60 /* TeamCheckEndpoints.swift */; };
-		BB0BA4341EF42ACC003BE8C5 /* ToolbarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0BA4331EF42ACC003BE8C5 /* ToolbarManager.swift */; };
+		BB0BA4341EF42ACC003BE8C5 /* MainWindowToolbarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0BA4331EF42ACC003BE8C5 /* MainWindowToolbarManager.swift */; };
 		BB0BA4381EF43468003BE8C5 /* PopupButtonToolbarItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0BA4371EF43468003BE8C5 /* PopupButtonToolbarItemManager.swift */; };
 		BB0BA43A1EF43961003BE8C5 /* BoardsChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0BA4391EF43961003BE8C5 /* BoardsChoice.swift */; };
 		BB0BA43C1EF439A8003BE8C5 /* ToolbarManagerDataSourceHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0BA43B1EF439A8003BE8C5 /* ToolbarManagerDataSourceHelpers.swift */; };
@@ -182,7 +182,7 @@
 		BB0A2C061EBFBDF500A19D60 /* LoginFlowContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginFlowContainerViewController.swift; path = JiraHelper/UI/Login/LoginFlowContainerViewController.swift; sourceTree = SOURCE_ROOT; };
 		BB0A2C091EC12EF400A19D60 /* TeamCheckService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamCheckService.swift; sourceTree = "<group>"; };
 		BB0A2C0B1EC12F0400A19D60 /* TeamCheckEndpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamCheckEndpoints.swift; sourceTree = "<group>"; };
-		BB0BA4331EF42ACC003BE8C5 /* ToolbarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarManager.swift; sourceTree = "<group>"; };
+		BB0BA4331EF42ACC003BE8C5 /* MainWindowToolbarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowToolbarManager.swift; sourceTree = "<group>"; };
 		BB0BA4371EF43468003BE8C5 /* PopupButtonToolbarItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupButtonToolbarItemManager.swift; sourceTree = "<group>"; };
 		BB0BA4391EF43961003BE8C5 /* BoardsChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardsChoice.swift; sourceTree = "<group>"; };
 		BB0BA43B1EF439A8003BE8C5 /* ToolbarManagerDataSourceHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarManagerDataSourceHelpers.swift; sourceTree = "<group>"; };
@@ -413,7 +413,7 @@
 			isa = PBXGroup;
 			children = (
 				BB0BA4361EF43454003BE8C5 /* Items */,
-				BB0BA4331EF42ACC003BE8C5 /* ToolbarManager.swift */,
+				BB0BA4331EF42ACC003BE8C5 /* MainWindowToolbarManager.swift */,
 				BB0BA43B1EF439A8003BE8C5 /* ToolbarManagerDataSourceHelpers.swift */,
 			);
 			path = ToolbarManager;
@@ -491,6 +491,13 @@
 				BB5695BF1EDE0AB800B87510 /* Collections+Extensions.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		BB36E1E81EF585500081DDAE /* TouchBar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TouchBar;
 			sourceTree = "<group>";
 		};
 		BB4725141EF081260070D323 /* MainLoadingView */ = {
@@ -634,6 +641,7 @@
 		BBA77BA41E57A3D900C9842C /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				BB36E1E81EF585500081DDAE /* TouchBar */,
 				BB0BA4321EF42ABD003BE8C5 /* ToolbarManager */,
 				BB5FB9A71EF311F100972AC5 /* ViewModel */,
 				BB4725141EF081260070D323 /* MainLoadingView */,
@@ -1011,7 +1019,7 @@
 				BBFC654A1EE307EA005C1EFB /* Environment.swift in Sources */,
 				BBFC65471EE218B0005C1EFB /* LoginService.swift in Sources */,
 				BB53D4341EDA1A8400BBC607 /* NetworkLogger.swift in Sources */,
-				BB0BA4341EF42ACC003BE8C5 /* ToolbarManager.swift in Sources */,
+				BB0BA4341EF42ACC003BE8C5 /* MainWindowToolbarManager.swift in Sources */,
 				BB0A2C071EBFBDF500A19D60 /* LoginFlowContainerViewController.swift in Sources */,
 				BB5695A01EDB5C7000B87510 /* CheckMarkView.swift in Sources */,
 				BB5FB9A91EF3121300972AC5 /* MainViewModelCreator.swift in Sources */,
