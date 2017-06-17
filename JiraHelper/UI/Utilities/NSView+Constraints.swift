@@ -10,6 +10,7 @@ import Foundation
 
 extension NSView {
     func constraintEdges(to anotherView: NSView, with insets: NSEdgeInsets = NSEdgeInsetsZero) {
+        translatesAutoresizingMaskIntoConstraints = false
         leftAnchor.constraint(equalTo: anotherView.leftAnchor, constant: insets.left).isActive = true
         topAnchor.constraint(equalTo: anotherView.topAnchor, constant: insets.top).isActive = true
         rightAnchor.constraint(equalTo: anotherView.rightAnchor, constant: -insets.right).isActive = true
@@ -22,6 +23,7 @@ extension NSView {
     }
 
     func constraintWithSuperview(_ constraintBuilder: (NSView, NSView) -> Void) {
+        translatesAutoresizingMaskIntoConstraints = false
         guard let parent = superview else { fatalError("View should have a superview before adding constraint") }
         constraintBuilder(self, parent)
     }
