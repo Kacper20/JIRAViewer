@@ -203,6 +203,8 @@
 		BB36E1E61EF53C970081DDAE /* NSView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+Constraints.swift"; sourceTree = "<group>"; };
 		BB36E1E91EF589F80081DDAE /* IssuesEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesEndpoints.swift; sourceTree = "<group>"; };
 		BB36E1EC1EF5A27E0081DDAE /* SprintViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprintViewModel.swift; sourceTree = "<group>"; };
+		BB36E1F01EF5A7310081DDAE /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/Mac/Kingfisher.framework; sourceTree = "<group>"; };
+		BB36E1F11EF5A73F0081DDAE /* Kingfisher.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Kingfisher.framework.dSYM; path = Carthage/Build/Mac/Kingfisher.framework.dSYM; sourceTree = "<group>"; };
 		BB503C691EDACCA0002BDF54 /* BasicAuthenticationStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicAuthenticationStorage.swift; sourceTree = "<group>"; };
 		BB503C6E1EDB0043002BDF54 /* AuthenticatedNetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticatedNetworkService.swift; sourceTree = "<group>"; };
 		BB53D42C1EDA060500BBC607 /* AppLifecycleMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLifecycleMonitor.swift; sourceTree = "<group>"; };
@@ -769,6 +771,8 @@
 		BBE003AE1E395E6800E1A2A4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BB36E1F11EF5A73F0081DDAE /* Kingfisher.framework.dSYM */,
+				BB36E1F01EF5A7310081DDAE /* Kingfisher.framework */,
 				BB56959C1EDB5B9A00B87510 /* Locksmith.framework.dSYM */,
 				BB56959A1EDB5B8A00B87510 /* Locksmith.framework */,
 				BB0A2BDB1EBF49C400A19D60 /* SwiftyBeaver.framework.dSYM */,

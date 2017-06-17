@@ -2,5 +2,5 @@ github "ReactiveX/RxSwift" ~> 3.0
 github "Alamofire/Alamofire" ~> 4.0
 github "shpakovski/MASShortcut"
 github "SwiftyBeaver/SwiftyBeaver"
-github "lyft/mapper"
 github "matthewpalmer/Locksmith"
+github "onevcat/Kingfisher" ~> 3.0

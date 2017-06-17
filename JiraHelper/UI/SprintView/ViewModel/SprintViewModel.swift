@@ -10,6 +10,11 @@ import Foundation
 
 final class SprintViewModel: NSCollectionViewDataSource {
 
+    private let sprintIssuesService: SprintIssuesService
+
+    init(sprintIssuesService: SprintIssuesService) {
+        self.sprintIssuesService = sprintIssuesService
+    }
 
     
 }

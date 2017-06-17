@@ -1,6 +1,6 @@
 github "Alamofire/Alamofire" "4.5.0"
 github "ReactiveX/RxSwift" "3.5.0"
 github "SwiftyBeaver/SwiftyBeaver" "1.2.2"
-github "lyft/mapper" "6.0.0"
 github "matthewpalmer/Locksmith" "3.0.0"
+github "onevcat/Kingfisher" "3.10.2"
 github "shpakovski/MASShortcut" "2.3.6"

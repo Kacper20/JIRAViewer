@@ -15,7 +15,7 @@ final class MainViewController: NSViewController {
 
     init(mainViewModel: MainViewModel) {
         textInputController = TextInputViewController()
-        sprintViewController = SprintViewController()
+        sprintViewController = SprintViewController(sprintViewModel: mainViewModel.sprintViewModel)
         super.init(nibName: nil, bundle: nil)!
 
         setupChildVCs()
