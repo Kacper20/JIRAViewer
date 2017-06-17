@@ -2,8 +2,6 @@
 // Created by Kacper Harasim on 16.02.2017.
 // Copyright (c) 2017 Kacper Harasim. All rights reserved.
 //
-
-import SnapKit
 import AppKit
 import RxSwift
 
@@ -48,9 +46,7 @@ final class MainWindowController: NSWindowController {
         let mainViewController = MainViewController()
         self.mainViewController = mainViewController
         window?.contentView?.addSubview(mainViewController.view)
-        mainViewController.view.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
+        mainViewController.view.constraintEdgesToSuperview()
         configureToolbar(boardsChoice: viewModel.boardsChoice, sprintChoice: viewModel.sprintChoice)
         window?.makeKey()
     }

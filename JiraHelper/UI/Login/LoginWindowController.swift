@@ -36,9 +36,7 @@ class LoginWindowController: NSWindowController {
             })
         self.loginFlowContainer = loginFlowContainer
         window?.contentView?.addSubview(loginFlowContainer.view)
-        loginFlowContainer.view.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
+        loginFlowContainer.view.constraintEdgesToSuperview()
     }
 
     func present() {

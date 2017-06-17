@@ -26,22 +26,23 @@ final class MainViewController: NSViewController {
     }
 
     private func setupChildVCs() {
+        //TODO: Try to refactor this into some container?
         addChildViewController(textInputController)
         view.addSubview(textInputController.view)
-        textInputController.view.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-            make.leading.equalToSuperview()
-            make.trailing.equalToSuperview()
-            make.height.equalTo(100)
+        textInputController.view.constraintWithSuperview { (view, parent) in
+            view.topAnchor.constraint(equalTo: parent.topAnchor).activate()
+            view.leadingAnchor.constraint(equalTo: parent.leadingAnchor).activate()
+            view.trailingAnchor.constraint(equalTo: parent.trailingAnchor).activate()
+            view.heightAnchor.constraint(equalToConstant: 100).activate()
         }
         addChildViewController(sprintViewController)
         view.addSubview(sprintViewController.view)
-        sprintViewController.view.snp.makeConstraints { make in
-            make.top.equalTo(textInputController.view.snp.bottom)
-            make.leading.equalToSuperview()
-            make.trailing.equalToSuperview()
-            make.height.equalTo(400)
-            make.width.equalTo(700)
+        sprintViewController.view.constraintWithSuperview { (view, parent) in
+            view.topAnchor.constraint(equalTo: textInputController.view.bottomAnchor).activate()
+            view.leadingAnchor.constraint(equalTo: parent.leadingAnchor).activate()
+            view.trailingAnchor.constraint(equalTo: parent.trailingAnchor).activate()
+            view.heightAnchor.constraint(equalToConstant: 400).activate()
+            view.widthAnchor.constraint(equalToConstant: 700).activate()
         }
     }
 

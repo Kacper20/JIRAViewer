@@ -44,6 +44,7 @@
 		BB2046C51EBE112900084F34 /* SprintCollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB2046C31EBE112900084F34 /* SprintCollectionViewItem.xib */; };
 		BB2FC6751EC264BD0031917B /* TeamPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2FC6741EC264BD0031917B /* TeamPickerViewModel.swift */; };
 		BB36E1E51EF53A580081DDAE /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36E1E41EF53A580081DDAE /* Issue.swift */; };
+		BB36E1E71EF53C970081DDAE /* NSView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36E1E61EF53C970081DDAE /* NSView+Constraints.swift */; };
 		BB503C6A1EDACCA0002BDF54 /* BasicAuthenticationStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB503C691EDACCA0002BDF54 /* BasicAuthenticationStorage.swift */; };
 		BB503C6F1EDB0043002BDF54 /* AuthenticatedNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB503C6E1EDB0043002BDF54 /* AuthenticatedNetworkService.swift */; };
 		BB53D42D1EDA060500BBC607 /* AppLifecycleMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB53D42C1EDA060500BBC607 /* AppLifecycleMonitor.swift */; };
@@ -90,12 +91,9 @@
 		BBE003A81E395E3D00E1A2A4 /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BBE003A21E395E3D00E1A2A4 /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BBE003A91E395E3D00E1A2A4 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE003A31E395E3D00E1A2A4 /* RxSwift.framework */; };
 		BBE003AA1E395E3D00E1A2A4 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BBE003A31E395E3D00E1A2A4 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		BBE003AB1E395E3D00E1A2A4 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE003A41E395E3D00E1A2A4 /* SnapKit.framework */; };
-		BBE003AC1E395E3D00E1A2A4 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BBE003A41E395E3D00E1A2A4 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BBE003B41E395EBB00E1A2A4 /* Alamofire.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBE003B01E395EBB00E1A2A4 /* Alamofire.framework.dSYM */; };
 		BBE003B51E395EBB00E1A2A4 /* RxCocoa.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBE003B11E395EBB00E1A2A4 /* RxCocoa.framework.dSYM */; };
 		BBE003B61E395EBB00E1A2A4 /* RxSwift.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBE003B21E395EBB00E1A2A4 /* RxSwift.framework.dSYM */; };
-		BBE003B71E395EBB00E1A2A4 /* SnapKit.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBE003B31E395EBB00E1A2A4 /* SnapKit.framework.dSYM */; };
 		BBE003BA1E3966EF00E1A2A4 /* MASShortcut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE003B91E3966EF00E1A2A4 /* MASShortcut.framework */; };
 		BBE003BB1E3966EF00E1A2A4 /* MASShortcut.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BBE003B91E3966EF00E1A2A4 /* MASShortcut.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BBE003BD1E39670400E1A2A4 /* MASShortcut.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBE003BC1E39670400E1A2A4 /* MASShortcut.framework.dSYM */; };
@@ -141,7 +139,6 @@
 				BBE003A81E395E3D00E1A2A4 /* RxCocoa.framework in Embed Frameworks */,
 				BBE003A61E395E3D00E1A2A4 /* Alamofire.framework in Embed Frameworks */,
 				BBE003AA1E395E3D00E1A2A4 /* RxSwift.framework in Embed Frameworks */,
-				BBE003AC1E395E3D00E1A2A4 /* SnapKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -158,7 +155,6 @@
 				BBE003B41E395EBB00E1A2A4 /* Alamofire.framework.dSYM in CopyFiles */,
 				BBE003B51E395EBB00E1A2A4 /* RxCocoa.framework.dSYM in CopyFiles */,
 				BBE003B61E395EBB00E1A2A4 /* RxSwift.framework.dSYM in CopyFiles */,
-				BBE003B71E395EBB00E1A2A4 /* SnapKit.framework.dSYM in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +198,7 @@
 		BB2046C31EBE112900084F34 /* SprintCollectionViewItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SprintCollectionViewItem.xib; sourceTree = "<group>"; };
 		BB2FC6741EC264BD0031917B /* TeamPickerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamPickerViewModel.swift; sourceTree = "<group>"; };
 		BB36E1E41EF53A580081DDAE /* Issue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
+		BB36E1E61EF53C970081DDAE /* NSView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+Constraints.swift"; sourceTree = "<group>"; };
 		BB503C691EDACCA0002BDF54 /* BasicAuthenticationStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicAuthenticationStorage.swift; sourceTree = "<group>"; };
 		BB503C6E1EDB0043002BDF54 /* AuthenticatedNetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticatedNetworkService.swift; sourceTree = "<group>"; };
 		BB53D42C1EDA060500BBC607 /* AppLifecycleMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLifecycleMonitor.swift; sourceTree = "<group>"; };
@@ -251,11 +248,9 @@
 		BBE003A11E395E3D00E1A2A4 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/Mac/Alamofire.framework; sourceTree = "<group>"; };
 		BBE003A21E395E3D00E1A2A4 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/Mac/RxCocoa.framework; sourceTree = "<group>"; };
 		BBE003A31E395E3D00E1A2A4 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/Mac/RxSwift.framework; sourceTree = "<group>"; };
-		BBE003A41E395E3D00E1A2A4 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/Mac/SnapKit.framework; sourceTree = "<group>"; };
 		BBE003B01E395EBB00E1A2A4 /* Alamofire.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Alamofire.framework.dSYM; path = Carthage/Build/Mac/Alamofire.framework.dSYM; sourceTree = "<group>"; };
 		BBE003B11E395EBB00E1A2A4 /* RxCocoa.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = RxCocoa.framework.dSYM; path = Carthage/Build/Mac/RxCocoa.framework.dSYM; sourceTree = "<group>"; };
 		BBE003B21E395EBB00E1A2A4 /* RxSwift.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = RxSwift.framework.dSYM; path = Carthage/Build/Mac/RxSwift.framework.dSYM; sourceTree = "<group>"; };
-		BBE003B31E395EBB00E1A2A4 /* SnapKit.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SnapKit.framework.dSYM; path = Carthage/Build/Mac/SnapKit.framework.dSYM; sourceTree = "<group>"; };
 		BBE003B81E39617000E1A2A4 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		BBE003B91E3966EF00E1A2A4 /* MASShortcut.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MASShortcut.framework; path = Carthage/Build/Mac/MASShortcut.framework; sourceTree = "<group>"; };
 		BBE003BC1E39670400E1A2A4 /* MASShortcut.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = MASShortcut.framework.dSYM; path = Carthage/Build/Mac/MASShortcut.framework.dSYM; sourceTree = "<group>"; };
@@ -280,7 +275,6 @@
 				BBE003A71E395E3D00E1A2A4 /* RxCocoa.framework in Frameworks */,
 				BBE003A51E395E3D00E1A2A4 /* Alamofire.framework in Frameworks */,
 				BBE003A91E395E3D00E1A2A4 /* RxSwift.framework in Frameworks */,
-				BBE003AB1E395E3D00E1A2A4 /* SnapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -654,6 +648,7 @@
 			children = (
 				BB53D42B1EDA034C00BBC607 /* Lifecycle */,
 				BBA77BAA1E57A62300C9842C /* MaskImage.swift */,
+				BB36E1E61EF53C970081DDAE /* NSView+Constraints.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -761,11 +756,9 @@
 				BBE003B01E395EBB00E1A2A4 /* Alamofire.framework.dSYM */,
 				BBE003B11E395EBB00E1A2A4 /* RxCocoa.framework.dSYM */,
 				BBE003B21E395EBB00E1A2A4 /* RxSwift.framework.dSYM */,
-				BBE003B31E395EBB00E1A2A4 /* SnapKit.framework.dSYM */,
 				BBE003A11E395E3D00E1A2A4 /* Alamofire.framework */,
 				BBE003A21E395E3D00E1A2A4 /* RxCocoa.framework */,
 				BBE003A31E395E3D00E1A2A4 /* RxSwift.framework */,
-				BBE003A41E395E3D00E1A2A4 /* SnapKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -997,6 +990,7 @@
 				BB0BA43A1EF43961003BE8C5 /* BoardsChoice.swift in Sources */,
 				BBFC65391EE1FDCC005C1EFB /* LoginData.swift in Sources */,
 				BB2046C11EBE0F7300084F34 /* Optionals.swift in Sources */,
+				BB36E1E71EF53C970081DDAE /* NSView+Constraints.swift in Sources */,
 				BBA77B9B1E57922C00C9842C /* TextFieldStyles.swift in Sources */,
 				BBE003761E39534E00E1A2A4 /* AppDelegate.swift in Sources */,
 				BB12D6F31ED7825900FEA52A /* PasteboardService.swift in Sources */,
