@@ -1,5 +1,5 @@
 //
-//  Issue.swift
+//  SprintViewModel.swift
 //  JiraHelper
 //
 //  Created by Kacper Harasim on 17/06/2017.
@@ -8,6 +8,8 @@
 
 import Foundation
 
-struct Issue: Decodable {
-    let id: Int
+final class SprintViewModel: NSCollectionViewDataSource {
+
+
+    
 }

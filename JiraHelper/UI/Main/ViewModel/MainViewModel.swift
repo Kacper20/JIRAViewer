@@ -26,4 +26,6 @@ final class MainViewModel {
         self.boardsChoice = boardsChoice
         self.sprintChoice = sprintChoice
     }
+
+    var 
 }

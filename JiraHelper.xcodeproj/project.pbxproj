@@ -45,6 +45,8 @@
 		BB2FC6751EC264BD0031917B /* TeamPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2FC6741EC264BD0031917B /* TeamPickerViewModel.swift */; };
 		BB36E1E51EF53A580081DDAE /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36E1E41EF53A580081DDAE /* Issue.swift */; };
 		BB36E1E71EF53C970081DDAE /* NSView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36E1E61EF53C970081DDAE /* NSView+Constraints.swift */; };
+		BB36E1EA1EF589F80081DDAE /* IssuesEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36E1E91EF589F80081DDAE /* IssuesEndpoints.swift */; };
+		BB36E1ED1EF5A27E0081DDAE /* SprintViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36E1EC1EF5A27E0081DDAE /* SprintViewModel.swift */; };
 		BB503C6A1EDACCA0002BDF54 /* BasicAuthenticationStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB503C691EDACCA0002BDF54 /* BasicAuthenticationStorage.swift */; };
 		BB503C6F1EDB0043002BDF54 /* AuthenticatedNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB503C6E1EDB0043002BDF54 /* AuthenticatedNetworkService.swift */; };
 		BB53D42D1EDA060500BBC607 /* AppLifecycleMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB53D42C1EDA060500BBC607 /* AppLifecycleMonitor.swift */; };
@@ -199,6 +201,8 @@
 		BB2FC6741EC264BD0031917B /* TeamPickerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamPickerViewModel.swift; sourceTree = "<group>"; };
 		BB36E1E41EF53A580081DDAE /* Issue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
 		BB36E1E61EF53C970081DDAE /* NSView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+Constraints.swift"; sourceTree = "<group>"; };
+		BB36E1E91EF589F80081DDAE /* IssuesEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesEndpoints.swift; sourceTree = "<group>"; };
+		BB36E1EC1EF5A27E0081DDAE /* SprintViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprintViewModel.swift; sourceTree = "<group>"; };
 		BB503C691EDACCA0002BDF54 /* BasicAuthenticationStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicAuthenticationStorage.swift; sourceTree = "<group>"; };
 		BB503C6E1EDB0043002BDF54 /* AuthenticatedNetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticatedNetworkService.swift; sourceTree = "<group>"; };
 		BB53D42C1EDA060500BBC607 /* AppLifecycleMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLifecycleMonitor.swift; sourceTree = "<group>"; };
@@ -500,6 +504,14 @@
 			path = TouchBar;
 			sourceTree = "<group>";
 		};
+		BB36E1EB1EF5A2760081DDAE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BB36E1EC1EF5A27E0081DDAE /* SprintViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		BB4725141EF081260070D323 /* MainLoadingView */ = {
 			isa = PBXGroup;
 			children = (
@@ -587,6 +599,7 @@
 		BBA77B911E578E6700C9842C /* SprintView */ = {
 			isa = PBXGroup;
 			children = (
+				BB36E1EB1EF5A2760081DDAE /* ViewModel */,
 				BB2046B81EBE0A1A00084F34 /* Components */,
 				BB2046BB1EBE0AB000084F34 /* SprintViewController.xib */,
 				BBA77B9C1E579D1600C9842C /* SprintViewController.swift */,
@@ -666,6 +679,7 @@
 			children = (
 				BBB765711EF51B9E0039B366 /* SprintIssuesService.swift */,
 				BB36E1E41EF53A580081DDAE /* Issue.swift */,
+				BB36E1E91EF589F80081DDAE /* IssuesEndpoints.swift */,
 			);
 			path = Issues;
 			sourceTree = "<group>";
@@ -1035,6 +1049,7 @@
 				BB0A2BD31EBF47B600A19D60 /* Logger.swift in Sources */,
 				BBFC65431EE20319005C1EFB /* CookieSession.swift in Sources */,
 				BBD571FB1EC37D3E0061AD67 /* Validator.swift in Sources */,
+				BB36E1ED1EF5A27E0081DDAE /* SprintViewModel.swift in Sources */,
 				BB17145E1EF4280100BFB942 /* ToolbarItemProvider.swift in Sources */,
 				BB0A2C041EBFBB3100A19D60 /* TeamPickerViewController.swift in Sources */,
 				BB0A2C0A1EC12EF400A19D60 /* TeamCheckService.swift in Sources */,
@@ -1058,6 +1073,7 @@
 				BBD571FF1EC3B2C60061AD67 /* Observable+Extensions.swift in Sources */,
 				BB0BA4381EF43468003BE8C5 /* PopupButtonToolbarItemManager.swift in Sources */,
 				BB0A2BEE1EBF8A2600A19D60 /* JIRARestAPI.swift in Sources */,
+				BB36E1EA1EF589F80081DDAE /* IssuesEndpoints.swift in Sources */,
 				BB7AD73F1EF2E07300E436C4 /* SprintEndpoints.swift in Sources */,
 				BBB765741EF51F2A0039B366 /* PagedRequestGenerator.swift in Sources */,
 				BB0A2BF71EBFB4AA00A19D60 /* RootFlowController.swift in Sources */,
