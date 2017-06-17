@@ -33,7 +33,7 @@ final class SprintsService {
     }
 
     func allActive(for board: Board) -> Observable<ActiveSprintChoice> {
-        return networkService.request(configuration: SprintEndpoints.all(forBoard: board))
+        return networkService.request(configuration: SprintEndpoints.allActive(forBoard: board))
             .map { $0.values }
             .flatMap { sprints -> Observable<ActiveSprintChoice> in
                 if let choice = ActiveSprintChoice(sprints: sprints) {

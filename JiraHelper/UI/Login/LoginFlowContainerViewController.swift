@@ -90,8 +90,6 @@ final class LoginFlowContainerViewController: NSViewController {
         }
         addChildViewController(vc)
         view.addSubview(vc.view)
-        vc.view.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
+        vc.view.constraintEdgesToSuperview()
     }
 }

@@ -1,6 +1,5 @@
-github "Alamofire/Alamofire" "4.4.0"
+github "Alamofire/Alamofire" "4.5.0"
 github "ReactiveX/RxSwift" "3.5.0"
-github "SnapKit/SnapKit" "3.2.0"
 github "SwiftyBeaver/SwiftyBeaver" "1.2.2"
 github "lyft/mapper" "6.0.0"
 github "matthewpalmer/Locksmith" "3.0.0"
