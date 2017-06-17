@@ -9,7 +9,6 @@
 import Foundation
 
 enum SprintEndpoints {
-
     static func all(forBoard board: Board) -> EndpointConfiguration<ArrayOfValuesWithPagingData<Sprint>> {
         return EndpointConfiguration(
             path: "/board/\(board.id)/sprint",

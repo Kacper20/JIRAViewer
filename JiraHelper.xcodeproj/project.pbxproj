@@ -73,6 +73,9 @@
 		BBA77BA61E57A3F200C9842C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA77BA51E57A3F200C9842C /* MainViewController.swift */; };
 		BBA77BA81E57A3F800C9842C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA77BA71E57A3F800C9842C /* MainView.swift */; };
 		BBA77BAB1E57A62300C9842C /* MaskImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA77BAA1E57A62300C9842C /* MaskImage.swift */; };
+		BBB765721EF51B9E0039B366 /* SprintIssuesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB765711EF51B9E0039B366 /* SprintIssuesService.swift */; };
+		BBB765741EF51F2A0039B366 /* PagedRequestGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB765731EF51F2A0039B366 /* PagedRequestGenerator.swift */; };
+		BBB765761EF531EB0039B366 /* PagedEndpointConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB765751EF531EB0039B366 /* PagedEndpointConverter.swift */; };
 		BBD571FB1EC37D3E0061AD67 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD571FA1EC37D3E0061AD67 /* Validator.swift */; };
 		BBD571FD1EC37F620061AD67 /* CommonValidators.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD571FC1EC37F620061AD67 /* CommonValidators.swift */; };
 		BBD571FF1EC3B2C60061AD67 /* Observable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD571FE1EC3B2C60061AD67 /* Observable+Extensions.swift */; };
@@ -227,6 +230,9 @@
 		BBA77BA51E57A3F200C9842C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		BBA77BA71E57A3F800C9842C /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		BBA77BAA1E57A62300C9842C /* MaskImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaskImage.swift; sourceTree = "<group>"; };
+		BBB765711EF51B9E0039B366 /* SprintIssuesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprintIssuesService.swift; sourceTree = "<group>"; };
+		BBB765731EF51F2A0039B366 /* PagedRequestGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagedRequestGenerator.swift; sourceTree = "<group>"; };
+		BBB765751EF531EB0039B366 /* PagedEndpointConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagedEndpointConverter.swift; sourceTree = "<group>"; };
 		BBD571FA1EC37D3E0061AD67 /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		BBD571FC1EC37F620061AD67 /* CommonValidators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonValidators.swift; sourceTree = "<group>"; };
 		BBD571FE1EC3B2C60061AD67 /* Observable+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+Extensions.swift"; sourceTree = "<group>"; };
@@ -350,6 +356,8 @@
 			isa = PBXGroup;
 			children = (
 				BB0A2BF01EBF8D4100A19D60 /* PagingData.swift */,
+				BBB765731EF51F2A0039B366 /* PagedRequestGenerator.swift */,
+				BBB765751EF531EB0039B366 /* PagedEndpointConverter.swift */,
 			);
 			path = Paging;
 			sourceTree = "<group>";
@@ -648,6 +656,14 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		BBB765701EF518640039B366 /* Issues */ = {
+			isa = PBXGroup;
+			children = (
+				BBB765711EF51B9E0039B366 /* SprintIssuesService.swift */,
+			);
+			path = Issues;
+			sourceTree = "<group>";
+		};
 		BBD571F91EC37D2F0061AD67 /* Validators */ = {
 			isa = PBXGroup;
 			children = (
@@ -660,6 +676,7 @@
 		BBD848BC1EE47C6A004949BA /* Sprint */ = {
 			isa = PBXGroup;
 			children = (
+				BBB765701EF518640039B366 /* Issues */,
 				BB7AD73E1EF2E07300E436C4 /* SprintEndpoints.swift */,
 				BB7AD7401EF2E1FB00E436C4 /* Sprint.swift */,
 				BB7AD7421EF2ED0F00E436C4 /* SprintsService.swift */,
@@ -987,6 +1004,7 @@
 				BB0A2BFF1EBFB8C500A19D60 /* LoginWindowController.swift in Sources */,
 				BB5695A41EDB5D5300B87510 /* LoginViewController.swift in Sources */,
 				BB503C6A1EDACCA0002BDF54 /* BasicAuthenticationStorage.swift in Sources */,
+				BBB765721EF51B9E0039B366 /* SprintIssuesService.swift in Sources */,
 				BB0A2BDE1EBF4B8A00A19D60 /* NetworkService.swift in Sources */,
 				BB7AD7431EF2ED0F00E436C4 /* SprintsService.swift in Sources */,
 				BBA77BA31E57A0C600C9842C /* VerticallyCenteredTextFieldCell.swift in Sources */,
@@ -1003,6 +1021,7 @@
 				BBA77BA81E57A3F800C9842C /* MainView.swift in Sources */,
 				BB53D4321EDA123A00BBC607 /* JIRATeam.swift in Sources */,
 				BB503C6F1EDB0043002BDF54 /* AuthenticatedNetworkService.swift in Sources */,
+				BBB765761EF531EB0039B366 /* PagedEndpointConverter.swift in Sources */,
 				BB0A2BCF1EBF448100A19D60 /* EndpointConfiguration.swift in Sources */,
 				BBA77BAB1E57A62300C9842C /* MaskImage.swift in Sources */,
 				BBFC65451EE20557005C1EFB /* CookiesAuthLoginService.swift in Sources */,
@@ -1035,6 +1054,7 @@
 				BB0BA4381EF43468003BE8C5 /* PopupButtonToolbarItemManager.swift in Sources */,
 				BB0A2BEE1EBF8A2600A19D60 /* JIRARestAPI.swift in Sources */,
 				BB7AD73F1EF2E07300E436C4 /* SprintEndpoints.swift in Sources */,
+				BBB765741EF51F2A0039B366 /* PagedRequestGenerator.swift in Sources */,
 				BB0A2BF71EBFB4AA00A19D60 /* RootFlowController.swift in Sources */,
 				FA6E351536938100E1D24BBE /* TextInputViewController.swift in Sources */,
 				BBFC653D1EE1FDFA005C1EFB /* BasicAuthLoginEndpoints.swift in Sources */,
