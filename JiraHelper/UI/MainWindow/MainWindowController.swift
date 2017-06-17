@@ -13,7 +13,7 @@ final class MainWindowController: NSWindowController {
     private let mainViewModelCreator: MainViewModelCreator
 
     private var mainViewController: MainViewController?
-    private var toolbarManager: ToolbarManager?
+    private var toolbarManager: MainWindowToolbarManager?
 
     override var windowNibName : String! {
         return "MainWindowController"
@@ -47,11 +47,20 @@ final class MainWindowController: NSWindowController {
         self.mainViewController = mainViewController
         window?.contentView?.addSubview(mainViewController.view)
         mainViewController.view.constraintEdgesToSuperview()
-        configureToolbar(boardsChoice: viewModel.boardsChoice, sprintChoice: viewModel.sprintChoice)
+        configureToolbarManager(boardsChoice: viewModel.boardsChoice, sprintChoice: viewModel.sprintChoice)
+
         window?.makeKey()
     }
 
-    private func configureToolbar(boardsChoice: BoardsChoice, sprintChoice: ActiveSprintChoice) {
-        toolbarManager = ToolbarManager(toolbar: toolbar, boardsChoice: boardsChoice, sprintChoice: sprintChoice)
+    @available(OSX 10.12.2, *)
+    override func makeTouchBar() -> NSTouchBar? {
+        return NSTouchBar()
+    }
+
+    private func configureToolbarManager(boardsChoice: BoardsChoice, sprintChoice: ActiveSprintChoice) {
+        toolbarManager = MainWindowToolbarManager(toolbar: toolbar, boardsChoice: boardsChoice, sprintChoice: sprintChoice)
+        if #available(OSX 10.12.2, *), let touchBar = touchBar {
+            toolbarManager?.setupTouchBar(touchBar: touchBar)
+        }
     }
 }

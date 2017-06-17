@@ -8,7 +8,12 @@
 
 import Foundation
 
-@objc class ToolbarManager: NSObject, NSToolbarDelegate {
+fileprivate extension NSTouchBarItemIdentifier {
+    static let sprintPopover = NSTouchBarItemIdentifier("com.ToolbarSample.TouchBarItem.popover")
+}
+
+//TODO: Consider splitting these two classes
+@objc class MainWindowToolbarManager: NSObject, NSToolbarDelegate, NSTouchBarDelegate {
 
     private let boardChoiceToolbarItemID = "boardChoice"
     private let sprintChoiceToolbarItemID = "sprintChoice"
@@ -35,10 +40,46 @@ import Foundation
             selectedIndex: 0
         )
         super.init()
+        configureToolbarContent()
+    }
+
+    @available(OSX 10.12.2, *)
+    func setupTouchBar(touchBar: NSTouchBar) {
+        touchBar.delegate = self
+        if !sprintChoice.rest.isEmpty {
+            touchBar.defaultItemIdentifiers = [.sprintPopover]
+        }
+    }
+
+    @available(OSX 10.12.2, *)
+    func touchBar(
+        _ touchBar: NSTouchBar,
+        makeItemForIdentifier identifier: NSTouchBarItemIdentifier
+        ) -> NSTouchBarItem? {
+        switch identifier {
+        case .sprintPopover:
+            let popoverItem = NSPopoverTouchBarItem(identifier: identifier)
+            //TODO: Localization
+            popoverItem.collapsedRepresentationLabel = sprintChoice.selected.name
+            return popoverItem
+        default:
+            return nil
+        }
+    }
+
+    private func configureToolbarContent() {
         toolbar.delegate = self
-        toolbar.insertItem(withItemIdentifier: boardChoiceToolbarItemManager.identifier, at: 0)
-        toolbar.insertItem(withItemIdentifier: sprintChoiceToolbarItemManager.identifier, at: 1)
-        toolbar.insertItem(withItemIdentifier: NSToolbarFlexibleSpaceItemIdentifier, at: 2)
+        if !boardsChoice.rest.isEmpty {
+            appendItem(to: toolbar, withItemIdentifier: boardChoiceToolbarItemManager.identifier)
+        }
+        if !sprintChoice.rest.isEmpty {
+            appendItem(to: toolbar, withItemIdentifier: sprintChoiceToolbarItemManager.identifier)
+        }
+        appendItem(to: toolbar, withItemIdentifier: NSToolbarFlexibleSpaceItemIdentifier)
+    }
+
+    private func appendItem(to toolbar: NSToolbar, withItemIdentifier identifier: String) {
+        toolbar.insertItem(withItemIdentifier: identifier, at: toolbar.items.count)
     }
 
     func toolbar(
