@@ -16,4 +16,6 @@ final class SprintIssuesService {
         self.networkService = networkService
         self.sprint = sprint
     }
+
+    func all()
 }

@@ -43,6 +43,7 @@
 		BB2046C41EBE112900084F34 /* SprintCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2046C21EBE112900084F34 /* SprintCollectionViewItem.swift */; };
 		BB2046C51EBE112900084F34 /* SprintCollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB2046C31EBE112900084F34 /* SprintCollectionViewItem.xib */; };
 		BB2FC6751EC264BD0031917B /* TeamPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2FC6741EC264BD0031917B /* TeamPickerViewModel.swift */; };
+		BB36E1E51EF53A580081DDAE /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36E1E41EF53A580081DDAE /* Issue.swift */; };
 		BB503C6A1EDACCA0002BDF54 /* BasicAuthenticationStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB503C691EDACCA0002BDF54 /* BasicAuthenticationStorage.swift */; };
 		BB503C6F1EDB0043002BDF54 /* AuthenticatedNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB503C6E1EDB0043002BDF54 /* AuthenticatedNetworkService.swift */; };
 		BB53D42D1EDA060500BBC607 /* AppLifecycleMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB53D42C1EDA060500BBC607 /* AppLifecycleMonitor.swift */; };
@@ -200,6 +201,7 @@
 		BB2046C21EBE112900084F34 /* SprintCollectionViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SprintCollectionViewItem.swift; sourceTree = "<group>"; };
 		BB2046C31EBE112900084F34 /* SprintCollectionViewItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SprintCollectionViewItem.xib; sourceTree = "<group>"; };
 		BB2FC6741EC264BD0031917B /* TeamPickerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamPickerViewModel.swift; sourceTree = "<group>"; };
+		BB36E1E41EF53A580081DDAE /* Issue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
 		BB503C691EDACCA0002BDF54 /* BasicAuthenticationStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicAuthenticationStorage.swift; sourceTree = "<group>"; };
 		BB503C6E1EDB0043002BDF54 /* AuthenticatedNetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticatedNetworkService.swift; sourceTree = "<group>"; };
 		BB53D42C1EDA060500BBC607 /* AppLifecycleMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLifecycleMonitor.swift; sourceTree = "<group>"; };
@@ -660,6 +662,7 @@
 			isa = PBXGroup;
 			children = (
 				BBB765711EF51B9E0039B366 /* SprintIssuesService.swift */,
+				BB36E1E41EF53A580081DDAE /* Issue.swift */,
 			);
 			path = Issues;
 			sourceTree = "<group>";
@@ -1059,6 +1062,7 @@
 				FA6E351536938100E1D24BBE /* TextInputViewController.swift in Sources */,
 				BBFC653D1EE1FDFA005C1EFB /* BasicAuthLoginEndpoints.swift in Sources */,
 				BB5FB9AB1EF3122000972AC5 /* MainViewModel.swift in Sources */,
+				BB36E1E51EF53A580081DDAE /* Issue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

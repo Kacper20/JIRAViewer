@@ -9,13 +9,15 @@
 import Foundation
 
 enum SprintEndpoints {
-    static func all(forBoard board: Board) -> EndpointConfiguration<ArrayOfValuesWithPagingData<Sprint>> {
+    static func allActive(forBoard board: Board) -> EndpointConfiguration<ArrayOfValuesWithPagingData<Sprint>> {
         return EndpointConfiguration(
             path: "/board/\(board.id)/sprint",
             method: .get,
             encoding: URLEncoding.default,
             headers: [:],
-            parameters: [:],
+            parameters: [
+                "state" : "active"
+            ],
             resourceType: .json
         )
     }

@@ -25,7 +25,8 @@ struct EndpointConfiguration<Resource: Decodable> {
     let path: String
     let method: NetworkRequestMethod
     let encoding: NetworkRequestParameterEncoding
+    //TODO: Change to let and use sourcery lenses generation when it'll be supported in Xcode 9
     var headers: [String : String]
-    let parameters: [String : AnyObject]
+    let parameters: [String : Any]
     let resourceType: ResourceOrigin
 }

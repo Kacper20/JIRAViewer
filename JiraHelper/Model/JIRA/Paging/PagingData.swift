@@ -11,11 +11,8 @@ import Foundation
 struct PagingData: Codable {
     let startAt: Int
     let maxResults: Int
-    let total: Int
-
-    var isLast: Bool {
-        return startAt + maxResults >= total
-    }
+    let total: Int?
+    let isLast: Bool
 }
 
 struct ArrayOfValuesWithPagingData<T: Decodable>: Decodable {
