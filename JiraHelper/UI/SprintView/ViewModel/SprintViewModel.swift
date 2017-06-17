@@ -7,13 +7,23 @@
 //
 
 import Foundation
+import RxSwift
 
 final class SprintViewModel: NSObject, NSCollectionViewDataSource {
 
     private let sprintIssuesService: SprintIssuesService
+    private var container = SprintIssuesContainer()
 
     init(sprintIssuesService: SprintIssuesService) {
         self.sprintIssuesService = sprintIssuesService
+    }
+
+    func loadInitial() -> Observable<Void> {
+        return sprintIssuesService.getAll()
+            .map { [weak self] issues in
+                self?.container.update(with: issues)
+                return ()
+            }
     }
 
     func numberOfSections(in collectionView: NSCollectionView) -> Int {

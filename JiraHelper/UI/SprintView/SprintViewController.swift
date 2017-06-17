@@ -5,13 +5,14 @@
 //  Created by Kacper Harasim on 17.02.2017.
 //  Copyright © 2017 Kacper Harasim. All rights reserved.
 //
-
 import Foundation
+import RxSwift
 
 final class SprintViewController: NSViewController {
 
     @IBOutlet weak var collectionView: NSCollectionView!
     private let sprintViewModel: SprintViewModel
+    private let disposeBag = DisposeBag()
 
     init(sprintViewModel: SprintViewModel) {
         self.sprintViewModel = sprintViewModel
@@ -25,6 +26,14 @@ final class SprintViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView(collectionView)
+        setupRequest()
+    }
+
+    private func setupRequest() {
+        sprintViewModel.loadInitial()
+            .subscribe(onNext: { [unowned self] in
+                self.collectionView.reloadData()
+            }).disposed(by: disposeBag)
     }
 
     private func setupCollectionView(_ collectionView: NSCollectionView) {

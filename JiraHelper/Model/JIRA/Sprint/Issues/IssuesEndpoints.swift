@@ -11,11 +11,11 @@ import Foundation
 enum IssuesEndpoints {
     static func all(forSprint sprint: ActiveSprint) -> EndpointConfiguration<ArrayOfValuesWithPagingData<Issue>> {
         return EndpointConfiguration(
-            path: "/board/\(sprint.setupData.originBoardId)/sprint/\(sprint.id)",
+            path: "/board/\(sprint.setupData.originBoardId)/sprint/\(sprint.id)/issue",
             method: .get,
             encoding: URLEncoding.default,
             headers: [:],//TODO: Temporary labels
-            parameters: ["labels" : "ios"],
+            parameters: ["jql" : "labels = iOS"],
             resourceType: .json
         )
     }
