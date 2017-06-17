@@ -29,7 +29,7 @@ final class PagedRequestGenerator<T: Decodable> {
     }
 
     func next() -> Observable<[T]>? {
-        if let pagingData = currentPagingData, pagingData.isLast {
+        if let pagingData = currentPagingData, pagingData.isLastPage {
             return nil
         }
         let size = pageSize

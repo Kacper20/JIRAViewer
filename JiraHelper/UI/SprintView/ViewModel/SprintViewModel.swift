@@ -27,11 +27,11 @@ final class SprintViewModel: NSObject, NSCollectionViewDataSource {
     }
 
     func numberOfSections(in collectionView: NSCollectionView) -> Int {
-        return 30
+        return container.numbersOfSections()
     }
 
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 50
+        return container.numbersOfItems(inSection: section)
     }
 
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {

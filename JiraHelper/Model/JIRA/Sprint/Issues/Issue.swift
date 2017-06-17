@@ -9,7 +9,7 @@
 import Foundation
 
 struct Issue: Decodable {
-    let id: Int
+    let id: String
     let key: String
     let status: IssueStatus
 
@@ -25,7 +25,7 @@ struct Issue: Decodable {
 
     init(from decoder: Decoder) throws {
         let keyedContainer = try decoder.container(keyedBy: CodingKeys.self)
-        id = try keyedContainer.decode(Int.self, forKey: .id)
+        id = try keyedContainer.decode(String.self, forKey: .id)
         key = try keyedContainer.decode(String.self, forKey: .key)
         let fieldsContainer = try keyedContainer.nestedContainer(keyedBy: FieldsCodingKeys.self, forKey: .fields)
         status = try fieldsContainer.decode(IssueStatus.self, forKey: .status)

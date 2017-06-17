@@ -33,6 +33,8 @@ final class SprintViewController: NSViewController {
         sprintViewModel.loadInitial()
             .subscribe(onNext: { [unowned self] in
                 self.collectionView.reloadData()
+            }, onError: { error in
+                Logger.shared.error("Error occured: \(error)")
             }).disposed(by: disposeBag)
     }
 

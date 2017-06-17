@@ -33,4 +33,8 @@ final class BoardsService {
             }
         }
     }
+
+//    func configuration(for board: Board) -> Observable<BoardConfiguration> {
+//        
+//    }
 }
