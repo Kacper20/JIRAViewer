@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct KanbanColumn: Hashable, Comparable {
+struct KanbanColumn: Decodable, Hashable, Comparable {
     let name: String
 
     var hashValue: Int {

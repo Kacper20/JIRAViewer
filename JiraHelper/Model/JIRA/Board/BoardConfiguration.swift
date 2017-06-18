@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct BoardConfiguration {
+struct BoardConfiguration: Decodable {
     let columns: [KanbanColumn]
 
     private enum CodingKeys: String, CodingKey {
@@ -16,5 +16,9 @@ struct BoardConfiguration {
         case columns
     }
 
-    
+    init(from: Decoder) throws {
+        let container = try from.container(keyedBy: CodingKeys.self)
+        let columnDict = try container.nestedContainer(keyedBy: CodingKeys.self, forKey: .columnConfig)
+        columns = try columnDict.decode([KanbanColumn].self, forKey: .columns)
+    }
 }

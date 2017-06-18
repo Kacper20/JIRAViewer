@@ -34,7 +34,7 @@ final class BoardsService {
         }
     }
 
-//    func configuration(for board: Board) -> Observable<BoardConfiguration> {
-//        
-//    }
+    func configuration(for board: Board) -> Observable<BoardConfiguration> {
+        return networkService.request(configuration: BoardEndpoints.configuration(for: board))
+    }
 }
