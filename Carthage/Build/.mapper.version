@@ -1,9 +1,0 @@
-{
-  "commitish" : "6.0.0",
-  "Mac" : [
-    {
-      "hash" : "693ba46a4d4949be942576e896ea000e0d4fb48bdf7356af68b55927fe7abf6f",
-      "name" : "Mapper"
-    }
-  ]
-}

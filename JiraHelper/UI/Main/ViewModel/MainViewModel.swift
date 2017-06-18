@@ -12,8 +12,10 @@ final class MainViewModel {
 
     private let boardsService: BoardsService
     private let sprintsService: SprintsService
+
     let boardsChoice: BoardsChoice
     let sprintChoice: ActiveSprintChoice
+    let sprintViewModel: SprintViewModel
 
     init(
         boardsService: BoardsService,
@@ -25,5 +27,8 @@ final class MainViewModel {
         self.sprintsService = sprintsService
         self.boardsChoice = boardsChoice
         self.sprintChoice = sprintChoice
+        self.sprintViewModel = SprintViewModel(
+            sprintIssuesService: sprintsService.issuesService(for: sprintChoice.selected)
+        )
     }
 }

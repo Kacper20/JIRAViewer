@@ -43,7 +43,7 @@ final class MainWindowController: NSWindowController {
     }
 
     private func presentVC(with viewModel: MainViewModel) {
-        let mainViewController = MainViewController()
+        let mainViewController = MainViewController(mainViewModel: viewModel)
         self.mainViewController = mainViewController
         window?.contentView?.addSubview(mainViewController.view)
         mainViewController.view.constraintEdgesToSuperview()

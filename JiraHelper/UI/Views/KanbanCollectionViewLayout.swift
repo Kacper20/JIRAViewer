@@ -33,8 +33,12 @@ final class KanbanCollectionViewLayout: NSCollectionViewLayout {
 
     override func prepare() {
         guard let collectionView = collectionView else { return }
-        for section in 0..<collectionView.numberOfSections - 1 {
-            for item in 0..<collectionView.numberOfItems(inSection: section) - 1 {
+        let sectionsCount = collectionView.numberOfSections
+        guard sectionsCount > 0 else { return }
+        for section in 0..<sectionsCount - 1 {
+            let itemsCount = collectionView.numberOfItems(inSection: section)
+            guard itemsCount > 0 else { continue }
+            for item in 0..<itemsCount - 1 {
                 let indexPath = IndexPath(item: item, section: section)
 
                 let xPosition = CGFloat(section) * (cellWidth + interSectionSpacing)

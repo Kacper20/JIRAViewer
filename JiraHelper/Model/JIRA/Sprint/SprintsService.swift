@@ -32,6 +32,10 @@ final class SprintsService {
         self.networkService = networkService
     }
 
+    func issuesService(for sprint: ActiveSprint) -> SprintIssuesService {
+        return SprintIssuesService(networkService: networkService, sprint: sprint)
+    }
+
     func allActive(for board: Board) -> Observable<ActiveSprintChoice> {
         return networkService.request(configuration: SprintEndpoints.allActive(forBoard: board))
             .map { $0.values }

@@ -13,6 +13,17 @@ enum BoardEndpoints {
         return EndpointConfiguration(
             path: "/board",
             method: .get,
+            encoding: URLEncoding.default,
+            headers: [:],
+            parameters: [:],
+            resourceType: .json
+        )
+    }
+
+    static func configuration(for board: Board) -> EndpointConfiguration<BoardConfiguration> {
+        return EndpointConfiguration(
+            path: "/board/\(board.id)/configuration",
+            method: .get,
             encoding: JSONEncoding.default,
             headers: [:],
             parameters: [:],
