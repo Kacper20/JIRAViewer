@@ -15,12 +15,14 @@ final class MainViewModel {
 
     let boardsChoice: BoardsChoice
     let sprintChoice: ActiveSprintChoice
-    let sprintViewModel: SprintViewModel
 
+    let sprintViewModel: SprintViewModel
+    //TODO: Consider connecting boards choice selected with configuration to express type in a better way
     init(
         boardsService: BoardsService,
         sprintsService: SprintsService,
         boardsChoice: BoardsChoice,
+        boardConfiguration: BoardConfiguration,
         sprintChoice: ActiveSprintChoice
      ) {
         self.boardsService = boardsService
@@ -28,7 +30,8 @@ final class MainViewModel {
         self.boardsChoice = boardsChoice
         self.sprintChoice = sprintChoice
         self.sprintViewModel = SprintViewModel(
-            sprintIssuesService: sprintsService.issuesService(for: sprintChoice.selected)
+            sprintIssuesService: sprintsService.issuesService(for: sprintChoice.selected),
+            boardConfiguration: boardConfiguration
         )
     }
 }

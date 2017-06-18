@@ -10,7 +10,7 @@ import AppKit
 
 final class KanbanCollectionViewLayout: NSCollectionViewLayout {
     private let cellHeight: CGFloat = 60
-    private let cellWidth: CGFloat = 60
+    private let cellWidth: CGFloat = 100
 
     var interSectionSpacing: CGFloat = 0.0
     var interItemSpacing: CGFloat = 0.0
@@ -34,11 +34,9 @@ final class KanbanCollectionViewLayout: NSCollectionViewLayout {
     override func prepare() {
         guard let collectionView = collectionView else { return }
         let sectionsCount = collectionView.numberOfSections
-        guard sectionsCount > 0 else { return }
-        for section in 0..<sectionsCount - 1 {
+        for section in 0..<sectionsCount {
             let itemsCount = collectionView.numberOfItems(inSection: section)
-            guard itemsCount > 0 else { continue }
-            for item in 0..<itemsCount - 1 {
+            for item in 0..<itemsCount {
                 let indexPath = IndexPath(item: item, section: section)
 
                 let xPosition = CGFloat(section) * (cellWidth + interSectionSpacing)

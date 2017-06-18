@@ -8,23 +8,33 @@
 
 import Foundation
 
-struct KanbanColumn: Decodable, Hashable, Comparable {
+struct KanbanColumn: Decodable, Hashable {
     let name: String
 
     var hashValue: Int {
-        return name.hashValue
+        //TODO: Ugly hack, something
+        return name.lowercased().hashValue
     }
 
     static func == (lhs: KanbanColumn, rhs: KanbanColumn) -> Bool {
-        return lhs.name == rhs.name
+        return lhs.name.lowercased() == rhs.name.lowercased()
     }
+}
 
-    static func < (lhs: KanbanColumn, rhs: KanbanColumn) -> Bool {
-        return lhs.name < rhs.name
+struct SprintElementData {
+    let key: String
+
+    init(issue: Issue) {
+        self.key = issue.key
     }
 }
 
 struct SprintIssuesContainer {
+    private let columns: [KanbanColumn]
+
+    init(columns: [KanbanColumn]) {
+        self.columns = columns
+    }
 
     var data: [KanbanColumn : [Issue]] = [:]
 
@@ -32,15 +42,24 @@ struct SprintIssuesContainer {
         let keysCount = data.keys.count
         data = [:]
         data.reserveCapacity(keysCount)
+        for column in columns {
+            data[column] = []
+        }
 
         for issue in issues {
             let column = KanbanColumn(name: issue.status.name)
             if let existingIssues = data[column] {
                 data[column] = existingIssues + [issue]
             } else {
-                data[column] = [issue]
+                fatalError("Unexpected path")
             }
         }
+        print("X")
+    }
+
+    func viewModel(at indexPath: IndexPath) -> SprintElementData? {
+        let issue = data[columns[indexPath.section]]?[indexPath.item]
+        return issue.map(SprintElementData.init)
     }
 
     func numbersOfSections() -> Int {
@@ -48,7 +67,6 @@ struct SprintIssuesContainer {
     }
 
     func numbersOfItems(inSection section: Int) -> Int {
-        let keysSorted = Array(data.keys).sorted()
-        return data[keysSorted[section]]?.count ?? 0
+        return data[columns[section]]?.count ?? 0
     }
 }
