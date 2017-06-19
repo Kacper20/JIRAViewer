@@ -23,17 +23,22 @@ final class MainViewModelCreator {
     func create() -> Observable<MainViewModel> {
         return boardsService
             .boards()
-            .flatMap { [weak self] boardsChoice -> Observable<(BoardsChoice, ActiveSprintChoice)> in
+            .flatMap { [weak self] boardsChoice -> Observable<(ActiveSprintChoice, BoardConfiguration, BoardsChoice)> in
                 guard let `self` = self else { return .empty() }
-                return self.sprintsService.allActive(for: boardsChoice.selected).map { (boardsChoice, $0) }
+                let activeSprints = self.sprintsService.allActive(for: boardsChoice.selected)
+                let boardConfiguration = self.boardsService.configuration(for: boardsChoice.selected)
+                return Observable.zip(
+                activeSprints, boardConfiguration, Observable.just(boardsChoice)) { ($0, $1, $2) }
             }
-            .flatMap { [weak self] (boardsChoice, activeSprintChoice) -> Observable<MainViewModel> in
+            .flatMap { [weak self] (activeSprintChoice, boardConfiguration, boardsChoice) -> Observable<MainViewModel> in
                 guard let `self` = self else { return .empty() }
                 return .just(MainViewModel(
                     boardsService: self.boardsService,
                     sprintsService: self.sprintsService,
                     boardsChoice: boardsChoice,
-                    sprintChoice: activeSprintChoice)
+                    boardConfiguration: boardConfiguration,
+                    sprintChoice: activeSprintChoice
+                    )
                 )
             }
     }

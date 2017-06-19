@@ -31,6 +31,10 @@ extension SprintCollectionViewItem {
     static var identifier: String {
         return String(describing: self)
     }
+
+    func update(with data: SprintElementData) {
+        itemNameField.stringValue = data.key
+    }
 }
 
 
