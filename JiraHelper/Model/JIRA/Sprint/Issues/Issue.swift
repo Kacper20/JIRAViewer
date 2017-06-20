@@ -11,7 +11,9 @@ import Foundation
 struct Issue: Decodable {
     let id: String
     let key: String
+    let summary: String
     let status: IssueStatus
+    let labels: [String]
 
     private enum CodingKeys: String, CodingKey {
         case id
@@ -21,6 +23,8 @@ struct Issue: Decodable {
 
     private enum FieldsCodingKeys: String, CodingKey {
         case status
+        case summary
+        case labels
     }
 
     init(from decoder: Decoder) throws {
@@ -29,5 +33,7 @@ struct Issue: Decodable {
         key = try keyedContainer.decode(String.self, forKey: .key)
         let fieldsContainer = try keyedContainer.nestedContainer(keyedBy: FieldsCodingKeys.self, forKey: .fields)
         status = try fieldsContainer.decode(IssueStatus.self, forKey: .status)
+        summary = try fieldsContainer.decode(String.self, forKey: .summary)
+        labels = try fieldsContainer.decode([String].self, forKey: .labels)
     }
 }

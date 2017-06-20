@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="12120" systemVersion="16F43c" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13122.17" systemVersion="16F43c" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12120"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13122.17"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SprintCollectionViewItem" customModule="JiraHelper" customModuleProvider="target">
             <connections>
-                <outlet property="itemNameField" destination="Xxq-qu-iCQ" id="ftn-rb-s3Y"/>
+                <outlet property="itemKey" destination="ZUc-Rv-R60" id="1Ss-IL-agR"/>
+                <outlet property="itemLabels" destination="KKY-uk-88r" id="5CX-Vm-XtA"/>
+                <outlet property="itemNameLabel" destination="Xxq-qu-iCQ" id="ftn-rb-s3Y"/>
                 <outlet property="itemTypeView" destination="f7B-rj-fuq" id="1rw-4Z-1AA"/>
                 <outlet property="textField" destination="Xxq-qu-iCQ" id="cgl-KJ-aVC"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
@@ -17,33 +20,56 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="259" height="257"/>
+            <rect key="frame" x="0.0" y="0.0" width="259" height="91"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xxq-qu-iCQ" userLabel="ItemNameField">
-                    <rect key="frame" x="5" y="236" width="252" height="17"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="jX1-kX-5KS">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Xxq-qu-iCQ" userLabel="ItemNameLabel">
+                    <rect key="frame" x="5" y="70" width="252" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Label" id="jX1-kX-5KS">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="f7B-rj-fuq" userLabel="ItemTypeView">
-                    <rect key="frame" x="0.0" y="0.0" width="3" height="257"/>
+                    <rect key="frame" x="0.0" y="0.0" width="3" height="91"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="3" id="Q30-56-Qj0"/>
                     </constraints>
                 </customView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KKY-uk-88r">
+                    <rect key="frame" x="5" y="45" width="252" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="dWd-rt-NCg">
+                        <font key="font" metaFont="systemThin" size="13"/>
+                        <color key="textColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZUc-Rv-R60">
+                    <rect key="frame" x="5" y="12" width="252" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="fQA-qL-5Ao">
+                        <font key="font" metaFont="systemThin" size="13"/>
+                        <color key="textColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
             </subviews>
             <constraints>
                 <constraint firstItem="Xxq-qu-iCQ" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="4" id="1uk-3n-1Mp"/>
+                <constraint firstAttribute="bottom" secondItem="ZUc-Rv-R60" secondAttribute="bottom" constant="12" id="Fl9-Y5-Vcx"/>
+                <constraint firstItem="ZUc-Rv-R60" firstAttribute="top" secondItem="KKY-uk-88r" secondAttribute="bottom" constant="16" id="HGY-AU-owd"/>
                 <constraint firstItem="f7B-rj-fuq" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="KXK-p5-yke"/>
                 <constraint firstAttribute="trailing" secondItem="Xxq-qu-iCQ" secondAttribute="trailing" constant="4" id="Scd-ye-eRr"/>
                 <constraint firstAttribute="bottom" secondItem="f7B-rj-fuq" secondAttribute="bottom" id="XwR-Ba-vx5"/>
                 <constraint firstItem="f7B-rj-fuq" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="Y6J-My-MSt"/>
+                <constraint firstItem="KKY-uk-88r" firstAttribute="leading" secondItem="Xxq-qu-iCQ" secondAttribute="leading" id="a3X-Ev-vQP"/>
+                <constraint firstItem="KKY-uk-88r" firstAttribute="top" secondItem="Xxq-qu-iCQ" secondAttribute="bottom" constant="8" id="feb-oG-pzy"/>
+                <constraint firstItem="ZUc-Rv-R60" firstAttribute="leading" secondItem="KKY-uk-88r" secondAttribute="leading" id="gAa-2x-1QX"/>
+                <constraint firstItem="ZUc-Rv-R60" firstAttribute="trailing" secondItem="KKY-uk-88r" secondAttribute="trailing" id="oyX-Iu-pYC"/>
+                <constraint firstItem="KKY-uk-88r" firstAttribute="trailing" secondItem="Xxq-qu-iCQ" secondAttribute="trailing" id="rR5-C4-fcD"/>
                 <constraint firstItem="Xxq-qu-iCQ" firstAttribute="leading" secondItem="f7B-rj-fuq" secondAttribute="trailing" constant="4" id="tVY-VE-oXd"/>
             </constraints>
-            <point key="canvasLocation" x="113.5" y="196.5"/>
+            <point key="canvasLocation" x="-126.5" y="156.5"/>
         </customView>
         <collectionViewItem id="PYd-Bs-979" customClass="SprintCollectionViewItem" customModule="JiraHelper" customModuleProvider="target"/>
     </objects>

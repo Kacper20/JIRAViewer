@@ -9,7 +9,7 @@
 import AppKit
 
 final class KanbanCollectionViewLayout: NSCollectionViewLayout {
-    private let cellHeight: CGFloat = 60
+    private let cellHeight: CGFloat = 150
     private let cellWidth: CGFloat = 100
 
     var interSectionSpacing: CGFloat = 0.0
@@ -43,6 +43,13 @@ final class KanbanCollectionViewLayout: NSCollectionViewLayout {
                 let yPosition = CGFloat(item) * (cellHeight + interItemSpacing)
 
                 let attributes = NSCollectionViewLayoutAttributes(forItemWith: indexPath)
+                let item = collectionView.makeItem(
+                    withIdentifier: SprintCollectionViewItem.identifier,
+                    for: indexPath
+                )
+
+                let x = item.preferredLayoutAttributesFitting(attributes)
+                print(x)
                 attributes.frame = NSRect(x: xPosition, y: yPosition, width: cellWidth, height: cellHeight)
                 attributes.zIndex = 1
                 layoutAttributes[indexPath] = attributes

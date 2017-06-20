@@ -11,9 +11,10 @@ import AppKit
 
 final class SprintCollectionViewItem: NSCollectionViewItem {
 
-    @IBOutlet weak var itemNameField: NSTextField!
+    @IBOutlet weak var itemNameLabel: NSTextField!
     @IBOutlet weak var itemTypeView: NSView!
-
+    @IBOutlet weak var itemLabels: NSTextField!
+    @IBOutlet weak var itemKey: NSTextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +23,8 @@ final class SprintCollectionViewItem: NSCollectionViewItem {
         view.layer?.borderColor = NSColor.lightGray.cgColor
         view.layer?.borderWidth = 1.0
 
+        itemNameLabel.cell?.wraps = true
+        itemNameLabel.maximumNumberOfLines = 3
         itemTypeView.wantsLayer = true
         itemTypeView.layer?.backgroundColor = NSColor.red.cgColor
     }
@@ -33,7 +36,9 @@ extension SprintCollectionViewItem {
     }
 
     func update(with data: SprintElementData) {
-        itemNameField.stringValue = data.key
+        itemNameLabel.stringValue = data.title
+        itemLabels.stringValue = data.labels
+        itemKey.stringValue = data.key
     }
 }
 
