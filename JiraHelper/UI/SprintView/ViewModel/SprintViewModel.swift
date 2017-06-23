@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 
-final class SprintViewModel: NSObject, NSCollectionViewDataSource {
+final class SprintViewModel: NSObject, NSCollectionViewDataSource, NSCollectionViewDelegateFlowLayout {
 
     private let sprintIssuesService: SprintIssuesService
     private let boardConfiguration: BoardConfiguration
@@ -20,6 +20,7 @@ final class SprintViewModel: NSObject, NSCollectionViewDataSource {
         self.sprintIssuesService = sprintIssuesService
         self.boardConfiguration = boardConfiguration
         container = SprintIssuesContainer(columns: boardConfiguration.columns)
+        super.init()
     }
 
     func loadInitial() -> Observable<Void> {
@@ -49,4 +50,10 @@ final class SprintViewModel: NSObject, NSCollectionViewDataSource {
         sprintItem.update(with: model)
         return item
     }
+
+//    func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> NSSize {
+//        guard let model = container.viewModel(at: indexPath) else { return .zero }
+//        item?.update(with: model)
+//        return item?.view.frame.size ?? .zero
+//    }
 }

@@ -43,13 +43,6 @@ final class KanbanCollectionViewLayout: NSCollectionViewLayout {
                 let yPosition = CGFloat(item) * (cellHeight + interItemSpacing)
 
                 let attributes = NSCollectionViewLayoutAttributes(forItemWith: indexPath)
-                let item = collectionView.makeItem(
-                    withIdentifier: SprintCollectionViewItem.identifier,
-                    for: indexPath
-                )
-
-                let x = item.preferredLayoutAttributesFitting(attributes)
-                print(x)
                 attributes.frame = NSRect(x: xPosition, y: yPosition, width: cellWidth, height: cellHeight)
                 attributes.zIndex = 1
                 layoutAttributes[indexPath] = attributes
@@ -61,6 +54,14 @@ final class KanbanCollectionViewLayout: NSCollectionViewLayout {
         let contentHeight = CGFloat(ySizes.max() ?? 0)
         let contentWidth = CGFloat(collectionView.numberOfSections) * (cellWidth + interSectionSpacing)
         contentSize = NSSize(width: contentWidth, height: contentHeight)
+    }
+
+    override func shouldInvalidateLayout(
+        forPreferredLayoutAttributes preferredAttributes: NSCollectionViewLayoutAttributes,
+        withOriginalAttributes originalAttributes: NSCollectionViewLayoutAttributes) -> Bool {
+        print("Preferred: \(preferredAttributes)")
+        print("Original: \(originalAttributes)")
+        return false
     }
 
     override func layoutAttributesForElements(in rect: NSRect) -> [NSCollectionViewLayoutAttributes] {

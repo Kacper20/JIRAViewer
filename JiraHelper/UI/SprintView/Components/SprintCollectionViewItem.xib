@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13122.17" systemVersion="16F43c" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13122.19" systemVersion="16F43c" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13122.17"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13122.19"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
         <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
     </dependencies>
@@ -19,12 +19,12 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customView misplaced="YES" id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="359" height="151"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="100" height="85"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <customView misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Apw-N6-sjE">
-                    <rect key="frame" x="0.0" y="32" width="84" height="119"/>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="Apw-N6-sjE">
+                    <rect key="frame" x="0.0" y="0.0" width="100" height="85"/>
                     <subviews>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZUc-Rv-R60">
                             <rect key="frame" x="6" y="6" width="96" height="17"/>
@@ -48,8 +48,8 @@
                                 <constraint firstAttribute="width" constant="3" id="Q30-56-Qj0"/>
                             </constraints>
                         </customView>
-                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xxq-qu-iCQ" userLabel="ItemNameLabel">
-                            <rect key="frame" x="6" y="60" width="37" height="17"/>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Xxq-qu-iCQ" userLabel="ItemNameLabel">
+                            <rect key="frame" x="6" y="60" width="96" height="17"/>
                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Label" id="jX1-kX-5KS">
                                 <font key="font" metaFont="system"/>
                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -83,6 +83,10 @@
             </constraints>
             <point key="canvasLocation" x="-36.5" y="177.5"/>
         </customView>
-        <collectionViewItem id="PYd-Bs-979" customClass="SprintCollectionViewItem" customModule="JiraHelper" customModuleProvider="target"/>
+        <collectionViewItem nibName="SprintCollectionViewItem" id="PYd-Bs-979" customClass="SprintCollectionViewItem" customModule="JiraHelper" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="Hz6-mo-xeY" id="xeQ-fE-Jd6"/>
+            </connections>
+        </collectionViewItem>
     </objects>
 </document>

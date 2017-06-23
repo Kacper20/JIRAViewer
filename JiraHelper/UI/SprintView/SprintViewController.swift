@@ -27,6 +27,8 @@ final class SprintViewController: NSViewController {
         super.viewDidLoad()
         setupCollectionView(collectionView)
         setupRequest()
+        let item = collectionView.makeItem(withIdentifier: SprintCollectionViewItem.identifier, for: IndexPath(item: 0, section: 0))
+        print(item)
     }
 
     private func setupRequest() {
@@ -39,13 +41,17 @@ final class SprintViewController: NSViewController {
     }
 
     private func setupCollectionView(_ collectionView: NSCollectionView) {
-        let flowLayout = KanbanCollectionViewLayout()
-        flowLayout.interSectionSpacing = 5.0
-        flowLayout.interItemSpacing = 5.0
+//        let flowLayout = KanbanCollectionViewLayout()
+//        flowLayout.interSectionSpacing = 5.0
+//        flowLayout.interItemSpacing = 5.0
 
+
+        let flowLayout = NSCollectionViewFlowLayout()
+        flowLayout.estimatedItemSize = NSSize(width: 100, height: 500)
 
         collectionView.collectionViewLayout = flowLayout
         view.wantsLayer = true
         collectionView.dataSource = sprintViewModel
+        collectionView.delegate = sprintViewModel
     }
 }
