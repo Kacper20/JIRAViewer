@@ -8,10 +8,15 @@
 
 import AppKit
 
-final class KanbanCollectionViewLayout: NSCollectionViewLayout {
-    private let cellHeight: CGFloat = 60
-    private let cellWidth: CGFloat = 100
+protocol KanbanCollectionViewLayoutDelegate: class {
+    func collectionView(_ collectionView: NSCollectionView, sizeForItemAt indexPath: IndexPath) -> NSSize
+}
 
+final class KanbanCollectionViewLayout: NSCollectionViewLayout {
+
+    weak var delegate: KanbanCollectionViewLayoutDelegate?
+
+    var itemSize = NSSize(width: 100, height: 150)
     var interSectionSpacing: CGFloat = 0.0
     var interItemSpacing: CGFloat = 0.0
 
@@ -34,26 +39,32 @@ final class KanbanCollectionViewLayout: NSCollectionViewLayout {
     override func prepare() {
         guard let collectionView = collectionView else { return }
         let sectionsCount = collectionView.numberOfSections
+        var currentXOffset: CGFloat = 0
+        var maxHeight: CGFloat = 0
         for section in 0..<sectionsCount {
+            var currentYOffset: CGFloat = 0
             let itemsCount = collectionView.numberOfItems(inSection: section)
+            var maxItemWidth: CGFloat = itemSize.width
             for item in 0..<itemsCount {
                 let indexPath = IndexPath(item: item, section: section)
-
-                let xPosition = CGFloat(section) * (cellWidth + interSectionSpacing)
-                let yPosition = CGFloat(item) * (cellHeight + interItemSpacing)
+                let size: NSSize
+                if let delegate = delegate {
+                    size = delegate.collectionView(collectionView, sizeForItemAt: indexPath)
+                } else {
+                    size = itemSize
+                }
+                maxItemWidth = max(maxItemWidth, size.width)
 
                 let attributes = NSCollectionViewLayoutAttributes(forItemWith: indexPath)
-                attributes.frame = NSRect(x: xPosition, y: yPosition, width: cellWidth, height: cellHeight)
+                attributes.frame = NSRect(x: currentXOffset, y: currentYOffset, width: size.width, height: size.height)
                 attributes.zIndex = 1
                 layoutAttributes[indexPath] = attributes
+                currentYOffset += size.height + interItemSpacing
             }
+            maxHeight = max(maxHeight, currentYOffset)
+            currentXOffset += maxItemWidth + interSectionSpacing
         }
-        let ySizes = (0..<collectionView.numberOfSections).map {
-            return CGFloat(collectionView.numberOfItems(inSection: $0)) * (cellHeight + interItemSpacing)
-        }
-        let contentHeight = CGFloat(ySizes.max() ?? 0)
-        let contentWidth = CGFloat(collectionView.numberOfSections) * (cellWidth + interSectionSpacing)
-        contentSize = NSSize(width: contentWidth, height: contentHeight)
+        contentSize = NSSize(width: currentXOffset, height: maxHeight)
     }
 
     override func layoutAttributesForElements(in rect: NSRect) -> [NSCollectionViewLayoutAttributes] {

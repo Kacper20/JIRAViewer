@@ -17,4 +17,12 @@ struct TextFieldStyles {
             textField.focusRingType = .none
         }
     }
+
+    static var nonEditableSprintItemLabel: NSViewStyle<NSTextField> {
+        return NSViewStyle { textField in
+            textField.isEditable = false
+            textField.isBordered = false
+            textField.alignment = .left
+        }
+    }
 }

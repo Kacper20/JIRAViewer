@@ -11,30 +11,27 @@ import AppKit
 
 final class SprintCollectionViewItem: NSCollectionViewItem {
 
-    @IBOutlet weak var itemNameField: NSTextField!
-    @IBOutlet weak var itemTypeView: NSView!
-
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.wantsLayer = true
-        view.layer?.cornerRadius = 4.0
-        view.layer?.borderColor = NSColor.lightGray.cgColor
-        view.layer?.borderWidth = 1.0
-
-        itemTypeView.wantsLayer = true
-        itemTypeView.layer?.backgroundColor = NSColor.red.cgColor
+    private var castView: SprintCollectionViewItemView {
+        guard let view = view as? SprintCollectionViewItemView else {
+            fatalError("Provided wrong view subclass for \(String(describing: SprintCollectionViewItem.self))")
+        }
+        return view
     }
-}
 
-extension SprintCollectionViewItem {
+    override func loadView() {
+        view = SprintCollectionViewItemView()
+    }
+
     static var identifier: String {
         return String(describing: self)
     }
 
     func update(with data: SprintElementData) {
-        itemNameField.stringValue = data.key
+        castView.update(with: data)
     }
+}
+
+extension SprintCollectionViewItem {
 }
 
 

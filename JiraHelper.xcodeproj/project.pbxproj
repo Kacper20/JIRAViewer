@@ -32,6 +32,7 @@
 		BB0BA4381EF43468003BE8C5 /* PopupButtonToolbarItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0BA4371EF43468003BE8C5 /* PopupButtonToolbarItemManager.swift */; };
 		BB0BA43A1EF43961003BE8C5 /* BoardsChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0BA4391EF43961003BE8C5 /* BoardsChoice.swift */; };
 		BB0BA43C1EF439A8003BE8C5 /* ToolbarManagerDataSourceHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0BA43B1EF439A8003BE8C5 /* ToolbarManagerDataSourceHelpers.swift */; };
+		BB1040E21EFDDC2700DC2AF5 /* SprintCollectionViewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1040E11EFDDC2700DC2AF5 /* SprintCollectionViewItemView.swift */; };
 		BB12D6F01ED780A900FEA52A /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB12D6EF1ED780A900FEA52A /* String+Extensions.swift */; };
 		BB12D6F31ED7825900FEA52A /* PasteboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB12D6F21ED7825900FEA52A /* PasteboardService.swift */; };
 		BB17145B1EF3480C00BFB942 /* ActiveSprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB17145A1EF3480C00BFB942 /* ActiveSprint.swift */; };
@@ -41,7 +42,6 @@
 		BB2046BC1EBE0AB000084F34 /* SprintViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB2046BB1EBE0AB000084F34 /* SprintViewController.xib */; };
 		BB2046C11EBE0F7300084F34 /* Optionals.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2046C01EBE0F7300084F34 /* Optionals.swift */; };
 		BB2046C41EBE112900084F34 /* SprintCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2046C21EBE112900084F34 /* SprintCollectionViewItem.swift */; };
-		BB2046C51EBE112900084F34 /* SprintCollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB2046C31EBE112900084F34 /* SprintCollectionViewItem.xib */; };
 		BB2FC6751EC264BD0031917B /* TeamPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2FC6741EC264BD0031917B /* TeamPickerViewModel.swift */; };
 		BB36E1E51EF53A580081DDAE /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36E1E41EF53A580081DDAE /* Issue.swift */; };
 		BB36E1E71EF53C970081DDAE /* NSView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36E1E61EF53C970081DDAE /* NSView+Constraints.swift */; };
@@ -80,6 +80,7 @@
 		BBA77BA61E57A3F200C9842C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA77BA51E57A3F200C9842C /* MainViewController.swift */; };
 		BBA77BA81E57A3F800C9842C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA77BA71E57A3F800C9842C /* MainView.swift */; };
 		BBA77BAB1E57A62300C9842C /* MaskImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA77BAA1E57A62300C9842C /* MaskImage.swift */; };
+		BBAF06AF1EFE4DC300DF3E46 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAF06AE1EFE4DC300DF3E46 /* View+Extensions.swift */; };
 		BBB765721EF51B9E0039B366 /* SprintIssuesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB765711EF51B9E0039B366 /* SprintIssuesService.swift */; };
 		BBB765741EF51F2A0039B366 /* PagedRequestGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB765731EF51F2A0039B366 /* PagedRequestGenerator.swift */; };
 		BBB765761EF531EB0039B366 /* PagedEndpointConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB765751EF531EB0039B366 /* PagedEndpointConverter.swift */; };
@@ -191,6 +192,7 @@
 		BB0BA4371EF43468003BE8C5 /* PopupButtonToolbarItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupButtonToolbarItemManager.swift; sourceTree = "<group>"; };
 		BB0BA4391EF43961003BE8C5 /* BoardsChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardsChoice.swift; sourceTree = "<group>"; };
 		BB0BA43B1EF439A8003BE8C5 /* ToolbarManagerDataSourceHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarManagerDataSourceHelpers.swift; sourceTree = "<group>"; };
+		BB1040E11EFDDC2700DC2AF5 /* SprintCollectionViewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprintCollectionViewItemView.swift; sourceTree = "<group>"; };
 		BB12D6EF1ED780A900FEA52A /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		BB12D6F21ED7825900FEA52A /* PasteboardService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteboardService.swift; sourceTree = "<group>"; };
 		BB17145A1EF3480C00BFB942 /* ActiveSprint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveSprint.swift; sourceTree = "<group>"; };
@@ -200,7 +202,6 @@
 		BB2046BB1EBE0AB000084F34 /* SprintViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SprintViewController.xib; sourceTree = "<group>"; };
 		BB2046C01EBE0F7300084F34 /* Optionals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Optionals.swift; sourceTree = "<group>"; };
 		BB2046C21EBE112900084F34 /* SprintCollectionViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SprintCollectionViewItem.swift; sourceTree = "<group>"; };
-		BB2046C31EBE112900084F34 /* SprintCollectionViewItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SprintCollectionViewItem.xib; sourceTree = "<group>"; };
 		BB2FC6741EC264BD0031917B /* TeamPickerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamPickerViewModel.swift; sourceTree = "<group>"; };
 		BB36E1E41EF53A580081DDAE /* Issue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
 		BB36E1E61EF53C970081DDAE /* NSView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+Constraints.swift"; sourceTree = "<group>"; };
@@ -241,6 +242,8 @@
 		BBA77BA51E57A3F200C9842C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		BBA77BA71E57A3F800C9842C /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		BBA77BAA1E57A62300C9842C /* MaskImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaskImage.swift; sourceTree = "<group>"; };
+		BBAF06AE1EFE4DC300DF3E46 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		BBAF06B01EFE4F8400DF3E46 /* MainInputTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInputTextFieldStyle.swift; sourceTree = "<group>"; };
 		BBB765711EF51B9E0039B366 /* SprintIssuesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprintIssuesService.swift; sourceTree = "<group>"; };
 		BBB765731EF51F2A0039B366 /* PagedRequestGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagedRequestGenerator.swift; sourceTree = "<group>"; };
 		BBB765751EF531EB0039B366 /* PagedEndpointConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagedEndpointConverter.swift; sourceTree = "<group>"; };
@@ -486,8 +489,8 @@
 			isa = PBXGroup;
 			children = (
 				BB2046C21EBE112900084F34 /* SprintCollectionViewItem.swift */,
-				BB2046C31EBE112900084F34 /* SprintCollectionViewItem.xib */,
 				BB0A2BC81EBE45AB00A19D60 /* SprintCollectionView.swift */,
+				BB1040E11EFDDC2700DC2AF5 /* SprintCollectionViewItemView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -620,7 +623,6 @@
 		BBA77B921E578FE500C9842C /* Styles */ = {
 			isa = PBXGroup;
 			children = (
-				BBA77B971E57915A00C9842C /* Label */,
 				BBA77B961E57915300C9842C /* TextField */,
 				BBA77B931E57904100C9842C /* StylingProtocol.swift */,
 			);
@@ -630,15 +632,9 @@
 		BBA77B961E57915300C9842C /* TextField */ = {
 			isa = PBXGroup;
 			children = (
+				BBAF06B01EFE4F8400DF3E46 /* MainInputTextFieldStyle.swift */,
 			);
 			path = TextField;
-			sourceTree = "<group>";
-		};
-		BBA77B971E57915A00C9842C /* Label */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Label;
 			sourceTree = "<group>";
 		};
 		BBA77BA01E579D3D00C9842C /* Model */ = {
@@ -680,6 +676,7 @@
 				BB53D42B1EDA034C00BBC607 /* Lifecycle */,
 				BBA77BAA1E57A62300C9842C /* MaskImage.swift */,
 				BB36E1E61EF53C970081DDAE /* NSView+Constraints.swift */,
+				BBAF06AE1EFE4DC300DF3E46 /* View+Extensions.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -971,7 +968,6 @@
 			files = (
 				BBA77B901E57782A00C9842C /* TextInputViewController.xib in Resources */,
 				BB0A2C051EBFBB3100A19D60 /* TeamPickerViewController.xib in Resources */,
-				BB2046C51EBE112900084F34 /* SprintCollectionViewItem.xib in Resources */,
 				BBE003781E39534E00E1A2A4 /* Assets.xcassets in Resources */,
 				BB62DE791E56293A00AA3577 /* MainWindowController.xib in Resources */,
 				BB2046BC1EBE0AB000084F34 /* SprintViewController.xib in Resources */,
@@ -1057,6 +1053,7 @@
 				BBB765761EF531EB0039B366 /* PagedEndpointConverter.swift in Sources */,
 				BB0A2BCF1EBF448100A19D60 /* EndpointConfiguration.swift in Sources */,
 				BBA77BAB1E57A62300C9842C /* MaskImage.swift in Sources */,
+				BBAF06AF1EFE4DC300DF3E46 /* View+Extensions.swift in Sources */,
 				BBFC65451EE20557005C1EFB /* CookiesAuthLoginService.swift in Sources */,
 				BB0A2C0C1EC12F0400A19D60 /* TeamCheckEndpoints.swift in Sources */,
 				BB0A2BF41EBF9C8400A19D60 /* AuthenticationProvider.swift in Sources */,
@@ -1093,6 +1090,7 @@
 				BB7AD73F1EF2E07300E436C4 /* SprintEndpoints.swift in Sources */,
 				BBB765741EF51F2A0039B366 /* PagedRequestGenerator.swift in Sources */,
 				BB0A2BF71EBFB4AA00A19D60 /* RootFlowController.swift in Sources */,
+				BB1040E21EFDDC2700DC2AF5 /* SprintCollectionViewItemView.swift in Sources */,
 				FA6E351536938100E1D24BBE /* TextInputViewController.swift in Sources */,
 				BBFC653D1EE1FDFA005C1EFB /* BasicAuthLoginEndpoints.swift in Sources */,
 				BB5FB9AB1EF3122000972AC5 /* MainViewModel.swift in Sources */,

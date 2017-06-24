@@ -16,7 +16,7 @@ final class SprintViewController: NSViewController {
 
     init(sprintViewModel: SprintViewModel) {
         self.sprintViewModel = sprintViewModel
-        super.init(nibName: "SprintViewController", bundle: nil)!
+        super.init(nibName: String(describing: SprintViewController.self), bundle: nil)!
     }
     
     required init?(coder: NSCoder) {
@@ -42,10 +42,14 @@ final class SprintViewController: NSViewController {
         let flowLayout = KanbanCollectionViewLayout()
         flowLayout.interSectionSpacing = 5.0
         flowLayout.interItemSpacing = 5.0
+        flowLayout.delegate = sprintViewModel
+//
+//        let flowLayout = NSCollectionViewFlowLayout()
+//        collectionView.delegate = sprintViewModel
 
+        collectionView.register(SprintCollectionViewItem.self, forItemWithIdentifier: SprintCollectionViewItem.identifier)
 
         collectionView.collectionViewLayout = flowLayout
-        view.wantsLayer = true
         collectionView.dataSource = sprintViewModel
     }
 }
