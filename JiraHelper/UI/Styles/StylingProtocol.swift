@@ -24,4 +24,8 @@ struct NSViewStyle<T: NSView> {
     func apply(to view: T) {
         styling(view)
     }
+
+    func apply(to views: T...) {
+        views.forEach { styling($0) }
+    }
 }
