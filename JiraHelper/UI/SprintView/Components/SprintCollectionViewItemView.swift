@@ -42,9 +42,6 @@ final class SprintCollectionViewItemView: NSView {
     }
 
     private func setupConstraints() {
-//        addSubview(itemNameLabel)
-//        itemNameLabel.constraintEdges(to: self)
-//        itemNameLabel.widthAnchor.constraint(equalToConstant: 100).activate()
         addSubview(stackView)
         stackView.widthAnchor.constraint(equalToConstant: 100).activate()
         stackView.spacing = 10
@@ -54,8 +51,10 @@ final class SprintCollectionViewItemView: NSView {
         stackView.orientation = .vertical
         stackView.addArrangedSubviews(itemNameLabel, itemLabels, assigneeImageView, itemKeyLabel)
 
-        assigneeImageView.widthAnchor.constraint(equalToConstant: 32).activate()
-        assigneeImageView.heightAnchor.constraint(equalTo: assigneeImageView.widthAnchor, multiplier: 0).activate()
+        let imageSize: CGFloat = 24
+        assigneeImageView.widthAnchor.constraint(equalToConstant: imageSize).activate()
+        assigneeImageView.heightAnchor.constraint(equalToConstant: imageSize).activate()
+        assigneeImageView.layer?.cornerRadius = imageSize / 2
     }
 
     var imageSink: AnyObserver<NSImage> {

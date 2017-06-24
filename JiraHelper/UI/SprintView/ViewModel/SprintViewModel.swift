@@ -57,7 +57,11 @@ final class SprintViewModel: NSObject, NSCollectionViewDataSource, KanbanCollect
             return item
         }
         sprintItem.update(with: model)
-
+        if let url = model.avatarUrl {
+            _ = imageDownloader.getImage(from: url)
+                .takeUntil(sprintItem.preparedForReuse)
+                .bind(to: sprintItem.imageSink)
+        }
         return item
     }
 

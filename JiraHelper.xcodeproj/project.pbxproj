@@ -84,6 +84,9 @@
 		BBAF06B21EFE742600DF3E46 /* Observers+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAF06B11EFE742600DF3E46 /* Observers+Extensions.swift */; };
 		BBAF06B41EFE75B000DF3E46 /* IssueAssignee.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAF06B31EFE75B000DF3E46 /* IssueAssignee.swift */; };
 		BBAF06B71EFE80A000DF3E46 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAF06B61EFE80A000DF3E46 /* ImageDownloader.swift */; };
+		BBAF06B91EFE875900DF3E46 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB36E1F01EF5A7310081DDAE /* Kingfisher.framework */; };
+		BBAF06BA1EFE875900DF3E46 /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BB36E1F01EF5A7310081DDAE /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BBAF06BB1EFE876300DF3E46 /* Kingfisher.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = BB36E1F11EF5A73F0081DDAE /* Kingfisher.framework.dSYM */; };
 		BBB765721EF51B9E0039B366 /* SprintIssuesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB765711EF51B9E0039B366 /* SprintIssuesService.swift */; };
 		BBB765741EF51F2A0039B366 /* PagedRequestGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB765731EF51F2A0039B366 /* PagedRequestGenerator.swift */; };
 		BBB765761EF531EB0039B366 /* PagedEndpointConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB765751EF531EB0039B366 /* PagedEndpointConverter.swift */; };
@@ -143,6 +146,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				BB56959B1EDB5B8A00B87510 /* Locksmith.framework in Embed Frameworks */,
+				BBAF06BA1EFE875900DF3E46 /* Kingfisher.framework in Embed Frameworks */,
 				BB0A2BDA1EBF49AC00A19D60 /* SwiftyBeaver.framework in Embed Frameworks */,
 				BBE003BB1E3966EF00E1A2A4 /* MASShortcut.framework in Embed Frameworks */,
 				BBE003A81E395E3D00E1A2A4 /* RxCocoa.framework in Embed Frameworks */,
@@ -158,6 +162,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				BBAF06BB1EFE876300DF3E46 /* Kingfisher.framework.dSYM in CopyFiles */,
 				BB56959D1EDB5B9A00B87510 /* Locksmith.framework.dSYM in CopyFiles */,
 				BB0A2BDC1EBF49C400A19D60 /* SwiftyBeaver.framework.dSYM in CopyFiles */,
 				BBE003BD1E39670400E1A2A4 /* MASShortcut.framework.dSYM in CopyFiles */,
@@ -292,6 +297,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBAF06B91EFE875900DF3E46 /* Kingfisher.framework in Frameworks */,
 				BBE003BA1E3966EF00E1A2A4 /* MASShortcut.framework in Frameworks */,
 				BBE003A71E395E3D00E1A2A4 /* RxCocoa.framework in Frameworks */,
 				BBE003A51E395E3D00E1A2A4 /* Alamofire.framework in Frameworks */,
