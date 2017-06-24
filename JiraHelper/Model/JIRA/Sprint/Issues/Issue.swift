@@ -13,6 +13,7 @@ struct Issue: Decodable {
     let key: String
     let summary: String
     let status: IssueStatus
+    let assignee: IssueAssignee?
     let labels: [String]
 
     private enum CodingKeys: String, CodingKey {
@@ -25,6 +26,7 @@ struct Issue: Decodable {
         case status
         case summary
         case labels
+        case assignee
     }
 
     init(from decoder: Decoder) throws {
@@ -33,6 +35,7 @@ struct Issue: Decodable {
         key = try keyedContainer.decode(String.self, forKey: .key)
         let fieldsContainer = try keyedContainer.nestedContainer(keyedBy: FieldsCodingKeys.self, forKey: .fields)
         status = try fieldsContainer.decode(IssueStatus.self, forKey: .status)
+        assignee = try fieldsContainer.decodeIfPresent(IssueAssignee.self, forKey: .assignee)
         summary = try fieldsContainer.decode(String.self, forKey: .summary)
         labels = try fieldsContainer.decode([String].self, forKey: .labels)
     }

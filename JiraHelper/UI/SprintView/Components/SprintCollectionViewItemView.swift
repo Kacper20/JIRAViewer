@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import RxSwift
+import AppKit
 
 final class SprintCollectionViewItemView: NSView {
 
@@ -52,14 +54,17 @@ final class SprintCollectionViewItemView: NSView {
         stackView.orientation = .vertical
         stackView.addArrangedSubviews(itemNameLabel, itemLabels, assigneeImageView, itemKeyLabel)
 
-        assigneeImageView.widthAnchor.constraint(equalToConstant: 22).activate()
+        assigneeImageView.widthAnchor.constraint(equalToConstant: 32).activate()
         assigneeImageView.heightAnchor.constraint(equalTo: assigneeImageView.widthAnchor, multiplier: 0).activate()
+    }
+
+    var imageSink: AnyObserver<NSImage> {
+        return AnyObserver<NSImage>.next { [weak self] in self?.assigneeImageView.image = $0 }
     }
 
     func update(with data: SprintElementData) {
         itemNameLabel.stringValue = data.title
         itemLabels.stringValue = data.labels
         itemKeyLabel.stringValue = data.key
-
     }
 }
