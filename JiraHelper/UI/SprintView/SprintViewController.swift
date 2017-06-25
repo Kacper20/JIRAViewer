@@ -29,6 +29,8 @@ final class SprintViewController: NSViewController {
         setupRequest()
     }
 
+    
+
     private func setupRequest() {
         sprintViewModel.loadInitial()
             .subscribe(onNext: { [unowned self] in
