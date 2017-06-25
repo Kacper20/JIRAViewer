@@ -8,8 +8,20 @@
 
 import Cocoa
 import AppKit
+import RxSwift
 
 final class SprintCollectionViewItem: NSCollectionViewItem {
+
+    fileprivate let prepareForReuseSubject = PublishSubject<Void>()
+    var preparedForReuse: Observable<Void> {
+        return prepareForReuseSubject
+    }
+
+    override var isSelected: Bool {
+        didSet {
+            castView.setSelection(isSelected)
+        }
+    }
 
     private var castView: SprintCollectionViewItemView {
         guard let view = view as? SprintCollectionViewItemView else {
@@ -22,16 +34,22 @@ final class SprintCollectionViewItem: NSCollectionViewItem {
         view = SprintCollectionViewItemView()
     }
 
+    override func prepareForReuse() {
+        prepareForReuseSubject.onNext(())
+        isSelected = false
+    }
+
     static var identifier: String {
         return String(describing: self)
+    }
+
+    var imageSink: AnyObserver<NSImage> {
+        return castView.imageSink
     }
 
     func update(with data: SprintElementData) {
         castView.update(with: data)
     }
-}
-
-extension SprintCollectionViewItem {
 }
 
 

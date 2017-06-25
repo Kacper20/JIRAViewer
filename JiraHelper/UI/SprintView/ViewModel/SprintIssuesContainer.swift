@@ -25,11 +25,13 @@ struct SprintElementData {
     let title: String
     let labels: String
     let key: String
+    let avatarUrl: String?
 
     init(issue: Issue) {
         self.title = issue.summary
         self.key = issue.key
         self.labels = issue.labels.joined(separator: ",")
+        self.avatarUrl = issue.assignee?.avatarUrl
     }
 }
 

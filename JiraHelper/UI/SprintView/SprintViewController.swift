@@ -43,13 +43,13 @@ final class SprintViewController: NSViewController {
         flowLayout.interSectionSpacing = 5.0
         flowLayout.interItemSpacing = 5.0
         flowLayout.delegate = sprintViewModel
-//
-//        let flowLayout = NSCollectionViewFlowLayout()
-//        collectionView.delegate = sprintViewModel
-
+        collectionView.register(forDraggedTypes: [NSURLPboardType])
+        collectionView.setDraggingSourceOperationMask(.every, forLocal: true)
+        collectionView.isSelectable = true
+        collectionView.allowsMultipleSelection = true
         collectionView.register(SprintCollectionViewItem.self, forItemWithIdentifier: SprintCollectionViewItem.identifier)
-
         collectionView.collectionViewLayout = flowLayout
         collectionView.dataSource = sprintViewModel
+        collectionView.delegate = sprintViewModel
     }
 }

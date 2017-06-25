@@ -31,6 +31,7 @@ final class MainViewModel {
         self.sprintChoice = sprintChoice
         self.sprintViewModel = SprintViewModel(
             sprintIssuesService: sprintsService.issuesService(for: sprintChoice.selected),
+            imageDownloader: ImageDownloader(),
             boardConfiguration: boardConfiguration
         )
     }
