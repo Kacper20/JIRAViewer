@@ -20,6 +20,10 @@ final class SprintViewModel: NSObject, NSCollectionViewDataSource, KanbanCollect
 
     private var container: SprintIssuesContainer
 
+    var columns: [KanbanColumn] {
+        return boardConfiguration.columns
+    }
+
     init(
         sprintIssuesService: SprintIssuesService,
         imageDownloader: ImageDownloader,
@@ -110,7 +114,4 @@ final class SprintViewModel: NSObject, NSCollectionViewDataSource, KanbanCollect
         }
         return .move
     }
-
-
-
 }

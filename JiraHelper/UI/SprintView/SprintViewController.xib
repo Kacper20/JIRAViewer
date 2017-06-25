@@ -4,11 +4,13 @@
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13122.19"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SprintViewController" customModule="JiraHelper" customModuleProvider="target">
             <connections>
                 <outlet property="collectionView" destination="DYI-iw-0Da" id="uDg-j3-eA6"/>
+                <outlet property="columnsInfoStackView" destination="R9p-CM-QcZ" id="RvO-KI-YAg"/>
                 <outlet property="view" destination="c22-O7-iKe" id="axv-pv-e1G"/>
             </connections>
         </customObject>
@@ -41,18 +43,24 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                     <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="DWr-6a-3dG">
-                        <rect key="frame" x="-100" y="-100" width="15" height="143"/>
+                        <rect key="frame" x="747" y="-4" width="16" height="398"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                 </scrollView>
+                <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R9p-CM-QcZ">
+                    <rect key="frame" x="5" y="390" width="759" height="0.0"/>
+                </stackView>
             </subviews>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="koW-wD-vkj" secondAttribute="trailing" id="1WP-LJ-ymn"/>
                 <constraint firstAttribute="bottom" secondItem="koW-wD-vkj" secondAttribute="bottom" id="6pz-du-guc"/>
                 <constraint firstItem="koW-wD-vkj" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="FH0-3e-vuN"/>
-                <constraint firstItem="koW-wD-vkj" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="aI0-w0-UZ7"/>
+                <constraint firstItem="R9p-CM-QcZ" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="PeG-0z-kXK"/>
+                <constraint firstItem="R9p-CM-QcZ" firstAttribute="bottom" secondItem="koW-wD-vkj" secondAttribute="top" id="RJn-Mk-By2"/>
+                <constraint firstItem="R9p-CM-QcZ" firstAttribute="leading" secondItem="koW-wD-vkj" secondAttribute="leading" constant="5" id="y18-5A-j71"/>
+                <constraint firstItem="R9p-CM-QcZ" firstAttribute="trailing" secondItem="koW-wD-vkj" secondAttribute="trailing" constant="5" id="yY5-Et-gqO"/>
             </constraints>
-            <point key="canvasLocation" x="150.5" y="-10"/>
+            <point key="canvasLocation" x="144.5" y="-81"/>
         </customView>
     </objects>
 </document>

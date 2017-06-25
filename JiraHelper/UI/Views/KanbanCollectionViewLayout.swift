@@ -16,7 +16,8 @@ final class KanbanCollectionViewLayout: NSCollectionViewLayout {
 
     weak var delegate: KanbanCollectionViewLayoutDelegate?
 
-    var itemSize = NSSize(width: 100, height: 150)
+    //TODO: Should not be hardcoded in two places
+    var itemSize = NSSize(width: 124, height: 150)
     var interSectionSpacing: CGFloat = 0.0
     var interItemSpacing: CGFloat = 0.0
 

@@ -29,21 +29,22 @@ final class MainViewController: NSViewController {
         //TODO: Try to refactor this into some container?
         addChildViewController(textInputController)
         view.addSubview(textInputController.view)
-        textInputController.view.constraintWithSuperview { (view, parent) in
-            view.topAnchor.constraint(equalTo: parent.topAnchor).activate()
-            view.leadingAnchor.constraint(equalTo: parent.leadingAnchor).activate()
-            view.trailingAnchor.constraint(equalTo: parent.trailingAnchor).activate()
-            view.heightAnchor.constraint(equalToConstant: 100).activate()
-        }
+        let textInputView = textInputController.view
+        textInputView.topToSuperview()
+        textInputView.leadingToSuperview()
+        textInputView.trailingToSuperview()
+        textInputView.heightAnchor.constraint(equalToConstant: 100).activate()
         addChildViewController(sprintViewController)
         view.addSubview(sprintViewController.view)
-        sprintViewController.view.constraintWithSuperview { (view, parent) in
-            view.topAnchor.constraint(equalTo: textInputController.view.bottomAnchor).activate()
-            view.leadingAnchor.constraint(equalTo: parent.leadingAnchor).activate()
-            view.trailingAnchor.constraint(equalTo: parent.trailingAnchor).activate()
-            view.heightAnchor.constraint(equalToConstant: 400).activate()
-            view.widthAnchor.constraint(equalToConstant: 700).activate()
-        }
+
+        let sprintView = sprintViewController.view
+        sprintView.topAnchor.constraint(equalTo: textInputController.view.bottomAnchor).activate()
+        sprintView.bottomToSuperview()
+        sprintView.leadingToSuperview()
+        sprintView.trailingToSuperview()
+        sprintView.heightAnchor.constraint(equalToConstant: 400).activate()
+        //TODO: Has to be computed dynamically, computation should be done by layout preferably. Also 
+        sprintView.widthAnchor.constraint(equalToConstant: 945).activate()
     }
 
     required init?(coder: NSCoder) {
