@@ -18,6 +18,12 @@ struct TextFieldStyles {
         }
     }
 
+    static var grayFootnote: NSViewStyle<NSTextField> {
+        return NSViewStyle { textField in
+            textField.textColor = NSColor.lightGray
+        }
+    }
+
     static var nonEditableSprintItemLabel: NSViewStyle<NSTextField> {
         return NSViewStyle { textField in
             textField.isEditable = false

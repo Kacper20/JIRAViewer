@@ -9,23 +9,51 @@
 import Foundation
 
 extension NSView {
-    func constraintEdges(to anotherView: NSView, with insets: NSEdgeInsets = NSEdgeInsetsZero) {
+
+    private var forcedSuperview: NSView {
+        guard let superView = superview else { fatalError("View should have a superview before adding constraint") }
+        return superView
+    }
+
+    private func doNotTranslateMasks() {
         translatesAutoresizingMaskIntoConstraints = false
-        leftAnchor.constraint(equalTo: anotherView.leftAnchor, constant: insets.left).isActive = true
-        topAnchor.constraint(equalTo: anotherView.topAnchor, constant: insets.top).isActive = true
-        rightAnchor.constraint(equalTo: anotherView.rightAnchor, constant: -insets.right).isActive = true
-        bottomAnchor.constraint(equalTo: anotherView.bottomAnchor, constant: -insets.bottom).isActive = true
+    }
+
+    func constraintEdges(to anotherView: NSView, with insets: NSEdgeInsets = NSEdgeInsetsZero) {
+        doNotTranslateMasks()
+        leftAnchor.constraint(equalTo: anotherView.leftAnchor, constant: insets.left).activate()
+        topAnchor.constraint(equalTo: anotherView.topAnchor, constant: insets.top).activate()
+        rightAnchor.constraint(equalTo: anotherView.rightAnchor, constant: -insets.right).activate()
+        bottomAnchor.constraint(equalTo: anotherView.bottomAnchor, constant: -insets.bottom).activate()
     }
 
     func constraintEdgesToSuperview(with insets: NSEdgeInsets = NSEdgeInsetsZero) {
-        guard let superView = superview else { fatalError("View should have a superview before adding constraint") }
-        constraintEdges(to: superView, with: insets)
+        constraintEdges(to: forcedSuperview, with: insets)
+    }
+
+    func topToSuperview(with constant: CGFloat = 0.0) {
+        doNotTranslateMasks()
+        topAnchor.constraint(equalTo: forcedSuperview.topAnchor, constant: constant).activate()
+    }
+
+    func bottomToSuperview(with constant: CGFloat = 0.0) {
+        doNotTranslateMasks()
+        bottomAnchor.constraint(equalTo: forcedSuperview.bottomAnchor, constant: constant).activate()
+    }
+
+    func leadingToSuperview(with constant: CGFloat = 0.0) {
+        doNotTranslateMasks()
+        leadingAnchor.constraint(equalTo: forcedSuperview.leadingAnchor, constant: constant).activate()
+    }
+
+    func trailingToSuperview(with constant: CGFloat = 0.0) {
+        doNotTranslateMasks()
+        trailingAnchor.constraint(equalTo: forcedSuperview.trailingAnchor, constant: constant).activate()
     }
 
     func constraintWithSuperview(_ constraintBuilder: (NSView, NSView) -> Void) {
-        translatesAutoresizingMaskIntoConstraints = false
-        guard let parent = superview else { fatalError("View should have a superview before adding constraint") }
-        constraintBuilder(self, parent)
+        doNotTranslateMasks()
+        constraintBuilder(self, forcedSuperview)
     }
 }
 

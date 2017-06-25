@@ -17,6 +17,12 @@ final class SprintCollectionViewItem: NSCollectionViewItem {
         return prepareForReuseSubject
     }
 
+    override var isSelected: Bool {
+        didSet {
+            castView.setSelection(isSelected)
+        }
+    }
+
     private var castView: SprintCollectionViewItemView {
         guard let view = view as? SprintCollectionViewItemView else {
             fatalError("Provided wrong view subclass for \(String(describing: SprintCollectionViewItem.self))")
@@ -30,6 +36,7 @@ final class SprintCollectionViewItem: NSCollectionViewItem {
 
     override func prepareForReuse() {
         prepareForReuseSubject.onNext(())
+        isSelected = false
     }
 
     static var identifier: String {

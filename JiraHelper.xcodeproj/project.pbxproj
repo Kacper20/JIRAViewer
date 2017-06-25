@@ -244,14 +244,13 @@
 		BB7AD7421EF2ED0F00E436C4 /* SprintsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprintsService.swift; sourceTree = "<group>"; };
 		BBA77B8F1E57782A00C9842C /* TextInputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextInputViewController.xib; sourceTree = "<group>"; };
 		BBA77B931E57904100C9842C /* StylingProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StylingProtocol.swift; sourceTree = "<group>"; };
-		BBA77B9A1E57922C00C9842C /* TextFieldStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextFieldStyles.swift; path = Styles/TextField/TextFieldStyles.swift; sourceTree = "<group>"; };
+		BBA77B9A1E57922C00C9842C /* TextFieldStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldStyles.swift; sourceTree = "<group>"; };
 		BBA77B9C1E579D1600C9842C /* SprintViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SprintViewController.swift; sourceTree = "<group>"; };
 		BBA77BA21E57A0C600C9842C /* VerticallyCenteredTextFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticallyCenteredTextFieldCell.swift; sourceTree = "<group>"; };
 		BBA77BA51E57A3F200C9842C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		BBA77BA71E57A3F800C9842C /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		BBA77BAA1E57A62300C9842C /* MaskImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaskImage.swift; sourceTree = "<group>"; };
 		BBAF06AE1EFE4DC300DF3E46 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
-		BBAF06B01EFE4F8400DF3E46 /* MainInputTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInputTextFieldStyle.swift; sourceTree = "<group>"; };
 		BBAF06B11EFE742600DF3E46 /* Observers+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observers+Extensions.swift"; sourceTree = "<group>"; };
 		BBAF06B31EFE75B000DF3E46 /* IssueAssignee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueAssignee.swift; sourceTree = "<group>"; };
 		BBAF06B61EFE80A000DF3E46 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
@@ -605,7 +604,6 @@
 				BBA77BA41E57A3D900C9842C /* Main */,
 				BBA77BA11E57A08300C9842C /* Controls */,
 				BBA77B921E578FE500C9842C /* Styles */,
-				BBA77B9A1E57922C00C9842C /* TextFieldStyles.swift */,
 				BBA77B911E578E6700C9842C /* SprintView */,
 				BB62DE7C1E5634BA00AA3577 /* MainMenu.xib */,
 				FA6E3B792A42ED94A8684593 /* MainWindow */,
@@ -637,7 +635,7 @@
 		BBA77B961E57915300C9842C /* TextField */ = {
 			isa = PBXGroup;
 			children = (
-				BBAF06B01EFE4F8400DF3E46 /* MainInputTextFieldStyle.swift */,
+				BBA77B9A1E57922C00C9842C /* TextFieldStyles.swift */,
 			);
 			path = TextField;
 			sourceTree = "<group>";
