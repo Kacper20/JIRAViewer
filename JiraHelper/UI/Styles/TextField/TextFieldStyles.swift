@@ -24,6 +24,12 @@ struct TextFieldStyles {
         }
     }
 
+    static var headline: NSViewStyle<NSTextField> {
+        return NSViewStyle { textField in
+            textField.font = NSFont.boldSystemFont(ofSize: 16)
+        }
+    }
+
     static var nonEditableSprintItemLabel: NSViewStyle<NSTextField> {
         return NSViewStyle { textField in
             textField.isEditable = false

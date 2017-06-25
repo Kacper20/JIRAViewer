@@ -10,6 +10,7 @@ import RxSwift
 
 final class SprintViewController: NSViewController {
 
+    @IBOutlet weak var columnsInfoStackView: NSStackView!
     @IBOutlet weak var collectionView: NSCollectionView!
     private let sprintViewModel: SprintViewModel
     private let disposeBag = DisposeBag()
@@ -27,9 +28,8 @@ final class SprintViewController: NSViewController {
         super.viewDidLoad()
         setupCollectionView(collectionView)
         setupRequest()
+        setupStyles()
     }
-
-    
 
     private func setupRequest() {
         sprintViewModel.loadInitial()
@@ -40,11 +40,28 @@ final class SprintViewController: NSViewController {
             }).disposed(by: disposeBag)
     }
 
+    private func setupStyles() {
+        view.wantsLayer = true
+        view.layer?.backgroundColor = NSColor.white.cgColor
+    }
+
     private func setupCollectionView(_ collectionView: NSCollectionView) {
         let flowLayout = KanbanCollectionViewLayout()
-        flowLayout.interSectionSpacing = 5.0
+        let sectionSpacing: CGFloat = 5.0
+        flowLayout.interSectionSpacing = sectionSpacing
         flowLayout.interItemSpacing = 5.0
         flowLayout.delegate = sprintViewModel
+        let layoutInfo = ColumnsLayoutInformation(
+            offsetValue: sectionSpacing,
+            names: sprintViewModel.columns.map { $0.name }
+        )
+        let layouter = SprintColumnViewsLayouter(
+            stackView: columnsInfoStackView,
+            layoutInfo: layoutInfo
+        )
+        layouter.layout()
+        //TODO: Consider sticky headers instead? Will be easier to maintain, but less performant.
+
         collectionView.register(forDraggedTypes: [NSURLPboardType])
         collectionView.setDraggingSourceOperationMask(.every, forLocal: true)
         collectionView.isSelectable = true

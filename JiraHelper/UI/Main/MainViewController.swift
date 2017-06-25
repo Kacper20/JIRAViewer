@@ -43,6 +43,8 @@ final class MainViewController: NSViewController {
         sprintView.leadingToSuperview()
         sprintView.trailingToSuperview()
         sprintView.heightAnchor.constraint(equalToConstant: 400).activate()
+        //TODO: Has to be computed dynamically, computation should be done by layout preferably. Also 
+        sprintView.widthAnchor.constraint(equalToConstant: 945).activate()
     }
 
     required init?(coder: NSCoder) {
