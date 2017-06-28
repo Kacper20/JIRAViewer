@@ -68,6 +68,33 @@ struct SprintIssuesContainer {
         return issue.map(SprintElementData.init)
     }
 
+    private mutating func removeIssue(from path: IndexPath) -> Issue? {
+        let column = columns[path.section]
+        var array = data[column]
+        let issue = array?.remove(at: path.item)
+        data[column] = array
+        return issue
+    }
+
+    //TODO: Error handling to methods
+    private mutating func insert(_ issues: [Issue], at path: IndexPath) {
+        let column = columns[path.section]
+        var array = data[column]
+        guard array != nil && (array?.count ?? -1) >= path.item else { return }
+        array?.insert(contentsOf: issues, at: path.item)
+        data[column] = array
+    }
+
+    mutating func moveIssues(from set: Set<IndexPath>, to path: IndexPath) {
+        var issues = [Issue]()
+        for path in set {
+            if let issue = removeIssue(from: path) {
+                issues.append(issue)
+            }
+        }
+        insert(issues, at: path)
+    }
+
     func numbersOfSections() -> Int {
         return data.keys.count
     }

@@ -62,10 +62,10 @@ final class SprintViewController: NSViewController {
         layouter.layout()
         //TODO: Consider sticky headers instead? Will be easier to maintain, but less performant.
 
-        collectionView.register(forDraggedTypes: [NSURLPboardType])
+        collectionView.register(forDraggedTypes: [NSStringPboardType])
         collectionView.setDraggingSourceOperationMask(.every, forLocal: true)
         collectionView.isSelectable = true
-        collectionView.allowsMultipleSelection = true
+        collectionView.allowsMultipleSelection = false
         collectionView.register(SprintCollectionViewItem.self, forItemWithIdentifier: SprintCollectionViewItem.identifier)
         collectionView.collectionViewLayout = flowLayout
         collectionView.dataSource = sprintViewModel
