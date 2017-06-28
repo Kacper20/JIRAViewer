@@ -90,9 +90,9 @@ final class SprintViewModel: NSObject, NSCollectionViewDataSource, KanbanCollect
 
     func collectionView(
         _ collectionView: NSCollectionView,
-        writeItemsAt indexPaths: Set<IndexPath>,
-        to pasteboard: NSPasteboard) -> Bool {
-        return true
+        pasteboardWriterForItemAt indexPath: IndexPath
+        ) -> NSPasteboardWriting? {
+        return ("" as NSString)
     }
 
     func collectionView(
@@ -113,5 +113,28 @@ final class SprintViewModel: NSObject, NSCollectionViewDataSource, KanbanCollect
             proposedDropOperation.pointee = .before
         }
         return .move
+    }
+
+    func collectionView(
+        _ collectionView: NSCollectionView,
+        acceptDrop draggingInfo: NSDraggingInfo,
+        indexPath: IndexPath,
+        dropOperation: NSCollectionViewDropOperation
+        ) -> Bool {
+        guard !draggedItemsPaths.isEmpty else { return false }
+        //TODO: Support multiple ??
+        guard let first = draggedItemsPaths.first, draggedItemsPaths.count == 1 else { return false }
+        container.moveIssues(from: draggedItemsPaths, to: indexPath)
+        collectionView.moveItem(at: first, to: indexPath)
+        return true
+    }
+
+    func collectionView(
+        _ collectionView: NSCollectionView,
+        draggingSession session: NSDraggingSession,
+        endedAt screenPoint: NSPoint,
+        dragOperation operation: NSDragOperation
+        ) {
+        draggedItemsPaths = []
     }
 }

@@ -31,9 +31,6 @@ final class NetworkLogger {
         if let responseValue = response.result.value, !(responseValue is NSNull),
            let dictReadable = prettyPrintedDict(from: responseValue) {
             logger.info("[RESPONSE] JSON BODY: \(dictReadable)")
-        } else if let data = response.data {
-//            let body = String(data: data, encoding: String.Encoding.utf8)
-//            logger.info("BODY: \(body.debugDescription)")
         }
     }
 
