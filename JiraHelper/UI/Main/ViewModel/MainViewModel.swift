@@ -23,7 +23,8 @@ final class MainViewModel {
         sprintsService: SprintsService,
         boardsChoice: BoardsChoice,
         boardConfiguration: BoardConfiguration,
-        sprintChoice: ActiveSprintChoice
+        sprintChoice: ActiveSprintChoice,
+        user: User
      ) {
         self.boardsService = boardsService
         self.sprintsService = sprintsService
@@ -32,7 +33,8 @@ final class MainViewModel {
         self.sprintViewModel = SprintViewModel(
             sprintIssuesService: sprintsService.issuesService(for: sprintChoice.selected),
             imageDownloader: ImageDownloader(),
-            boardConfiguration: boardConfiguration
+            boardConfiguration: boardConfiguration,
+            user: user
         )
     }
 }

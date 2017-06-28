@@ -11,7 +11,7 @@ import Foundation
 enum BoardEndpoints {
     static func boards() -> EndpointConfiguration<ArrayOfValuesWithPagingData<Board>> {
         return EndpointConfiguration(
-            path: "/board",
+            path: "/agile/latest/board",
             method: .get,
             encoding: URLEncoding.default,
             headers: [:],
@@ -22,7 +22,7 @@ enum BoardEndpoints {
 
     static func configuration(for board: Board) -> EndpointConfiguration<BoardConfiguration> {
         return EndpointConfiguration(
-            path: "/board/\(board.id)/configuration",
+            path: "/agile/latest/board/\(board.id)/configuration",
             method: .get,
             encoding: JSONEncoding.default,
             headers: [:],

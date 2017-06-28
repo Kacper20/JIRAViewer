@@ -71,4 +71,10 @@ final class SprintViewController: NSViewController {
         collectionView.dataSource = sprintViewModel
         collectionView.delegate = sprintViewModel
     }
+
+    override func keyDown(with event: NSEvent) {
+        if KeysMatcher.match(code: .i, in: event) {
+            print("I CLICKED!")
+        }
+    }
 }

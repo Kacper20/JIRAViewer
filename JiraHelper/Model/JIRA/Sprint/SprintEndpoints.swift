@@ -11,7 +11,7 @@ import Foundation
 enum SprintEndpoints {
     static func allActive(forBoard board: Board) -> EndpointConfiguration<ArrayOfValuesWithPagingData<Sprint>> {
         return EndpointConfiguration(
-            path: "/board/\(board.id)/sprint",
+            path: "/agile/latest/board/\(board.id)/sprint",
             method: .get,
             encoding: URLEncoding.default,
             headers: [:],
