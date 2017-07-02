@@ -80,6 +80,7 @@
 		BB7FC2131F0866740032B3E2 /* GlobalUIEventsReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7FC2121F0866740032B3E2 /* GlobalUIEventsReceiver.swift */; };
 		BB7FC21A1F0925B40032B3E2 /* MainLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7FC2181F0925B40032B3E2 /* MainLoadingViewController.swift */; };
 		BB7FC21B1F0925B40032B3E2 /* MainLoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB7FC2191F0925B40032B3E2 /* MainLoadingViewController.xib */; };
+		BB7FC21D1F09540C0032B3E2 /* IssueEditionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7FC21C1F09540C0032B3E2 /* IssueEditionService.swift */; };
 		BB92496C1EFFC0E6006CF3BD /* SprintColumnViewsLayouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB92496B1EFFC0E6006CF3BD /* SprintColumnViewsLayouter.swift */; };
 		BBA77B901E57782A00C9842C /* TextInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBA77B8F1E57782A00C9842C /* TextInputViewController.xib */; };
 		BBA77B941E57904100C9842C /* StylingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA77B931E57904100C9842C /* StylingProtocol.swift */; };
@@ -259,6 +260,7 @@
 		BB7FC2121F0866740032B3E2 /* GlobalUIEventsReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalUIEventsReceiver.swift; sourceTree = "<group>"; };
 		BB7FC2181F0925B40032B3E2 /* MainLoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainLoadingViewController.swift; sourceTree = "<group>"; };
 		BB7FC2191F0925B40032B3E2 /* MainLoadingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainLoadingViewController.xib; sourceTree = "<group>"; };
+		BB7FC21C1F09540C0032B3E2 /* IssueEditionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueEditionService.swift; sourceTree = "<group>"; };
 		BB92496B1EFFC0E6006CF3BD /* SprintColumnViewsLayouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprintColumnViewsLayouter.swift; sourceTree = "<group>"; };
 		BBA77B8F1E57782A00C9842C /* TextInputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextInputViewController.xib; sourceTree = "<group>"; };
 		BBA77B931E57904100C9842C /* StylingProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StylingProtocol.swift; sourceTree = "<group>"; };
@@ -552,6 +554,7 @@
 			isa = PBXGroup;
 			children = (
 				BB34BBAA1F04422B0070276D /* IssueEditionEndpoints.swift */,
+				BB7FC21C1F09540C0032B3E2 /* IssueEditionService.swift */,
 			);
 			path = Edition;
 			sourceTree = "<group>";
@@ -1130,6 +1133,7 @@
 				BB0A2C0A1EC12EF400A19D60 /* TeamCheckService.swift in Sources */,
 				BB36E1F61EF5B18C0081DDAE /* Issue+Details.swift in Sources */,
 				BB0A2BE91EBF838200A19D60 /* BoardsService.swift in Sources */,
+				BB7FC21D1F09540C0032B3E2 /* IssueEditionService.swift in Sources */,
 				BB0A2BEB1EBF839000A19D60 /* BoardEndpoints.swift in Sources */,
 				FA6E3C6DED0B860D768D19B1 /* MainWindowController.swift in Sources */,
 				BBA77B9D1E579D1600C9842C /* SprintViewController.swift in Sources */,

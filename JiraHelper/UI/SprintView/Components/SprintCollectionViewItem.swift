@@ -36,6 +36,7 @@ final class SprintCollectionViewItem: NSCollectionViewItem {
 
     override func prepareForReuse() {
         prepareForReuseSubject.onNext(())
+        castView.clearContents()
         isSelected = false
     }
 

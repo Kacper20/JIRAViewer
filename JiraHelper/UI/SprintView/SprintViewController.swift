@@ -62,6 +62,7 @@ final class SprintViewController: NSViewController {
     }
 
     private func setupCollectionView(_ collectionView: NSCollectionView) {
+        sprintViewModel.managedCollectionView = collectionView
         let flowLayout = KanbanCollectionViewLayout()
         let sectionSpacing: CGFloat = 5.0
         flowLayout.interSectionSpacing = sectionSpacing

@@ -16,12 +16,12 @@ final class SprintViewModel: NSObject, NSCollectionViewDataSource, KanbanCollect
     private let boardConfiguration: BoardConfiguration
     private let imageDownloader: ImageDownloader
     private let eventsReceiver: GlobalUIEventsReceiver
+
     private let user: User
 
     var assignCalledSink: AnyObserver<Void> {
         return AnyObserver.next { [weak self] in
-            guard let `self` = self else { return }
-            self.eventsReceiver.loadingRequests.value = !self.eventsReceiver.loadingRequests.value
+            self?.processSelfAssigningOfSelectedIssues()
         }
     }
 
@@ -32,6 +32,8 @@ final class SprintViewModel: NSObject, NSCollectionViewDataSource, KanbanCollect
     var columns: [KanbanColumn] {
         return boardConfiguration.columns
     }
+
+    var managedCollectionView: NSCollectionView?
 
     init(
         sprintIssuesService: SprintIssuesService,
@@ -48,6 +50,26 @@ final class SprintViewModel: NSObject, NSCollectionViewDataSource, KanbanCollect
         container = SprintIssuesContainer(columns: boardConfiguration.columns)
         super.init()
         _ = sampleItem.view
+    }
+
+    private func processSelfAssigningOfSelectedIssues() {
+        collectionNonOptional { collectionView in
+            let selectedPaths = collectionView.selectionIndexPaths
+            let issues = selectedPaths.flatMap { self.container.issue(at: $0) }
+            let serviceRequests = issues
+                .map { sprintIssuesService.issueEditionService(for: $0) }
+                .map { $0.assign(to: user) }
+            guard let first = serviceRequests.first else { return }
+            first.subscribe(onNext: { _ in
+                print("DONE!!")
+            })
+        }
+    }
+
+    private func collectionNonOptional(_ closure: (NSCollectionView) -> Void) {
+        if let managedCollectionView = managedCollectionView {
+            closure(managedCollectionView)
+        }
     }
 
     func loadInitial() -> Observable<Void> {

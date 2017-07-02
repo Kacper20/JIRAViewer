@@ -19,4 +19,15 @@ enum IssuesEndpoints {
             resourceType: .json
         )
     }
+
+    static func issue(withId id: String) -> EndpointConfiguration<Issue> {
+        return EndpointConfiguration(
+            path: "/api/latest/issue/\(id)",
+            method: .get,
+            encoding: URLEncoding.default,
+            headers: [:],//TODO: Temporary labels
+            parameters: [:],
+            resourceType: .json
+        )
+    }
 }

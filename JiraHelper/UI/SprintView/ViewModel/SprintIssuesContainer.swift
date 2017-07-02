@@ -63,9 +63,12 @@ struct SprintIssuesContainer {
         print("X")
     }
 
+    func issue(at indexPath: IndexPath) -> Issue? {
+        return data[columns[indexPath.section]]?[indexPath.item]
+    }
+
     func viewModel(at indexPath: IndexPath) -> SprintElementData? {
-        let issue = data[columns[indexPath.section]]?[indexPath.item]
-        return issue.map(SprintElementData.init)
+        return issue(at: indexPath).map(SprintElementData.init)
     }
 
     private mutating func removeIssue(from path: IndexPath) -> Issue? {

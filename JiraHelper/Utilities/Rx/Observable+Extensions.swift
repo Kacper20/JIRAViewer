@@ -37,4 +37,14 @@ extension Observable {
             }
         }
     }
+
+    func filterFlatMap<T>(_ mapper: @escaping (Element) -> Observable<T>?) -> Observable<T> {
+        return self.flatMap { element -> Observable<T> in
+            if let element = mapper(element) {
+                return element
+            } else {
+                return .empty()
+            }
+        }
+    }
 }
