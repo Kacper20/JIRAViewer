@@ -14,12 +14,14 @@ final class MainViewModelCreator {
     private let boardsService: BoardsService
     private let sprintsService: SprintsService
     private let userService: UserService
+    private let eventsReceiver: GlobalUIEventsReceiver
 
-    init(networkService: AuthenticatedNetworkService) {
+    init(networkService: AuthenticatedNetworkService, eventsReceiver: GlobalUIEventsReceiver) {
         self.networkService = networkService
         self.boardsService = BoardsService(networkService: networkService)
         self.sprintsService = SprintsService(networkService: networkService)
         self.userService = UserService(networkService: networkService)
+        self.eventsReceiver = eventsReceiver
     }
 
     func create() -> Observable<MainViewModel> {
@@ -41,6 +43,7 @@ final class MainViewModelCreator {
                         sprintsService: self.sprintsService,
                         boardsChoice: boardsChoice,
                         boardConfiguration: boardConfig,
+                        eventsReceiver: self.eventsReceiver,
                         sprintChoice: activeSprintChoice,
                         user: user
                         )

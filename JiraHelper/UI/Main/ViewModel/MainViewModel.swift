@@ -15,6 +15,7 @@ final class MainViewModel {
 
     let boardsChoice: BoardsChoice
     let sprintChoice: ActiveSprintChoice
+    let eventsReceiver: GlobalUIEventsReceiver
 
     let sprintViewModel: SprintViewModel
     //TODO: Consider connecting boards choice selected with configuration to express type in a better way
@@ -23,6 +24,7 @@ final class MainViewModel {
         sprintsService: SprintsService,
         boardsChoice: BoardsChoice,
         boardConfiguration: BoardConfiguration,
+        eventsReceiver: GlobalUIEventsReceiver,
         sprintChoice: ActiveSprintChoice,
         user: User
      ) {
@@ -30,10 +32,12 @@ final class MainViewModel {
         self.sprintsService = sprintsService
         self.boardsChoice = boardsChoice
         self.sprintChoice = sprintChoice
+        self.eventsReceiver = eventsReceiver
         self.sprintViewModel = SprintViewModel(
             sprintIssuesService: sprintsService.issuesService(for: sprintChoice.selected),
             imageDownloader: ImageDownloader(),
             boardConfiguration: boardConfiguration,
+            eventsReceiver: eventsReceiver,
             user: user
         )
     }

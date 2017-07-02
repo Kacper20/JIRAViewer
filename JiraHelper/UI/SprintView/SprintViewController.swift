@@ -10,6 +10,12 @@ import RxSwift
 
 final class SprintViewController: NSViewController {
 
+    private let keyboardUpEventsSubject = PublishSubject<NSEvent>()
+
+    var upEventsObserver: AnyObserver<NSEvent> {
+        return keyboardUpEventsSubject.asObserver()
+    }
+
     @IBOutlet weak var columnsInfoStackView: NSStackView!
     @IBOutlet weak var collectionView: NSCollectionView!
     private let sprintViewModel: SprintViewModel
@@ -38,6 +44,12 @@ final class SprintViewController: NSViewController {
             }, onError: { error in
                 Logger.shared.error("Error occured: \(error)")
             }).disposed(by: disposeBag)
+    }
+
+    //TODO: Could be separated into another object
+    private func setupKeysObserving() {
+//        keyboardUpEventsSubject
+//            .flatMap
     }
 
     private func setupStyles() {
@@ -70,11 +82,5 @@ final class SprintViewController: NSViewController {
         collectionView.collectionViewLayout = flowLayout
         collectionView.dataSource = sprintViewModel
         collectionView.delegate = sprintViewModel
-    }
-
-    override func keyDown(with event: NSEvent) {
-        if KeysMatcher.match(code: .i, in: event) {
-            print("I CLICKED!")
-        }
     }
 }

@@ -26,3 +26,15 @@ extension Observable {
         return self.map { _ in return () }
     }
 }
+
+extension Observable {
+    func filterMap<T>(_ mapper: @escaping (Element) -> T?) -> Observable<T> {
+        return self.flatMap { element -> Observable<T> in
+            if let element = mapper(element) {
+                return .just(element)
+            } else {
+                return .empty()
+            }
+        }
+    }
+}

@@ -77,6 +77,9 @@
 		BB7AD73F1EF2E07300E436C4 /* SprintEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7AD73E1EF2E07300E436C4 /* SprintEndpoints.swift */; };
 		BB7AD7411EF2E1FB00E436C4 /* Sprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7AD7401EF2E1FB00E436C4 /* Sprint.swift */; };
 		BB7AD7431EF2ED0F00E436C4 /* SprintsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7AD7421EF2ED0F00E436C4 /* SprintsService.swift */; };
+		BB7FC2131F0866740032B3E2 /* GlobalUIEventsReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7FC2121F0866740032B3E2 /* GlobalUIEventsReceiver.swift */; };
+		BB7FC21A1F0925B40032B3E2 /* MainLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7FC2181F0925B40032B3E2 /* MainLoadingViewController.swift */; };
+		BB7FC21B1F0925B40032B3E2 /* MainLoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB7FC2191F0925B40032B3E2 /* MainLoadingViewController.xib */; };
 		BB92496C1EFFC0E6006CF3BD /* SprintColumnViewsLayouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB92496B1EFFC0E6006CF3BD /* SprintColumnViewsLayouter.swift */; };
 		BBA77B901E57782A00C9842C /* TextInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBA77B8F1E57782A00C9842C /* TextInputViewController.xib */; };
 		BBA77B941E57904100C9842C /* StylingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA77B931E57904100C9842C /* StylingProtocol.swift */; };
@@ -253,6 +256,9 @@
 		BB7AD73E1EF2E07300E436C4 /* SprintEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprintEndpoints.swift; sourceTree = "<group>"; };
 		BB7AD7401EF2E1FB00E436C4 /* Sprint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sprint.swift; sourceTree = "<group>"; };
 		BB7AD7421EF2ED0F00E436C4 /* SprintsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprintsService.swift; sourceTree = "<group>"; };
+		BB7FC2121F0866740032B3E2 /* GlobalUIEventsReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalUIEventsReceiver.swift; sourceTree = "<group>"; };
+		BB7FC2181F0925B40032B3E2 /* MainLoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainLoadingViewController.swift; sourceTree = "<group>"; };
+		BB7FC2191F0925B40032B3E2 /* MainLoadingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainLoadingViewController.xib; sourceTree = "<group>"; };
 		BB92496B1EFFC0E6006CF3BD /* SprintColumnViewsLayouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprintColumnViewsLayouter.swift; sourceTree = "<group>"; };
 		BBA77B8F1E57782A00C9842C /* TextInputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextInputViewController.xib; sourceTree = "<group>"; };
 		BBA77B931E57904100C9842C /* StylingProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StylingProtocol.swift; sourceTree = "<group>"; };
@@ -569,6 +575,8 @@
 		BB4725141EF081260070D323 /* MainLoadingView */ = {
 			isa = PBXGroup;
 			children = (
+				BB7FC2181F0925B40032B3E2 /* MainLoadingViewController.swift */,
+				BB7FC2191F0925B40032B3E2 /* MainLoadingViewController.xib */,
 			);
 			path = MainLoadingView;
 			sourceTree = "<group>";
@@ -702,6 +710,7 @@
 				BB4725141EF081260070D323 /* MainLoadingView */,
 				BBA77BA51E57A3F200C9842C /* MainViewController.swift */,
 				BBA77BA71E57A3F800C9842C /* MainView.swift */,
+				BB7FC2121F0866740032B3E2 /* GlobalUIEventsReceiver.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -1021,6 +1030,7 @@
 				BB62DE7D1E5634BA00AA3577 /* MainMenu.xib in Resources */,
 				BB5695A51EDB5D5300B87510 /* LoginViewController.xib in Resources */,
 				BB0A2C001EBFB8C500A19D60 /* LoginWindowController.xib in Resources */,
+				BB7FC21B1F0925B40032B3E2 /* MainLoadingViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1062,6 +1072,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB7FC21A1F0925B40032B3E2 /* MainLoadingViewController.swift in Sources */,
 				BB0BA43C1EF439A8003BE8C5 /* ToolbarManagerDataSourceHelpers.swift in Sources */,
 				BB2FC6751EC264BD0031917B /* TeamPickerViewModel.swift in Sources */,
 				BB53D42D1EDA060500BBC607 /* AppLifecycleMonitor.swift in Sources */,
@@ -1125,6 +1136,7 @@
 				BB2046B71EBE095700084F34 /* KanbanCollectionViewLayout.swift in Sources */,
 				BB5695A71EDB647000B87510 /* LoginViewModel.swift in Sources */,
 				BB5695991EDB5A9700B87510 /* JIRASpotlightStyleKit.swift in Sources */,
+				BB7FC2131F0866740032B3E2 /* GlobalUIEventsReceiver.swift in Sources */,
 				BB62DEBC1E565A7800AA3577 /* MainWindow.swift in Sources */,
 				BB53D4301EDA0D5700BBC607 /* TwoWayBindingOperator.swift in Sources */,
 				BB0A2BC91EBE45AB00A19D60 /* SprintCollectionView.swift in Sources */,

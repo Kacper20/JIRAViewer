@@ -15,6 +15,7 @@ final class SprintViewModel: NSObject, NSCollectionViewDataSource, KanbanCollect
     private let sprintIssuesService: SprintIssuesService
     private let boardConfiguration: BoardConfiguration
     private let imageDownloader: ImageDownloader
+    private let eventsReceiver: GlobalUIEventsReceiver
     private let user: User
 
     private let sampleItem = SprintCollectionViewItem(nibName: nil, bundle: nil)!
@@ -29,11 +30,13 @@ final class SprintViewModel: NSObject, NSCollectionViewDataSource, KanbanCollect
         sprintIssuesService: SprintIssuesService,
         imageDownloader: ImageDownloader,
         boardConfiguration: BoardConfiguration,
+        eventsReceiver: GlobalUIEventsReceiver,
         user: User
         ) {
         self.imageDownloader = imageDownloader
         self.sprintIssuesService = sprintIssuesService
         self.boardConfiguration = boardConfiguration
+        self.eventsReceiver = eventsReceiver
         self.user = user
         container = SprintIssuesContainer(columns: boardConfiguration.columns)
         super.init()
