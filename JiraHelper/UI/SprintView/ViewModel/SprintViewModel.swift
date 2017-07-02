@@ -18,6 +18,13 @@ final class SprintViewModel: NSObject, NSCollectionViewDataSource, KanbanCollect
     private let eventsReceiver: GlobalUIEventsReceiver
     private let user: User
 
+    var assignCalledSink: AnyObserver<Void> {
+        return AnyObserver.next { [weak self] in
+            guard let `self` = self else { return }
+            self.eventsReceiver.loadingRequests.value = !self.eventsReceiver.loadingRequests.value
+        }
+    }
+
     private let sampleItem = SprintCollectionViewItem(nibName: nil, bundle: nil)!
 
     private var container: SprintIssuesContainer

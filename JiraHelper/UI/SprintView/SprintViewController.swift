@@ -35,6 +35,7 @@ final class SprintViewController: NSViewController {
         setupCollectionView(collectionView)
         setupRequest()
         setupStyles()
+        setupKeysObserving()
     }
 
     private func setupRequest() {
@@ -48,8 +49,11 @@ final class SprintViewController: NSViewController {
 
     //TODO: Could be separated into another object
     private func setupKeysObserving() {
-//        keyboardUpEventsSubject
-//            .flatMap
+        keyboardUpEventsSubject
+            .filterMap { KeysMatcher.match(code: .i, in: $0) }
+            .discardType()
+            .bind(to: sprintViewModel.assignCalledSink)
+            .disposed(by: disposeBag)
     }
 
     private func setupStyles() {

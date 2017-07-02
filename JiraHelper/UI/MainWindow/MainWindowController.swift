@@ -32,7 +32,9 @@ final class MainWindowController: NSWindowController {
         super.windowDidLoad()
     }
 
-    override func keyDown(with event: NSEvent) { }
+    override func keyDown(with event: NSEvent) {
+        print("")
+    }
 
     override func keyUp(with event: NSEvent) {
         mainViewController?.processKeyUpEvent(event)

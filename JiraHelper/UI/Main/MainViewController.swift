@@ -25,6 +25,7 @@ final class MainViewController: NSViewController {
         super.init(nibName: nil, bundle: nil)!
 
         setupChildVCs()
+        setupEventsObserving()
     }
 
     override func loadView() {
@@ -68,7 +69,7 @@ final class MainViewController: NSViewController {
     //TODO: We could move it to some kind of presenter
     private func setLoadingVisibility(isVisible: Bool) {
         if isVisible {
-            guard loadingVC != nil else { return }
+            guard loadingVC == nil else { return }
             let vc = MainLoadingViewController()
             addChildViewController(vc)
             view.addSubview(vc.view)

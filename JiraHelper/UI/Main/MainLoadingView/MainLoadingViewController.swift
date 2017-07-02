@@ -10,8 +10,16 @@ import Cocoa
 
 class MainLoadingViewController: NSViewController {
 
+    @IBOutlet weak var progressIndicator: NSProgressIndicator!
+
     init() {
         super.init(nibName: String(describing: MainLoadingViewController.self), bundle: nil)!
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        progressIndicator.startAnimation(nil)
+        view.interaction
     }
 
     required init?(coder: NSCoder) {
