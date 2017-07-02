@@ -60,7 +60,6 @@ struct SprintIssuesContainer {
                 fatalError("Unexpected path")
             }
         }
-        print("X")
     }
 
     func issue(at indexPath: IndexPath) -> Issue? {
@@ -69,6 +68,18 @@ struct SprintIssuesContainer {
 
     func viewModel(at indexPath: IndexPath) -> SprintElementData? {
         return issue(at: indexPath).map(SprintElementData.init)
+    }
+
+    func updateIssueAndGetPath(newIssue: Issue) -> IndexPath? {
+        let column = KanbanColumn(name: newIssue.status.name)
+        if let columnIndex = columns.index(of: column),
+           var issues = data[column],
+           let index = issues.index(where: { $0.id == newIssue.id }) {
+            issues[index] = newIssue
+            return IndexPath(item: index, section: columnIndex)
+        } else {
+            return nil
+        }
     }
 
     private mutating func removeIssue(from path: IndexPath) -> Issue? {

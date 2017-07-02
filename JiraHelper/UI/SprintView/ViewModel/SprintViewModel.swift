@@ -16,6 +16,7 @@ final class SprintViewModel: NSObject, NSCollectionViewDataSource, KanbanCollect
     private let boardConfiguration: BoardConfiguration
     private let imageDownloader: ImageDownloader
     private let eventsReceiver: GlobalUIEventsReceiver
+    private let assignDisposeBox = SerialDisposeBox()
 
     private let user: User
 
@@ -60,15 +61,22 @@ final class SprintViewModel: NSObject, NSCollectionViewDataSource, KanbanCollect
                 .map { sprintIssuesService.issueEditionService(for: $0) }
                 .map { $0.assign(to: user) }
             guard let first = serviceRequests.first else { return }
-            first.subscribe(onNext: { _ in
-                print("DONE!!")
+            assignDisposeBox.disposable = first.subscribe(onNext: { [unowned self] updatedIssue in
+                self.updateIssue(with: updatedIssue)
             })
         }
     }
 
     private func collectionNonOptional(_ closure: (NSCollectionView) -> Void) {
+        //TODO: Is it needed?
         if let managedCollectionView = managedCollectionView {
             closure(managedCollectionView)
+        }
+    }
+
+    private func updateIssue(with issue: Issue) {
+        if let path = container.updateIssueAndGetPath(newIssue: issue), let collection = managedCollectionView {
+            collection.reloadItems(at: [path])
         }
     }
 
