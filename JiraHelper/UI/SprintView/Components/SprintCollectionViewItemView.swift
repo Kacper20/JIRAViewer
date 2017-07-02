@@ -44,6 +44,11 @@ final class SprintCollectionViewItemView: NSView {
         TextFieldStyles.grayFootnote.apply(to: itemKeyLabel)
     }
 
+    func clearContents() {
+        itemLabels.stringValue = ""
+        assigneeImageView.image = nil
+    }
+
     private func setupConstraints() {
         addSubview(itemColorView)
         itemColorView.widthAnchor.constraint(equalToConstant: 4).activate()

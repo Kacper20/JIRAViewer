@@ -10,6 +10,12 @@ import RxSwift
 
 final class SprintViewController: NSViewController {
 
+    private let keyboardUpEventsSubject = PublishSubject<NSEvent>()
+
+    var upEventsObserver: AnyObserver<NSEvent> {
+        return keyboardUpEventsSubject.asObserver()
+    }
+
     @IBOutlet weak var columnsInfoStackView: NSStackView!
     @IBOutlet weak var collectionView: NSCollectionView!
     private let sprintViewModel: SprintViewModel
@@ -29,6 +35,7 @@ final class SprintViewController: NSViewController {
         setupCollectionView(collectionView)
         setupRequest()
         setupStyles()
+        setupKeysObserving()
     }
 
     private func setupRequest() {
@@ -40,12 +47,22 @@ final class SprintViewController: NSViewController {
             }).disposed(by: disposeBag)
     }
 
+    //TODO: Could be separated into another object
+    private func setupKeysObserving() {
+        keyboardUpEventsSubject
+            .filterMap { KeysMatcher.match(code: .i, in: $0) }
+            .discardType()
+            .bind(to: sprintViewModel.assignCalledSink)
+            .disposed(by: disposeBag)
+    }
+
     private func setupStyles() {
         view.wantsLayer = true
         view.layer?.backgroundColor = NSColor.white.cgColor
     }
 
     private func setupCollectionView(_ collectionView: NSCollectionView) {
+        sprintViewModel.managedCollectionView = collectionView
         let flowLayout = KanbanCollectionViewLayout()
         let sectionSpacing: CGFloat = 5.0
         flowLayout.interSectionSpacing = sectionSpacing

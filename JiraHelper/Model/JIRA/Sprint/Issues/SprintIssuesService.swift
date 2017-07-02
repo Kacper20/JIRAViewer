@@ -22,4 +22,8 @@ final class SprintIssuesService {
         let allConfig = IssuesEndpoints.all(forSprint: sprint)
         return networkService.request(configuration: allConfig).map { $0.values }
     }
+
+    func issueEditionService(for issue: Issue) -> IssueEditionService {
+        return IssueEditionService(networkService: networkService, issue: issue)
+    }
 }

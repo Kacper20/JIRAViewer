@@ -10,7 +10,7 @@ import Foundation
 
 struct JIRARestAPI {
 
-    static let apiPath = "/rest/agile/1.0"
+    static let apiPath = "/rest"
     static let paginationValuesKey = "values"
 
     static func buildUrl(with resourcePath: String) -> String {
@@ -34,6 +34,6 @@ struct JIRARestAPI {
     }
 
     static func buildAuthPath(for resourcePath: String) -> String {
-        return "/rest/auth/1" + resourcePath
+        return "/rest" + resourcePath
     }
 }

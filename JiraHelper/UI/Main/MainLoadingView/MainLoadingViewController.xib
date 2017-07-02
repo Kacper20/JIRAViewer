@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13122.19" systemVersion="16G18a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13122.19"/>
+        <capability name="box content view" minToolsVersion="7.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="MainLoadingViewController" customModule="JiraHelper" customModuleProvider="target">
+            <connections>
+                <outlet property="progressIndicator" destination="EHa-xv-PNm" id="88j-yn-xv8"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY" customClass="DisabledView" customModule="JiraHelper" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="695" height="377"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <box boxType="custom" borderType="none" borderWidth="0.0" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="E2H-kf-iX6">
+                    <rect key="frame" x="0.0" y="0.0" width="695" height="377"/>
+                    <view key="contentView" id="fKa-4h-Uqa">
+                        <rect key="frame" x="0.0" y="0.0" width="695" height="377"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="EHa-xv-PNm">
+                                <rect key="frame" x="340" y="181" width="16" height="16"/>
+                            </progressIndicator>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="EHa-xv-PNm" firstAttribute="centerY" secondItem="fKa-4h-Uqa" secondAttribute="centerY" id="QVY-ww-JXl"/>
+                            <constraint firstItem="EHa-xv-PNm" firstAttribute="centerX" secondItem="fKa-4h-Uqa" secondAttribute="centerX" id="koe-FE-iMP"/>
+                        </constraints>
+                    </view>
+                    <color key="borderColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="fillColor" red="0.66671192646026611" green="0.6266120568244925" blue="0.63352527634385258" alpha="0.24713720034246575" colorSpace="custom" customColorSpace="displayP3"/>
+                </box>
+            </subviews>
+            <constraints>
+                <constraint firstItem="E2H-kf-iX6" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="KTv-wr-Y5w"/>
+                <constraint firstAttribute="bottom" secondItem="E2H-kf-iX6" secondAttribute="bottom" id="U1C-HP-EyC"/>
+                <constraint firstItem="E2H-kf-iX6" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="d1F-Qr-tPD"/>
+                <constraint firstAttribute="trailing" secondItem="E2H-kf-iX6" secondAttribute="trailing" id="oPf-P7-Gdb"/>
+            </constraints>
+            <point key="canvasLocation" x="-6" y="140"/>
+        </customView>
+    </objects>
+</document>

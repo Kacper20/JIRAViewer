@@ -15,6 +15,16 @@ final class SprintViewModel: NSObject, NSCollectionViewDataSource, KanbanCollect
     private let sprintIssuesService: SprintIssuesService
     private let boardConfiguration: BoardConfiguration
     private let imageDownloader: ImageDownloader
+    private let eventsReceiver: GlobalUIEventsReceiver
+    private let assignDisposeBox = SerialDisposeBox()
+
+    private let user: User
+
+    var assignCalledSink: AnyObserver<Void> {
+        return AnyObserver.next { [weak self] in
+            self?.processSelfAssigningOfSelectedIssues()
+        }
+    }
 
     private let sampleItem = SprintCollectionViewItem(nibName: nil, bundle: nil)!
 
@@ -24,17 +34,50 @@ final class SprintViewModel: NSObject, NSCollectionViewDataSource, KanbanCollect
         return boardConfiguration.columns
     }
 
+    var managedCollectionView: NSCollectionView?
+
     init(
         sprintIssuesService: SprintIssuesService,
         imageDownloader: ImageDownloader,
-        boardConfiguration: BoardConfiguration
+        boardConfiguration: BoardConfiguration,
+        eventsReceiver: GlobalUIEventsReceiver,
+        user: User
         ) {
         self.imageDownloader = imageDownloader
         self.sprintIssuesService = sprintIssuesService
         self.boardConfiguration = boardConfiguration
+        self.eventsReceiver = eventsReceiver
+        self.user = user
         container = SprintIssuesContainer(columns: boardConfiguration.columns)
         super.init()
         _ = sampleItem.view
+    }
+
+    private func processSelfAssigningOfSelectedIssues() {
+        collectionNonOptional { collectionView in
+            let selectedPaths = collectionView.selectionIndexPaths
+            let issues = selectedPaths.flatMap { self.container.issue(at: $0) }
+            let serviceRequests = issues
+                .map { sprintIssuesService.issueEditionService(for: $0) }
+                .map { $0.assign(to: user) }
+            guard let first = serviceRequests.first else { return }
+            assignDisposeBox.disposable = first.subscribe(onNext: { [unowned self] updatedIssue in
+                self.updateIssue(with: updatedIssue)
+            })
+        }
+    }
+
+    private func collectionNonOptional(_ closure: (NSCollectionView) -> Void) {
+        //TODO: Is it needed?
+        if let managedCollectionView = managedCollectionView {
+            closure(managedCollectionView)
+        }
+    }
+
+    private func updateIssue(with issue: Issue) {
+        if let path = container.updateIssueAndGetPath(newIssue: issue), let collection = managedCollectionView {
+            collection.reloadItems(at: [path])
+        }
     }
 
     func loadInitial() -> Observable<Void> {

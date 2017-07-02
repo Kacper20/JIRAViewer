@@ -13,15 +13,19 @@ final class MainViewModelCreator {
     private let networkService: AuthenticatedNetworkService
     private let boardsService: BoardsService
     private let sprintsService: SprintsService
+    private let userService: UserService
+    private let eventsReceiver: GlobalUIEventsReceiver
 
-    init(networkService: AuthenticatedNetworkService) {
+    init(networkService: AuthenticatedNetworkService, eventsReceiver: GlobalUIEventsReceiver) {
         self.networkService = networkService
         self.boardsService = BoardsService(networkService: networkService)
         self.sprintsService = SprintsService(networkService: networkService)
+        self.userService = UserService(networkService: networkService)
+        self.eventsReceiver = eventsReceiver
     }
 
     func create() -> Observable<MainViewModel> {
-        return boardsService
+        let boardsAndSprint = boardsService
             .boards()
             .flatMap { [weak self] boardsChoice -> Observable<(ActiveSprintChoice, BoardConfiguration, BoardsChoice)> in
                 guard let `self` = self else { return .empty() }
@@ -30,16 +34,20 @@ final class MainViewModelCreator {
                 return Observable.zip(
                 activeSprints, boardConfiguration, Observable.just(boardsChoice)) { ($0, $1, $2) }
             }
-            .flatMap { [weak self] (activeSprintChoice, boardConfiguration, boardsChoice) -> Observable<MainViewModel> in
+        let user = userService.getMyself()
+        return Observable.zip(boardsAndSprint, user, resultSelector: { ($0.0.0, $0.0.1, $0.0.2, $0.1) })
+            .flatMap { [weak self] (activeSprintChoice, boardConfig, boardsChoice, user) -> Observable<MainViewModel> in
                 guard let `self` = self else { return .empty() }
-                return .just(MainViewModel(
-                    boardsService: self.boardsService,
-                    sprintsService: self.sprintsService,
-                    boardsChoice: boardsChoice,
-                    boardConfiguration: boardConfiguration,
-                    sprintChoice: activeSprintChoice
+                    return .just(MainViewModel(
+                        boardsService: self.boardsService,
+                        sprintsService: self.sprintsService,
+                        boardsChoice: boardsChoice,
+                        boardConfiguration: boardConfig,
+                        eventsReceiver: self.eventsReceiver,
+                        sprintChoice: activeSprintChoice,
+                        user: user
+                        )
                     )
-                )
-            }
-    }
+                }
+        }
 }

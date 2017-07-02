@@ -17,6 +17,7 @@ final class RootFlowController {
 
     private let networkService: NetworkService
     private let authenticationProvider: AuthenticationProvider
+    private let eventsReceiver = GlobalUIEventsReceiver()
     private let environment = Environment()
 
     var currentFlow: CurrentFlow
@@ -27,7 +28,11 @@ final class RootFlowController {
 
         if let authentication = authenticationProvider.readAuthentication() {
             if case let .basicAuth(storage) = authentication {
-                currentFlow = RootFlowController.createMainFlowChoice(for: storage, networkService: networkService)
+                currentFlow = RootFlowController.createMainFlowChoice(
+                    for: storage,
+                    eventsReceiver: eventsReceiver,
+                    networkService: networkService
+                )
             } else {
                 fatalError()
             }
@@ -50,7 +55,11 @@ final class RootFlowController {
             if case let .login(controller) = currentFlow {
                 controller.close()
             }
-            currentFlow = RootFlowController.createMainFlowChoice(for: storage, networkService: networkService)
+            currentFlow = RootFlowController.createMainFlowChoice(
+                for: storage,
+                eventsReceiver: eventsReceiver,
+                networkService: networkService
+            )
         case .cookie(_):
             fatalError()
         }
@@ -58,11 +67,15 @@ final class RootFlowController {
 
     private static func createMainFlowChoice(
         for storage: BasicAuthenticationStorage,
+        eventsReceiver: GlobalUIEventsReceiver,
         networkService: NetworkService
         ) -> CurrentFlow {
         let authenticatedService = AuthenticatedNetworkService(networkService: networkService, authentication: storage)
         let mainController = MainWindowController(
-            mainViewModelCreator: MainViewModelCreator(networkService: authenticatedService)
+            mainViewModelCreator: MainViewModelCreator(
+                networkService: authenticatedService,
+                eventsReceiver: eventsReceiver
+            )
         )
         return .main(mainController)
     }
