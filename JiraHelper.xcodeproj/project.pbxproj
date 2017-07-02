@@ -84,6 +84,7 @@
 		BB92496C1EFFC0E6006CF3BD /* SprintColumnViewsLayouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB92496B1EFFC0E6006CF3BD /* SprintColumnViewsLayouter.swift */; };
 		BB9B6CAC1F098435007FC01B /* SerialDisposeBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9B6CAB1F098435007FC01B /* SerialDisposeBox.swift */; };
 		BB9B6CAE1F098BE2007FC01B /* SprintColumnDecorationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9B6CAD1F098BE2007FC01B /* SprintColumnDecorationView.swift */; };
+		BB9B6CB01F0996F3007FC01B /* SprintViewsConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9B6CAF1F0996F3007FC01B /* SprintViewsConfiguration.swift */; };
 		BBA77B901E57782A00C9842C /* TextInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBA77B8F1E57782A00C9842C /* TextInputViewController.xib */; };
 		BBA77B941E57904100C9842C /* StylingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA77B931E57904100C9842C /* StylingProtocol.swift */; };
 		BBA77B9B1E57922C00C9842C /* TextFieldStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA77B9A1E57922C00C9842C /* TextFieldStyles.swift */; };
@@ -266,6 +267,7 @@
 		BB92496B1EFFC0E6006CF3BD /* SprintColumnViewsLayouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprintColumnViewsLayouter.swift; sourceTree = "<group>"; };
 		BB9B6CAB1F098435007FC01B /* SerialDisposeBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerialDisposeBox.swift; sourceTree = "<group>"; };
 		BB9B6CAD1F098BE2007FC01B /* SprintColumnDecorationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprintColumnDecorationView.swift; sourceTree = "<group>"; };
+		BB9B6CAF1F0996F3007FC01B /* SprintViewsConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprintViewsConfiguration.swift; sourceTree = "<group>"; };
 		BBA77B8F1E57782A00C9842C /* TextInputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextInputViewController.xib; sourceTree = "<group>"; };
 		BBA77B931E57904100C9842C /* StylingProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StylingProtocol.swift; sourceTree = "<group>"; };
 		BBA77B9A1E57922C00C9842C /* TextFieldStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldStyles.swift; sourceTree = "<group>"; };
@@ -529,6 +531,7 @@
 				BB1040E11EFDDC2700DC2AF5 /* SprintCollectionViewItemView.swift */,
 				BB92496B1EFFC0E6006CF3BD /* SprintColumnViewsLayouter.swift */,
 				BB9B6CAD1F098BE2007FC01B /* SprintColumnDecorationView.swift */,
+				BB9B6CAF1F0996F3007FC01B /* SprintViewsConfiguration.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1110,6 +1113,7 @@
 				BB7AD7411EF2E1FB00E436C4 /* Sprint.swift in Sources */,
 				BB0A2BF11EBF8D4100A19D60 /* PagingData.swift in Sources */,
 				BB17145B1EF3480C00BFB942 /* ActiveSprint.swift in Sources */,
+				BB9B6CB01F0996F3007FC01B /* SprintViewsConfiguration.swift in Sources */,
 				BBFC654A1EE307EA005C1EFB /* Environment.swift in Sources */,
 				BBFC65471EE218B0005C1EFB /* LoginService.swift in Sources */,
 				BB53D4341EDA1A8400BBC607 /* NetworkLogger.swift in Sources */,

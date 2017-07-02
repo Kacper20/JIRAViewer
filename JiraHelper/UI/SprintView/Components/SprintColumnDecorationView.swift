@@ -18,6 +18,7 @@ final class SprintColumnDecorationView: NSView {
         super.init(frame: frame)
         wantsLayer = true
         layer?.backgroundColor = #colorLiteral(red: 0.9599999785, green: 0.9599999785, blue: 0.9599999785, alpha: 1).cgColor
+        layer?.cornerRadius = SprintViewsConfiguration.cornerRadius
     }
 
     required init?(coder: NSCoder) {
