@@ -20,9 +20,8 @@ final class IssueEditionService {
 
     func assign(to user: User) -> Observable<Issue> {
         return networkService.request(configuration: IssueEditionEndpoints.assign(issue: issue, to: user))
-            .flatMap { [weak self] _ -> Observable<Issue> in
-                guard let `self` = self else { return .empty() }
+            .flatMap { _ in
                 return self.networkService.request(configuration: IssuesEndpoints.issue(withId: self.issue.id))
-        }
+            }
     }
 }

@@ -70,12 +70,13 @@ struct SprintIssuesContainer {
         return issue(at: indexPath).map(SprintElementData.init)
     }
 
-    func updateIssueAndGetPath(newIssue: Issue) -> IndexPath? {
+    mutating func updateIssueAndGetPath(newIssue: Issue) -> IndexPath? {
         let column = KanbanColumn(name: newIssue.status.name)
         if let columnIndex = columns.index(of: column),
            var issues = data[column],
            let index = issues.index(where: { $0.id == newIssue.id }) {
             issues[index] = newIssue
+            data[column] = issues
             return IndexPath(item: index, section: columnIndex)
         } else {
             return nil
