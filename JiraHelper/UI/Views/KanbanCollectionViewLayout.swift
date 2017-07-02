@@ -30,6 +30,7 @@ final class KanbanCollectionViewLayout: NSCollectionViewLayout {
     }
 
     private var layoutAttributes = [IndexPath : NSCollectionViewLayoutAttributes]()
+    private var decorationAttributes = [IndexPath : NSCollectionViewLayoutAttributes]()
 
     var contentSize: NSSize = .zero
 
@@ -39,13 +40,16 @@ final class KanbanCollectionViewLayout: NSCollectionViewLayout {
 
     override func prepare() {
         guard let collectionView = collectionView else { return }
+        layoutAttributes = [:]
+        decorationAttributes = [:]
         let sectionsCount = collectionView.numberOfSections
         var currentXOffset: CGFloat = 0
         var maxHeight: CGFloat = 0
         for section in 0..<sectionsCount {
             var currentYOffset: CGFloat = 0
             let itemsCount = collectionView.numberOfItems(inSection: section)
-            var maxItemWidth: CGFloat = itemSize.width
+            //TODO: Should keep sizes in sync
+            var maxItemWidth: CGFloat = itemSize.width + interSectionSpacing
             for item in 0..<itemsCount {
                 let indexPath = IndexPath(item: item, section: section)
                 let size: NSSize
@@ -63,16 +67,41 @@ final class KanbanCollectionViewLayout: NSCollectionViewLayout {
                 currentYOffset += size.height + interItemSpacing
             }
             maxHeight = max(maxHeight, currentYOffset)
+
+            let decorationPath = IndexPath(item: 0, section: section)
+            let attributes = NSCollectionViewLayoutAttributes(
+                forDecorationViewOfKind: SprintColumnDecorationView.identifier,
+                with: decorationPath
+            )
+            attributes.frame = NSRect(
+                x: currentXOffset,
+                y: 0,
+                width: itemSize.width + interSectionSpacing,
+                height: maxHeight
+            )
+            decorationAttributes[decorationPath] = attributes
             currentXOffset += maxItemWidth + interSectionSpacing
+        }
+        for attribute in decorationAttributes.values {
+            let frame = attribute.frame
+            attribute.frame = NSRect(x: frame.origin.x, y: frame.origin.y, width: frame.size.width, height: maxHeight)
         }
         contentSize = NSSize(width: currentXOffset, height: maxHeight)
     }
 
     override func layoutAttributesForElements(in rect: NSRect) -> [NSCollectionViewLayoutAttributes] {
-        return layoutAttributes.values.filter { return rect.intersects($0.frame) }
+        let standardAttributes = layoutAttributes.values.filter { return rect.intersects($0.frame) }
+        return standardAttributes + Array(decorationAttributes.values)
     }
 
     override func layoutAttributesForItem(at indexPath: IndexPath) -> NSCollectionViewLayoutAttributes? {
         return layoutAttributes[indexPath]
+    }
+
+    override func layoutAttributesForDecorationView(
+        ofKind elementKind: String,
+        at indexPath: IndexPath
+        ) -> NSCollectionViewLayoutAttributes? {
+        return decorationAttributes[indexPath]
     }
 }

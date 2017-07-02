@@ -36,7 +36,8 @@ final class SprintCollectionViewItemView: NSView {
         itemColorView.wantsLayer = true
         itemColorView.layer?.backgroundColor = #colorLiteral(red: 0.9599999785, green: 0.5799999833, blue: 0.25, alpha: 1).cgColor
         wantsLayer = true
-        layer?.cornerRadius = 4.0
+        layer?.backgroundColor = NSColor.white.cgColor
+        layer?.cornerRadius = SprintViewsConfiguration.cornerRadius
         setSelection(false)
         itemNameLabel.cell?.wraps = true
         itemNameLabel.maximumNumberOfLines = 0
