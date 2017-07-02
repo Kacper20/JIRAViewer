@@ -83,6 +83,7 @@
 		BB7FC21D1F09540C0032B3E2 /* IssueEditionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7FC21C1F09540C0032B3E2 /* IssueEditionService.swift */; };
 		BB92496C1EFFC0E6006CF3BD /* SprintColumnViewsLayouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB92496B1EFFC0E6006CF3BD /* SprintColumnViewsLayouter.swift */; };
 		BB9B6CAC1F098435007FC01B /* SerialDisposeBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9B6CAB1F098435007FC01B /* SerialDisposeBox.swift */; };
+		BB9B6CAE1F098BE2007FC01B /* SprintColumnDecorationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9B6CAD1F098BE2007FC01B /* SprintColumnDecorationView.swift */; };
 		BBA77B901E57782A00C9842C /* TextInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBA77B8F1E57782A00C9842C /* TextInputViewController.xib */; };
 		BBA77B941E57904100C9842C /* StylingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA77B931E57904100C9842C /* StylingProtocol.swift */; };
 		BBA77B9B1E57922C00C9842C /* TextFieldStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA77B9A1E57922C00C9842C /* TextFieldStyles.swift */; };
@@ -264,6 +265,7 @@
 		BB7FC21C1F09540C0032B3E2 /* IssueEditionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueEditionService.swift; sourceTree = "<group>"; };
 		BB92496B1EFFC0E6006CF3BD /* SprintColumnViewsLayouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprintColumnViewsLayouter.swift; sourceTree = "<group>"; };
 		BB9B6CAB1F098435007FC01B /* SerialDisposeBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerialDisposeBox.swift; sourceTree = "<group>"; };
+		BB9B6CAD1F098BE2007FC01B /* SprintColumnDecorationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprintColumnDecorationView.swift; sourceTree = "<group>"; };
 		BBA77B8F1E57782A00C9842C /* TextInputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextInputViewController.xib; sourceTree = "<group>"; };
 		BBA77B931E57904100C9842C /* StylingProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StylingProtocol.swift; sourceTree = "<group>"; };
 		BBA77B9A1E57922C00C9842C /* TextFieldStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldStyles.swift; sourceTree = "<group>"; };
@@ -526,6 +528,7 @@
 				BB0A2BC81EBE45AB00A19D60 /* SprintCollectionView.swift */,
 				BB1040E11EFDDC2700DC2AF5 /* SprintCollectionViewItemView.swift */,
 				BB92496B1EFFC0E6006CF3BD /* SprintColumnViewsLayouter.swift */,
+				BB9B6CAD1F098BE2007FC01B /* SprintColumnDecorationView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1084,6 +1087,7 @@
 				BB53D42D1EDA060500BBC607 /* AppLifecycleMonitor.swift in Sources */,
 				BB0BA43A1EF43961003BE8C5 /* BoardsChoice.swift in Sources */,
 				BBFC65391EE1FDCC005C1EFB /* LoginData.swift in Sources */,
+				BB9B6CAE1F098BE2007FC01B /* SprintColumnDecorationView.swift in Sources */,
 				BB2046C11EBE0F7300084F34 /* Optionals.swift in Sources */,
 				BB36E1E71EF53C970081DDAE /* NSView+Constraints.swift in Sources */,
 				BBA77B9B1E57922C00C9842C /* TextFieldStyles.swift in Sources */,
