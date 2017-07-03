@@ -35,6 +35,8 @@
 		BB1040E21EFDDC2700DC2AF5 /* SprintCollectionViewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1040E11EFDDC2700DC2AF5 /* SprintCollectionViewItemView.swift */; };
 		BB12D6F01ED780A900FEA52A /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB12D6EF1ED780A900FEA52A /* String+Extensions.swift */; };
 		BB12D6F31ED7825900FEA52A /* PasteboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB12D6F21ED7825900FEA52A /* PasteboardService.swift */; };
+		BB143CBF1F0ACFD5008BC52C /* IssueDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB143CBD1F0ACFD5008BC52C /* IssueDetailsViewController.swift */; };
+		BB143CC21F0AD041008BC52C /* IssueDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB143CC11F0AD041008BC52C /* IssueDetailsView.swift */; };
 		BB17145B1EF3480C00BFB942 /* ActiveSprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB17145A1EF3480C00BFB942 /* ActiveSprint.swift */; };
 		BB17145E1EF4280100BFB942 /* ToolbarItemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB17145D1EF4280100BFB942 /* ToolbarItemProvider.swift */; };
 		BB19FBBA1ED624B00094E83F /* TeamURLExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB19FBB91ED624B00094E83F /* TeamURLExtractor.swift */; };
@@ -216,6 +218,8 @@
 		BB1040E11EFDDC2700DC2AF5 /* SprintCollectionViewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprintCollectionViewItemView.swift; sourceTree = "<group>"; };
 		BB12D6EF1ED780A900FEA52A /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		BB12D6F21ED7825900FEA52A /* PasteboardService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteboardService.swift; sourceTree = "<group>"; };
+		BB143CBD1F0ACFD5008BC52C /* IssueDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueDetailsViewController.swift; sourceTree = "<group>"; };
+		BB143CC11F0AD041008BC52C /* IssueDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueDetailsView.swift; sourceTree = "<group>"; };
 		BB17145A1EF3480C00BFB942 /* ActiveSprint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveSprint.swift; sourceTree = "<group>"; };
 		BB17145D1EF4280100BFB942 /* ToolbarItemProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarItemProvider.swift; sourceTree = "<group>"; };
 		BB19FBB91ED624B00094E83F /* TeamURLExtractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamURLExtractor.swift; sourceTree = "<group>"; };
@@ -496,6 +500,15 @@
 			path = Pasteboard;
 			sourceTree = "<group>";
 		};
+		BB143CBC1F0ACF80008BC52C /* IssueDetails */ = {
+			isa = PBXGroup;
+			children = (
+				BB143CBD1F0ACFD5008BC52C /* IssueDetailsViewController.swift */,
+				BB143CC11F0AD041008BC52C /* IssueDetailsView.swift */,
+			);
+			path = IssueDetails;
+			sourceTree = "<group>";
+		};
 		BB17145C1EF427F200BFB942 /* Toolbar */ = {
 			isa = PBXGroup;
 			children = (
@@ -648,6 +661,7 @@
 		BB62DE751E5623C000AA3577 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				BB143CBC1F0ACF80008BC52C /* IssueDetails */,
 				BB17145C1EF427F200BFB942 /* Toolbar */,
 				BB0A2BF81EBFB58C00A19D60 /* Login */,
 				BB0A2BF51EBFB48B00A19D60 /* RootFlow */,
@@ -1102,6 +1116,7 @@
 				BB2046C41EBE112900084F34 /* SprintCollectionViewItem.swift in Sources */,
 				BBFC65411EE2020D005C1EFB /* CookiesAuthLoginEndpoints.swift in Sources */,
 				BB0A2BFF1EBFB8C500A19D60 /* LoginWindowController.swift in Sources */,
+				BB143CBF1F0ACFD5008BC52C /* IssueDetailsViewController.swift in Sources */,
 				BB5695A41EDB5D5300B87510 /* LoginViewController.swift in Sources */,
 				BB503C6A1EDACCA0002BDF54 /* BasicAuthenticationStorage.swift in Sources */,
 				BBB765721EF51B9E0039B366 /* SprintIssuesService.swift in Sources */,
@@ -1158,6 +1173,7 @@
 				BB0A2BC91EBE45AB00A19D60 /* SprintCollectionView.swift in Sources */,
 				BBA77BA61E57A3F200C9842C /* MainViewController.swift in Sources */,
 				BB05A2FB1EEDE6B2000EFC1C /* Serialization.swift in Sources */,
+				BB143CC21F0AD041008BC52C /* IssueDetailsView.swift in Sources */,
 				BB19FBBA1ED624B00094E83F /* TeamURLExtractor.swift in Sources */,
 				BBFC653E1EE1FDFA005C1EFB /* BasicAuthLoginService.swift in Sources */,
 				BBA77B941E57904100C9842C /* StylingProtocol.swift in Sources */,
