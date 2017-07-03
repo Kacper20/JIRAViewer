@@ -1,8 +1,8 @@
 {
-  "commitish" : "1.2.2",
+  "commitish" : "1.3.0",
   "Mac" : [
     {
-      "hash" : "cde4b3ee1413428db24c1b06bd2172415332722206ae69204c9d8798c9b929bf",
+      "hash" : "062d6fc86b966ee34fc0fad26aa3eab2e876a3346e778b865a2d8db453e3b3fb",
       "name" : "SwiftyBeaver"
     }
   ]

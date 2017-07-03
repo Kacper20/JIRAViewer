@@ -54,7 +54,7 @@ final class MainViewController: NSViewController {
         sprintView.trailingToSuperview()
         sprintView.heightAnchor.constraint(equalToConstant: 400).activate()
         //TODO: Has to be computed dynamically, computation should be done by layout preferably. Also 
-        sprintView.widthAnchor.constraint(equalToConstant: 945).activate()
+        sprintView.widthAnchor.constraint(equalToConstant: 960).activate()
     }
 
     private func setupEventsObserving() {

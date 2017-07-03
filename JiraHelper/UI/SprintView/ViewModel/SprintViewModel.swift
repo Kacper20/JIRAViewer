@@ -167,8 +167,9 @@ final class SprintViewModel: NSObject, NSCollectionViewDataSource, KanbanCollect
         guard !draggedItemsPaths.isEmpty else { return false }
         //TODO: Support multiple ??
         guard let first = draggedItemsPaths.first, draggedItemsPaths.count == 1 else { return false }
-        container.moveIssues(from: draggedItemsPaths, to: indexPath)
-        collectionView.moveItem(at: first, to: indexPath)
+        var toIndexPath: IndexPath = indexPath
+        container.moveIssues(from: draggedItemsPaths, to: toIndexPath)
+        collectionView.moveItem(at: first, to: toIndexPath)
         return true
     }
 

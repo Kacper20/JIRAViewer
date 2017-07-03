@@ -83,7 +83,7 @@ final class SprintCollectionViewItemView: NSView {
         let color: NSColor
         let width: CGFloat
         if isSelected {
-            color = NSColor.blue
+            color = #colorLiteral(red: 0.9200000167, green: 0.9499999881, blue: 0.9700000286, alpha: 1)
             width = 4.0
         } else {
             color = NSColor.lightGray
