@@ -17,7 +17,7 @@ final class SprintViewModel: NSObject, NSCollectionViewDataSource, KanbanCollect
     private let imageDownloader: ImageDownloader
     private let eventsReceiver: GlobalUIEventsReceiver
     private let assignDisposeBox = SerialDisposeBox()
-    private let issueExpandSubject = PublishSubject<Issue>()
+    private let issueExpandSubject = PublishSubject<Observable<Issue>>()
 
     private let user: User
 
@@ -27,7 +27,7 @@ final class SprintViewModel: NSObject, NSCollectionViewDataSource, KanbanCollect
         }
     }
 
-    var issueDetailsExpand: Observable<Issue> {
+    var issueDetailsExpand: Observable<Observable<Issue>> {
         return issueExpandSubject
     }
 
@@ -114,6 +114,7 @@ final class SprintViewModel: NSObject, NSCollectionViewDataSource, KanbanCollect
         _ = sprintItem.doubleClicked
             .takeUntil(sprintItem.preparedForReuse)
             .filterMap { _ in self.container.issue(at: indexPath) }
+            .map { self.sprintIssuesService.getIssue(forId: $0.id) }
             .bind(to: issueExpandSubject)
 
         if let url = model.avatarUrl {
