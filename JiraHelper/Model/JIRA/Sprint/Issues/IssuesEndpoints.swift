@@ -25,7 +25,7 @@ enum IssuesEndpoints {
             path: "/api/latest/issue/\(id)",
             method: .get,
             encoding: URLEncoding.default,
-            headers: [:],//TODO: Temporary labels
+            headers: [:],
             parameters: [:],
             resourceType: .json
         )
