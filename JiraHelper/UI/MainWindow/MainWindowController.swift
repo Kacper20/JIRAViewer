@@ -82,19 +82,16 @@ final class MainWindowController: NSWindowController {
         let popoverSize = NSSize(width: 300, height: window.frame.height)
         loading.view.heightAnchor.constraint(equalToConstant: window.frame.height).activate()
         loading.view.widthAnchor.constraint(equalToConstant: 300).activate()
-        if let popover = popover {
-            return
-            popover.contentViewController = loading
-        } else {
-            let popover = NSPopover()
-            self.popover = popover
-            popover.behavior = .applicationDefined
-            popover.appearance = NSAppearance(named: NSAppearanceNameVibrantLight)
-            popover.contentSize = popoverSize
-            popover.animates = true
-            popover.contentViewController = loading
-            popover.show(relativeTo: NSRect.init(x: 20, y: 20, width: 30, height: 30), of: windowView, preferredEdge: .minX)
-        }
+
+        self.popover?.close()
+        let popover = NSPopover()
+        self.popover = popover
+        popover.behavior = .applicationDefined
+        popover.appearance = NSAppearance(named: NSAppearanceNameVibrantLight)
+        popover.contentSize = popoverSize
+        popover.animates = true
+        popover.contentViewController = loading
+        popover.show(relativeTo: NSRect.init(x: 20, y: 20, width: 30, height: 30), of: windowView, preferredEdge: .minX)
     }
 
     @available(OSX 10.12.2, *)
