@@ -37,6 +37,7 @@
 		BB12D6F31ED7825900FEA52A /* PasteboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB12D6F21ED7825900FEA52A /* PasteboardService.swift */; };
 		BB143CBF1F0ACFD5008BC52C /* IssueDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB143CBD1F0ACFD5008BC52C /* IssueDetailsViewController.swift */; };
 		BB143CC21F0AD041008BC52C /* IssueDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB143CC11F0AD041008BC52C /* IssueDetailsView.swift */; };
+		BB143CC51F0ADFBA008BC52C /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB143CC41F0ADFBA008BC52C /* LoadingViewController.swift */; };
 		BB17145B1EF3480C00BFB942 /* ActiveSprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB17145A1EF3480C00BFB942 /* ActiveSprint.swift */; };
 		BB17145E1EF4280100BFB942 /* ToolbarItemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB17145D1EF4280100BFB942 /* ToolbarItemProvider.swift */; };
 		BB19FBBA1ED624B00094E83F /* TeamURLExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB19FBB91ED624B00094E83F /* TeamURLExtractor.swift */; };
@@ -84,6 +85,7 @@
 		BB7FC21B1F0925B40032B3E2 /* MainLoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB7FC2191F0925B40032B3E2 /* MainLoadingViewController.xib */; };
 		BB7FC21D1F09540C0032B3E2 /* IssueEditionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7FC21C1F09540C0032B3E2 /* IssueEditionService.swift */; };
 		BB92496C1EFFC0E6006CF3BD /* SprintColumnViewsLayouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB92496B1EFFC0E6006CF3BD /* SprintColumnViewsLayouter.swift */; };
+		BB99A1621F0C15220006E40D /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB99A1611F0C15220006E40D /* Animations.swift */; };
 		BB9B6CAC1F098435007FC01B /* SerialDisposeBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9B6CAB1F098435007FC01B /* SerialDisposeBox.swift */; };
 		BB9B6CAE1F098BE2007FC01B /* SprintColumnDecorationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9B6CAD1F098BE2007FC01B /* SprintColumnDecorationView.swift */; };
 		BB9B6CB01F0996F3007FC01B /* SprintViewsConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9B6CAF1F0996F3007FC01B /* SprintViewsConfiguration.swift */; };
@@ -220,6 +222,7 @@
 		BB12D6F21ED7825900FEA52A /* PasteboardService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteboardService.swift; sourceTree = "<group>"; };
 		BB143CBD1F0ACFD5008BC52C /* IssueDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueDetailsViewController.swift; sourceTree = "<group>"; };
 		BB143CC11F0AD041008BC52C /* IssueDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueDetailsView.swift; sourceTree = "<group>"; };
+		BB143CC41F0ADFBA008BC52C /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		BB17145A1EF3480C00BFB942 /* ActiveSprint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveSprint.swift; sourceTree = "<group>"; };
 		BB17145D1EF4280100BFB942 /* ToolbarItemProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarItemProvider.swift; sourceTree = "<group>"; };
 		BB19FBB91ED624B00094E83F /* TeamURLExtractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamURLExtractor.swift; sourceTree = "<group>"; };
@@ -269,6 +272,7 @@
 		BB7FC2191F0925B40032B3E2 /* MainLoadingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainLoadingViewController.xib; sourceTree = "<group>"; };
 		BB7FC21C1F09540C0032B3E2 /* IssueEditionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueEditionService.swift; sourceTree = "<group>"; };
 		BB92496B1EFFC0E6006CF3BD /* SprintColumnViewsLayouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprintColumnViewsLayouter.swift; sourceTree = "<group>"; };
+		BB99A1611F0C15220006E40D /* Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
 		BB9B6CAB1F098435007FC01B /* SerialDisposeBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerialDisposeBox.swift; sourceTree = "<group>"; };
 		BB9B6CAD1F098BE2007FC01B /* SprintColumnDecorationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprintColumnDecorationView.swift; sourceTree = "<group>"; };
 		BB9B6CAF1F0996F3007FC01B /* SprintViewsConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprintViewsConfiguration.swift; sourceTree = "<group>"; };
@@ -524,6 +528,7 @@
 				BB56959E1EDB5C6100B87510 /* Icons */,
 				BB5695971EDB5A7900B87510 /* Drawing */,
 				BB2046B51EBE094D00084F34 /* Kanban */,
+				BB143CC41F0ADFBA008BC52C /* LoadingViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -749,6 +754,7 @@
 				BB36E1E61EF53C970081DDAE /* NSView+Constraints.swift */,
 				BBAF06AE1EFE4DC300DF3E46 /* View+Extensions.swift */,
 				BB34BBAC1F0445F20070276D /* KeyboardKeysMatcher.swift */,
+				BB99A1611F0C15220006E40D /* Animations.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1133,6 +1139,7 @@
 				BBFC65471EE218B0005C1EFB /* LoginService.swift in Sources */,
 				BB53D4341EDA1A8400BBC607 /* NetworkLogger.swift in Sources */,
 				BB0BA4341EF42ACC003BE8C5 /* MainWindowToolbarManager.swift in Sources */,
+				BB143CC51F0ADFBA008BC52C /* LoadingViewController.swift in Sources */,
 				BB0A2C071EBFBDF500A19D60 /* LoginFlowContainerViewController.swift in Sources */,
 				BB5695A01EDB5C7000B87510 /* CheckMarkView.swift in Sources */,
 				BB5FB9A91EF3121300972AC5 /* MainViewModelCreator.swift in Sources */,
@@ -1183,6 +1190,7 @@
 				BBD571FF1EC3B2C60061AD67 /* Observable+Extensions.swift in Sources */,
 				BB36E1F31EF5ADE10081DDAE /* SprintIssuesContainer.swift in Sources */,
 				BB34BBA81F043D630070276D /* UserService.swift in Sources */,
+				BB99A1621F0C15220006E40D /* Animations.swift in Sources */,
 				BBAF06B41EFE75B000DF3E46 /* IssueAssignee.swift in Sources */,
 				BB0BA4381EF43468003BE8C5 /* PopupButtonToolbarItemManager.swift in Sources */,
 				BB0A2BEE1EBF8A2600A19D60 /* JIRARestAPI.swift in Sources */,

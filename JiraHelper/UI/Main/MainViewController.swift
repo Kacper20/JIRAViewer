@@ -18,6 +18,10 @@ final class MainViewController: NSViewController {
 
     private var loadingVC: MainLoadingViewController?
 
+    var expandedIssuesRequests: Observable<Observable<Issue>> {
+        return mainViewModel.sprintViewModel.issueDetailsExpand
+    }
+
     init(mainViewModel: MainViewModel) {
         textInputController = TextInputViewController()
         sprintViewController = SprintViewController(sprintViewModel: mainViewModel.sprintViewModel)
@@ -87,11 +91,10 @@ final class MainViewController: NSViewController {
     }
 
     private func animateLoadingView(_ view: NSView, shouldBeVisible: Bool, completion: (() -> Void)? = nil) {
-        NSAnimationContext.runAnimationGroup({ context in
-            context.duration = 1.0
+        Animation.animate(with: 1.0, animations: {
             let desiredAlpha: CGFloat = shouldBeVisible ? 1.0 : 0.0
             view.alphaValue = desiredAlpha
-        }, completionHandler: completion)
+        }, completion: completion)
     }
 
     override var acceptsFirstResponder: Bool {
