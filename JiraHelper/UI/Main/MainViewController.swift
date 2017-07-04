@@ -16,7 +16,7 @@ final class MainViewController: NSViewController {
     private let mainViewModel: MainViewModel
     private let disposeBag = DisposeBag()
 
-    private var loadingVC: MainLoadingViewController?
+    private var loadingVC: LoadingContentViewController?
 
     var expandedIssuesRequests: Observable<Observable<Issue>> {
         return mainViewModel.sprintViewModel.issueDetailsExpand
@@ -74,7 +74,7 @@ final class MainViewController: NSViewController {
     private func setLoadingVisibility(isVisible: Bool) {
         if isVisible {
             guard loadingVC == nil else { return }
-            let vc = MainLoadingViewController()
+            let vc = LoadingContentViewController()
             addChildViewController(vc)
             view.addSubview(vc.view)
             vc.view.constraintEdgesToSuperview()

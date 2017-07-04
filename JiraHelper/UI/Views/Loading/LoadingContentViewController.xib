@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="MainLoadingViewController" customModule="JiraHelper" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="LoadingContentViewController" customModule="JiraHelper" customModuleProvider="target">
             <connections>
                 <outlet property="progressIndicator" destination="EHa-xv-PNm" id="88j-yn-xv8"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
@@ -44,7 +44,7 @@
                 <constraint firstItem="E2H-kf-iX6" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="d1F-Qr-tPD"/>
                 <constraint firstAttribute="trailing" secondItem="E2H-kf-iX6" secondAttribute="trailing" id="oPf-P7-Gdb"/>
             </constraints>
-            <point key="canvasLocation" x="-6" y="140"/>
+            <point key="canvasLocation" x="4" y="134"/>
         </customView>
     </objects>
 </document>

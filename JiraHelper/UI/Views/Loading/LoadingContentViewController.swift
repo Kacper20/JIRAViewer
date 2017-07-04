@@ -8,12 +8,12 @@
 
 import Cocoa
 
-class MainLoadingViewController: NSViewController {
+class LoadingContentViewController: NSViewController {
 
     @IBOutlet weak var progressIndicator: NSProgressIndicator!
 
     init() {
-        super.init(nibName: String(describing: MainLoadingViewController.self), bundle: nil)!
+        super.init(nibName: String(describing: LoadingContentViewController.self), bundle: nil)!
     }
 
     override func viewDidLoad() {
