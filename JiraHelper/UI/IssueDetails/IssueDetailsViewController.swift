@@ -10,7 +10,10 @@ import Cocoa
 
 class IssueDetailsViewController: NSViewController {
 
-    init() {
+    private let issue: Issue
+
+    init(issue: Issue) {
+        self.issue = issue
         super.init(nibName: nil, bundle: nil)!
     }
     
@@ -24,6 +27,8 @@ class IssueDetailsViewController: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.wantsLayer = true
+        view.layer?.backgroundColor = NSColor.black.cgColor
         // Do view setup here.
     }
     

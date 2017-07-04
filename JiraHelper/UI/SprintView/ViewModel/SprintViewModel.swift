@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 
-//TODO: Divide data source & delegate
+//TODO: Divide data source & delegate, consider renaming
 final class SprintViewModel: NSObject, NSCollectionViewDataSource, KanbanCollectionViewLayoutDelegate, NSCollectionViewDelegate {
 
     private let sprintIssuesService: SprintIssuesService

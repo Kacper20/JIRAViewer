@@ -45,6 +45,7 @@ final class MainWindowController: NSWindowController {
             .create()
             .subscribe(onNext: { [unowned self] viewModel in
                 self.presentVC(with: viewModel)
+                self.subscribeToIssueDetailsPresentations(sprintViewModel: viewModel.sprintViewModel)
             }, onError: { [unowned self] error in
                 Logger.shared.error("Error occured: \(error)")
             }).disposed(by: disposeBag)
@@ -56,8 +57,30 @@ final class MainWindowController: NSWindowController {
         window?.contentView?.addSubview(mainViewController.view)
         mainViewController.view.constraintEdgesToSuperview()
         configureToolbarManager(boardsChoice: viewModel.boardsChoice, sprintChoice: viewModel.sprintChoice)
-
         window?.makeKey()
+    }
+
+    private func subscribeToIssueDetailsPresentations(sprintViewModel: SprintViewModel) {
+        sprintViewModel
+            .issueDetailsExpand
+            .subscribe(onNext: { [unowned self] issueObservable in
+                self.presentIssueLoadingPopover(issueObservable: issueObservable)
+            }).addDisposableTo(disposeBag)
+
+    }
+
+    private func presentIssueLoadingPopover(issueObservable: Observable<Issue>) {
+        guard let window = window, let windowView = window.contentView else { return }
+        let loading = LoadingPerformingFlowViewController(
+            operation: issueObservable,
+            controllerConstruction: { issue in
+                return IssueDetailsViewController(issue: issue)
+        })
+        let popover = NSPopover()
+        popover.contentSize = NSSize(width: 200, height: window.frame.height)
+        popover.animates = true
+        popover.contentViewController = loading
+        popover.show(relativeTo: NSRect.init(x: 20, y: 20, width: 30, height: 30), of: windowView, preferredEdge: .maxX)
     }
 
     @available(OSX 10.12.2, *)
