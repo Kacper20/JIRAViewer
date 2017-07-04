@@ -69,6 +69,9 @@ final class MainWindowController: NSWindowController {
 
     }
 
+    private var popover: NSPopover?
+
+    //TODO: Move to another object
     private func presentIssueLoadingPopover(issueObservable: Observable<Issue>) {
         guard let window = window, let windowView = window.contentView else { return }
         let loading = LoadingPerformingFlowViewController(
@@ -76,11 +79,22 @@ final class MainWindowController: NSWindowController {
             controllerConstruction: { issue in
                 return IssueDetailsViewController(issue: issue)
         })
-        let popover = NSPopover()
-        popover.contentSize = NSSize(width: 200, height: window.frame.height)
-        popover.animates = true
-        popover.contentViewController = loading
-        popover.show(relativeTo: NSRect.init(x: 20, y: 20, width: 30, height: 30), of: windowView, preferredEdge: .maxX)
+        let popoverSize = NSSize(width: 200, height: window.frame.height)
+        loading.preferredContentSize = popoverSize
+        if let popover = popover {
+            return
+//            popover.contentSize = popoverSize
+//            popover.contentViewController = loading
+        } else {
+            let popover = NSPopover()
+            self.popover = popover
+            popover.behavior = .applicationDefined
+            popover.appearance = NSAppearance(named: NSAppearanceNameVibrantDark)
+            popover.contentSize = popoverSize
+            popover.animates = true
+            popover.contentViewController = loading
+            popover.show(relativeTo: NSRect.init(x: 20, y: 20, width: 30, height: 30), of: windowView, preferredEdge: .minX)
+        }
     }
 
     @available(OSX 10.12.2, *)

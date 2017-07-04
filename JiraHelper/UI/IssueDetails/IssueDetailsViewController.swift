@@ -28,7 +28,6 @@ class IssueDetailsViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.wantsLayer = true
-        view.layer?.backgroundColor = NSColor.black.cgColor
         // Do view setup here.
     }
     

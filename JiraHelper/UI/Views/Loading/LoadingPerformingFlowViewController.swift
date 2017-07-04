@@ -28,6 +28,10 @@ final class LoadingPerformingFlowViewController<T>: LoadingContainerViewControll
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func loadView() {
+        view = NSView()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         performLoading()
@@ -38,8 +42,8 @@ final class LoadingPerformingFlowViewController<T>: LoadingContainerViewControll
         presentViewController(loadingVC)
         operationDisposeBox.disposable = operation
             .subscribe(onNext: { [unowned self] value in
-                let vc = self.controllerConstruction(value)
-                self.presentViewController(vc)
+//                let vc = self.controllerConstruction(value)
+//                self.presentViewController(vc)
                 }, onError: { [unowned self] error in
                     self.presentError(error)
             })
