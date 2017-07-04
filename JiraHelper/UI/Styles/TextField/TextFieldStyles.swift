@@ -30,7 +30,7 @@ struct TextFieldStyles {
         }
     }
 
-    static var nonEditableSprintItemLabel: NSViewStyle<NSTextField> {
+    static var nonEditableStandardLabel: NSViewStyle<NSTextField> {
         return NSViewStyle { textField in
             textField.isEditable = false
             textField.isBordered = false

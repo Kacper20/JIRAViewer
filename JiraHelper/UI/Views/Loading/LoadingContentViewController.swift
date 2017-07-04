@@ -11,6 +11,7 @@ import Cocoa
 class LoadingContentViewController: NSViewController {
 
     @IBOutlet weak var progressIndicator: NSProgressIndicator!
+    @IBOutlet weak var box: NSBox!
 
     init() {
         super.init(nibName: String(describing: LoadingContentViewController.self), bundle: nil)!

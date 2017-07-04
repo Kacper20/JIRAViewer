@@ -46,7 +46,7 @@ final class SprintCollectionViewItemView: NSView {
         setSelection(false)
         itemNameLabel.cell?.wraps = true
         itemNameLabel.maximumNumberOfLines = 0
-        TextFieldStyles.nonEditableSprintItemLabel.apply(to: itemNameLabel, itemLabels, itemKeyLabel)
+        TextFieldStyles.nonEditableStandardLabel.apply(to: itemNameLabel, itemLabels, itemKeyLabel)
         TextFieldStyles.grayFootnote.apply(to: itemKeyLabel)
     }
 

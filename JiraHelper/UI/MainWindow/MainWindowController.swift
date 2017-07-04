@@ -79,17 +79,17 @@ final class MainWindowController: NSWindowController {
             controllerConstruction: { issue in
                 return IssueDetailsViewController(issue: issue)
         })
-        let popoverSize = NSSize(width: 200, height: window.frame.height)
-        loading.preferredContentSize = popoverSize
+        let popoverSize = NSSize(width: 300, height: window.frame.height)
+        loading.view.heightAnchor.constraint(equalToConstant: window.frame.height).activate()
+        loading.view.widthAnchor.constraint(equalToConstant: 300).activate()
         if let popover = popover {
             return
-//            popover.contentSize = popoverSize
-//            popover.contentViewController = loading
+            popover.contentViewController = loading
         } else {
             let popover = NSPopover()
             self.popover = popover
             popover.behavior = .applicationDefined
-            popover.appearance = NSAppearance(named: NSAppearanceNameVibrantDark)
+            popover.appearance = NSAppearance(named: NSAppearanceNameVibrantLight)
             popover.contentSize = popoverSize
             popover.animates = true
             popover.contentViewController = loading
