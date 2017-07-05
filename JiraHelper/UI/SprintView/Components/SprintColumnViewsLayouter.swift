@@ -24,7 +24,7 @@ final class ColumnDescriptionView: NSView {
     }
 
     private func setupStyle() {
-        TextFieldStyles.nonEditableSprintItemLabel.apply(to: titleLabel)
+        TextFieldStyles.nonEditableStandardLabel.apply(to: titleLabel)
         TextFieldStyles.headline.apply(to: titleLabel)
     }
 

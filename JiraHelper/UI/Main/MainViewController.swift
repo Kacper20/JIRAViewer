@@ -16,7 +16,11 @@ final class MainViewController: NSViewController {
     private let mainViewModel: MainViewModel
     private let disposeBag = DisposeBag()
 
-    private var loadingVC: MainLoadingViewController?
+    private var loadingVC: LoadingContentViewController?
+
+    var expandedIssuesRequests: Observable<IssueExpandRequest> {
+        return mainViewModel.sprintViewModel.issueDetailsExpand
+    }
 
     init(mainViewModel: MainViewModel) {
         textInputController = TextInputViewController()
@@ -70,7 +74,7 @@ final class MainViewController: NSViewController {
     private func setLoadingVisibility(isVisible: Bool) {
         if isVisible {
             guard loadingVC == nil else { return }
-            let vc = MainLoadingViewController()
+            let vc = LoadingContentViewController()
             addChildViewController(vc)
             view.addSubview(vc.view)
             vc.view.constraintEdgesToSuperview()
@@ -87,11 +91,10 @@ final class MainViewController: NSViewController {
     }
 
     private func animateLoadingView(_ view: NSView, shouldBeVisible: Bool, completion: (() -> Void)? = nil) {
-        NSAnimationContext.runAnimationGroup({ context in
-            context.duration = 1.0
+        Animation.animate(with: 1.0, animations: {
             let desiredAlpha: CGFloat = shouldBeVisible ? 1.0 : 0.0
             view.alphaValue = desiredAlpha
-        }, completionHandler: completion)
+        }, completion: completion)
     }
 
     override var acceptsFirstResponder: Bool {

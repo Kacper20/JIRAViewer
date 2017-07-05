@@ -7,8 +7,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="MainLoadingViewController" customModule="JiraHelper" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="LoadingContentViewController" customModule="JiraHelper" customModuleProvider="target">
             <connections>
+                <outlet property="box" destination="E2H-kf-iX6" id="ru1-OG-JB9"/>
                 <outlet property="progressIndicator" destination="EHa-xv-PNm" id="88j-yn-xv8"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
@@ -35,7 +36,6 @@
                         </constraints>
                     </view>
                     <color key="borderColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <color key="fillColor" red="0.66671192646026611" green="0.6266120568244925" blue="0.63352527634385258" alpha="0.24713720034246575" colorSpace="custom" customColorSpace="displayP3"/>
                 </box>
             </subviews>
             <constraints>

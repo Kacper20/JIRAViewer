@@ -20,6 +20,11 @@ final class SprintCollectionViewItemView: NSView {
     private let itemColorView = NSView()
 
     private let assigneeImageView = NSImageView()
+    private let doubleClickedSubject = PublishSubject<Void>()
+
+    var doubleClicked: Observable<Void> {
+        return doubleClickedSubject
+    }
 
     init() {
         super.init(frame: .zero)
@@ -41,7 +46,7 @@ final class SprintCollectionViewItemView: NSView {
         setSelection(false)
         itemNameLabel.cell?.wraps = true
         itemNameLabel.maximumNumberOfLines = 0
-        TextFieldStyles.nonEditableSprintItemLabel.apply(to: itemNameLabel, itemLabels, itemKeyLabel)
+        TextFieldStyles.nonEditableStandardLabel.apply(to: itemNameLabel, itemLabels, itemKeyLabel)
         TextFieldStyles.grayFootnote.apply(to: itemKeyLabel)
     }
 
@@ -91,6 +96,13 @@ final class SprintCollectionViewItemView: NSView {
         }
         layer?.borderColor = color.cgColor
         layer?.borderWidth = width
+    }
+
+    override func mouseDown(with event: NSEvent) {
+        if event.clickCount == 2 {
+            doubleClickedSubject.onNext(())
+        }
+        super.mouseDown(with: event)
     }
 
     var imageSink: AnyObserver<NSImage> {

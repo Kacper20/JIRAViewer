@@ -17,6 +17,10 @@ final class SprintCollectionViewItem: NSCollectionViewItem {
         return prepareForReuseSubject
     }
 
+    var doubleClicked: Observable<Void> {
+        return castView.doubleClicked
+    }
+
     override var isSelected: Bool {
         didSet {
             castView.setSelection(isSelected)

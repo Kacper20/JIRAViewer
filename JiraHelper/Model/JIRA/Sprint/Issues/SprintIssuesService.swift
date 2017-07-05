@@ -23,6 +23,10 @@ final class SprintIssuesService {
         return networkService.request(configuration: allConfig).map { $0.values }
     }
 
+    func getIssue(forId id: String) -> Observable<Issue> {
+        return networkService.request(configuration: IssuesEndpoints.issue(withId: id))
+    }
+
     func issueEditionService(for issue: Issue) -> IssueEditionService {
         return IssueEditionService(networkService: networkService, issue: issue)
     }

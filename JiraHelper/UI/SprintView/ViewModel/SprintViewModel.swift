@@ -9,7 +9,12 @@
 import Foundation
 import RxSwift
 
-//TODO: Divide data source & delegate
+struct IssueExpandRequest {
+    let source: NSView
+    let operation: Observable<Issue>
+}
+
+//TODO: Divide data source & delegate, consider renaming
 final class SprintViewModel: NSObject, NSCollectionViewDataSource, KanbanCollectionViewLayoutDelegate, NSCollectionViewDelegate {
 
     private let sprintIssuesService: SprintIssuesService
@@ -17,6 +22,7 @@ final class SprintViewModel: NSObject, NSCollectionViewDataSource, KanbanCollect
     private let imageDownloader: ImageDownloader
     private let eventsReceiver: GlobalUIEventsReceiver
     private let assignDisposeBox = SerialDisposeBox()
+    private let issueExpandSubject = PublishSubject<IssueExpandRequest>()
 
     private let user: User
 
@@ -24,6 +30,10 @@ final class SprintViewModel: NSObject, NSCollectionViewDataSource, KanbanCollect
         return AnyObserver.next { [weak self] in
             self?.processSelfAssigningOfSelectedIssues()
         }
+    }
+
+    var issueDetailsExpand: Observable<IssueExpandRequest> {
+        return issueExpandSubject
     }
 
     private let sampleItem = SprintCollectionViewItem(nibName: nil, bundle: nil)!
@@ -105,6 +115,14 @@ final class SprintViewModel: NSObject, NSCollectionViewDataSource, KanbanCollect
             return item
         }
         sprintItem.update(with: model)
+
+        _ = sprintItem.doubleClicked
+            .takeUntil(sprintItem.preparedForReuse)
+            .filterMap { _ in self.container.issue(at: indexPath) }
+            .map { self.sprintIssuesService.getIssue(forId: $0.id) }
+            .map { IssueExpandRequest(source: item.view, operation: $0) }
+            .bind(to: issueExpandSubject)
+
         if let url = model.avatarUrl {
             _ = imageDownloader.getImage(from: url)
                 .takeUntil(sprintItem.preparedForReuse)
