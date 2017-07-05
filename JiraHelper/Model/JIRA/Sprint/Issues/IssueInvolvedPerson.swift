@@ -8,11 +8,14 @@
 
 import Foundation
 
-struct IssueAssignee: Decodable {
+struct IssueInvolvedPerson: Decodable {
+    
     let avatarUrl: String
+    let name: String
 
     private enum CodingKeys: String, CodingKey {
         case avatarUrls
+        case name = "displayName"
 
     }
     private enum AvatarsCodingKeys: String, CodingKey {
@@ -23,5 +26,6 @@ struct IssueAssignee: Decodable {
         let keyedContainer = try decoder.container(keyedBy: CodingKeys.self)
         let avatarsContainer = try keyedContainer.nestedContainer(keyedBy: AvatarsCodingKeys.self, forKey: .avatarUrls)
         avatarUrl = try avatarsContainer.decode(String.self, forKey: .midSize)
+        name = try keyedContainer.decode(String.self, forKey: .name)
     }
 }

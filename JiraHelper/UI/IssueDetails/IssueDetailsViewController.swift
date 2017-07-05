@@ -22,7 +22,7 @@ class IssueDetailsViewController: NSViewController {
     }
     
     override func loadView() {
-        view = IssueDetailsView()
+        view = IssueDetailsView(data: IssueDetailsViewData(issue: issue))
     }
 
     override func viewDidLoad() {

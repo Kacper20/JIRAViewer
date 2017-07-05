@@ -30,6 +30,12 @@ struct TextFieldStyles {
         }
     }
 
+    static var sectionHeadline: NSViewStyle<NSTextField> {
+        return NSViewStyle { textField in
+            textField.font = NSFont.boldSystemFont(ofSize: 14)
+        }
+    }
+
     static var nonEditableStandardLabel: NSViewStyle<NSTextField> {
         return NSViewStyle { textField in
             textField.isEditable = false

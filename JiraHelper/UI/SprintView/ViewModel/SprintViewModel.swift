@@ -9,6 +9,11 @@
 import Foundation
 import RxSwift
 
+struct IssueExpandRequest {
+    let source: NSView
+    let operation: Observable<Issue>
+}
+
 //TODO: Divide data source & delegate, consider renaming
 final class SprintViewModel: NSObject, NSCollectionViewDataSource, KanbanCollectionViewLayoutDelegate, NSCollectionViewDelegate {
 
@@ -17,7 +22,7 @@ final class SprintViewModel: NSObject, NSCollectionViewDataSource, KanbanCollect
     private let imageDownloader: ImageDownloader
     private let eventsReceiver: GlobalUIEventsReceiver
     private let assignDisposeBox = SerialDisposeBox()
-    private let issueExpandSubject = PublishSubject<Observable<Issue>>()
+    private let issueExpandSubject = PublishSubject<IssueExpandRequest>()
 
     private let user: User
 
@@ -27,7 +32,7 @@ final class SprintViewModel: NSObject, NSCollectionViewDataSource, KanbanCollect
         }
     }
 
-    var issueDetailsExpand: Observable<Observable<Issue>> {
+    var issueDetailsExpand: Observable<IssueExpandRequest> {
         return issueExpandSubject
     }
 
@@ -115,6 +120,7 @@ final class SprintViewModel: NSObject, NSCollectionViewDataSource, KanbanCollect
             .takeUntil(sprintItem.preparedForReuse)
             .filterMap { _ in self.container.issue(at: indexPath) }
             .map { self.sprintIssuesService.getIssue(forId: $0.id) }
+            .map { IssueExpandRequest(source: item.view, operation: $0) }
             .bind(to: issueExpandSubject)
 
         if let url = model.avatarUrl {

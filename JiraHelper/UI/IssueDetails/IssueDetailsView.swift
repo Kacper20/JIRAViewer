@@ -8,14 +8,12 @@
 
 import Foundation
 
-struct IssueDetailsViewData {
-
-}
-
 final class IssueDetailsView: NSView {
     private let scrollView = NSScrollView()
+    private let data: IssueDetailsViewData
 
-    init() {
+    init(data: IssueDetailsViewData) {
+        self.data = data
         super.init(frame: .zero)
         setupViews()
     }
@@ -29,16 +27,22 @@ final class IssueDetailsView: NSView {
         scrollView.constraintEdgesToSuperview()
         let containerView = NSView()
         scrollView.addSubview(containerView)
-        containerView.constraintEdgesToSuperview()
+        let inset: CGFloat = 8
+        containerView.constraintEdgesToSuperview(with: NSEdgeInsets(
+            top: inset, left: inset, bottom: inset, right: inset)
+        )
 
         let empty = NSGridCell.emptyContentView
 
         let gridView = NSGridView(views: [
-            [labelWithText(text: "BM-1656"), empty],
-            [labelWithText(text: "Task do zrobienia blDNKJASDHKjhdkjaHSKjhskjaHSKJSAHKJhskjaHS"), empty],
+            [labelWithText(text: data.keyName, styles: TextFieldStyles.headline), empty],
+            [labelWithText(text: data.title), empty],
+            [labelWithText(text: "Details", styles: TextFieldStyles.sectionHeadline), empty],
             [labelWithText(text: "Status"), labelWithText(text: "None")],
             [labelWithText(text: "Status"), labelWithText(text: "None")],
-            [labelWithText(text: "Status"), labelWithText(text: "None")]
+            [labelWithText(text: "Status"), labelWithText(text: "None")],
+            [labelWithText(text: "People", styles: TextFieldStyles.sectionHeadline), empty],
+            [labelWithText(text: "Dates", styles: TextFieldStyles.sectionHeadline), empty]
             ])
 
         containerView.addSubview(gridView)
@@ -48,9 +52,12 @@ final class IssueDetailsView: NSView {
         gridView.bottomAnchor.constraint(lessThanOrEqualTo: containerView.bottomAnchor).activate()
     }
 
-    private func labelWithText(text: String) -> NSTextField {
+    private func labelWithText(text: String, styles: NSViewStyle<NSTextField>...) -> NSTextField {
         let field = NSTextField()
         TextFieldStyles.nonEditableStandardLabel.apply(to: field)
+        for style in styles {
+            style.apply(to: field)
+        }
         field.stringValue = text
         return field
     }

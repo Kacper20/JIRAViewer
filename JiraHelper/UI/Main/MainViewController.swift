@@ -18,7 +18,7 @@ final class MainViewController: NSViewController {
 
     private var loadingVC: LoadingContentViewController?
 
-    var expandedIssuesRequests: Observable<Observable<Issue>> {
+    var expandedIssuesRequests: Observable<IssueExpandRequest> {
         return mainViewModel.sprintViewModel.issueDetailsExpand
     }
 

@@ -63,8 +63,8 @@ final class MainWindowController: NSWindowController {
     private func subscribeToIssueDetailsPresentations(sprintViewModel: SprintViewModel) {
         sprintViewModel
             .issueDetailsExpand
-            .subscribe(onNext: { [unowned self] issueObservable in
-                self.presentIssueLoadingPopover(issueObservable: issueObservable)
+            .subscribe(onNext: { [unowned self] request in
+                self.presentIssueLoadingPopover(request: request)
             }).addDisposableTo(disposeBag)
 
     }
@@ -72,26 +72,25 @@ final class MainWindowController: NSWindowController {
     private var popover: NSPopover?
 
     //TODO: Move to another object
-    private func presentIssueLoadingPopover(issueObservable: Observable<Issue>) {
+    private func presentIssueLoadingPopover(request: IssueExpandRequest) {
         guard let window = window, let windowView = window.contentView else { return }
         let loading = LoadingPerformingFlowViewController(
-            operation: issueObservable,
+            operation: request.operation,
             controllerConstruction: { issue in
                 return IssueDetailsViewController(issue: issue)
         })
-        let popoverSize = NSSize(width: 300, height: window.frame.height)
-        loading.view.heightAnchor.constraint(equalToConstant: window.frame.height).activate()
+        loading.view.heightAnchor.constraint(equalToConstant: 500).activate()
         loading.view.widthAnchor.constraint(equalToConstant: 300).activate()
 
         self.popover?.close()
         let popover = NSPopover()
         self.popover = popover
-        popover.behavior = .applicationDefined
+        popover.behavior = .semitransient
         popover.appearance = NSAppearance(named: NSAppearanceNameVibrantLight)
-        popover.contentSize = popoverSize
+//        popover.contentSize = popoverSize
         popover.animates = true
         popover.contentViewController = loading
-        popover.show(relativeTo: NSRect.init(x: 20, y: 20, width: 30, height: 30), of: windowView, preferredEdge: .minX)
+        popover.show(relativeTo: request.source.bounds, of: request.source, preferredEdge: .maxX)
     }
 
     @available(OSX 10.12.2, *)
