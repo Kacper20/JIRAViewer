@@ -8,12 +8,6 @@
 
 import Foundation
 
-struct PersonData {
-    let role: String
-    let name: String
-    let avatarUrl: String
-}
-
 struct IssueDetailsViewData {
     let keyName: String
     let title: String
@@ -24,6 +18,10 @@ extension IssueDetailsViewData {
     init(issue: Issue) {
         self.keyName = issue.key
         self.title = issue.summary
-        self.peopleInvolved = []
+        var people = [PersonData(role: "Creator", person: issue.creator)]
+        if let assignee = issue.assignee {
+            people.append(PersonData(role: "Assignee", person: assignee))
+        }
+        self.peopleInvolved = people
     }
 }

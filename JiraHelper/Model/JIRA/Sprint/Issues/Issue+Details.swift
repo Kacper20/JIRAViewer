@@ -10,4 +10,5 @@ import Foundation
 
 struct IssueStatus: Decodable {
     let name: String
+    let iconUrl: String
 }
