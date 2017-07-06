@@ -13,6 +13,7 @@ struct DateFormatterHelper {
 
     static func issueDetailsFormat(date: Date) -> String {
         DateFormatterHelper.dateFormatter.dateStyle = .medium
+        DateFormatterHelper.dateFormatter.timeStyle = .short
         return DateFormatterHelper.dateFormatter.string(from:date)
     }
 }
