@@ -13,7 +13,7 @@ struct Issue: Decodable {
     let key: String
     let summary: String
     let created: Date
-    let lastViewed: Date
+    let lastViewed: Date?
     let status: IssueStatus
     let assignee: IssueInvolvedPerson?
     let creator: IssueInvolvedPerson
@@ -42,10 +42,10 @@ struct Issue: Decodable {
         let fieldsContainer = try keyedContainer.nestedContainer(keyedBy: FieldsCodingKeys.self, forKey: .fields)
         status = try fieldsContainer.decode(IssueStatus.self, forKey: .status)
         assignee = try fieldsContainer.decodeIfPresent(IssueInvolvedPerson.self, forKey: .assignee)
-        creator = try fieldsContainer.decode(IssueInvolvedPerson.self, forKey: .assignee)
+        creator = try fieldsContainer.decode(IssueInvolvedPerson.self, forKey: .creator)
         summary = try fieldsContainer.decode(String.self, forKey: .summary)
         created = try fieldsContainer.decode(Date.self, forKey: .created)
-        lastViewed = try fieldsContainer.decode(Date.self, forKey: .lastViewed)
+        lastViewed = try fieldsContainer.decodeIfPresent(Date.self, forKey: .lastViewed)
         labels = try fieldsContainer.decode([String].self, forKey: .labels)
     }
 }
