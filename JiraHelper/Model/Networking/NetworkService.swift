@@ -30,6 +30,7 @@ final class NetworkService {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
         decoder.dateDecodingStrategy = .formatted(formatter)
+        decoder.dataDecodingStrategy = .custom(<#T##(Decoder) throws -> Data#>)
     }
 
     func request<T>(

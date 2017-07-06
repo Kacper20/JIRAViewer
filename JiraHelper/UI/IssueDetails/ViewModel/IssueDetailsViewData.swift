@@ -12,6 +12,9 @@ struct IssueDetailsViewData {
     let keyName: String
     let title: String
     let peopleInvolved: [PersonData]
+
+    let creationTime: String
+    let lastViewTime: String
 }
 
 extension IssueDetailsViewData {
@@ -23,5 +26,7 @@ extension IssueDetailsViewData {
             people.append(PersonData(role: "Assignee", person: assignee))
         }
         self.peopleInvolved = people
+        self.creationTime = DateFormatterHelper.issueDetailsFormat(date: issue.created)
+        self.lastViewTime = DateFormatterHelper.issueDetailsFormat(date: issue.lastViewed)
     }
 }

@@ -42,7 +42,9 @@ final class IssueDetailsView: NSView {
             [labelWithText(text: "Status"), labelWithText(text: "None")],
             [labelWithText(text: "Status"), labelWithText(text: "None")],
             [labelWithText(text: "People", styles: TextFieldStyles.sectionHeadline), empty],
-            [labelWithText(text: "Dates", styles: TextFieldStyles.sectionHeadline), empty]
+            [labelWithText(text: "Dates", styles: TextFieldStyles.sectionHeadline), empty],
+            [labelWithText(text: "Created:"), labelWithText(text: data.creationTime)],
+            [labelWithText(text: "Last Viewed:"), labelWithText(text: data.lastViewTime)],
             ])
 
         containerView.addSubview(gridView)
