@@ -5,14 +5,17 @@
 //  Created by Kacper Harasim on 03/07/2017.
 //  Copyright © 2017 Kacper Harasim. All rights reserved.
 //
-
 import Foundation
+import RxSwift
 
 final class IssueDetailsView: NSView {
     private let scrollView = NSScrollView()
     private let data: IssueDetailsViewData
+    private let urlImageConversion: URLImageConversion
+    private let disposeBag = DisposeBag()
 
-    init(data: IssueDetailsViewData) {
+    init(data: IssueDetailsViewData, urlImageConversion: @escaping URLImageConversion) {
+        self.urlImageConversion = urlImageConversion
         self.data = data
         super.init(frame: .zero)
         setupViews()
@@ -34,18 +37,30 @@ final class IssueDetailsView: NSView {
 
         let empty = NSGridCell.emptyContentView
 
-        let gridView = NSGridView(views: [
+        let personViews = data.peopleInvolved.map { person -> [NSView] in
+            let label = labelWithText(text: person.role)
+            let view = SmallImageWithLabelView(text: person.name)
+            let image = self.urlImageConversion(person.avatarUrl)
+            image.bind(to: view.imageSink).disposed(by: disposeBag)
+            return [label, view]
+        }
+        var views: [[NSView]] = [
             [labelWithText(text: data.keyName, styles: TextFieldStyles.headline), empty],
             [labelWithText(text: data.title), empty],
             [labelWithText(text: "Details", styles: TextFieldStyles.sectionHeadline), empty],
             [labelWithText(text: "Status"), labelWithText(text: "None")],
             [labelWithText(text: "Status"), labelWithText(text: "None")],
             [labelWithText(text: "Status"), labelWithText(text: "None")],
-            [labelWithText(text: "People", styles: TextFieldStyles.sectionHeadline), empty],
+            [labelWithText(text: "People", styles: TextFieldStyles.sectionHeadline), empty]
+        ]
+        views.append(contentsOf: personViews)
+        views.append(contentsOf: [
             [labelWithText(text: "Dates", styles: TextFieldStyles.sectionHeadline), empty],
             [labelWithText(text: "Created:"), labelWithText(text: data.creationTime)],
             [labelWithText(text: "Last Viewed:"), labelWithText(text: data.lastViewTime ?? "Never")],
-            ])
+        ])
+
+        let gridView = NSGridView(views: views)
 
         containerView.addSubview(gridView)
         gridView.leadingToSuperview()

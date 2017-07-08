@@ -11,9 +11,11 @@ import Cocoa
 class IssueDetailsViewController: NSViewController {
 
     private let issue: Issue
+    private let imageDownloader: ImageDownloader
 
-    init(issue: Issue) {
+    init(issue: Issue, imageDownloader: ImageDownloader) {
         self.issue = issue
+        self.imageDownloader = imageDownloader
         super.init(nibName: nil, bundle: nil)!
     }
     
@@ -22,7 +24,11 @@ class IssueDetailsViewController: NSViewController {
     }
     
     override func loadView() {
-        view = IssueDetailsView(data: IssueDetailsViewData(issue: issue))
+        let downloader = imageDownloader
+        view = IssueDetailsView(
+            data: IssueDetailsViewData(issue: issue),
+            urlImageConversion: downloader.getImage(from:)
+        )
     }
 
     override func viewDidLoad() {
