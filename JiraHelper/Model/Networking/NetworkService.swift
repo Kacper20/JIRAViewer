@@ -27,9 +27,34 @@ final class NetworkService {
         networkLogger = NetworkLogger()
         let configuration = URLSessionConfiguration.default
         manager = SessionManager(configuration: configuration)
+        setupDecoder()
+    }
+
+    private func setupDecoder() {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-        decoder.dateDecodingStrategy = .formatted(formatter)
+//        let formatter = DateFormatter()
+        decoder.dateDecodingStrategy = .custom { decoder in
+            let formats = [
+                "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+                "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+            ]
+            let container = try decoder.singleValueContainer()
+            let stringValue = try container.decode(String.self)
+
+            let date = formats.lazy.flatMap { format -> Date? in
+                formatter.dateFormat = format
+                return formatter.date(from: stringValue)
+            }.first
+            guard let dateFormatted = date else {
+                throw DecodingError.dataCorrupted(
+                    DecodingError.Context(
+                        codingPath: decoder.codingPath,
+                        debugDescription: "None of the date formatters provided were correct"
+                    )
+                )
+            }
+            return dateFormatted
+        }
     }
 
     func request<T>(

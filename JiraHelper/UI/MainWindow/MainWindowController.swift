@@ -45,7 +45,7 @@ final class MainWindowController: NSWindowController {
             .create()
             .subscribe(onNext: { [unowned self] viewModel in
                 self.presentVC(with: viewModel)
-                self.subscribeToIssueDetailsPresentations(sprintViewModel: viewModel.sprintViewModel)
+                self.subscribeToIssueDetailsPresentations(viewModel: viewModel)
             }, onError: { [unowned self] error in
                 Logger.shared.error("Error occured: \(error)")
             }).disposed(by: disposeBag)
@@ -60,11 +60,11 @@ final class MainWindowController: NSWindowController {
         window?.makeKey()
     }
 
-    private func subscribeToIssueDetailsPresentations(sprintViewModel: SprintViewModel) {
-        sprintViewModel
+    private func subscribeToIssueDetailsPresentations(viewModel: MainViewModel) {
+        viewModel.sprintViewModel
             .issueDetailsExpand
             .subscribe(onNext: { [unowned self] request in
-                self.presentIssueLoadingPopover(request: request)
+                self.presentIssueLoadingPopover(request: request, viewModel: viewModel)
             }).addDisposableTo(disposeBag)
 
     }
@@ -72,12 +72,12 @@ final class MainWindowController: NSWindowController {
     private var popover: NSPopover?
 
     //TODO: Move to another object
-    private func presentIssueLoadingPopover(request: IssueExpandRequest) {
+    private func presentIssueLoadingPopover(request: IssueExpandRequest, viewModel: MainViewModel) {
         guard let window = window, let windowView = window.contentView else { return }
         let loading = LoadingPerformingFlowViewController(
             operation: request.operation,
             controllerConstruction: { issue in
-                return IssueDetailsViewController(issue: issue)
+                return IssueDetailsViewController(issue: issue, imageDownloader: viewModel.imageDownloader)
         })
         loading.view.heightAnchor.constraint(equalToConstant: 500).activate()
         loading.view.widthAnchor.constraint(equalToConstant: 300).activate()

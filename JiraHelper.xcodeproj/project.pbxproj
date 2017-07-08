@@ -78,6 +78,8 @@
 		BB62DE7D1E5634BA00AA3577 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB62DE7C1E5634BA00AA3577 /* MainMenu.xib */; };
 		BB62DEBC1E565A7800AA3577 /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB62DEBB1E565A7800AA3577 /* MainWindow.swift */; };
 		BB63004E1F0D72640066262E /* IssueDetailsViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB63004D1F0D72640066262E /* IssueDetailsViewData.swift */; };
+		BB6300511F0D81960066262E /* PersonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6300501F0D81960066262E /* PersonData.swift */; };
+		BB6300531F0D8F230066262E /* DateFormatterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6300521F0D8F230066262E /* DateFormatterHelper.swift */; };
 		BB7AD73F1EF2E07300E436C4 /* SprintEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7AD73E1EF2E07300E436C4 /* SprintEndpoints.swift */; };
 		BB7AD7411EF2E1FB00E436C4 /* Sprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7AD7401EF2E1FB00E436C4 /* Sprint.swift */; };
 		BB7AD7431EF2ED0F00E436C4 /* SprintsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7AD7421EF2ED0F00E436C4 /* SprintsService.swift */; };
@@ -112,6 +114,7 @@
 		BBD571FB1EC37D3E0061AD67 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD571FA1EC37D3E0061AD67 /* Validator.swift */; };
 		BBD571FD1EC37F620061AD67 /* CommonValidators.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD571FC1EC37F620061AD67 /* CommonValidators.swift */; };
 		BBD571FF1EC3B2C60061AD67 /* Observable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD571FE1EC3B2C60061AD67 /* Observable+Extensions.swift */; };
+		BBDA908D1F104A4600B99C34 /* SmallImageWithLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDA908C1F104A4600B99C34 /* SmallImageWithLabelView.swift */; };
 		BBE003761E39534E00E1A2A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE003751E39534E00E1A2A4 /* AppDelegate.swift */; };
 		BBE003781E39534E00E1A2A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBE003771E39534E00E1A2A4 /* Assets.xcassets */; };
 		BBE003861E39534E00E1A2A4 /* JiraHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE003851E39534E00E1A2A4 /* JiraHelperTests.swift */; };
@@ -267,6 +270,8 @@
 		BB62DE7C1E5634BA00AA3577 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		BB62DEBB1E565A7800AA3577 /* MainWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
 		BB63004D1F0D72640066262E /* IssueDetailsViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueDetailsViewData.swift; sourceTree = "<group>"; };
+		BB6300501F0D81960066262E /* PersonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonData.swift; sourceTree = "<group>"; };
+		BB6300521F0D8F230066262E /* DateFormatterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterHelper.swift; sourceTree = "<group>"; };
 		BB7AD73E1EF2E07300E436C4 /* SprintEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprintEndpoints.swift; sourceTree = "<group>"; };
 		BB7AD7401EF2E1FB00E436C4 /* Sprint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sprint.swift; sourceTree = "<group>"; };
 		BB7AD7421EF2ED0F00E436C4 /* SprintsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprintsService.swift; sourceTree = "<group>"; };
@@ -298,6 +303,7 @@
 		BBD571FA1EC37D3E0061AD67 /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		BBD571FC1EC37F620061AD67 /* CommonValidators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonValidators.swift; sourceTree = "<group>"; };
 		BBD571FE1EC3B2C60061AD67 /* Observable+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+Extensions.swift"; sourceTree = "<group>"; };
+		BBDA908C1F104A4600B99C34 /* SmallImageWithLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallImageWithLabelView.swift; sourceTree = "<group>"; };
 		BBE003721E39534E00E1A2A4 /* JiraHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JiraHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBE003751E39534E00E1A2A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBE003771E39534E00E1A2A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -511,9 +517,9 @@
 		BB143CBC1F0ACF80008BC52C /* IssueDetails */ = {
 			isa = PBXGroup;
 			children = (
+				BB63004F1F0D81830066262E /* ViewModel */,
 				BB143CBD1F0ACFD5008BC52C /* IssueDetailsViewController.swift */,
 				BB143CC11F0AD041008BC52C /* IssueDetailsView.swift */,
-				BB63004D1F0D72640066262E /* IssueDetailsViewData.swift */,
 			);
 			path = IssueDetails;
 			sourceTree = "<group>";
@@ -530,6 +536,7 @@
 		BB2046B41EBE093C00084F34 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BBDA908B1F104A3100B99C34 /* Shared */,
 				BB99A1631F0C18490006E40D /* Loading */,
 				BB56959E1EDB5C6100B87510 /* Icons */,
 				BB5695971EDB5A7900B87510 /* Drawing */,
@@ -679,6 +686,15 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
+		BB63004F1F0D81830066262E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BB63004D1F0D72640066262E /* IssueDetailsViewData.swift */,
+				BB6300501F0D81960066262E /* PersonData.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		BB99A1631F0C18490006E40D /* Loading */ = {
 			isa = PBXGroup;
 			children = (
@@ -761,6 +777,7 @@
 				BBAF06AE1EFE4DC300DF3E46 /* View+Extensions.swift */,
 				BB34BBAC1F0445F20070276D /* KeyboardKeysMatcher.swift */,
 				BB99A1611F0C15220006E40D /* Animations.swift */,
+				BB6300521F0D8F230066262E /* DateFormatterHelper.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -805,6 +822,14 @@
 				BB17145A1EF3480C00BFB942 /* ActiveSprint.swift */,
 			);
 			path = Sprint;
+			sourceTree = "<group>";
+		};
+		BBDA908B1F104A3100B99C34 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				BBDA908C1F104A4600B99C34 /* SmallImageWithLabelView.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 		BBE003691E39534E00E1A2A4 = {
@@ -1134,6 +1159,7 @@
 				BBB765721EF51B9E0039B366 /* SprintIssuesService.swift in Sources */,
 				BB0A2BDE1EBF4B8A00A19D60 /* NetworkService.swift in Sources */,
 				BB36E1F81EF5E7870081DDAE /* BoardConfiguration.swift in Sources */,
+				BB6300511F0D81960066262E /* PersonData.swift in Sources */,
 				BB7AD7431EF2ED0F00E436C4 /* SprintsService.swift in Sources */,
 				BBAF06B71EFE80A000DF3E46 /* ImageDownloader.swift in Sources */,
 				BBA77BA31E57A0C600C9842C /* VerticallyCenteredTextFieldCell.swift in Sources */,
@@ -1154,6 +1180,7 @@
 				BB503C6F1EDB0043002BDF54 /* AuthenticatedNetworkService.swift in Sources */,
 				BB92496C1EFFC0E6006CF3BD /* SprintColumnViewsLayouter.swift in Sources */,
 				BBB765761EF531EB0039B366 /* PagedEndpointConverter.swift in Sources */,
+				BBDA908D1F104A4600B99C34 /* SmallImageWithLabelView.swift in Sources */,
 				BB0A2BCF1EBF448100A19D60 /* EndpointConfiguration.swift in Sources */,
 				BBA77BAB1E57A62300C9842C /* MaskImage.swift in Sources */,
 				BBAF06AF1EFE4DC300DF3E46 /* View+Extensions.swift in Sources */,
@@ -1202,6 +1229,7 @@
 				BBAF06B41EFE75B000DF3E46 /* IssueInvolvedPerson.swift in Sources */,
 				BB0BA4381EF43468003BE8C5 /* PopupButtonToolbarItemManager.swift in Sources */,
 				BB0A2BEE1EBF8A2600A19D60 /* JIRARestAPI.swift in Sources */,
+				BB6300531F0D8F230066262E /* DateFormatterHelper.swift in Sources */,
 				BB36E1EA1EF589F80081DDAE /* IssuesEndpoints.swift in Sources */,
 				BB7AD73F1EF2E07300E436C4 /* SprintEndpoints.swift in Sources */,
 				BBB765741EF51F2A0039B366 /* PagedRequestGenerator.swift in Sources */,

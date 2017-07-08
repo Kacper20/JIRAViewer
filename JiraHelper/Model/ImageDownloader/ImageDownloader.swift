@@ -10,6 +10,8 @@ import Foundation
 import RxSwift
 import Kingfisher
 
+typealias URLImageConversion = (String) -> Observable<NSImage>
+
 //TODO: Error descriptions
 enum ImageDownloaderError: Error {
     case invalidUrl
