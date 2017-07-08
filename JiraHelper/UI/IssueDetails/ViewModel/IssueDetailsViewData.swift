@@ -15,6 +15,7 @@ struct IssueDetailsViewData {
 
     let creationTime: String
     let lastViewTime: String?
+    let descriptionHtml: String
 }
 
 extension IssueDetailsViewData {
@@ -28,5 +29,6 @@ extension IssueDetailsViewData {
         self.peopleInvolved = people
         self.creationTime = DateFormatterHelper.issueDetailsFormat(date: issue.created)
         self.lastViewTime = issue.lastViewed.map(DateFormatterHelper.issueDetailsFormat(date: ))
+        self.descriptionHtml = issue.description
     }
 }

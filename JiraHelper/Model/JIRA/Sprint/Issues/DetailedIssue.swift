@@ -20,11 +20,13 @@ struct DetailedIssue: Decodable {
     let creator: IssueInvolvedPerson
     let labels: [String]
     let priority: IssuePriority?
+    let comments: [IssueComment]
 
     private enum CodingKeys: String, CodingKey {
         case id
         case key
         case fields
+        case renderedFields
     }
 
     private enum FieldsCodingKeys: String, CodingKey {
@@ -37,6 +39,10 @@ struct DetailedIssue: Decodable {
         case creator
         case description
         case priority
+        case comment
+    }
+    private enum CommentCodingKeys: String, CodingKey {
+        case comments
     }
 
     init(from decoder: Decoder) throws {
@@ -44,6 +50,7 @@ struct DetailedIssue: Decodable {
         id = try keyedContainer.decode(String.self, forKey: .id)
         key = try keyedContainer.decode(String.self, forKey: .key)
         let fieldsContainer = try keyedContainer.nestedContainer(keyedBy: FieldsCodingKeys.self, forKey: .fields)
+        let renderedFields = try keyedContainer.nestedContainer(keyedBy: FieldsCodingKeys.self, forKey: .renderedFields)
         status = try fieldsContainer.decode(IssueStatus.self, forKey: .status)
         assignee = try fieldsContainer.decodeIfPresent(IssueInvolvedPerson.self, forKey: .assignee)
         creator = try fieldsContainer.decode(IssueInvolvedPerson.self, forKey: .creator)
@@ -51,7 +58,9 @@ struct DetailedIssue: Decodable {
         created = try fieldsContainer.decode(Date.self, forKey: .created)
         lastViewed = try fieldsContainer.decodeIfPresent(Date.self, forKey: .lastViewed)
         labels = try fieldsContainer.decode([String].self, forKey: .labels)
-        description = try fieldsContainer.decode(String.self, forKey: .description)
+        description = try renderedFields.decode(String.self, forKey: .description)
         priority = try fieldsContainer.decodeIfPresent(IssuePriority.self, forKey: .priority)
+        let commentContainer = try renderedFields.nestedContainer(keyedBy: CommentCodingKeys.self, forKey: .comment)
+        comments = try commentContainer.decode([IssueComment].self, forKey: .comments)
     }
 }

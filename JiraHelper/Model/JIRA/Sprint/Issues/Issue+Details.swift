@@ -21,3 +21,8 @@ struct IssuePriority: Decodable {
         return URL(string: iconUrl)?.changingPathExtension(to: "png").absoluteString ?? ""
     }
 }
+
+struct IssueComment: Decodable {
+    let body: String
+    let author: IssueInvolvedPerson
+}

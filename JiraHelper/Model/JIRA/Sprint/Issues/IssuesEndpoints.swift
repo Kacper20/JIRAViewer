@@ -42,7 +42,7 @@ enum IssuesEndpoints {
             method: .get,
             encoding: URLEncoding.default,
             headers: [:],
-            parameters: [:],
+            parameters: ["expand": "renderedFields"],
             resourceType: .json
         )
     }

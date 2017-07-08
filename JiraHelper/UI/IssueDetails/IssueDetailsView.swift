@@ -60,6 +60,9 @@ final class IssueDetailsView: NSView {
             [labelWithText(text: "Last Viewed:"), labelWithText(text: data.lastViewTime ?? "Never")],
         ])
 
+        views.append([labelWithText(text: "Description", styles: TextFieldStyles.sectionHeadline)])
+        views.append([attributedLabel(html: data.descriptionHtml)])
+
         let gridView = NSGridView(views: views)
 
         containerView.addSubview(gridView)
@@ -67,6 +70,21 @@ final class IssueDetailsView: NSView {
         gridView.topToSuperview()
         gridView.trailingToSuperview()
         gridView.bottomAnchor.constraint(lessThanOrEqualTo: containerView.bottomAnchor).activate()
+    }
+
+    private func attributedLabel(html: String) -> NSTextField {
+        let field = NSTextField()
+        TextFieldStyles.nonEditableStandardLabel.apply(to: field)
+        guard let data = html.data(using: .utf16) else { return field }
+        let attributedString = try? NSAttributedString(
+            data: data,
+            options: [NSDocumentTypeDocumentAttribute:NSHTMLTextDocumentType],
+            documentAttributes: nil
+        )
+        if let attrString = attributedString {
+            field.attributedStringValue = attrString
+        }
+        return field
     }
 
     private func labelWithText(text: String, styles: NSViewStyle<NSTextField>...) -> NSTextField {
