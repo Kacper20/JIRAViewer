@@ -19,7 +19,10 @@ final class SprintCollectionViewItemView: NSView {
 
     private let itemColorView = NSView()
 
+    private let typeImageView = NSImageView()
+    private let priorityImageView = NSImageView()
     private let assigneeImageView = NSImageView()
+
     private let doubleClickedSubject = PublishSubject<Void>()
 
     var doubleClicked: Observable<Void> {
@@ -105,9 +108,17 @@ final class SprintCollectionViewItemView: NSView {
         super.mouseDown(with: event)
     }
 
-    var imageSink: AnyObserver<NSImage> {
+    var assigneeImageSink: AnyObserver<NSImage> {
         return AnyObserver<NSImage>.next { [weak self] in self?.assigneeImageView.image = $0 }
     }
+
+//    var statusImageSink: AnyObserver<NSImage> {
+//        return AnyObserver<NSImage>.next { [weak self] in self?.status.image = $0 }
+//    }
+//
+//    var priorityImageSink: AnyObserver<NSImage> {
+//        return AnyObserver<NSImage>.next { [weak self] in self?.assigneeImageView.image = $0 }
+//    }
 
     func update(with data: SprintElementData) {
         itemNameLabel.stringValue = data.title

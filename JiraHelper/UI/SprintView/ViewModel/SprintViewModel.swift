@@ -123,10 +123,10 @@ final class SprintViewModel: NSObject, NSCollectionViewDataSource, KanbanCollect
             .takeUntil(sprintItem.preparedForReuse)
             .bind(to: issueExpandSubject)
 
-        if let url = model.avatarUrl {
+        if let url = model.assigneeAvatarUrl {
             _ = imageDownloader.getImage(from: url)
                 .takeUntil(sprintItem.preparedForReuse)
-                .bind(to: sprintItem.imageSink)
+                .bind(to: sprintItem.assigneeImageSink)
         }
         return item
     }

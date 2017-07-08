@@ -12,3 +12,12 @@ struct IssueStatus: Decodable {
     let name: String
     let iconUrl: String
 }
+
+struct IssuePriority: Decodable {
+    let name: String
+    let iconUrl: String
+
+    var pngIconUrl: String {
+        return URL(string: iconUrl)?.changingPathExtension(to: "png").absoluteString ?? ""
+    }
+}
