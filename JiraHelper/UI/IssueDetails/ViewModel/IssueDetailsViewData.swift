@@ -18,7 +18,7 @@ struct IssueDetailsViewData {
 }
 
 extension IssueDetailsViewData {
-    init(issue: Issue) {
+    init(issue: DetailedIssue) {
         self.keyName = issue.key
         self.title = issue.summary
         var people = [PersonData(role: "Creator", person: issue.creator)]

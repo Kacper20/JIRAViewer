@@ -11,7 +11,7 @@ import RxSwift
 
 struct IssueExpandRequest {
     let source: NSView
-    let operation: Observable<Issue>
+    let operation: Observable<DetailedIssue>
 }
 
 //TODO: Divide data source & delegate, consider renaming
@@ -84,7 +84,7 @@ final class SprintViewModel: NSObject, NSCollectionViewDataSource, KanbanCollect
         }
     }
 
-    private func updateIssue(with issue: Issue) {
+    private func updateIssue(with issue: BasicIssue) {
         if let path = container.updateIssueAndGetPath(newIssue: issue), let collection = managedCollectionView {
             collection.reloadItems(at: [path])
         }
@@ -117,10 +117,10 @@ final class SprintViewModel: NSObject, NSCollectionViewDataSource, KanbanCollect
         sprintItem.update(with: model)
 
         _ = sprintItem.doubleClicked
-            .takeUntil(sprintItem.preparedForReuse)
             .filterMap { _ in self.container.issue(at: indexPath) }
-            .map { self.sprintIssuesService.getIssue(forId: $0.id) }
+            .map(sprintIssuesService.getDetailedIssue(for: ))
             .map { IssueExpandRequest(source: item.view, operation: $0) }
+            .takeUntil(sprintItem.preparedForReuse)
             .bind(to: issueExpandSubject)
 
         if let url = model.avatarUrl {

@@ -10,10 +10,10 @@ import Cocoa
 
 class IssueDetailsViewController: NSViewController {
 
-    private let issue: Issue
+    private let issue: DetailedIssue
     private let imageDownloader: ImageDownloader
 
-    init(issue: Issue, imageDownloader: ImageDownloader) {
+    init(issue: DetailedIssue, imageDownloader: ImageDownloader) {
         self.issue = issue
         self.imageDownloader = imageDownloader
         super.init(nibName: nil, bundle: nil)!

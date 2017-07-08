@@ -11,17 +11,17 @@ import RxSwift
 
 final class IssueEditionService {
     private let networkService: AuthenticatedNetworkService
-    private var issue: Issue
+    private var issue: BasicIssue
 
-    init(networkService: AuthenticatedNetworkService, issue: Issue) {
+    init(networkService: AuthenticatedNetworkService, issue: BasicIssue) {
         self.networkService = networkService
         self.issue = issue
     }
 
-    func assign(to user: User) -> Observable<Issue> {
+    func assign(to user: User) -> Observable<BasicIssue> {
         return networkService.request(configuration: IssueEditionEndpoints.assign(issue: issue, to: user))
             .flatMap { _ in
-                return self.networkService.request(configuration: IssuesEndpoints.issue(withId: self.issue.id))
+                return self.networkService.request(configuration: IssuesEndpoints.basicIssue(for: self.issue))
             }
     }
 }
