@@ -16,6 +16,7 @@ struct BasicIssue: Decodable {
     let status: IssueStatus
     let assignee: IssueInvolvedPerson?
     let labels: [String]
+    let priority: IssuePriority?
 
     private enum CodingKeys: String, CodingKey {
         case id
@@ -28,6 +29,7 @@ struct BasicIssue: Decodable {
         case summary
         case labels
         case assignee
+        case priority
     }
 
     static var necessaryFields: String {
@@ -45,5 +47,6 @@ struct BasicIssue: Decodable {
         assignee = try fieldsContainer.decodeIfPresent(IssueInvolvedPerson.self, forKey: .assignee)
         summary = try fieldsContainer.decode(String.self, forKey: .summary)
         labels = try fieldsContainer.decode([String].self, forKey: .labels)
+        priority = try fieldsContainer.decodeIfPresent(IssuePriority.self, forKey: .priority)
     }
 }

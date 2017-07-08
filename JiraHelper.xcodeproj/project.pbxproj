@@ -117,6 +117,7 @@
 		BBDA908D1F104A4600B99C34 /* SmallImageWithLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDA908C1F104A4600B99C34 /* SmallImageWithLabelView.swift */; };
 		BBDA908F1F11497300B99C34 /* BasicIssue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDA908E1F11497300B99C34 /* BasicIssue.swift */; };
 		BBDA90911F114CCA00B99C34 /* IssueIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDA90901F114CCA00B99C34 /* IssueIdentifiable.swift */; };
+		BBDA90931F11604D00B99C34 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDA90921F11604D00B99C34 /* URL+Extensions.swift */; };
 		BBE003761E39534E00E1A2A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE003751E39534E00E1A2A4 /* AppDelegate.swift */; };
 		BBE003781E39534E00E1A2A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBE003771E39534E00E1A2A4 /* Assets.xcassets */; };
 		BBE003861E39534E00E1A2A4 /* JiraHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE003851E39534E00E1A2A4 /* JiraHelperTests.swift */; };
@@ -308,6 +309,7 @@
 		BBDA908C1F104A4600B99C34 /* SmallImageWithLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallImageWithLabelView.swift; sourceTree = "<group>"; };
 		BBDA908E1F11497300B99C34 /* BasicIssue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicIssue.swift; sourceTree = "<group>"; };
 		BBDA90901F114CCA00B99C34 /* IssueIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueIdentifiable.swift; sourceTree = "<group>"; };
+		BBDA90921F11604D00B99C34 /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
 		BBE003721E39534E00E1A2A4 /* JiraHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JiraHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBE003751E39534E00E1A2A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBE003771E39534E00E1A2A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -578,6 +580,7 @@
 				BB2046C01EBE0F7300084F34 /* Optionals.swift */,
 				BB12D6EF1ED780A900FEA52A /* String+Extensions.swift */,
 				BB5695BF1EDE0AB800B87510 /* Collections+Extensions.swift */,
+				BBDA90921F11604D00B99C34 /* URL+Extensions.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1236,6 +1239,7 @@
 				BB99A1621F0C15220006E40D /* Animations.swift in Sources */,
 				BBAF06B41EFE75B000DF3E46 /* IssueInvolvedPerson.swift in Sources */,
 				BB0BA4381EF43468003BE8C5 /* PopupButtonToolbarItemManager.swift in Sources */,
+				BBDA90931F11604D00B99C34 /* URL+Extensions.swift in Sources */,
 				BB0A2BEE1EBF8A2600A19D60 /* JIRARestAPI.swift in Sources */,
 				BB6300531F0D8F230066262E /* DateFormatterHelper.swift in Sources */,
 				BB36E1EA1EF589F80081DDAE /* IssuesEndpoints.swift in Sources */,
