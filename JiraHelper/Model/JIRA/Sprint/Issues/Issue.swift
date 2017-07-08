@@ -12,6 +12,7 @@ struct Issue: Decodable {
     let id: String
     let key: String
     let summary: String
+    let description: String
     let created: Date
     let lastViewed: Date?
     let status: IssueStatus
@@ -33,6 +34,7 @@ struct Issue: Decodable {
         case labels
         case assignee
         case creator
+        case description
     }
 
     init(from decoder: Decoder) throws {
@@ -47,5 +49,6 @@ struct Issue: Decodable {
         created = try fieldsContainer.decode(Date.self, forKey: .created)
         lastViewed = try fieldsContainer.decodeIfPresent(Date.self, forKey: .lastViewed)
         labels = try fieldsContainer.decode([String].self, forKey: .labels)
+        description = try fieldsContainer.decode(String.self, forKey: .description)
     }
 }
