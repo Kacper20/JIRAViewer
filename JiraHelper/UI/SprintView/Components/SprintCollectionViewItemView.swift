@@ -19,7 +19,7 @@ final class SprintCollectionViewItemView: NSView {
 
     private let itemColorView = NSView()
 
-    private let typeImageView = NSImageView()
+    private let statusImageView = NSImageView()
     private let priorityImageView = NSImageView()
     private let assigneeImageView = NSImageView()
 
@@ -79,13 +79,27 @@ final class SprintCollectionViewItemView: NSView {
         itemsStackView.bottomToSuperview(with: -4.0)
         itemsStackView.trailingToSuperview(with: -4.0)
         itemsStackView.orientation = .vertical
-        itemsStackView.addArrangedSubviews(itemNameLabel, itemLabels, assigneeImageView, itemKeyLabel)
-
+        let imagesStackView = NSStackView()
+        imagesStackView.orientation = .horizontal
+        imagesStackView.distribution = .fillEqually
         let imageSize: CGFloat = 24
-        assigneeImageView.widthAnchor.constraint(equalToConstant: imageSize).activate()
-        assigneeImageView.heightAnchor.constraint(equalToConstant: imageSize).activate()
+        imagesStackView.addArrangedSubviews(statusImageView, priorityImageView, assigneeImageView)
+        setupIconImageView(assigneeImageView, size: imageSize)
+        setupIconImageView(statusImageView, size: imageSize)
+        setupIconImageView(priorityImageView, size: imageSize)
         assigneeImageView.layer?.cornerRadius = imageSize / 2
+
+        itemsStackView.addArrangedSubviews(itemNameLabel, itemLabels, imagesStackView, itemKeyLabel)
     }
+
+    private func setupIconImageView(_ imageView: NSImageView, size: CGFloat) {
+        imageView.wantsLayer = true
+        imageView.widthAnchor.constraint(equalToConstant: size).activate()
+        imageView.heightAnchor.constraint(equalToConstant: size).activate()
+        imageView.topToSuperview()
+        imageView.bottomToSuperview()
+    }
+
 
     func setSelection(_ isSelected: Bool) {
         let color: NSColor
@@ -112,13 +126,13 @@ final class SprintCollectionViewItemView: NSView {
         return AnyObserver<NSImage>.next { [weak self] in self?.assigneeImageView.image = $0 }
     }
 
-//    var statusImageSink: AnyObserver<NSImage> {
-//        return AnyObserver<NSImage>.next { [weak self] in self?.status.image = $0 }
-//    }
-//
-//    var priorityImageSink: AnyObserver<NSImage> {
-//        return AnyObserver<NSImage>.next { [weak self] in self?.assigneeImageView.image = $0 }
-//    }
+    var statusImageSink: AnyObserver<NSImage> {
+        return AnyObserver<NSImage>.next { [weak self] in self?.statusImageView.image = $0 }
+    }
+
+    var priorityImageSink: AnyObserver<NSImage> {
+        return AnyObserver<NSImage>.next { [weak self] in self?.priorityImageView.image = $0 }
+    }
 
     func update(with data: SprintElementData) {
         itemNameLabel.stringValue = data.title

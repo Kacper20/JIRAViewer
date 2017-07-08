@@ -124,11 +124,19 @@ final class SprintViewModel: NSObject, NSCollectionViewDataSource, KanbanCollect
             .bind(to: issueExpandSubject)
 
         if let url = model.assigneeAvatarUrl {
-            _ = imageDownloader.getImage(from: url)
-                .takeUntil(sprintItem.preparedForReuse)
-                .bind(to: sprintItem.assigneeImageSink)
+            getImage(from: url, bindedTo: sprintItem, sink: sprintItem.assigneeImageSink)
         }
+        if let url = model.priorityAvatarUrl {
+            getImage(from: url, bindedTo: sprintItem, sink: sprintItem.priorityImageSink)
+        }
+        getImage(from: model.statusAvatarUrl, bindedTo: sprintItem, sink: sprintItem.statusImageSink)
         return item
+    }
+
+    private func getImage(from url: String, bindedTo item: SprintCollectionViewItem, sink: AnyObserver<NSImage>) {
+        _ = imageDownloader.getImage(from: url)
+            .takeUntil(item.preparedForReuse)
+            .bind(to: sink)
     }
 
     func collectionView(_ collectionView: NSCollectionView, sizeForItemAt indexPath: IndexPath) -> NSSize {
