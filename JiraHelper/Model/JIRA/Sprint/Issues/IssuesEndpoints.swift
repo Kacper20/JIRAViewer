@@ -9,20 +9,36 @@
 import Foundation
 
 enum IssuesEndpoints {
-    static func all(forSprint sprint: ActiveSprint) -> EndpointConfiguration<ArrayOfValuesWithPagingData<Issue>> {
+    static func all(forSprint sprint: ActiveSprint) -> EndpointConfiguration<ArrayOfValuesWithPagingData<BasicIssue>> {
         return EndpointConfiguration(
             path: "/agile/latest/board/\(sprint.setupData.originBoardId)/sprint/\(sprint.id)/issue",
             method: .get,
             encoding: URLEncoding.default,
             headers: [:],//TODO: Temporary labels
-            parameters: ["jql" : "labels = iOS"],
+            parameters: [
+                "jql" : "labels = iOS",
+                "fields" : BasicIssue.necessaryFields
+            ],
             resourceType: .json
         )
     }
 
-    static func issue(withId id: String) -> EndpointConfiguration<Issue> {
+    static func basicIssue(for issue: IssueIdentifiable) -> EndpointConfiguration<BasicIssue> {
+        let detailConfig = IssuesEndpoints.detailedIssue(for: issue)
+        //TODO: Use lenses in future
         return EndpointConfiguration(
-            path: "/api/latest/issue/\(id)",
+            path: detailConfig.path,
+            method: detailConfig.method,
+            encoding: detailConfig.encoding,
+            headers: detailConfig.headers,
+            parameters: ["fields" : BasicIssue.necessaryFields],
+            resourceType: .json
+        )
+    }
+
+    static func detailedIssue(for issue: IssueIdentifiable) -> EndpointConfiguration<DetailedIssue> {
+        return EndpointConfiguration(
+            path: "/api/latest/issue/\(issue.id)",
             method: .get,
             encoding: URLEncoding.default,
             headers: [:],

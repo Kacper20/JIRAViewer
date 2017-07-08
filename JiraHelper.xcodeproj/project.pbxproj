@@ -51,7 +51,7 @@
 		BB34BBA81F043D630070276D /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34BBA71F043D630070276D /* UserService.swift */; };
 		BB34BBAB1F04422B0070276D /* IssueEditionEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34BBAA1F04422B0070276D /* IssueEditionEndpoints.swift */; };
 		BB34BBAD1F0445F20070276D /* KeyboardKeysMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34BBAC1F0445F20070276D /* KeyboardKeysMatcher.swift */; };
-		BB36E1E51EF53A580081DDAE /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36E1E41EF53A580081DDAE /* Issue.swift */; };
+		BB36E1E51EF53A580081DDAE /* DetailedIssue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36E1E41EF53A580081DDAE /* DetailedIssue.swift */; };
 		BB36E1E71EF53C970081DDAE /* NSView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36E1E61EF53C970081DDAE /* NSView+Constraints.swift */; };
 		BB36E1EA1EF589F80081DDAE /* IssuesEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36E1E91EF589F80081DDAE /* IssuesEndpoints.swift */; };
 		BB36E1ED1EF5A27E0081DDAE /* SprintViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36E1EC1EF5A27E0081DDAE /* SprintViewModel.swift */; };
@@ -115,6 +115,8 @@
 		BBD571FD1EC37F620061AD67 /* CommonValidators.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD571FC1EC37F620061AD67 /* CommonValidators.swift */; };
 		BBD571FF1EC3B2C60061AD67 /* Observable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD571FE1EC3B2C60061AD67 /* Observable+Extensions.swift */; };
 		BBDA908D1F104A4600B99C34 /* SmallImageWithLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDA908C1F104A4600B99C34 /* SmallImageWithLabelView.swift */; };
+		BBDA908F1F11497300B99C34 /* BasicIssue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDA908E1F11497300B99C34 /* BasicIssue.swift */; };
+		BBDA90911F114CCA00B99C34 /* IssueIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDA90901F114CCA00B99C34 /* IssueIdentifiable.swift */; };
 		BBE003761E39534E00E1A2A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE003751E39534E00E1A2A4 /* AppDelegate.swift */; };
 		BBE003781E39534E00E1A2A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBE003771E39534E00E1A2A4 /* Assets.xcassets */; };
 		BBE003861E39534E00E1A2A4 /* JiraHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE003851E39534E00E1A2A4 /* JiraHelperTests.swift */; };
@@ -241,7 +243,7 @@
 		BB34BBA71F043D630070276D /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		BB34BBAA1F04422B0070276D /* IssueEditionEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueEditionEndpoints.swift; sourceTree = "<group>"; };
 		BB34BBAC1F0445F20070276D /* KeyboardKeysMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardKeysMatcher.swift; sourceTree = "<group>"; };
-		BB36E1E41EF53A580081DDAE /* Issue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
+		BB36E1E41EF53A580081DDAE /* DetailedIssue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedIssue.swift; sourceTree = "<group>"; };
 		BB36E1E61EF53C970081DDAE /* NSView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+Constraints.swift"; sourceTree = "<group>"; };
 		BB36E1E91EF589F80081DDAE /* IssuesEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesEndpoints.swift; sourceTree = "<group>"; };
 		BB36E1EC1EF5A27E0081DDAE /* SprintViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprintViewModel.swift; sourceTree = "<group>"; };
@@ -304,6 +306,8 @@
 		BBD571FC1EC37F620061AD67 /* CommonValidators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonValidators.swift; sourceTree = "<group>"; };
 		BBD571FE1EC3B2C60061AD67 /* Observable+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+Extensions.swift"; sourceTree = "<group>"; };
 		BBDA908C1F104A4600B99C34 /* SmallImageWithLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallImageWithLabelView.swift; sourceTree = "<group>"; };
+		BBDA908E1F11497300B99C34 /* BasicIssue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicIssue.swift; sourceTree = "<group>"; };
+		BBDA90901F114CCA00B99C34 /* IssueIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueIdentifiable.swift; sourceTree = "<group>"; };
 		BBE003721E39534E00E1A2A4 /* JiraHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JiraHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBE003751E39534E00E1A2A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBE003771E39534E00E1A2A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -795,10 +799,12 @@
 			children = (
 				BB34BBA91F04421F0070276D /* Edition */,
 				BBB765711EF51B9E0039B366 /* SprintIssuesService.swift */,
-				BB36E1E41EF53A580081DDAE /* Issue.swift */,
+				BB36E1E41EF53A580081DDAE /* DetailedIssue.swift */,
 				BB36E1E91EF589F80081DDAE /* IssuesEndpoints.swift */,
 				BB36E1F51EF5B18C0081DDAE /* Issue+Details.swift */,
 				BBAF06B31EFE75B000DF3E46 /* IssueInvolvedPerson.swift */,
+				BBDA908E1F11497300B99C34 /* BasicIssue.swift */,
+				BBDA90901F114CCA00B99C34 /* IssueIdentifiable.swift */,
 			);
 			path = Issues;
 			sourceTree = "<group>";
@@ -1144,6 +1150,7 @@
 				BB9B6CAE1F098BE2007FC01B /* SprintColumnDecorationView.swift in Sources */,
 				BB2046C11EBE0F7300084F34 /* Optionals.swift in Sources */,
 				BB36E1E71EF53C970081DDAE /* NSView+Constraints.swift in Sources */,
+				BBDA90911F114CCA00B99C34 /* IssueIdentifiable.swift in Sources */,
 				BBA77B9B1E57922C00C9842C /* TextFieldStyles.swift in Sources */,
 				BBE003761E39534E00E1A2A4 /* AppDelegate.swift in Sources */,
 				BB12D6F31ED7825900FEA52A /* PasteboardService.swift in Sources */,
@@ -1204,6 +1211,7 @@
 				BB0A2BEB1EBF839000A19D60 /* BoardEndpoints.swift in Sources */,
 				BB9B6CAC1F098435007FC01B /* SerialDisposeBox.swift in Sources */,
 				FA6E3C6DED0B860D768D19B1 /* MainWindowController.swift in Sources */,
+				BBDA908F1F11497300B99C34 /* BasicIssue.swift in Sources */,
 				BBA77B9D1E579D1600C9842C /* SprintViewController.swift in Sources */,
 				BB2046B71EBE095700084F34 /* KanbanCollectionViewLayout.swift in Sources */,
 				BB5695A71EDB647000B87510 /* LoginViewModel.swift in Sources */,
@@ -1238,7 +1246,7 @@
 				FA6E351536938100E1D24BBE /* TextInputViewController.swift in Sources */,
 				BBFC653D1EE1FDFA005C1EFB /* BasicAuthLoginEndpoints.swift in Sources */,
 				BB5FB9AB1EF3122000972AC5 /* MainViewModel.swift in Sources */,
-				BB36E1E51EF53A580081DDAE /* Issue.swift in Sources */,
+				BB36E1E51EF53A580081DDAE /* DetailedIssue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

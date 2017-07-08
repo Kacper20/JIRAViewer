@@ -27,7 +27,7 @@ struct SprintElementData {
     let key: String
     let avatarUrl: String?
 
-    init(issue: Issue) {
+    init(issue: BasicIssue) {
         self.title = issue.summary
         self.key = issue.key
         self.labels = issue.labels.joined(separator: ",")
@@ -42,9 +42,9 @@ struct SprintIssuesContainer {
         self.columns = columns
     }
 
-    var data: [KanbanColumn : [Issue]] = [:]
+    var data: [KanbanColumn : [BasicIssue]] = [:]
 
-    mutating func update(with issues: [Issue]) {
+    mutating func update(with issues: [BasicIssue]) {
         let keysCount = data.keys.count
         data = [:]
         data.reserveCapacity(keysCount)
@@ -62,7 +62,7 @@ struct SprintIssuesContainer {
         }
     }
 
-    func issue(at indexPath: IndexPath) -> Issue? {
+    func issue(at indexPath: IndexPath) -> BasicIssue? {
         return data[columns[indexPath.section]]?[indexPath.item]
     }
 
@@ -70,7 +70,7 @@ struct SprintIssuesContainer {
         return issue(at: indexPath).map(SprintElementData.init)
     }
 
-    mutating func updateIssueAndGetPath(newIssue: Issue) -> IndexPath? {
+    mutating func updateIssueAndGetPath(newIssue: BasicIssue) -> IndexPath? {
         let column = KanbanColumn(name: newIssue.status.name)
         if let columnIndex = columns.index(of: column),
            var issues = data[column],
@@ -83,7 +83,7 @@ struct SprintIssuesContainer {
         }
     }
 
-    private mutating func removeIssue(from path: IndexPath) -> Issue? {
+    private mutating func removeIssue(from path: IndexPath) -> BasicIssue? {
         let column = columns[path.section]
         var array = data[column]
         let issue = array?.remove(at: path.item)
@@ -92,7 +92,7 @@ struct SprintIssuesContainer {
     }
 
     //TODO: Error handling to methods
-    private mutating func insert(_ issues: [Issue], at path: IndexPath) {
+    private mutating func insert(_ issues: [BasicIssue], at path: IndexPath) {
         let column = columns[path.section]
         var array = data[column]
         guard array != nil && (array?.count ?? -1) >= path.item else { return }
@@ -101,7 +101,7 @@ struct SprintIssuesContainer {
     }
 
     mutating func moveIssues(from set: Set<IndexPath>, to path: IndexPath) {
-        var issues = [Issue]()
+        var issues = [BasicIssue]()
         for path in set {
             if let issue = removeIssue(from: path) {
                 issues.append(issue)

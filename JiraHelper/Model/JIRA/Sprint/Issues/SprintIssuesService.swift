@@ -18,16 +18,16 @@ final class SprintIssuesService {
         self.sprint = sprint
     }
 
-    func getAll() -> Observable<[Issue]> {
+    func getAll() -> Observable<[BasicIssue]> {
         let allConfig = IssuesEndpoints.all(forSprint: sprint)
         return networkService.request(configuration: allConfig).map { $0.values }
     }
 
-    func getIssue(forId id: String) -> Observable<Issue> {
-        return networkService.request(configuration: IssuesEndpoints.issue(withId: id))
+    func getDetailedIssue(for issue: IssueIdentifiable) -> Observable<DetailedIssue> {
+        return networkService.request(configuration: IssuesEndpoints.detailedIssue(for: issue))
     }
 
-    func issueEditionService(for issue: Issue) -> IssueEditionService {
+    func issueEditionService(for issue: BasicIssue) -> IssueEditionService {
         return IssueEditionService(networkService: networkService, issue: issue)
     }
 }

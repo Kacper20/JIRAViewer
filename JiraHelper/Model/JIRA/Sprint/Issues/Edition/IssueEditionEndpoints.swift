@@ -9,7 +9,7 @@
 import Foundation
 
 enum IssueEditionEndpoints {
-    static func assign(issue: Issue, to user: User) -> EndpointConfiguration<Nothing> {
+    static func assign(issue: IssueIdentifiable, to user: User) -> EndpointConfiguration<Nothing> {
         return EndpointConfiguration(
             path: "/api/latest/issue/\(issue.id)/assignee",
             method: .put,
