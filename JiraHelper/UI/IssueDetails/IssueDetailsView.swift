@@ -57,8 +57,8 @@ final class IssueDetailsView: NSView {
         gridView.trailingToSuperview()
 
         stackView.topAnchor.constraint(equalTo: gridView.bottomAnchor, constant: inset)
-        stackView.leadingToSuperview(with: inset)
-        stackView.trailingToSuperview(with: -inset)
+        stackView.leadingToSuperview()
+        stackView.trailingToSuperview()
         stackView.bottomAnchor.constraint(lessThanOrEqualTo: containerView.bottomAnchor).activate()
     }
 
@@ -92,18 +92,21 @@ final class IssueDetailsView: NSView {
         let stackView = NSStackView()
         stackView.orientation = .vertical
         let descriptionHeadline = labelWithText(text: "Description", styles: TextFieldStyles.sectionHeadline)
-        let descriptionBody = attributedTextView(html: data.descriptionHtml)
+//        let descriptionBody = attributedTextView(html: data.descriptionHtml)
+        let descriptionBody = labelWithText(text: data.descriptionHtml)
         let views = [descriptionHeadline, descriptionBody]
+        stackView.addArrangedSubviews(views)
         views.forEach {
             $0.leadingToSuperview()
             $0.trailingToSuperview()
         }
-        stackView.addArrangedSubviews(views)
         return stackView
     }
 
     private func commentViews() -> [NSView] {
-        return []
+        var views = [NSView]()
+        views.append(labelWithText(text: "Comments", styles: TextFieldStyles.headline))
+        return views
     }
 
     private func attributedTextView(html: String) -> NSTextView {

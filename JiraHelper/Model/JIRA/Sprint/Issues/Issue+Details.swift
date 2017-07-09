@@ -25,6 +25,7 @@ struct IssuePriority: Decodable {
 struct IssueComment: Decodable {
     let body: String
     let author: IssueInvolvedPerson
+    let created: Date
 }
 
 struct IssueType: Decodable {

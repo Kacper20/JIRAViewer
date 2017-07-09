@@ -118,6 +118,7 @@
 		BBDA908F1F11497300B99C34 /* BasicIssue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDA908E1F11497300B99C34 /* BasicIssue.swift */; };
 		BBDA90911F114CCA00B99C34 /* IssueIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDA90901F114CCA00B99C34 /* IssueIdentifiable.swift */; };
 		BBDA90931F11604D00B99C34 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDA90921F11604D00B99C34 /* URL+Extensions.swift */; };
+		BBDA90951F12765A00B99C34 /* IssueDetailsCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDA90941F12765A00B99C34 /* IssueDetailsCommentView.swift */; };
 		BBE003761E39534E00E1A2A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE003751E39534E00E1A2A4 /* AppDelegate.swift */; };
 		BBE003781E39534E00E1A2A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBE003771E39534E00E1A2A4 /* Assets.xcassets */; };
 		BBE003861E39534E00E1A2A4 /* JiraHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE003851E39534E00E1A2A4 /* JiraHelperTests.swift */; };
@@ -310,6 +311,7 @@
 		BBDA908E1F11497300B99C34 /* BasicIssue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicIssue.swift; sourceTree = "<group>"; };
 		BBDA90901F114CCA00B99C34 /* IssueIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueIdentifiable.swift; sourceTree = "<group>"; };
 		BBDA90921F11604D00B99C34 /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
+		BBDA90941F12765A00B99C34 /* IssueDetailsCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueDetailsCommentView.swift; sourceTree = "<group>"; };
 		BBE003721E39534E00E1A2A4 /* JiraHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JiraHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBE003751E39534E00E1A2A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBE003771E39534E00E1A2A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -526,6 +528,7 @@
 				BB63004F1F0D81830066262E /* ViewModel */,
 				BB143CBD1F0ACFD5008BC52C /* IssueDetailsViewController.swift */,
 				BB143CC11F0AD041008BC52C /* IssueDetailsView.swift */,
+				BBDA90941F12765A00B99C34 /* IssueDetailsCommentView.swift */,
 			);
 			path = IssueDetails;
 			sourceTree = "<group>";
@@ -1213,6 +1216,7 @@
 				BB7FC21D1F09540C0032B3E2 /* IssueEditionService.swift in Sources */,
 				BB0A2BEB1EBF839000A19D60 /* BoardEndpoints.swift in Sources */,
 				BB9B6CAC1F098435007FC01B /* SerialDisposeBox.swift in Sources */,
+				BBDA90951F12765A00B99C34 /* IssueDetailsCommentView.swift in Sources */,
 				FA6E3C6DED0B860D768D19B1 /* MainWindowController.swift in Sources */,
 				BBDA908F1F11497300B99C34 /* BasicIssue.swift in Sources */,
 				BBA77B9D1E579D1600C9842C /* SprintViewController.swift in Sources */,
