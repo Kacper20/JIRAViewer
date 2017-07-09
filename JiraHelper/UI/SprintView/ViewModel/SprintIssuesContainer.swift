@@ -26,16 +26,16 @@ struct SprintElementData {
     let labels: String
     let key: String
     let assigneeAvatarUrl: String?
-    let statusAvatarUrl: String
-    let priorityAvatarUrl: String?
+    let typeAvatarUrl: String
+    let priorityAvatarUrl: String
 
     init(issue: BasicIssue) {
         self.title = issue.summary
         self.key = issue.key
         self.labels = issue.labels.joined(separator: ",")
         self.assigneeAvatarUrl = issue.assignee?.avatarUrl
-        self.statusAvatarUrl = issue.status.iconUrl
-        self.priorityAvatarUrl = issue.priority?.pngIconUrl
+        self.typeAvatarUrl = issue.type.iconUrl
+        self.priorityAvatarUrl = issue.priority.pngIconUrl
     }
 }
 

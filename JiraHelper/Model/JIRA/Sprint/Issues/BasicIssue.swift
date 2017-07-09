@@ -16,7 +16,8 @@ struct BasicIssue: Decodable {
     let status: IssueStatus
     let assignee: IssueInvolvedPerson?
     let labels: [String]
-    let priority: IssuePriority?
+    let priority: IssuePriority
+    let type: IssueType
 
     private enum CodingKeys: String, CodingKey {
         case id
@@ -30,11 +31,17 @@ struct BasicIssue: Decodable {
         case labels
         case assignee
         case priority
+        case issuetype
     }
 
     static var necessaryFields: String {
         return [
-            FieldsCodingKeys.status, FieldsCodingKeys.summary, FieldsCodingKeys.labels, FieldsCodingKeys.assignee
+            FieldsCodingKeys.status,
+            FieldsCodingKeys.summary,
+            FieldsCodingKeys.labels,
+            FieldsCodingKeys.assignee,
+            FieldsCodingKeys.issuetype,
+            FieldsCodingKeys.priority
             ].map { $0.rawValue }.joined(separator: ",")
     }
 
@@ -47,6 +54,7 @@ struct BasicIssue: Decodable {
         assignee = try fieldsContainer.decodeIfPresent(IssueInvolvedPerson.self, forKey: .assignee)
         summary = try fieldsContainer.decode(String.self, forKey: .summary)
         labels = try fieldsContainer.decode([String].self, forKey: .labels)
-        priority = try fieldsContainer.decodeIfPresent(IssuePriority.self, forKey: .priority)
+        priority = try fieldsContainer.decode(IssuePriority.self, forKey: .priority)
+        type = try fieldsContainer.decode(IssueType.self, forKey: .issuetype)
     }
 }

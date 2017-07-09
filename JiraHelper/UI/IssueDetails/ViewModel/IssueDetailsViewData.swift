@@ -8,13 +8,32 @@
 
 import Foundation
 
+
+
 struct IssueDetailsViewData {
+
+    struct Comment {
+        let date: String
+        let author: String
+        let avatarUrl: String
+        let body: String
+
+        init(comment: IssueComment) {
+            self.date = DateFormatterHelper.issueDetailsFormat(date: comment.created)
+            self.author = comment.author.name
+            self.avatarUrl = comment.author.avatarUrl
+            self.body = comment.body
+        }
+    }
+
     let keyName: String
     let title: String
     let peopleInvolved: [PersonData]
 
     let creationTime: String
     let lastViewTime: String?
+    let descriptionHtml: String
+    let comments: [Comment]
 }
 
 extension IssueDetailsViewData {
@@ -28,5 +47,7 @@ extension IssueDetailsViewData {
         self.peopleInvolved = people
         self.creationTime = DateFormatterHelper.issueDetailsFormat(date: issue.created)
         self.lastViewTime = issue.lastViewed.map(DateFormatterHelper.issueDetailsFormat(date: ))
+        self.descriptionHtml = issue.description
+        self.comments = issue.comments.map(Comment.init(comment:))
     }
 }

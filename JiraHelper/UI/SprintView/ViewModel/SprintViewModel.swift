@@ -126,10 +126,8 @@ final class SprintViewModel: NSObject, NSCollectionViewDataSource, KanbanCollect
         if let url = model.assigneeAvatarUrl {
             getImage(from: url, bindedTo: sprintItem, sink: sprintItem.assigneeImageSink)
         }
-        if let url = model.priorityAvatarUrl {
-            getImage(from: url, bindedTo: sprintItem, sink: sprintItem.priorityImageSink)
-        }
-        getImage(from: model.statusAvatarUrl, bindedTo: sprintItem, sink: sprintItem.statusImageSink)
+        getImage(from: model.priorityAvatarUrl, bindedTo: sprintItem, sink: sprintItem.priorityImageSink)
+        getImage(from: model.typeAvatarUrl, bindedTo: sprintItem, sink: sprintItem.typeImageSink)
         return item
     }
 
