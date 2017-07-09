@@ -93,7 +93,12 @@ final class IssueDetailsView: NSView {
         stackView.orientation = .vertical
         let descriptionHeadline = labelWithText(text: "Description", styles: TextFieldStyles.sectionHeadline)
         let descriptionBody = attributedTextView(html: data.descriptionHtml)
-        stackView.addArrangedSubviews(descriptionHeadline, descriptionBody)
+        let views = [descriptionHeadline, descriptionBody]
+        views.forEach {
+            $0.leadingToSuperview()
+            $0.trailingToSuperview()
+        }
+        stackView.addArrangedSubviews(views)
         return stackView
     }
 
