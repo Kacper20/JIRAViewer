@@ -26,3 +26,8 @@ struct IssueComment: Decodable {
     let body: String
     let author: IssueInvolvedPerson
 }
+
+struct IssueType: Decodable {
+    let name: String
+    let iconUrl: String
+}

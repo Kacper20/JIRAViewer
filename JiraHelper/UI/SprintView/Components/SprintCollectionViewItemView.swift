@@ -19,7 +19,7 @@ final class SprintCollectionViewItemView: NSView {
 
     private let itemColorView = NSView()
 
-    private let statusImageView = NSImageView()
+    private let typeImageView = NSImageView()
     private let priorityImageView = NSImageView()
     private let assigneeImageView = NSImageView()
 
@@ -83,9 +83,9 @@ final class SprintCollectionViewItemView: NSView {
         imagesStackView.orientation = .horizontal
         imagesStackView.distribution = .fillEqually
         let imageSize: CGFloat = 24
-        imagesStackView.addArrangedSubviews(statusImageView, priorityImageView, assigneeImageView)
+        imagesStackView.addArrangedSubviews(typeImageView, priorityImageView, assigneeImageView)
         setupIconImageView(assigneeImageView, size: imageSize)
-        setupIconImageView(statusImageView, size: imageSize)
+        setupIconImageView(typeImageView, size: imageSize)
         setupIconImageView(priorityImageView, size: imageSize)
         assigneeImageView.layer?.cornerRadius = imageSize / 2
 
@@ -126,8 +126,8 @@ final class SprintCollectionViewItemView: NSView {
         return AnyObserver<NSImage>.next { [weak self] in self?.assigneeImageView.image = $0 }
     }
 
-    var statusImageSink: AnyObserver<NSImage> {
-        return AnyObserver<NSImage>.next { [weak self] in self?.statusImageView.image = $0 }
+    var typeImageSink: AnyObserver<NSImage> {
+        return AnyObserver<NSImage>.next { [weak self] in self?.typeImageView.image = $0 }
     }
 
     var priorityImageSink: AnyObserver<NSImage> {

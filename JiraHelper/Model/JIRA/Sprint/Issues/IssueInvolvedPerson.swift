@@ -19,7 +19,7 @@ struct IssueInvolvedPerson: Decodable {
 
     }
     private enum AvatarsCodingKeys: String, CodingKey {
-        case midSize = "32x32"
+        case midSize = "48x48"
     }
 
     init(from decoder: Decoder) throws {

@@ -56,8 +56,8 @@ final class SprintCollectionViewItem: NSCollectionViewItem {
         return castView.priorityImageSink
     }
 
-    var statusImageSink: AnyObserver<NSImage> {
-        return castView.statusImageSink
+    var typeImageSink: AnyObserver<NSImage> {
+        return castView.typeImageSink
     }
 
     func update(with data: SprintElementData) {

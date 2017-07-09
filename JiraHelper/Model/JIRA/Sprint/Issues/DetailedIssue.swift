@@ -19,8 +19,9 @@ struct DetailedIssue: Decodable {
     let assignee: IssueInvolvedPerson?
     let creator: IssueInvolvedPerson
     let labels: [String]
-    let priority: IssuePriority?
+    let priority: IssuePriority
     let comments: [IssueComment]
+    let type: IssueType
 
     private enum CodingKeys: String, CodingKey {
         case id
@@ -40,6 +41,7 @@ struct DetailedIssue: Decodable {
         case description
         case priority
         case comment
+        case issuetype
     }
     private enum CommentCodingKeys: String, CodingKey {
         case comments
@@ -59,8 +61,9 @@ struct DetailedIssue: Decodable {
         lastViewed = try fieldsContainer.decodeIfPresent(Date.self, forKey: .lastViewed)
         labels = try fieldsContainer.decode([String].self, forKey: .labels)
         description = try renderedFields.decode(String.self, forKey: .description)
-        priority = try fieldsContainer.decodeIfPresent(IssuePriority.self, forKey: .priority)
+        priority = try fieldsContainer.decode(IssuePriority.self, forKey: .priority)
         let commentContainer = try renderedFields.nestedContainer(keyedBy: CommentCodingKeys.self, forKey: .comment)
         comments = try commentContainer.decode([IssueComment].self, forKey: .comments)
+        type = try fieldsContainer.decode(IssueType.self, forKey: .issuetype)
     }
 }
