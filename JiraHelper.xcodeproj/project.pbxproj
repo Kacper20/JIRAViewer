@@ -51,6 +51,7 @@
 		BB34BBA81F043D630070276D /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34BBA71F043D630070276D /* UserService.swift */; };
 		BB34BBAB1F04422B0070276D /* IssueEditionEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34BBAA1F04422B0070276D /* IssueEditionEndpoints.swift */; };
 		BB34BBAD1F0445F20070276D /* KeyboardKeysMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34BBAC1F0445F20070276D /* KeyboardKeysMatcher.swift */; };
+		BB361C1C1F13DC81002369CB /* MainWindowPopoverPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB361C1B1F13DC81002369CB /* MainWindowPopoverPresenter.swift */; };
 		BB36E1E51EF53A580081DDAE /* DetailedIssue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36E1E41EF53A580081DDAE /* DetailedIssue.swift */; };
 		BB36E1E71EF53C970081DDAE /* NSView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36E1E61EF53C970081DDAE /* NSView+Constraints.swift */; };
 		BB36E1EA1EF589F80081DDAE /* IssuesEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36E1E91EF589F80081DDAE /* IssuesEndpoints.swift */; };
@@ -245,6 +246,7 @@
 		BB34BBA71F043D630070276D /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		BB34BBAA1F04422B0070276D /* IssueEditionEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueEditionEndpoints.swift; sourceTree = "<group>"; };
 		BB34BBAC1F0445F20070276D /* KeyboardKeysMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardKeysMatcher.swift; sourceTree = "<group>"; };
+		BB361C1B1F13DC81002369CB /* MainWindowPopoverPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowPopoverPresenter.swift; sourceTree = "<group>"; };
 		BB36E1E41EF53A580081DDAE /* DetailedIssue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedIssue.swift; sourceTree = "<group>"; };
 		BB36E1E61EF53C970081DDAE /* NSView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+Constraints.swift"; sourceTree = "<group>"; };
 		BB36E1E91EF589F80081DDAE /* IssuesEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesEndpoints.swift; sourceTree = "<group>"; };
@@ -980,6 +982,7 @@
 				BB62DE781E56293A00AA3577 /* MainWindowController.xib */,
 				BB62DEBB1E565A7800AA3577 /* MainWindow.swift */,
 				BB5FB9A81EF3121300972AC5 /* MainViewModelCreator.swift */,
+				BB361C1B1F13DC81002369CB /* MainWindowPopoverPresenter.swift */,
 			);
 			path = MainWindow;
 			sourceTree = "<group>";
@@ -1180,6 +1183,7 @@
 				BB0A2BF11EBF8D4100A19D60 /* PagingData.swift in Sources */,
 				BB17145B1EF3480C00BFB942 /* ActiveSprint.swift in Sources */,
 				BB9B6CB01F0996F3007FC01B /* SprintViewsConfiguration.swift in Sources */,
+				BB361C1C1F13DC81002369CB /* MainWindowPopoverPresenter.swift in Sources */,
 				BBFC654A1EE307EA005C1EFB /* Environment.swift in Sources */,
 				BBFC65471EE218B0005C1EFB /* LoginService.swift in Sources */,
 				BB53D4341EDA1A8400BBC607 /* NetworkLogger.swift in Sources */,

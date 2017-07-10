@@ -63,7 +63,8 @@ struct DetailedIssue: Decodable {
         description = try renderedFields.decode(String.self, forKey: .description)
         priority = try fieldsContainer.decode(IssuePriority.self, forKey: .priority)
         let commentContainer = try renderedFields.nestedContainer(keyedBy: CommentCodingKeys.self, forKey: .comment)
-        comments = try commentContainer.decode([IssueComment].self, forKey: .comments)
+        comments = []
+//        try commentContainer.decode([IssueComment].self, forKey: .comments)
         type = try fieldsContainer.decode(IssueType.self, forKey: .issuetype)
     }
 }
