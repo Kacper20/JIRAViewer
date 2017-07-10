@@ -8,10 +8,13 @@
 
 import Foundation
 
-final class MainWindowPopoverPresenter {
+final class MainWindowPopoverPresenter: NSObject, NSPopoverDelegate {
     private var popover: NSPopover?
 
-    init() { }
+    override init() {
+        var mask = NSWindowStyleMask.titled
+        mask.insert(.closable)
+    }
 
     func present(request: IssueExpandRequest, imageDownloader: ImageDownloader) {
         let loading = LoadingPerformingFlowViewController(
@@ -29,6 +32,11 @@ final class MainWindowPopoverPresenter {
         popover.appearance = NSAppearance(named: NSAppearanceNameVibrantLight)
         popover.animates = true
         popover.contentViewController = loading
+        popover.delegate = self
         popover.show(relativeTo: request.rect, of: request.source, preferredEdge: .maxX)
+    }
+
+    func popoverShouldDetach(_ popover: NSPopover) -> Bool {
+        return true
     }
 }
