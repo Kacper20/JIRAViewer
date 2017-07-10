@@ -50,6 +50,6 @@ final class LoadingPerformingFlowViewController<T>: LoadingContainerViewControll
     }
 
     private func presentError(_ error: Error) {
-        fatalError("Not implemented yet")
+        fatalError("Not implemented yet, error: \(error)")
     }
 }

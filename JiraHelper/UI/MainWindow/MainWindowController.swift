@@ -90,7 +90,11 @@ final class MainWindowController: NSWindowController {
 //        popover.contentSize = popoverSize
         popover.animates = true
         popover.contentViewController = loading
-        popover.show(relativeTo: request.source.bounds, of: request.source, preferredEdge: .maxX)
+//        guard let parent = request.source.superview else { return }
+        print("frame: \(request.source.frame), view: \(request.source), superview: \(request.source.superview)")
+        let converted =
+//        popover.show(relativeTo: request.source.bounds, of: request.source, preferredEdge: .maxX)
+        popover.show(relativeTo: request.source.frame, of: request.source.superview!, preferredEdge: .maxX)
     }
 
     @available(OSX 10.12.2, *)
