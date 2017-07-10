@@ -11,6 +11,7 @@ final class MainWindowController: NSWindowController {
 
     private let disposeBag = DisposeBag()
     private let mainViewModelCreator: MainViewModelCreator
+    private let popoverPresenter = MainWindowPopoverPresenter()
 
     private var mainViewController: MainViewController?
     private var toolbarManager: MainWindowToolbarManager?
@@ -64,36 +65,8 @@ final class MainWindowController: NSWindowController {
         viewModel.sprintViewModel
             .issueDetailsExpand
             .subscribe(onNext: { [unowned self] request in
-                self.presentIssueLoadingPopover(request: request, viewModel: viewModel)
+                self.popoverPresenter.present(request: request, imageDownloader: viewModel.imageDownloader)
             }).addDisposableTo(disposeBag)
-
-    }
-
-    private var popover: NSPopover?
-
-    //TODO: Move to another object
-    private func presentIssueLoadingPopover(request: IssueExpandRequest, viewModel: MainViewModel) {
-        guard let window = window, let windowView = window.contentView else {
-            return
-        }
-        let loading = LoadingPerformingFlowViewController(
-            operation: request.operation,
-            controllerConstruction: { issue in
-                return IssueDetailsViewController(issue: issue, imageDownloader: viewModel.imageDownloader)
-        })
-        loading.view.heightAnchor.constraint(equalToConstant: 500).activate()
-        loading.view.widthAnchor.constraint(equalToConstant: 300).activate()
-
-        self.popover?.close()
-        let popover = NSPopover()
-        self.popover = popover
-        popover.behavior = .transient
-        popover.appearance = NSAppearance(named: NSAppearanceNameVibrantLight)
-//        popover.contentSize = popoverSize
-        popover.animates = true
-        popover.contentViewController = loading
-        print("Rect: \(request.rect), source: \(request.source)")
-        popover.show(relativeTo: request.rect, of: request.source, preferredEdge: .maxX)
     }
 
     @available(OSX 10.12.2, *)
