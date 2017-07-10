@@ -11,6 +11,7 @@ import RxSwift
 
 struct IssueExpandRequest {
     let source: NSView
+    let rect: NSRect
     let operation: Observable<DetailedIssue>
 }
 
@@ -119,9 +120,17 @@ final class SprintViewModel: NSObject, NSCollectionViewDataSource, KanbanCollect
         _ = sprintItem.doubleClicked
             .filterMap { _ in self.container.issue(at: indexPath) }
             .map(sprintIssuesService.getDetailedIssue(for: ))
-            .map { IssueExpandRequest(source: item.view, operation: $0) }
+            .flatMap { operation -> Observable<IssueExpandRequest> in
+                guard let collectionSuperview = collectionView.superview else {
+                    return .empty()
+                }
+                let sourceFrame = collectionView.convert(item.view.frame, to: collectionSuperview)
+                return .just(IssueExpandRequest(source: collectionSuperview, rect: sourceFrame, operation: operation))
+            }
             .takeUntil(sprintItem.preparedForReuse)
-            .bind(to: issueExpandSubject)
+            .subscribe(onNext: { [weak self] request in
+                self?.issueExpandSubject.onNext(request)
+            })
 
         if let url = model.assigneeAvatarUrl {
             getImage(from: url, bindedTo: sprintItem, sink: sprintItem.assigneeImageSink)

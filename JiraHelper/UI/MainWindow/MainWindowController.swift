@@ -73,7 +73,9 @@ final class MainWindowController: NSWindowController {
 
     //TODO: Move to another object
     private func presentIssueLoadingPopover(request: IssueExpandRequest, viewModel: MainViewModel) {
-        guard let window = window, let windowView = window.contentView else { return }
+        guard let window = window, let windowView = window.contentView else {
+            return
+        }
         let loading = LoadingPerformingFlowViewController(
             operation: request.operation,
             controllerConstruction: { issue in
@@ -85,16 +87,13 @@ final class MainWindowController: NSWindowController {
         self.popover?.close()
         let popover = NSPopover()
         self.popover = popover
-        popover.behavior = .semitransient
+        popover.behavior = .transient
         popover.appearance = NSAppearance(named: NSAppearanceNameVibrantLight)
 //        popover.contentSize = popoverSize
         popover.animates = true
         popover.contentViewController = loading
-//        guard let parent = request.source.superview else { return }
-        print("frame: \(request.source.frame), view: \(request.source), superview: \(request.source.superview)")
-        let converted =
-//        popover.show(relativeTo: request.source.bounds, of: request.source, preferredEdge: .maxX)
-        popover.show(relativeTo: request.source.frame, of: request.source.superview!, preferredEdge: .maxX)
+        print("Rect: \(request.rect), source: \(request.source)")
+        popover.show(relativeTo: request.rect, of: request.source, preferredEdge: .maxX)
     }
 
     @available(OSX 10.12.2, *)
