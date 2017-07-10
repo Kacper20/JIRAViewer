@@ -52,6 +52,10 @@
 		BB34BBAB1F04422B0070276D /* IssueEditionEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34BBAA1F04422B0070276D /* IssueEditionEndpoints.swift */; };
 		BB34BBAD1F0445F20070276D /* KeyboardKeysMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34BBAC1F0445F20070276D /* KeyboardKeysMatcher.swift */; };
 		BB361C1C1F13DC81002369CB /* MainWindowPopoverPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB361C1B1F13DC81002369CB /* MainWindowPopoverPresenter.swift */; };
+		BB361C1F1F13EBB4002369CB /* IssueTransitionsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB361C1E1F13EBB4002369CB /* IssueTransitionsService.swift */; };
+		BB361C211F13EBBE002369CB /* IssueTransitionsEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB361C201F13EBBE002369CB /* IssueTransitionsEndpoints.swift */; };
+		BB361C231F13EF1C002369CB /* IssueTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB361C221F13EF1C002369CB /* IssueTransition.swift */; };
+		BB361C251F13F0A7002369CB /* IssueTransitionPerformingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB361C241F13F0A7002369CB /* IssueTransitionPerformingService.swift */; };
 		BB36E1E51EF53A580081DDAE /* DetailedIssue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36E1E41EF53A580081DDAE /* DetailedIssue.swift */; };
 		BB36E1E71EF53C970081DDAE /* NSView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36E1E61EF53C970081DDAE /* NSView+Constraints.swift */; };
 		BB36E1EA1EF589F80081DDAE /* IssuesEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36E1E91EF589F80081DDAE /* IssuesEndpoints.swift */; };
@@ -247,6 +251,10 @@
 		BB34BBAA1F04422B0070276D /* IssueEditionEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueEditionEndpoints.swift; sourceTree = "<group>"; };
 		BB34BBAC1F0445F20070276D /* KeyboardKeysMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardKeysMatcher.swift; sourceTree = "<group>"; };
 		BB361C1B1F13DC81002369CB /* MainWindowPopoverPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowPopoverPresenter.swift; sourceTree = "<group>"; };
+		BB361C1E1F13EBB4002369CB /* IssueTransitionsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueTransitionsService.swift; sourceTree = "<group>"; };
+		BB361C201F13EBBE002369CB /* IssueTransitionsEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueTransitionsEndpoints.swift; sourceTree = "<group>"; };
+		BB361C221F13EF1C002369CB /* IssueTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueTransition.swift; sourceTree = "<group>"; };
+		BB361C241F13F0A7002369CB /* IssueTransitionPerformingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueTransitionPerformingService.swift; sourceTree = "<group>"; };
 		BB36E1E41EF53A580081DDAE /* DetailedIssue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedIssue.swift; sourceTree = "<group>"; };
 		BB36E1E61EF53C970081DDAE /* NSView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+Constraints.swift"; sourceTree = "<group>"; };
 		BB36E1E91EF589F80081DDAE /* IssuesEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesEndpoints.swift; sourceTree = "<group>"; };
@@ -609,6 +617,17 @@
 			path = Edition;
 			sourceTree = "<group>";
 		};
+		BB361C1D1F13EB9B002369CB /* Transitions */ = {
+			isa = PBXGroup;
+			children = (
+				BB361C1E1F13EBB4002369CB /* IssueTransitionsService.swift */,
+				BB361C201F13EBBE002369CB /* IssueTransitionsEndpoints.swift */,
+				BB361C221F13EF1C002369CB /* IssueTransition.swift */,
+				BB361C241F13F0A7002369CB /* IssueTransitionPerformingService.swift */,
+			);
+			path = Transitions;
+			sourceTree = "<group>";
+		};
 		BB36E1E81EF585500081DDAE /* TouchBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -805,6 +824,7 @@
 		BBB765701EF518640039B366 /* Issues */ = {
 			isa = PBXGroup;
 			children = (
+				BB361C1D1F13EB9B002369CB /* Transitions */,
 				BB34BBA91F04421F0070276D /* Edition */,
 				BBB765711EF51B9E0039B366 /* SprintIssuesService.swift */,
 				BB36E1E41EF53A580081DDAE /* DetailedIssue.swift */,
@@ -1202,15 +1222,18 @@
 				BBA77BAB1E57A62300C9842C /* MaskImage.swift in Sources */,
 				BBAF06AF1EFE4DC300DF3E46 /* View+Extensions.swift in Sources */,
 				BB34BBA61F043D5C0070276D /* User.swift in Sources */,
+				BB361C211F13EBBE002369CB /* IssueTransitionsEndpoints.swift in Sources */,
 				BBFC65451EE20557005C1EFB /* CookiesAuthLoginService.swift in Sources */,
 				BB0A2C0C1EC12F0400A19D60 /* TeamCheckEndpoints.swift in Sources */,
 				BB0A2BF41EBF9C8400A19D60 /* AuthenticationProvider.swift in Sources */,
 				BB0A2BD31EBF47B600A19D60 /* Logger.swift in Sources */,
+				BB361C1F1F13EBB4002369CB /* IssueTransitionsService.swift in Sources */,
 				BBFC65431EE20319005C1EFB /* CookieSession.swift in Sources */,
 				BBD571FB1EC37D3E0061AD67 /* Validator.swift in Sources */,
 				BB36E1ED1EF5A27E0081DDAE /* SprintViewModel.swift in Sources */,
 				BB34BBAB1F04422B0070276D /* IssueEditionEndpoints.swift in Sources */,
 				BBAF06B21EFE742600DF3E46 /* Observers+Extensions.swift in Sources */,
+				BB361C251F13F0A7002369CB /* IssueTransitionPerformingService.swift in Sources */,
 				BB17145E1EF4280100BFB942 /* ToolbarItemProvider.swift in Sources */,
 				BB0A2C041EBFBB3100A19D60 /* TeamPickerViewController.swift in Sources */,
 				BB0A2C0A1EC12EF400A19D60 /* TeamCheckService.swift in Sources */,
@@ -1232,6 +1255,7 @@
 				BB53D4301EDA0D5700BBC607 /* TwoWayBindingOperator.swift in Sources */,
 				BB0A2BC91EBE45AB00A19D60 /* SprintCollectionView.swift in Sources */,
 				BB99A1651F0C18900006E40D /* LoadingPerformingFlowViewController.swift in Sources */,
+				BB361C231F13EF1C002369CB /* IssueTransition.swift in Sources */,
 				BBA77BA61E57A3F200C9842C /* MainViewController.swift in Sources */,
 				BB05A2FB1EEDE6B2000EFC1C /* Serialization.swift in Sources */,
 				BB143CC21F0AD041008BC52C /* IssueDetailsView.swift in Sources */,
