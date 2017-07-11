@@ -15,9 +15,9 @@ enum IssueEditionEndpoints {
             method: .put,
             encoding: JSONEncoding.default,
             headers: [:],
-            parameters: [
+            parameters: .dict([
                 "name" : user.name
-            ],
+            ]),
             resourceType: .none(Nothing())
         )
     }

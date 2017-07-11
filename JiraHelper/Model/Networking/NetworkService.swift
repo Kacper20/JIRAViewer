@@ -12,9 +12,25 @@ import Alamofire
 
 enum NetworkServiceError: Error {
     case parsingError(Error)
-    case respons
     case networkUnreachable
     case invalidStatusCode(code: Int, response: [String : AnyObject]?)
+    case requestCreationError(Error)
+}
+
+enum RequestCreationError: Error {
+    case incorrectPath
+    case objectNotEncodable
+}
+
+struct EncodableBox: Encodable {
+    private let encodable: Encodable
+
+    init(encodable: Encodable) {
+        self.encodable = encodable
+    }
+    func encode(to encoder: Encoder) throws {
+        try encodable.encode(to: encoder)
+    }
 }
 
 final class NetworkService {
@@ -22,6 +38,7 @@ final class NetworkService {
     private let manager: SessionManager
     private let networkLogger: NetworkLogger
     private let decoder = JSONDecoder()
+    private let encoder = JSONEncoder()
 
     init() {
         networkLogger = NetworkLogger()
@@ -65,20 +82,55 @@ final class NetworkService {
         networkLogger.logRequest(path: path, configuration: configuration)
         return Observable.create { [weak self] observer in
             guard let `self` = self else { return Disposables.create() }
-            let request = self.manager.request(
-                path,
-                method: configuration.method,
-                parameters: configuration.parameters,
-                encoding: configuration.encoding,
-                headers: configuration.headers
-            )
-            .responseJSON { [weak self] response in
+            let request: DataRequest
+
+            switch configuration.parameters {
+            case let .dict(dict):
+                request = self.manager.request(
+                    path,
+                    method: configuration.method,
+                    parameters: dict,
+                    encoding: configuration.encoding,
+                    headers: configuration.headers
+                )
+            case let .object(object):
+                do {
+                    let box = EncodableBox(encodable: object)
+                    let urlRequest = try self.customRequest(
+                        path: path,
+                        method: configuration.method,
+                        object: box,
+                        headers: configuration.headers.merging(
+                            ["Content-Type" : "application/json"], uniquingKeysWith: { (current, _) in current }
+                        )
+                    )
+                    request = self.manager.request(urlRequest)
+                } catch {
+                    observer.onError(NetworkServiceError.requestCreationError(error))
+                    return Disposables.create()
+                }
+            }
+            request.responseJSON { [weak self] response in
                 self?.handleResponse(configuration: configuration, response: response, observer: observer)
             }
             return Disposables.create {
                 request.cancel()
             }
         }
+    }
+
+    private func customRequest<T: Encodable>(
+        path: String,
+        method: Alamofire.HTTPMethod,
+        object: T,
+        headers: [String : String]
+        ) throws -> URLRequest {
+        guard let url = URL(string: path) else { throw RequestCreationError.incorrectPath }
+        var request = URLRequest(url: url)
+        request.httpMethod = method.rawValue.uppercased()
+        request.httpBody = try encoder.encode(object)
+        request.allHTTPHeaderFields = headers
+        return request
     }
 
     private func handleResponse<Resource>(

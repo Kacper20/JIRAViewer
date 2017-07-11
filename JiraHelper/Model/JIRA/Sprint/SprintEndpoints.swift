@@ -15,9 +15,9 @@ enum SprintEndpoints {
             method: .get,
             encoding: URLEncoding.default,
             headers: [:],
-            parameters: [
+            parameters: .dict([
                 "state" : "active"
-            ],
+            ]),
             resourceType: .json
         )
     }

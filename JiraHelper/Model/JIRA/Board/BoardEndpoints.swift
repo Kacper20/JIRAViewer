@@ -15,7 +15,7 @@ enum BoardEndpoints {
             method: .get,
             encoding: URLEncoding.default,
             headers: [:],
-            parameters: [:],
+            parameters: .empty,
             resourceType: .json
         )
     }
@@ -26,7 +26,7 @@ enum BoardEndpoints {
             method: .get,
             encoding: JSONEncoding.default,
             headers: [:],
-            parameters: [:],
+            parameters: .empty,
             resourceType: .json
         )
     }

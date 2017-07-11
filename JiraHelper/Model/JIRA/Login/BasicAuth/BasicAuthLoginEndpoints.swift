@@ -15,7 +15,7 @@ enum BasicAuthLoginEndpoints {
             method: .get,
             encoding: URLEncoding.default,
             headers: JIRARestAPI.basicAuthHeaders(username: data.username, password: data.password),
-            parameters: [:],
+            parameters: .dict([:]),
             resourceType: .none(Nothing())
         )
     }

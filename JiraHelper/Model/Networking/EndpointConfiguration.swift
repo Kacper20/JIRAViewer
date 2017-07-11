@@ -22,11 +22,19 @@ struct EndpointConfiguration<Resource: Decodable> {
         case json
     }
 
+    enum ParametersOrigin {
+        case dict([String : Any])
+        case object(Encodable)
+        static var empty: ParametersOrigin {
+            return .dict([:])
+        }
+    }
+
     let path: String
     let method: NetworkRequestMethod
     let encoding: NetworkRequestParameterEncoding
     //TODO: Change to let and use sourcery lenses generation when it'll be supported in Xcode 9
     var headers: [String : String]
-    let parameters: [String : Any]
+    let parameters: ParametersOrigin
     let resourceType: ResourceOrigin
 }

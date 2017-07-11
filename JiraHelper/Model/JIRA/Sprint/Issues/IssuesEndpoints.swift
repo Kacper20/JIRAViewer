@@ -15,10 +15,10 @@ enum IssuesEndpoints {
             method: .get,
             encoding: URLEncoding.default,
             headers: [:],//TODO: Temporary labels
-            parameters: [
+            parameters: .dict([
                 "jql" : "labels = iOS",
                 "fields" : BasicIssue.necessaryFields
-            ],
+            ]),
             resourceType: .json
         )
     }
@@ -31,7 +31,7 @@ enum IssuesEndpoints {
             method: detailConfig.method,
             encoding: detailConfig.encoding,
             headers: detailConfig.headers,
-            parameters: ["fields" : BasicIssue.necessaryFields],
+            parameters: .dict(["fields" : BasicIssue.necessaryFields]),
             resourceType: .json
         )
     }
@@ -42,7 +42,7 @@ enum IssuesEndpoints {
             method: .get,
             encoding: URLEncoding.default,
             headers: [:],
-            parameters: ["expand": "renderedFields"],
+            parameters: .dict(["expand": "renderedFields"]),
             resourceType: .json
         )
     }

@@ -13,6 +13,10 @@ final class SprintIssuesService {
     private let networkService: AuthenticatedNetworkService
     private let sprint: ActiveSprint
 
+    var transitionsService: IssueTransitionsService {
+        return IssueTransitionsService(networkService: networkService)
+    }
+
     init(networkService: AuthenticatedNetworkService, sprint: ActiveSprint) {
         self.networkService = networkService
         self.sprint = sprint
