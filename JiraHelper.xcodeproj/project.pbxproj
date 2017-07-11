@@ -55,7 +55,6 @@
 		BB361C1F1F13EBB4002369CB /* IssueTransitionsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB361C1E1F13EBB4002369CB /* IssueTransitionsService.swift */; };
 		BB361C211F13EBBE002369CB /* IssueTransitionsEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB361C201F13EBBE002369CB /* IssueTransitionsEndpoints.swift */; };
 		BB361C231F13EF1C002369CB /* IssueTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB361C221F13EF1C002369CB /* IssueTransition.swift */; };
-		BB361C251F13F0A7002369CB /* IssueTransitionPerformingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB361C241F13F0A7002369CB /* IssueTransitionPerformingService.swift */; };
 		BB36E1E51EF53A580081DDAE /* DetailedIssue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36E1E41EF53A580081DDAE /* DetailedIssue.swift */; };
 		BB36E1E71EF53C970081DDAE /* NSView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36E1E61EF53C970081DDAE /* NSView+Constraints.swift */; };
 		BB36E1EA1EF589F80081DDAE /* IssuesEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36E1E91EF589F80081DDAE /* IssuesEndpoints.swift */; };
@@ -254,7 +253,6 @@
 		BB361C1E1F13EBB4002369CB /* IssueTransitionsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueTransitionsService.swift; sourceTree = "<group>"; };
 		BB361C201F13EBBE002369CB /* IssueTransitionsEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueTransitionsEndpoints.swift; sourceTree = "<group>"; };
 		BB361C221F13EF1C002369CB /* IssueTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueTransition.swift; sourceTree = "<group>"; };
-		BB361C241F13F0A7002369CB /* IssueTransitionPerformingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueTransitionPerformingService.swift; sourceTree = "<group>"; };
 		BB36E1E41EF53A580081DDAE /* DetailedIssue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedIssue.swift; sourceTree = "<group>"; };
 		BB36E1E61EF53C970081DDAE /* NSView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+Constraints.swift"; sourceTree = "<group>"; };
 		BB36E1E91EF589F80081DDAE /* IssuesEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesEndpoints.swift; sourceTree = "<group>"; };
@@ -623,7 +621,6 @@
 				BB361C1E1F13EBB4002369CB /* IssueTransitionsService.swift */,
 				BB361C201F13EBBE002369CB /* IssueTransitionsEndpoints.swift */,
 				BB361C221F13EF1C002369CB /* IssueTransition.swift */,
-				BB361C241F13F0A7002369CB /* IssueTransitionPerformingService.swift */,
 			);
 			path = Transitions;
 			sourceTree = "<group>";
@@ -1233,7 +1230,6 @@
 				BB36E1ED1EF5A27E0081DDAE /* SprintViewModel.swift in Sources */,
 				BB34BBAB1F04422B0070276D /* IssueEditionEndpoints.swift in Sources */,
 				BBAF06B21EFE742600DF3E46 /* Observers+Extensions.swift in Sources */,
-				BB361C251F13F0A7002369CB /* IssueTransitionPerformingService.swift in Sources */,
 				BB17145E1EF4280100BFB942 /* ToolbarItemProvider.swift in Sources */,
 				BB0A2C041EBFBB3100A19D60 /* TeamPickerViewController.swift in Sources */,
 				BB0A2C0A1EC12EF400A19D60 /* TeamCheckService.swift in Sources */,

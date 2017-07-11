@@ -20,4 +20,10 @@ final class IssueTransitionsService {
         return networkService.request(configuration: IssueTransitionsEndpoints.getTransitions(for: issue))
             .map { $0.transitions }
     }
+
+    func performTransition(_ transition: IssueTransition, on issue: IssueIdentifiable) -> Observable<Void> {
+        return networkService.request(
+            configuration: IssueTransitionsEndpoints.performTransition(transition, for: issue)
+        ).discardType()
+    }
 }
