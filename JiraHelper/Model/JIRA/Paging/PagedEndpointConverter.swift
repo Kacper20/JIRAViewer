@@ -20,10 +20,10 @@ struct PagedEndpointConverter {
             method: configuration.method,
             encoding: configuration.encoding,
             headers: configuration.headers,
-            parameters: [
+            parameters: .dict([
                 "start" : index,
                 "limit" : limit
-            ],
+            ]),
             resourceType: configuration.resourceType
         )
     }

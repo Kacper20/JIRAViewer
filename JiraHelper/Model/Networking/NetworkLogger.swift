@@ -18,7 +18,12 @@ final class NetworkLogger {
         let headers = configuration.headers
         let parameters = configuration.parameters
         logger.info("[REQUEST] HEADERS: \(prettyPrintedDict(from: headers) ?? headers.description)")
-        logger.info("[REQUEST] PARAMETERS: \(prettyPrintedDict(from: parameters) ?? parameters.description)")
+        switch parameters {
+        case let .dict(dict):
+            logger.info("[REQUEST] PARAMETERS: \(prettyPrintedDict(from: dict) ?? dict.description)")
+        case let .object(object):
+            logger.info("[REQUEST] OBJECT SEND: \(dump(object))")
+        }
     }
 
 

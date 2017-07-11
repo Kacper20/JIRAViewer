@@ -16,7 +16,7 @@ enum TeamCheckEndpoints {
             method: .get,
             encoding: URLEncoding.default,
             headers: [:],
-            parameters: [:],
+            parameters: .empty,
             resourceType: .none(Nothing())
         )
     }

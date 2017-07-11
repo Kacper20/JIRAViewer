@@ -18,7 +18,6 @@ enum TeamPickerViewState {
 
 final class TeamPickerViewModel {
     let teamName = Variable<String>("")
-
     private let disposeBag = DisposeBag()
 
     private let nonEmptyValidator = CommonValidators.nonEmptyString(message: "")

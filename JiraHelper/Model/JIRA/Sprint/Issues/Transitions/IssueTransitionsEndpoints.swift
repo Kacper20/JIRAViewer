@@ -20,7 +20,7 @@ enum IssueTransitionsEndpoints {
             method: .get,
             encoding: JSONEncoding.default,
             headers: [:],
-            parameters: [:],
+            parameters: .empty,
             resourceType: .json
         )
     }
@@ -48,13 +48,12 @@ enum IssueTransitionsEndpoints {
         for issue: IssueIdentifiable
         ) -> EndpointConfiguration<Nothing> {
         let command = TransitionCommand(transition: transition)
-        let encoder = JSONEncoder()
         return EndpointConfiguration(
             path: "/api/latest/issue/\(issue.id)/transitions",
             method: .post,
             encoding: JSONEncoding.default,
             headers: [:],
-            parameters: [:],
+            parameters: .object(command),
             resourceType: .none(Nothing())
         )
     }
