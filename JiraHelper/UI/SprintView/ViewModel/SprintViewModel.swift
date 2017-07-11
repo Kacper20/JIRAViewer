@@ -24,6 +24,7 @@ final class SprintViewModel: NSObject, NSCollectionViewDataSource, KanbanCollect
     private let eventsReceiver: GlobalUIEventsReceiver
     private let assignDisposeBox = SerialDisposeBox()
     private let issueExpandSubject = PublishSubject<IssueExpandRequest>()
+    private let transitionDisposeBox = SerialDisposeBox()
 
     private let user: User
 
@@ -199,11 +200,39 @@ final class SprintViewModel: NSObject, NSCollectionViewDataSource, KanbanCollect
         ) -> Bool {
         guard !draggedItemsPaths.isEmpty else { return false }
         //TODO: Support multiple ??
-        guard let first = draggedItemsPaths.first, draggedItemsPaths.count == 1 else { return false }
-        var toIndexPath: IndexPath = indexPath
-        container.moveIssues(from: draggedItemsPaths, to: toIndexPath)
-        collectionView.moveItem(at: first, to: toIndexPath)
+        guard
+            let first = draggedItemsPaths.first,
+            let issue = container.issue(at: first),
+            draggedItemsPaths.count == 1 else { return false }
+        if indexPath.section != first.section {
+            performTransitionRequest(for: issue, to: indexPath)
+        }
+        container.moveIssues(from: draggedItemsPaths, to: indexPath)
+        collectionView.moveItem(at: first, to: indexPath)
         return true
+    }
+
+    enum TransitionError: Error {
+        case destinationColumnDoNotExist
+    }
+
+    private func performTransitionRequest(for issue: BasicIssue, to path: IndexPath) {
+        let transitionsService = sprintIssuesService.transitionsService
+        let column = boardConfiguration.columns[path.section]
+        self.eventsReceiver.loadingRequests.value = true
+        transitionDisposeBox.disposable = transitionsService.getTransitions(for: issue)
+            .flatMap { availableTransitions -> Observable<Void> in
+                if let transition = availableTransitions.find({ $0.name == column.name }) {
+                    return transitionsService.performTransition(transition, on: issue)
+                } else {
+                    return Observable.error(TransitionError.destinationColumnDoNotExist)
+                }
+            }.subscribe(onNext: { [unowned self] in
+                self.eventsReceiver.loadingRequests.value = false
+            }, onError: { [unowned self] error in
+                //TODO: Should do somethiiiing, baaack
+                fatalError("Error!!! \(error)")
+            })
     }
 
     func collectionView(

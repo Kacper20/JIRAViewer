@@ -100,7 +100,9 @@ final class NetworkService {
                         path: path,
                         method: configuration.method,
                         object: box,
-                        headers: configuration.headers
+                        headers: configuration.headers.merging(
+                            ["Content-Type" : "application/json"], uniquingKeysWith: { (current, _) in current }
+                        )
                     )
                     request = self.manager.request(urlRequest)
                 } catch {
@@ -116,8 +118,6 @@ final class NetworkService {
             }
         }
     }
-
-
 
     private func customRequest<T: Encodable>(
         path: String,
