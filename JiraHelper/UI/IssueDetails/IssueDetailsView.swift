@@ -9,7 +9,6 @@ import Foundation
 import RxSwift
 
 final class IssueDetailsView: NSView {
-    private let scrollView = NSScrollView()
     private let data: IssueDetailsViewData
     private let urlImageConversion: URLImageConversion
     private let disposeBag = DisposeBag()
@@ -26,16 +25,13 @@ final class IssueDetailsView: NSView {
     }
 
     private func setupViews() {
-        addSubview(scrollView)
-        scrollView.constraintEdgesToSuperview()
 
         let keyLabel = labelWithText(text: data.keyName, styles: TextFieldStyles.headline)
         let summaryLabel = labelWithText(text: data.title)
-        let containerView = NSView()
-        scrollView.addSubviews(containerView, keyLabel, summaryLabel)
 
+        addSubviews(keyLabel, summaryLabel)
         let inset: CGFloat = 8
-        keyLabel.topToSuperview(with: inset)
+        keyLabel.topToSuperview(with: 24)
         keyLabel.leadingToSuperview(with: inset)
         keyLabel.trailingToSuperview(with: -inset)
 
@@ -43,20 +39,31 @@ final class IssueDetailsView: NSView {
         summaryLabel.leadingToSuperview(with: inset)
         summaryLabel.trailingToSuperview(with: -inset)
 
-        containerView.topAnchor.constraint(equalTo: summaryLabel.bottomAnchor, constant: inset).activate()
-        containerView.leadingToSuperview(with: inset)
-        containerView.trailingToSuperview(with: -inset)
-        containerView.bottomToSuperview(with: -inset)
+        let scrollView = NSScrollView()
+        scrollView.hasVerticalScroller = true
+        scrollView.drawsBackground = false
+        addSubview(scrollView)
+        scrollView.topAnchor.constraint(equalTo: summaryLabel.bottomAnchor, constant: inset).activate()
+        scrollView.leadingToSuperview(with: inset)
+        scrollView.trailingToSuperview(with: -inset)
+        scrollView.bottomToSuperview(with: -inset)
+        
+        let containerView = NSView()
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.documentView = containerView
 
         let gridView = viewsGrid()
         let stackView = underGridStackView()
 
         containerView.addSubviews(gridView, stackView)
+        containerView.topToSuperview()
+        containerView.leadingToSuperview()
+        containerView.trailingToSuperview()
         gridView.leadingToSuperview()
         gridView.topToSuperview()
         gridView.trailingToSuperview()
 
-        stackView.topAnchor.constraint(equalTo: gridView.bottomAnchor, constant: inset)
+        stackView.topAnchor.constraint(equalTo: gridView.bottomAnchor, constant: inset).activate()
         stackView.leadingToSuperview()
         stackView.trailingToSuperview()
         stackView.bottomAnchor.constraint(lessThanOrEqualTo: containerView.bottomAnchor).activate()
@@ -92,8 +99,7 @@ final class IssueDetailsView: NSView {
         let stackView = NSStackView()
         stackView.orientation = .vertical
         let descriptionHeadline = labelWithText(text: "Description", styles: TextFieldStyles.sectionHeadline)
-//        let descriptionBody = attributedTextView(html: data.descriptionHtml)
-        let descriptionBody = labelWithText(text: data.descriptionHtml)
+        let descriptionBody = attributedLabel(with: data.descriptionHtml, fontSize: 12)
         let views = [descriptionHeadline, descriptionBody]
         stackView.addArrangedSubviews(views)
         views.forEach {
@@ -109,22 +115,23 @@ final class IssueDetailsView: NSView {
         return views
     }
 
-    private func attributedTextView(html: String) -> NSTextView {
-        let view = NSTextView()
-        let font = NSFont.systemFont(ofSize: 13)
-        guard let data = html.data(using: .utf16) else { return view }
+    private func attributedLabel(with html: String, fontSize: CGFloat) -> NSTextField {
+        let field = NSTextField()
+        TextFieldStyles.nonEditableStandardLabel.apply(to: field)
+        let modifiedFontHtml = NSString(format:"<span style=\"font-family: '-apple-system', 'HelveticaNeue'; font-size: \(fontSize)\">%@</span>" as NSString, html) as String
+
+        guard let data = modifiedFontHtml.data(using: .utf16) else { return field }
         let attributedString = try? NSAttributedString(
             data: data,
             options: [
-                NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
-                NSFontAttributeName: font
+                NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType
             ],
             documentAttributes: nil
         )
         if let attrString = attributedString {
-            view.textStorage?.append(attrString)
+            field.attributedStringValue = attrString
         }
-        return view
+        return field
     }
 
     private func labelWithText(text: String, styles: NSViewStyle<NSTextField>...) -> NSTextField {

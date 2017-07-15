@@ -84,6 +84,7 @@
 		BB63004E1F0D72640066262E /* IssueDetailsViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB63004D1F0D72640066262E /* IssueDetailsViewData.swift */; };
 		BB6300511F0D81960066262E /* PersonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6300501F0D81960066262E /* PersonData.swift */; };
 		BB6300531F0D8F230066262E /* DateFormatterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6300521F0D8F230066262E /* DateFormatterHelper.swift */; };
+		BB68BF8B1F1A9CB2001D96C6 /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB68BF8A1F1A9CB2001D96C6 /* CommentView.swift */; };
 		BB7AD73F1EF2E07300E436C4 /* SprintEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7AD73E1EF2E07300E436C4 /* SprintEndpoints.swift */; };
 		BB7AD7411EF2E1FB00E436C4 /* Sprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7AD7401EF2E1FB00E436C4 /* Sprint.swift */; };
 		BB7AD7431EF2ED0F00E436C4 /* SprintsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7AD7421EF2ED0F00E436C4 /* SprintsService.swift */; };
@@ -284,6 +285,7 @@
 		BB63004D1F0D72640066262E /* IssueDetailsViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueDetailsViewData.swift; sourceTree = "<group>"; };
 		BB6300501F0D81960066262E /* PersonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonData.swift; sourceTree = "<group>"; };
 		BB6300521F0D8F230066262E /* DateFormatterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterHelper.swift; sourceTree = "<group>"; };
+		BB68BF8A1F1A9CB2001D96C6 /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
 		BB7AD73E1EF2E07300E436C4 /* SprintEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprintEndpoints.swift; sourceTree = "<group>"; };
 		BB7AD7401EF2E1FB00E436C4 /* Sprint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sprint.swift; sourceTree = "<group>"; };
 		BB7AD7421EF2ED0F00E436C4 /* SprintsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprintsService.swift; sourceTree = "<group>"; };
@@ -537,6 +539,7 @@
 				BB143CBD1F0ACFD5008BC52C /* IssueDetailsViewController.swift */,
 				BB143CC11F0AD041008BC52C /* IssueDetailsView.swift */,
 				BBDA90941F12765A00B99C34 /* IssueDetailsCommentView.swift */,
+				BB68BF8A1F1A9CB2001D96C6 /* CommentView.swift */,
 			);
 			path = IssueDetails;
 			sourceTree = "<group>";
@@ -1269,6 +1272,7 @@
 				BB0BA4381EF43468003BE8C5 /* PopupButtonToolbarItemManager.swift in Sources */,
 				BBDA90931F11604D00B99C34 /* URL+Extensions.swift in Sources */,
 				BB0A2BEE1EBF8A2600A19D60 /* JIRARestAPI.swift in Sources */,
+				BB68BF8B1F1A9CB2001D96C6 /* CommentView.swift in Sources */,
 				BB6300531F0D8F230066262E /* DateFormatterHelper.swift in Sources */,
 				BB36E1EA1EF589F80081DDAE /* IssuesEndpoints.swift in Sources */,
 				BB7AD73F1EF2E07300E436C4 /* SprintEndpoints.swift in Sources */,

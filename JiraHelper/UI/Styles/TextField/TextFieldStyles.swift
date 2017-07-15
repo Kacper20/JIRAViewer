@@ -38,6 +38,7 @@ struct TextFieldStyles {
 
     static var nonEditableStandardLabel: NSViewStyle<NSTextField> {
         return NSViewStyle { textField in
+            textField.drawsBackground = false
             textField.isEditable = false
             textField.isBordered = false
             textField.alignment = .left

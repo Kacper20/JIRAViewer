@@ -16,6 +16,7 @@ final class MainWindowPopoverPresenter: NSObject, NSPopoverDelegate {
         mask.insert(.closable)
     }
 
+    private var window: NSWindow?
     func present(request: IssueExpandRequest, imageDownloader: ImageDownloader) {
         let loading = LoadingPerformingFlowViewController(
             operation: request.operation,
