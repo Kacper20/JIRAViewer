@@ -46,7 +46,6 @@
 		BB2046C11EBE0F7300084F34 /* Optionals.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2046C01EBE0F7300084F34 /* Optionals.swift */; };
 		BB2046C41EBE112900084F34 /* SprintCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2046C21EBE112900084F34 /* SprintCollectionViewItem.swift */; };
 		BB2A76F51F1BB97200F8FA3D /* TextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2A76F41F1BB97200F8FA3D /* TextField+Extensions.swift */; };
-		BB2A76F71F1BBB1C00F8FA3D /* GradientOverlayEnricher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2A76F61F1BBB1C00F8FA3D /* GradientOverlayEnricher.swift */; };
 		BB2FC6751EC264BD0031917B /* TeamPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2FC6741EC264BD0031917B /* TeamPickerViewModel.swift */; };
 		BB34BBA41F043C490070276D /* UserEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34BBA31F043C490070276D /* UserEndpoints.swift */; };
 		BB34BBA61F043D5C0070276D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34BBA51F043D5C0070276D /* User.swift */; };
@@ -247,7 +246,6 @@
 		BB2046C01EBE0F7300084F34 /* Optionals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Optionals.swift; sourceTree = "<group>"; };
 		BB2046C21EBE112900084F34 /* SprintCollectionViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SprintCollectionViewItem.swift; sourceTree = "<group>"; };
 		BB2A76F41F1BB97200F8FA3D /* TextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Extensions.swift"; sourceTree = "<group>"; };
-		BB2A76F61F1BBB1C00F8FA3D /* GradientOverlayEnricher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientOverlayEnricher.swift; sourceTree = "<group>"; };
 		BB2FC6741EC264BD0031917B /* TeamPickerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamPickerViewModel.swift; sourceTree = "<group>"; };
 		BB34BBA31F043C490070276D /* UserEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEndpoints.swift; sourceTree = "<group>"; };
 		BB34BBA51F043D5C0070276D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -544,7 +542,6 @@
 				BB143CC11F0AD041008BC52C /* IssueDetailsView.swift */,
 				BBDA90941F12765A00B99C34 /* IssueDetailsCommentView.swift */,
 				BB68BF8A1F1A9CB2001D96C6 /* CommentView.swift */,
-				BB2A76F61F1BBB1C00F8FA3D /* GradientOverlayEnricher.swift */,
 			);
 			path = IssueDetails;
 			sourceTree = "<group>";
@@ -1176,7 +1173,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB2A76F71F1BBB1C00F8FA3D /* GradientOverlayEnricher.swift in Sources */,
 				BB7FC21A1F0925B40032B3E2 /* LoadingContentViewController.swift in Sources */,
 				BB0BA43C1EF439A8003BE8C5 /* ToolbarManagerDataSourceHelpers.swift in Sources */,
 				BB2FC6751EC264BD0031917B /* TeamPickerViewModel.swift in Sources */,

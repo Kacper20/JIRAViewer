@@ -13,15 +13,38 @@ final class IssueDetailsView: NSView {
     private let urlImageConversion: URLImageConversion
     private let disposeBag = DisposeBag()
 
+    private let scrollViewContainer = NSView()
+    private let gradientLayer = CAGradientLayer()
+
+
     init(data: IssueDetailsViewData, urlImageConversion: @escaping URLImageConversion) {
         self.urlImageConversion = urlImageConversion
         self.data = data
         super.init(frame: .zero)
         setupViews()
+        setupGradient()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    override func layout() {
+        super.layout()
+        gradientLayer.frame = scrollViewContainer.bounds
+    }
+
+    private func setupGradient() {
+        scrollViewContainer.wantsLayer = true
+        gradientLayer.colors = [
+            NSColor.clear.cgColor,
+            NSColor.white.cgColor,
+            NSColor.white.cgColor
+        ]
+        gradientLayer.locations = [0, 0.03, 0.05]
+        gradientLayer.startPoint = CGPoint(x: 0.5, y: 1)
+        gradientLayer.endPoint = CGPoint(x: 0.5, y: 0)
+        scrollViewContainer.layer?.mask = gradientLayer
     }
 
     private func setupViews() {
@@ -39,16 +62,19 @@ final class IssueDetailsView: NSView {
         summaryLabel.leadingToSuperview(with: inset)
         summaryLabel.trailingToSuperview(with: -inset)
 
+        addSubview(scrollViewContainer)
+        scrollViewContainer.topAnchor.constraint(equalTo: summaryLabel.bottomAnchor, constant: inset).activate()
+        scrollViewContainer.leadingToSuperview(with: inset)
+        scrollViewContainer.trailingToSuperview(with: -inset)
+        scrollViewContainer.bottomToSuperview(with: -inset)
+
         let scrollView = NSScrollView()
-        GradientOverlayEnricher.setupGradient(on: scrollView)
+        scrollViewContainer.addSubview(scrollView)
+        scrollView.constraintEdgesToSuperview()
         scrollView.hasVerticalScroller = true
         scrollView.drawsBackground = false
-        addSubview(scrollView)
-        scrollView.topAnchor.constraint(equalTo: summaryLabel.bottomAnchor, constant: inset).activate()
-        scrollView.leadingToSuperview(with: inset)
-        scrollView.trailingToSuperview(with: -inset)
-        scrollView.bottomToSuperview(with: -inset)
-        
+        scrollViewContainer.addSubview(scrollView)
+
         let containerView = NSView()
         containerView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.documentView = containerView
@@ -61,7 +87,7 @@ final class IssueDetailsView: NSView {
         containerView.leadingToSuperview()
         containerView.trailingToSuperview()
         gridView.leadingToSuperview()
-        gridView.topToSuperview()
+        gridView.topToSuperview(with: 4)
         gridView.trailingToSuperview()
 
         stackView.topAnchor.constraint(equalTo: gridView.bottomAnchor, constant: inset).activate()
@@ -69,7 +95,6 @@ final class IssueDetailsView: NSView {
         stackView.trailingToSuperview()
         stackView.bottomAnchor.constraint(lessThanOrEqualTo: containerView.bottomAnchor).activate()
     }
-
 
     private func viewsGrid() -> NSGridView{
         let empty = NSGridCell.emptyContentView
