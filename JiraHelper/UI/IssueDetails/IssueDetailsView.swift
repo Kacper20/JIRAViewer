@@ -40,6 +40,7 @@ final class IssueDetailsView: NSView {
         summaryLabel.trailingToSuperview(with: -inset)
 
         let scrollView = NSScrollView()
+        GradientOverlayEnricher.setupGradient(on: scrollView)
         scrollView.hasVerticalScroller = true
         scrollView.drawsBackground = false
         addSubview(scrollView)
