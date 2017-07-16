@@ -45,6 +45,7 @@
 		BB2046BC1EBE0AB000084F34 /* SprintViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB2046BB1EBE0AB000084F34 /* SprintViewController.xib */; };
 		BB2046C11EBE0F7300084F34 /* Optionals.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2046C01EBE0F7300084F34 /* Optionals.swift */; };
 		BB2046C41EBE112900084F34 /* SprintCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2046C21EBE112900084F34 /* SprintCollectionViewItem.swift */; };
+		BB2A76F51F1BB97200F8FA3D /* TextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2A76F41F1BB97200F8FA3D /* TextField+Extensions.swift */; };
 		BB2FC6751EC264BD0031917B /* TeamPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2FC6741EC264BD0031917B /* TeamPickerViewModel.swift */; };
 		BB34BBA41F043C490070276D /* UserEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34BBA31F043C490070276D /* UserEndpoints.swift */; };
 		BB34BBA61F043D5C0070276D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34BBA51F043D5C0070276D /* User.swift */; };
@@ -244,6 +245,7 @@
 		BB2046BB1EBE0AB000084F34 /* SprintViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SprintViewController.xib; sourceTree = "<group>"; };
 		BB2046C01EBE0F7300084F34 /* Optionals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Optionals.swift; sourceTree = "<group>"; };
 		BB2046C21EBE112900084F34 /* SprintCollectionViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SprintCollectionViewItem.swift; sourceTree = "<group>"; };
+		BB2A76F41F1BB97200F8FA3D /* TextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Extensions.swift"; sourceTree = "<group>"; };
 		BB2FC6741EC264BD0031917B /* TeamPickerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamPickerViewModel.swift; sourceTree = "<group>"; };
 		BB34BBA31F043C490070276D /* UserEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEndpoints.swift; sourceTree = "<group>"; };
 		BB34BBA51F043D5C0070276D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -809,6 +811,7 @@
 				BB34BBAC1F0445F20070276D /* KeyboardKeysMatcher.swift */,
 				BB99A1611F0C15220006E40D /* Animations.swift */,
 				BB6300521F0D8F230066262E /* DateFormatterHelper.swift */,
+				BB2A76F41F1BB97200F8FA3D /* TextField+Extensions.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1175,6 +1178,7 @@
 				BB2FC6751EC264BD0031917B /* TeamPickerViewModel.swift in Sources */,
 				BB53D42D1EDA060500BBC607 /* AppLifecycleMonitor.swift in Sources */,
 				BB0BA43A1EF43961003BE8C5 /* BoardsChoice.swift in Sources */,
+				BB2A76F51F1BB97200F8FA3D /* TextField+Extensions.swift in Sources */,
 				BBFC65391EE1FDCC005C1EFB /* LoginData.swift in Sources */,
 				BB9B6CAE1F098BE2007FC01B /* SprintColumnDecorationView.swift in Sources */,
 				BB2046C11EBE0F7300084F34 /* Optionals.swift in Sources */,

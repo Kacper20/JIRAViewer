@@ -125,19 +125,7 @@ final class IssueDetailsView: NSView {
     private func attributedLabel(with html: String, fontSize: CGFloat) -> NSTextField {
         let field = NSTextField()
         TextFieldStyles.nonEditableStandardLabel.apply(to: field)
-        let modifiedFontHtml = NSString(format:"<span style=\"font-family: '-apple-system', 'HelveticaNeue'; font-size: \(fontSize)\">%@</span>" as NSString, html) as String
-
-        guard let data = modifiedFontHtml.data(using: .utf16) else { return field }
-        let attributedString = try? NSAttributedString(
-            data: data,
-            options: [
-                NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType
-            ],
-            documentAttributes: nil
-        )
-        if let attrString = attributedString {
-            field.attributedStringValue = attrString
-        }
+        field.setHtml(html, fontSize: fontSize)
         return field
     }
 

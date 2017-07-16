@@ -31,7 +31,12 @@ final class CommentView: NSView {
         authorAndDateLabel.stringValue = "\(data.author) added a comment - \(data.date)"
 
         let bodyLabel = NSTextField(styles: TextFieldStyles.nonEditableStandardLabel)
-        bodyLabel.stringValue = data.body
+        bodyLabel.setHtml(data.body, fontSize: 13)
         stackView.addArrangedSubviews(authorAndDateLabel, bodyLabel)
+
+        authorAndDateLabel.leadingToSuperview()
+        authorAndDateLabel.trailingToSuperview()
+        bodyLabel.leadingToSuperview(with: 4)
+        bodyLabel.trailingToSuperview()
     }
 }
