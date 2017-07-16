@@ -100,19 +100,26 @@ final class IssueDetailsView: NSView {
         stackView.orientation = .vertical
         let descriptionHeadline = labelWithText(text: "Description", styles: TextFieldStyles.sectionHeadline)
         let descriptionBody = attributedLabel(with: data.descriptionHtml, fontSize: 12)
-        let views = [descriptionHeadline, descriptionBody]
-        stackView.addArrangedSubviews(views)
-        views.forEach {
+        let descriptionViews = [descriptionHeadline, descriptionBody]
+        let commentViews = createCommentViews()
+        let allViews: [NSView] = descriptionViews + commentViews
+        stackView.addArrangedSubviews(allViews)
+        allViews.forEach {
             $0.leadingToSuperview()
             $0.trailingToSuperview()
         }
         return stackView
     }
 
-    private func commentViews() -> [NSView] {
+    private func createCommentViews() -> [NSView] {
         var views = [NSView]()
         views.append(labelWithText(text: "Comments", styles: TextFieldStyles.headline))
-        return views
+        let commentViews = data.comments.flatMap(CommentView.init(data: ))
+        if commentViews.isEmpty {
+            views.append(labelWithText(text: "No comments", styles: TextFieldStyles.headline))
+        }
+
+        return views + commentViews
     }
 
     private func attributedLabel(with html: String, fontSize: CGFloat) -> NSTextField {

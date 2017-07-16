@@ -26,15 +26,23 @@ final class MainWindowPopoverPresenter: NSObject, NSPopoverDelegate {
         loading.view.heightAnchor.constraint(equalToConstant: 500).activate()
         loading.view.widthAnchor.constraint(equalToConstant: 300).activate()
 
-        self.popover?.close()
-        let popover = NSPopover()
-        self.popover = popover
-        popover.behavior = .transient
-        popover.appearance = NSAppearance(named: NSAppearanceNameVibrantLight)
-        popover.animates = true
-        popover.contentViewController = loading
-        popover.delegate = self
-        popover.show(relativeTo: request.rect, of: request.source, preferredEdge: .maxX)
+        let popoverToUse: NSPopover
+        if let popover = popover {
+            popoverToUse = popover
+        } else {
+            popoverToUse = NSPopover()
+        }
+        self.popover = popoverToUse
+        popoverToUse.behavior = .transient
+        popoverToUse.appearance = NSAppearance(named: NSAppearanceNameVibrantLight)
+        popoverToUse.animates = true
+        popoverToUse.contentViewController = loading
+        popoverToUse.delegate = self
+        popoverToUse.show(relativeTo: request.rect, of: request.source, preferredEdge: .maxX)
+    }
+
+    func popoverDidClose(_ notification: Notification) {
+        self.popover = nil
     }
 
     func popoverShouldDetach(_ popover: NSPopover) -> Bool {

@@ -45,3 +45,10 @@ struct TextFieldStyles {
         }
     }
 }
+
+extension NSTextField {
+    convenience init(styles: NSViewStyle<NSTextField>...) {
+        self.init(frame: .zero)
+        styles.forEach { $0.apply(to: self) }
+    }
+}

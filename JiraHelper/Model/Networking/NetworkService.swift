@@ -53,7 +53,9 @@ final class NetworkService {
         decoder.dateDecodingStrategy = .custom { decoder in
             let formats = [
                 "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-                "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
+                "dd/MMM/yy h:mm a",
+                "EEEE h:mm a"
             ]
             let container = try decoder.singleValueContainer()
             let stringValue = try container.decode(String.self)
@@ -66,7 +68,7 @@ final class NetworkService {
                 throw DecodingError.dataCorrupted(
                     DecodingError.Context(
                         codingPath: decoder.codingPath,
-                        debugDescription: "None of the date formatters provided were correct"
+                        debugDescription: "None of the date formatters provided were correct for: \(stringValue)"
                     )
                 )
             }

@@ -12,8 +12,15 @@ struct DateFormatterHelper {
     private static let dateFormatter = DateFormatter()
 
     static func issueDetailsFormat(date: Date) -> String {
-        DateFormatterHelper.dateFormatter.dateStyle = .medium
-        DateFormatterHelper.dateFormatter.timeStyle = .short
-        return DateFormatterHelper.dateFormatter.string(from:date)
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .short
+        return dateFormatter.string(from:date)
+    }
+
+    static func commentFormat(date: Date) -> String {
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .short
+        dateFormatter.doesRelativeDateFormatting = true
+        return dateFormatter.string(from:date)
     }
 }
