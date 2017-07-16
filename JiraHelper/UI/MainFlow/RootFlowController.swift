@@ -20,15 +20,18 @@ final class RootFlowController {
     private let eventsReceiver = GlobalUIEventsReceiver()
     private let environment = Environment()
 
-    var currentFlow: CurrentFlow
+    var currentFlow: CurrentFlow!
 
     init(networkService: NetworkService, authenticationProvider: AuthenticationProvider) {
         self.networkService = networkService
         self.authenticationProvider = authenticationProvider
+        currentFlow = computeCurrentFlow()
+    }
 
+    private func computeCurrentFlow() -> CurrentFlow {
         if let authentication = authenticationProvider.readAuthentication() {
             if case let .basicAuth(storage) = authentication {
-                currentFlow = RootFlowController.createMainFlowChoice(
+                return createMainFlowChoice(
                     for: storage,
                     eventsReceiver: eventsReceiver,
                     networkService: networkService
@@ -41,10 +44,10 @@ final class RootFlowController {
             let loginWindowController = LoginWindowController(
                 teamCheckService: teamCheckService
             )
-            currentFlow = .login(loginWindowController)
             loginWindowController.onFinished = { [weak self] data in
                 self?.performLogin(withAuthentication: data.authenticationData, team: data.team)
             }
+            return .login(loginWindowController)
         }
     }
 
@@ -52,20 +55,19 @@ final class RootFlowController {
         switch authenticationType {
         case let .basic(loginData):
             let storage = authenticationProvider.writeBasicAuthentication(data: loginData, team: team)
-            if case let .login(controller) = currentFlow {
-                controller.close()
-            }
-            currentFlow = RootFlowController.createMainFlowChoice(
+            cleanCurrentFlow()
+            currentFlow = createMainFlowChoice(
                 for: storage,
                 eventsReceiver: eventsReceiver,
                 networkService: networkService
             )
+            present()
         case .cookie(_):
             fatalError()
         }
     }
 
-    private static func createMainFlowChoice(
+    private func createMainFlowChoice(
         for storage: BasicAuthenticationStorage,
         eventsReceiver: GlobalUIEventsReceiver,
         networkService: NetworkService
@@ -75,13 +77,37 @@ final class RootFlowController {
             mainViewModelCreator: MainViewModelCreator(
                 networkService: authenticatedService,
                 eventsReceiver: eventsReceiver
-            )
+            ),
+            actionHandler: { [weak self] action in
+                switch action {
+                case .logoutClicked:
+                    try? storage.deleteFromSecureStore()
+                    self?.relaunchProperFlow()
+                }
+            }
         )
         return .main(mainController)
     }
 
+    private func relaunchProperFlow() {
+        cleanCurrentFlow()
+        currentFlow = computeCurrentFlow()
+        present()
+    }
+
+    //TODO: Maybe some more in-out functions, not depending on state
+    private func cleanCurrentFlow() {
+        guard let flow = currentFlow else { return }
+        switch flow {
+        case let .login(controller):
+            controller.close()
+        case let .main(controller):
+            controller.close()
+        }
+    }
+
     func present() {
-        let flow: CurrentFlow = currentFlow
+        guard let flow = currentFlow else { return }
         switch flow {
         case let .login(controller):
             controller.present()

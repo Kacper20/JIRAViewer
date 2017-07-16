@@ -5,11 +5,16 @@
 import AppKit
 import RxSwift
 
+enum MainWindowAction {
+    case logoutClicked
+}
+
 final class MainWindowController: NSWindowController {
 
     @IBOutlet weak var toolbar: NSToolbar!
 
     private let disposeBag = DisposeBag()
+    private let actionHandler: (MainWindowAction) -> Void
     private let mainViewModelCreator: MainViewModelCreator
     private let popoverPresenter = MainWindowPopoverPresenter()
 
@@ -20,8 +25,9 @@ final class MainWindowController: NSWindowController {
         return "MainWindowController"
     }
 
-    init(mainViewModelCreator: MainViewModelCreator) {
+    init(mainViewModelCreator: MainViewModelCreator, actionHandler: @escaping (MainWindowAction) -> Void) {
         self.mainViewModelCreator = mainViewModelCreator
+        self.actionHandler = actionHandler
         super.init(window: nil)
     }
     
@@ -31,14 +37,37 @@ final class MainWindowController: NSWindowController {
 
     override func windowDidLoad() {
         super.windowDidLoad()
+        setupLogoutMenuItem()
     }
 
-    override func keyDown(with event: NSEvent) {
-        print("")
-    }
+    override func keyDown(with event: NSEvent) { }
 
     override func keyUp(with event: NSEvent) {
         mainViewController?.processKeyUpEvent(event)
+    }
+
+    //MENU Manager - needs to keep them separate
+    private func setupLogoutMenuItem() {
+        guard let menu = NSApp.mainMenu else { return }
+        let item = NSMenuItem(
+            title: "",
+            action: #selector(MainWindowController.logoutClicked),
+            keyEquivalent: ""
+        )
+        let settingsMenu = NSMenu(title: "Account")
+        settingsMenu.insertItem(
+            withTitle: "Logout",
+            action: #selector(MainWindowController.logoutClicked),
+            keyEquivalent: "",
+            at: 0
+        )
+        item.submenu = settingsMenu
+        menu.insertItem(item, at: 1)
+        print(menu.items)
+    }
+
+    @objc private func logoutClicked() {
+        actionHandler(.logoutClicked)
     }
 
     func present() {
