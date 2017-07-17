@@ -28,6 +28,12 @@ struct JIRARestAPI {
         return ["Authorization" : "Basic \(base64Encoded)"]
     }
 
+    static func cookieHeaders(for session: CookieSession) -> [String : String] {
+        return [
+            "cookie" : "\(session.name)=\(session.value)"
+        ]
+    }
+
     enum RequestType {
         case authorization
         case api

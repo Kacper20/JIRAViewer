@@ -41,25 +41,9 @@ final class RootFlowController {
                 teamCheckService: teamCheckService
             )
             loginWindowController.onFinished = { [weak self] data in
-                self?.performLogin(withAuthentication: data.authenticationData, team: data.team)
+                self?.relaunchProperFlow()
             }
             return .login(loginWindowController)
-        }
-    }
-
-    private func performLogin(withAuthentication authenticationType: AuthenticationDataType, team: JIRATeam) {
-        switch authenticationType {
-        case let .basic(loginData):
-            let storage = authenticationProvider.writeAuthentication(data: loginData, team: team)
-            cleanCurrentFlow()
-            currentFlow = createMainFlowChoice(
-                for: storage,
-                eventsReceiver: eventsReceiver,
-                networkService: networkService
-            )
-            present()
-        case .cookie(_):
-            fatalError()
         }
     }
 

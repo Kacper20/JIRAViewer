@@ -25,10 +25,14 @@ final class AuthenticatedNetworkService {
         let hostUrl = JIRARestAPI.host(for: authentication.team.name)
         let basePath = hostUrl + JIRARestAPI.apiPath
         var configuration = configuration
-        configuration.headers = JIRARestAPI.basicAuthHeaders(
-            username: authentication.username,
-            password: authentication.password
-        )
+        if let cookie = authentication.cookieSession {
+            configuration.headers = JIRARestAPI.cookieHeaders(for: cookie)
+        } else {
+            configuration.headers = JIRARestAPI.basicAuthHeaders(
+                username: authentication.username,
+                password: authentication.password
+            )
+        }
         return networkService.request(basePath: basePath, configuration: configuration)
     }
 }
