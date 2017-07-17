@@ -68,7 +68,7 @@ final class RootFlowController {
     }
 
     private func createMainFlowChoice(
-        for storage: BasicAuthenticationStorage,
+        for storage: AuthenticationStorage,
         eventsReceiver: GlobalUIEventsReceiver,
         networkService: NetworkService
         ) -> CurrentFlow {

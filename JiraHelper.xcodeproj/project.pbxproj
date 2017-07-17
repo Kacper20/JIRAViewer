@@ -63,7 +63,7 @@
 		BB36E1F31EF5ADE10081DDAE /* SprintIssuesContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36E1F21EF5ADE10081DDAE /* SprintIssuesContainer.swift */; };
 		BB36E1F61EF5B18C0081DDAE /* Issue+Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36E1F51EF5B18C0081DDAE /* Issue+Details.swift */; };
 		BB36E1F81EF5E7870081DDAE /* BoardConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36E1F71EF5E7870081DDAE /* BoardConfiguration.swift */; };
-		BB503C6A1EDACCA0002BDF54 /* BasicAuthenticationStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB503C691EDACCA0002BDF54 /* BasicAuthenticationStorage.swift */; };
+		BB503C6A1EDACCA0002BDF54 /* AuthenticationStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB503C691EDACCA0002BDF54 /* AuthenticationStorage.swift */; };
 		BB503C6F1EDB0043002BDF54 /* AuthenticatedNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB503C6E1EDB0043002BDF54 /* AuthenticatedNetworkService.swift */; };
 		BB53D42D1EDA060500BBC607 /* AppLifecycleMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB53D42C1EDA060500BBC607 /* AppLifecycleMonitor.swift */; };
 		BB53D4301EDA0D5700BBC607 /* TwoWayBindingOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB53D42F1EDA0D5700BBC607 /* TwoWayBindingOperator.swift */; };
@@ -265,7 +265,7 @@
 		BB36E1F21EF5ADE10081DDAE /* SprintIssuesContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprintIssuesContainer.swift; sourceTree = "<group>"; };
 		BB36E1F51EF5B18C0081DDAE /* Issue+Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Issue+Details.swift"; sourceTree = "<group>"; };
 		BB36E1F71EF5E7870081DDAE /* BoardConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardConfiguration.swift; sourceTree = "<group>"; };
-		BB503C691EDACCA0002BDF54 /* BasicAuthenticationStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicAuthenticationStorage.swift; sourceTree = "<group>"; };
+		BB503C691EDACCA0002BDF54 /* AuthenticationStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationStorage.swift; sourceTree = "<group>"; };
 		BB503C6E1EDB0043002BDF54 /* AuthenticatedNetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticatedNetworkService.swift; sourceTree = "<group>"; };
 		BB53D42C1EDA060500BBC607 /* AppLifecycleMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLifecycleMonitor.swift; sourceTree = "<group>"; };
 		BB53D42F1EDA0D5700BBC607 /* TwoWayBindingOperator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoWayBindingOperator.swift; sourceTree = "<group>"; };
@@ -454,7 +454,7 @@
 			isa = PBXGroup;
 			children = (
 				BB0A2BF31EBF9C8400A19D60 /* AuthenticationProvider.swift */,
-				BB503C691EDACCA0002BDF54 /* BasicAuthenticationStorage.swift */,
+				BB503C691EDACCA0002BDF54 /* AuthenticationStorage.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -1195,7 +1195,7 @@
 				BB0A2BFF1EBFB8C500A19D60 /* LoginWindowController.swift in Sources */,
 				BB143CBF1F0ACFD5008BC52C /* IssueDetailsViewController.swift in Sources */,
 				BB5695A41EDB5D5300B87510 /* LoginViewController.swift in Sources */,
-				BB503C6A1EDACCA0002BDF54 /* BasicAuthenticationStorage.swift in Sources */,
+				BB503C6A1EDACCA0002BDF54 /* AuthenticationStorage.swift in Sources */,
 				BBB765721EF51B9E0039B366 /* SprintIssuesService.swift in Sources */,
 				BB0A2BDE1EBF4B8A00A19D60 /* NetworkService.swift in Sources */,
 				BB36E1F81EF5E7870081DDAE /* BoardConfiguration.swift in Sources */,

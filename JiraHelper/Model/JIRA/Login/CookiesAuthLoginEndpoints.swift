@@ -9,13 +9,20 @@
 import Foundation
 
 enum CookieAuthLoginEndpoints {
-    static func login(with data: LoginData) -> EndpointConfiguration<CookieSession> {
+    struct CookieSessionResult: Decodable {
+        let session: CookieSession
+    }
+
+    static func login(with data: LoginData) -> EndpointConfiguration<CookieSessionResult> {
         return EndpointConfiguration(
-            path: "",
+            path: "/jira/rest/auth/latest/session",
             method: .get,
             encoding: URLEncoding.default,
-            headers: JIRARestAPI.basicAuthHeaders(username: data.username, password: data.password),
-            parameters: .empty,
+            headers: [:],
+            parameters: .dict([
+                "username" : data.username,
+                "password" : data.password
+                ]),
             resourceType: .json
         )
     }
