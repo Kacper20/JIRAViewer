@@ -30,15 +30,11 @@ final class RootFlowController {
 
     private func computeCurrentFlow() -> CurrentFlow {
         if let authentication = authenticationProvider.readAuthentication() {
-            if case let .basicAuth(storage) = authentication {
-                return createMainFlowChoice(
-                    for: storage,
-                    eventsReceiver: eventsReceiver,
-                    networkService: networkService
-                )
-            } else {
-                fatalError()
-            }
+            return createMainFlowChoice(
+                for: authentication,
+                eventsReceiver: eventsReceiver,
+                networkService: networkService
+            )
         } else {
             let teamCheckService = TeamCheckService(networkService: networkService, environment: environment)
             let loginWindowController = LoginWindowController(
@@ -54,7 +50,7 @@ final class RootFlowController {
     private func performLogin(withAuthentication authenticationType: AuthenticationDataType, team: JIRATeam) {
         switch authenticationType {
         case let .basic(loginData):
-            let storage = authenticationProvider.writeBasicAuthentication(data: loginData, team: team)
+            let storage = authenticationProvider.writeAuthentication(data: loginData, team: team)
             cleanCurrentFlow()
             currentFlow = createMainFlowChoice(
                 for: storage,

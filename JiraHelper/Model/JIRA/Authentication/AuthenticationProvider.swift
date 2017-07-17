@@ -19,14 +19,7 @@ enum AuthenticationStorageType {
 
 final class AuthenticationProvider {
 
-    func readAuthentication() -> AuthenticationStorageType? {
-        if let basicAuth = readBasicAuthentication() {
-            return .basicAuth(basicAuth)
-        }
-        return nil
-    }
-
-    func writeBasicAuthentication(
+    func writeAuthentication(
         data: LoginData,
         team: JIRATeam,
         cookieSession: CookieSession? = nil
@@ -41,7 +34,7 @@ final class AuthenticationProvider {
         return storage
     }
 
-    private func readBasicAuthentication() -> AuthenticationStorage? {
+    func readAuthentication() -> AuthenticationStorage? {
         if let authData = AuthenticationStorage().readFromSecureStore()?.data,
             let data = AuthenticationStorage(dictData: authData) {
             return data
