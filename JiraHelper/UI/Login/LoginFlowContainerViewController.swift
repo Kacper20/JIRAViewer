@@ -58,29 +58,28 @@ final class LoginFlowContainerViewController: NSViewController {
         switch teamCheckService.loginService(forTeam: team) {
         case .basicAuth(let service):
             let viewModel = LoginViewModel(service: service)
-            let loginVc = LoginViewController(
-                team: team,
-                viewModel: viewModel,
-                onLoggedIn: { [weak self] data in
-                    self?.onFinished(
-                        LoginFlowCompletedData(team: team, authenticationData: .basic(data))
-                    )
-                }
-            )
-            setVCAsCurrent(vc: loginVc)
+            setProperLoginVC(viewModel: viewModel, team: team, onFinish: { [weak self] result in
+                self?.onFinished(LoginFlowCompletedData(team: team, authenticationData: .basic(result)))
+            })
         case .cookies(let service):
             let viewModel = LoginViewModel(service: service)
-            let loginVc = LoginViewController(
-                team: team,
-                viewModel: viewModel,
-                onLoggedIn: { [weak self] data in
-                    self?.onFinished(
-                        LoginFlowCompletedData(team: team, authenticationData: .cookie(data))
-                    )
-                }
-            )
-            setVCAsCurrent(vc: loginVc)
+            setProperLoginVC(viewModel: viewModel, team: team, onFinish: { [weak self] result in
+                self?.onFinished(LoginFlowCompletedData(team: team, authenticationData: .cookie(result)))
+            })
         }
+    }
+
+    private func setProperLoginVC<T: LoginViewModelType>(
+        viewModel model: T,
+        team: JIRATeam,
+        onFinish: @escaping (T.LoginResult) -> Void
+        ) {
+        let loginVc = LoginViewController<T>(
+            team: team,
+            viewModel: model,
+            onLoggedIn: onFinish
+        )
+        setVCAsCurrent(vc: loginVc)
     }
 
     private func setVCAsCurrent(vc: NSViewController) {
