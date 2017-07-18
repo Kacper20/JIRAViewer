@@ -46,6 +46,7 @@
 		BB2046C11EBE0F7300084F34 /* Optionals.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2046C01EBE0F7300084F34 /* Optionals.swift */; };
 		BB2046C41EBE112900084F34 /* SprintCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2046C21EBE112900084F34 /* SprintCollectionViewItem.swift */; };
 		BB2A76F51F1BB97200F8FA3D /* TextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2A76F41F1BB97200F8FA3D /* TextField+Extensions.swift */; };
+		BB2EB39C1F1EA86700448B26 /* Codable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2EB39B1F1EA86700448B26 /* Codable+Extensions.swift */; };
 		BB2FC6751EC264BD0031917B /* TeamPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2FC6741EC264BD0031917B /* TeamPickerViewModel.swift */; };
 		BB34BBA41F043C490070276D /* UserEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34BBA31F043C490070276D /* UserEndpoints.swift */; };
 		BB34BBA61F043D5C0070276D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34BBA51F043D5C0070276D /* User.swift */; };
@@ -246,6 +247,7 @@
 		BB2046C01EBE0F7300084F34 /* Optionals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Optionals.swift; sourceTree = "<group>"; };
 		BB2046C21EBE112900084F34 /* SprintCollectionViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SprintCollectionViewItem.swift; sourceTree = "<group>"; };
 		BB2A76F41F1BB97200F8FA3D /* TextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Extensions.swift"; sourceTree = "<group>"; };
+		BB2EB39B1F1EA86700448B26 /* Codable+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Codable+Extensions.swift"; sourceTree = "<group>"; };
 		BB2FC6741EC264BD0031917B /* TeamPickerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamPickerViewModel.swift; sourceTree = "<group>"; };
 		BB34BBA31F043C490070276D /* UserEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEndpoints.swift; sourceTree = "<group>"; };
 		BB34BBA51F043D5C0070276D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -597,6 +599,7 @@
 				BB12D6EF1ED780A900FEA52A /* String+Extensions.swift */,
 				BB5695BF1EDE0AB800B87510 /* Collections+Extensions.swift */,
 				BBDA90921F11604D00B99C34 /* URL+Extensions.swift */,
+				BB2EB39B1F1EA86700448B26 /* Codable+Extensions.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1286,6 +1289,7 @@
 				FA6E351536938100E1D24BBE /* TextInputViewController.swift in Sources */,
 				BBFC653D1EE1FDFA005C1EFB /* BasicAuthLoginEndpoints.swift in Sources */,
 				BB5FB9AB1EF3122000972AC5 /* MainViewModel.swift in Sources */,
+				BB2EB39C1F1EA86700448B26 /* Codable+Extensions.swift in Sources */,
 				BB36E1E51EF53A580081DDAE /* DetailedIssue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
