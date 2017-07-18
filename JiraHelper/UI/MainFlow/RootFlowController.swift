@@ -41,6 +41,7 @@ final class RootFlowController {
                 teamCheckService: teamCheckService
             )
             loginWindowController.onFinished = { [weak self] data in
+                _ = self?.authenticationProvider.writeAuthentication(data.authenticationData, team: data.team)
                 self?.relaunchProperFlow()
             }
             return .login(loginWindowController)

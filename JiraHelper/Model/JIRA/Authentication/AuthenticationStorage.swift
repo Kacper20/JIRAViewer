@@ -30,6 +30,7 @@ extension AuthenticationStorage: ReadableSecureStorable, GenericPasswordSecureSt
     var service: String {
         return "JiraHelper"
     }
+
     var account: String {
         return "BasicAuthKeys"
     }

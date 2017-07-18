@@ -11,24 +11,37 @@ import Foundation
 enum AuthenticationDataType {
     case basic(LoginData)
     case cookie(CookieSessionWithLoginData)
-}
 
-enum AuthenticationStorageType {
-    case basicAuth(AuthenticationStorage)
+    var loginData: LoginData {
+        switch self {
+        case .basic(let loginData):
+            return loginData
+        case .cookie(let cookieWithData):
+            return cookieWithData.loginData
+        }
+    }
+
+    var session: CookieSession? {
+        switch self {
+        case .basic(_):
+            return nil
+        case .cookie(let cookieWithData):
+            return cookieWithData.session
+        }
+    }
 }
 
 final class AuthenticationProvider {
 
     func writeAuthentication(
-        data: LoginData,
-        team: JIRATeam,
-        cookieSession: CookieSession? = nil
+        _ authData: AuthenticationDataType,
+        team: JIRATeam
         ) -> AuthenticationStorage {
         let storage = AuthenticationStorage(
-            username: data.username,
-            password: data.password,
+            username: authData.loginData.username,
+            password: authData.loginData.password,
             team: team,
-            cookieSession: cookieSession
+            cookieSession: authData.session
         )
         try? storage.createInSecureStore()
         return storage
