@@ -61,7 +61,7 @@ final class RootFlowController {
             ),
             actionHandler: { [weak self] action in
                 switch action {
-                case .logoutClicked:
+                case .menuAction(.logout):
                     try? storage.deleteFromSecureStore()
                     self?.relaunchProperFlow()
                 }

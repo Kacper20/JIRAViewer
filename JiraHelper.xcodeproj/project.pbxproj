@@ -64,6 +64,7 @@
 		BB36E1F31EF5ADE10081DDAE /* SprintIssuesContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36E1F21EF5ADE10081DDAE /* SprintIssuesContainer.swift */; };
 		BB36E1F61EF5B18C0081DDAE /* Issue+Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36E1F51EF5B18C0081DDAE /* Issue+Details.swift */; };
 		BB36E1F81EF5E7870081DDAE /* BoardConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36E1F71EF5E7870081DDAE /* BoardConfiguration.swift */; };
+		BB3E661B1F1EBB310059B686 /* MainWindowMenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3E661A1F1EBB310059B686 /* MainWindowMenuManager.swift */; };
 		BB503C6A1EDACCA0002BDF54 /* AuthenticationStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB503C691EDACCA0002BDF54 /* AuthenticationStorage.swift */; };
 		BB503C6F1EDB0043002BDF54 /* AuthenticatedNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB503C6E1EDB0043002BDF54 /* AuthenticatedNetworkService.swift */; };
 		BB53D42D1EDA060500BBC607 /* AppLifecycleMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB53D42C1EDA060500BBC607 /* AppLifecycleMonitor.swift */; };
@@ -267,6 +268,7 @@
 		BB36E1F21EF5ADE10081DDAE /* SprintIssuesContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprintIssuesContainer.swift; sourceTree = "<group>"; };
 		BB36E1F51EF5B18C0081DDAE /* Issue+Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Issue+Details.swift"; sourceTree = "<group>"; };
 		BB36E1F71EF5E7870081DDAE /* BoardConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardConfiguration.swift; sourceTree = "<group>"; };
+		BB3E661A1F1EBB310059B686 /* MainWindowMenuManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowMenuManager.swift; sourceTree = "<group>"; };
 		BB503C691EDACCA0002BDF54 /* AuthenticationStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationStorage.swift; sourceTree = "<group>"; };
 		BB503C6E1EDB0043002BDF54 /* AuthenticatedNetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticatedNetworkService.swift; sourceTree = "<group>"; };
 		BB53D42C1EDA060500BBC607 /* AppLifecycleMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLifecycleMonitor.swift; sourceTree = "<group>"; };
@@ -649,6 +651,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		BB3E66191F1EBB1C0059B686 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				BB3E661A1F1EBB310059B686 /* MainWindowMenuManager.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
 		BB53D42B1EDA034C00BBC607 /* Lifecycle */ = {
 			isa = PBXGroup;
 			children = (
@@ -794,6 +804,7 @@
 		BBA77BA41E57A3D900C9842C /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				BB3E66191F1EBB1C0059B686 /* Menu */,
 				BB36E1E81EF585500081DDAE /* TouchBar */,
 				BB0BA4321EF42ABD003BE8C5 /* ToolbarManager */,
 				BB5FB9A71EF311F100972AC5 /* ViewModel */,
@@ -1263,6 +1274,7 @@
 				BB99A1651F0C18900006E40D /* LoadingPerformingFlowViewController.swift in Sources */,
 				BB361C231F13EF1C002369CB /* IssueTransition.swift in Sources */,
 				BBA77BA61E57A3F200C9842C /* MainViewController.swift in Sources */,
+				BB3E661B1F1EBB310059B686 /* MainWindowMenuManager.swift in Sources */,
 				BB05A2FB1EEDE6B2000EFC1C /* Serialization.swift in Sources */,
 				BB143CC21F0AD041008BC52C /* IssueDetailsView.swift in Sources */,
 				BB19FBBA1ED624B00094E83F /* TeamURLExtractor.swift in Sources */,

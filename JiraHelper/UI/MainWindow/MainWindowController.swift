@@ -6,7 +6,7 @@ import AppKit
 import RxSwift
 
 enum MainWindowAction {
-    case logoutClicked
+    case menuAction(MainWindowMenuAction)
 }
 
 final class MainWindowController: NSWindowController {
@@ -20,6 +20,7 @@ final class MainWindowController: NSWindowController {
 
     private var mainViewController: MainViewController?
     private var toolbarManager: MainWindowToolbarManager?
+    private var menuManager: MainWindowMenuManager?
 
     override var windowNibName : String! {
         return "MainWindowController"
@@ -37,7 +38,11 @@ final class MainWindowController: NSWindowController {
 
     override func windowDidLoad() {
         super.windowDidLoad()
-        setupLogoutMenuItem()
+        if let menu = NSApp.menu {
+            menuManager = MainWindowMenuManager(menu: menu, actionHandler: { [weak self] action in
+                self?.actionHandler(.menuAction(action))
+            })
+        }
     }
 
     override func keyDown(with event: NSEvent) { }
@@ -46,28 +51,8 @@ final class MainWindowController: NSWindowController {
         mainViewController?.processKeyUpEvent(event)
     }
 
-    //MENU Manager - needs to keep them separate
-    private func setupLogoutMenuItem() {
-        guard let menu = NSApp.mainMenu else { return }
-        let item = NSMenuItem(
-            title: "",
-            action: #selector(MainWindowController.logoutClicked),
-            keyEquivalent: ""
-        )
-        let settingsMenu = NSMenu(title: "Account")
-        settingsMenu.insertItem(
-            withTitle: "Logout",
-            action: #selector(MainWindowController.logoutClicked),
-            keyEquivalent: "",
-            at: 0
-        )
-        item.submenu = settingsMenu
-        menu.insertItem(item, at: 1)
-        print(menu.items)
-    }
-
-    @objc private func logoutClicked() {
-        actionHandler(.logoutClicked)
+    override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
+        return true
     }
 
     func present() {
