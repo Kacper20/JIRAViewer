@@ -66,6 +66,11 @@ final class AuthenticationProvider {
         return readAuthentication()?.items.first
     }
 
+    func getOtherThanLastTeams() -> [JIRATeam] {
+        guard let slice = readAuthentication()?.items.dropFirst().map({ $0.team }) else { return [] }
+        return Array(slice)
+    }
+
     func clearAuthentication() throws {
         try readAuthentication()?.deleteFromSecureStore()
     }

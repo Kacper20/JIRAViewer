@@ -58,11 +58,12 @@ final class RootFlowController {
         let mainController = MainWindowController(
             mainViewModelCreator: MainViewModelCreator(
                 networkService: authenticatedService,
-                eventsReceiver: eventsReceiver
+                eventsReceiver: eventsReceiver,
+                authenticationProvider: authenticationProvider
             ),
             actionHandler: { [weak self] action in
                 switch action {
-                case .menuAction(.logout):
+                case .logout:
                     try? self?.authenticationProvider.clearAuthentication()
                     self?.relaunchProperFlow()
                 }

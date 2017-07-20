@@ -8,18 +8,33 @@
 
 import Foundation
 
-enum MainWindowMenuAction {
-    case logout
+struct MenuItemAction {
+    let target: AnyObject
+    let selector: Selector
+}
+
+struct TeamSwitchItemsInfo {
+    let teamNames: [String]
+    let target: AnyObject
 }
 
 final class MainWindowMenuManager {
 
     private let menu: NSMenu
-    private let actionHandler: (MainWindowMenuAction) -> Void
+    private let logoutAction: MenuItemAction
+    private let addTeamAction: MenuItemAction
+    private let teamsInfo: TeamSwitchItemsInfo
 
-    init(menu: NSMenu, actionHandler: @escaping (MainWindowMenuAction) -> Void) {
+    init(
+        menu: NSMenu,
+        logoutAction: MenuItemAction,
+        addTeamAction: MenuItemAction,
+        teamsInfo: TeamSwitchItemsInfo
+        ) {
         self.menu = menu
-        self.actionHandler = actionHandler
+        self.addTeamAction = addTeamAction
+        self.teamsInfo = teamsInfo
+        self.logoutAction = logoutAction
         setupMenuItems()
     }
 
@@ -27,7 +42,7 @@ final class MainWindowMenuManager {
         guard let menu = NSApp.mainMenu else { return }
         let accountItem = NSMenuItem(
             title: "",
-            action: #selector(MainWindowMenuManager.logoutClicked),
+            action: logoutAction.selector,
             keyEquivalent: ""
         )
         menu.insertItem(accountItem, at: 1)
@@ -35,16 +50,20 @@ final class MainWindowMenuManager {
         accountItem.submenu = accountMenu
         let logoutItem = NSMenuItem(
             title: "Logout",
-            action: #selector(MainWindowMenuManager.logoutClicked),
+            action: logoutAction.selector,
             keyEquivalent: ""
         )
-        logoutItem.target = self
+        logoutItem.target = logoutAction.target
         logoutItem.isEnabled = true
         accountMenu.insertItem(logoutItem, at: 0)
-    }
-
-    @objc private func logoutClicked() {
-        actionHandler(.logout)
+        let addTeamItem = NSMenuItem(
+            title: "Add team",
+            action: addTeamAction.selector,
+            keyEquivalent: ""
+        )
+        addTeamItem.target = addTeamAction.target
+        addTeamItem.isEnabled = true
+        accountMenu.insertItem(addTeamItem, at: 1)
     }
 
 }

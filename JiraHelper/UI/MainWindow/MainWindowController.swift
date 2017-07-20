@@ -6,7 +6,7 @@ import AppKit
 import RxSwift
 
 enum MainWindowAction {
-    case menuAction(MainWindowMenuAction)
+    case logout
 }
 
 final class MainWindowController: NSWindowController {
@@ -39,10 +39,21 @@ final class MainWindowController: NSWindowController {
     override func windowDidLoad() {
         super.windowDidLoad()
         if let menu = NSApp.menu {
-            menuManager = MainWindowMenuManager(menu: menu, actionHandler: { [weak self] action in
-                self?.actionHandler(.menuAction(action))
-            })
+            menuManager = MainWindowMenuManager(
+                menu: menu,
+                logoutAction: MenuItemAction(target: self, selector: #selector(MainWindowController.handleLogout)),
+                addTeamAction: MenuItemAction(target: self, selector: #selector(MainWindowController.handleTeamAdding)),
+                teamsInfo: TeamSwitchItemsInfo(teamNames: ["A", "B"], target: self)
+            )
         }
+    }
+
+    @objc private func handleTeamAdding() {
+        actionHandler(.logout)
+    }
+
+    @objc private func handleLogout() {
+        actionHandler(.logout)
     }
 
     override func keyDown(with event: NSEvent) { }

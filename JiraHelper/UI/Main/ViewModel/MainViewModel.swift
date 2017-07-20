@@ -18,6 +18,7 @@ final class MainViewModel {
     let sprintChoice: ActiveSprintChoice
     let eventsReceiver: GlobalUIEventsReceiver
     let imageDownloader: ImageDownloader
+    let otherTeams: [JIRATeam]
 
     let sprintViewModel: SprintViewModel
     //TODO: Consider connecting boards choice selected with configuration to express type in a better way
@@ -29,6 +30,7 @@ final class MainViewModel {
         eventsReceiver: GlobalUIEventsReceiver,
         sprintChoice: ActiveSprintChoice,
         user: User,
+        otherTeams: [JIRATeam],
         imageDownloader: ImageDownloader = ImageDownloader()
      ) {
         self.boardsService = boardsService
@@ -36,6 +38,7 @@ final class MainViewModel {
         self.boardsChoice = boardsChoice
         self.sprintChoice = sprintChoice
         self.eventsReceiver = eventsReceiver
+        self.otherTeams = otherTeams
         self.sprintViewModel = SprintViewModel(
             sprintIssuesService: sprintsService.issuesService(for: sprintChoice.selected),
             imageDownloader: imageDownloader,
