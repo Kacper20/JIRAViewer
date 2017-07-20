@@ -38,6 +38,10 @@ final class MainWindowMenuManager {
         setupMenuItems()
     }
 
+    func clearItems() {
+        
+    }
+
     private func setupMenuItems() {
         guard let menu = NSApp.mainMenu else { return }
         let accountItem = NSMenuItem(
@@ -54,7 +58,6 @@ final class MainWindowMenuManager {
             keyEquivalent: ""
         )
         logoutItem.target = logoutAction.target
-        logoutItem.isEnabled = true
         accountMenu.insertItem(logoutItem, at: 0)
         let addTeamItem = NSMenuItem(
             title: "Add team",
@@ -62,8 +65,15 @@ final class MainWindowMenuManager {
             keyEquivalent: ""
         )
         addTeamItem.target = addTeamAction.target
-        addTeamItem.isEnabled = true
         accountMenu.insertItem(addTeamItem, at: 1)
-    }
 
+        if !teamsInfo.teamNames.isEmpty {
+            let switchTeamItem = NSMenuItem(
+                title: "Switch team",
+                action: addTeamAction.selector,
+                keyEquivalent: ""
+            )
+            accountMenu.insertItem(switchTeamItem, at: 2)
+        }
+    }
 }

@@ -31,6 +31,10 @@ final class MainWindowController: NSWindowController {
         self.actionHandler = actionHandler
         super.init(window: nil)
     }
+
+    deinit {
+        menuManager?.clearItems()
+    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
