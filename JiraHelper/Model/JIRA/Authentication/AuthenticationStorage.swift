@@ -21,6 +21,20 @@ struct AuthenticationStorageItem: Codable {
         self.team = team
         self.cookieSession = cookieSession
     }
+
+    var dict: [String : Any] {
+        var baseDict: [String: Any] = [
+            CodingKeys.username.stringValue: username,
+            CodingKeys.password.stringValue: password
+        ]
+        if let teamDict = try? team.getDict() {
+            baseDict[CodingKeys.team.stringValue] = teamDict
+        }
+        if let cookieSessionDict = try? cookieSession.getDict() {
+            baseDict[CodingKeys.cookieSession.stringValue] = cookieSessionDict
+        }
+        return baseDict
+    }
 }
 
 struct AuthenticationStorage: Encodable {
@@ -44,7 +58,8 @@ extension AuthenticationStorage: ReadableSecureStorable, GenericPasswordSecureSt
     }
 
     var data: [String : Any] {
-        guard let itemsDicts = try? items.flatMap({ try $0.getDict() }) else { return [:] }
+        guard !items.isEmpty else { return [:] }
+        let itemsDicts = items.map({ $0.dict })
         return [
             Keys.items: itemsDicts,
         ]
