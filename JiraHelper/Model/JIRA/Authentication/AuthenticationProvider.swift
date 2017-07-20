@@ -37,17 +37,40 @@ final class AuthenticationProvider {
         _ authData: AuthenticationDataType,
         team: JIRATeam
         ) -> AuthenticationStorage {
-        let storage = AuthenticationStorage(
+        let item = AuthenticationStorageItem(
             username: authData.loginData.username,
             password: authData.loginData.password,
             team: team,
             cookieSession: authData.session
         )
-        try? storage.createInSecureStore()
-        return storage
+        if let currentAuth = readAuthentication() {
+            var items = currentAuth.items
+            if let indexToReplace = items.index(where: { $0.team == item.team }), indexToReplace != 0 {
+                items.swapAt(0, indexToReplace)
+            } else {
+                items.insert(item, at: 0)
+            }
+            let storage = AuthenticationStorage(items: items)
+            try? storage.updateInSecureStore()
+            return storage
+        } else {
+            let storage = AuthenticationStorage(
+                items: [item]
+            )
+            try? storage.createInSecureStore()
+            return storage
+        }
     }
 
-    func readAuthentication() -> AuthenticationStorage? {
+    func getLastAuthenticationData() -> AuthenticationStorageItem? {
+        return readAuthentication()?.items.first
+    }
+
+    func clearAuthentication() throws {
+        try readAuthentication()?.deleteFromSecureStore()
+    }
+
+    private func readAuthentication() -> AuthenticationStorage? {
         if let authData = AuthenticationStorage().readFromSecureStore()?.data,
             let data = AuthenticationStorage(dictData: authData) {
             return data

@@ -12,9 +12,9 @@ import RxSwift
 final class AuthenticatedNetworkService {
 
     private let networkService: NetworkService
-    private let authentication: AuthenticationStorage
+    private let authentication: AuthenticationStorageItem
 
-    init(networkService: NetworkService, authentication: AuthenticationStorage) {
+    init(networkService: NetworkService, authentication: AuthenticationStorageItem) {
         self.networkService = networkService
         self.authentication = authentication
     }

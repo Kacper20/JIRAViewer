@@ -26,10 +26,11 @@ final class RootFlowController {
         self.networkService = networkService
         self.authenticationProvider = authenticationProvider
         currentFlow = computeCurrentFlow()
+//        try? authenticationProvider.clearAuthentication()
     }
 
     private func computeCurrentFlow() -> CurrentFlow {
-        if let authentication = authenticationProvider.readAuthentication() {
+        if let authentication = authenticationProvider.getLastAuthenticationData() {
             return createMainFlowChoice(
                 for: authentication,
                 eventsReceiver: eventsReceiver,
@@ -49,7 +50,7 @@ final class RootFlowController {
     }
 
     private func createMainFlowChoice(
-        for storage: AuthenticationStorage,
+        for storage: AuthenticationStorageItem,
         eventsReceiver: GlobalUIEventsReceiver,
         networkService: NetworkService
         ) -> CurrentFlow {
@@ -62,7 +63,7 @@ final class RootFlowController {
             actionHandler: { [weak self] action in
                 switch action {
                 case .menuAction(.logout):
-                    try? storage.deleteFromSecureStore()
+                    try? self?.authenticationProvider.clearAuthentication()
                     self?.relaunchProperFlow()
                 }
             }

@@ -9,22 +9,30 @@
 import Foundation
 import Locksmith
 
-struct AuthenticationStorage: Encodable {
+struct AuthenticationStorageItem: Codable {
     let username: String
     let password: String
     let team: JIRATeam
     let cookieSession: CookieSession?
+
+    init(username: String, password: String, team: JIRATeam, cookieSession: CookieSession?) {
+        self.username = username
+        self.password = password
+        self.team = team
+        self.cookieSession = cookieSession
+    }
+}
+
+struct AuthenticationStorage: Encodable {
+    //Item most recently touched by the user is at the beginning of the list
+    let items: [AuthenticationStorageItem]
 }
 
 extension AuthenticationStorage: ReadableSecureStorable, GenericPasswordSecureStorable,
     CreateableSecureStorable, DeleteableSecureStorable {
 
     struct Keys {
-        static let username = "username"
-        static let password = "password"
-        static let team = "team"
-        static let cookieName = "cookieName"
-        static let cookieValue = "cookieValue"
+        static let items = "item"
     }
 
     var service: String {
@@ -36,39 +44,20 @@ extension AuthenticationStorage: ReadableSecureStorable, GenericPasswordSecureSt
     }
 
     var data: [String : Any] {
-        var baseData = [
-            Keys.username: username,
-            Keys.password: password,
-            Keys.team: team.name
+        guard let itemsDicts = try? items.flatMap({ try $0.getDict() }) else { return [:] }
+        return [
+            Keys.items: itemsDicts,
         ]
-
-        if let cookie = cookieSession {
-            baseData[Keys.cookieName] = cookie.name
-            baseData[Keys.cookieValue] = cookie.value
-        }
-        return baseData
     }
 
-    //TODO: Try to implement it in other way
     init?(dictData: [String : Any]) {
-        guard let team = dictData[Keys.team] as? String, let username = dictData[Keys.username] as? String,
-            let password = dictData[Keys.password] as? String else { return nil }
-        self.team = JIRATeam(name: team)
-        self.username = username
-        self.password = password
-
-        if let cookieName = dictData[Keys.cookieName] as? String,
-            let cookieValue = dictData[Keys.cookieValue] as? String {
-            self.cookieSession = CookieSession(name: cookieName, value: cookieValue)
-        } else {
-            self.cookieSession = nil
-        }
+        guard let itemsDicts = dictData[Keys.items] as? [[String : Any]],
+              let items = try? itemsDicts.flatMap(AuthenticationStorageItem.init(dict: )) else { return nil }
+        guard !items.isEmpty else { return nil }
+        self.items = items
     }
 
     init() {
-        username = ""
-        password = ""
-        team = JIRATeam(name: "")
-        self.cookieSession = nil
+        items = []
     }
 }
