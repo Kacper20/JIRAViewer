@@ -25,8 +25,8 @@ final class RootFlowController {
     init(networkService: NetworkService, authenticationProvider: AuthenticationProvider) {
         self.networkService = networkService
         self.authenticationProvider = authenticationProvider
-        currentFlow = computeCurrentFlow()
 //        try? authenticationProvider.clearAuthentication()
+        currentFlow = computeCurrentFlow()
     }
 
     private func computeCurrentFlow() -> CurrentFlow {

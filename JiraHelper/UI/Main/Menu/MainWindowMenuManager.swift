@@ -25,6 +25,8 @@ final class MainWindowMenuManager {
     private let addTeamAction: MenuItemAction
     private let teamsInfo: TeamSwitchItemsInfo
 
+    private var accountItem: NSMenuItem?
+
     init(
         menu: NSMenu,
         logoutAction: MenuItemAction,
@@ -39,16 +41,18 @@ final class MainWindowMenuManager {
     }
 
     func clearItems() {
-        
+        if let item = accountItem {
+            menu.removeItem(item)
+        }
     }
 
     private func setupMenuItems() {
-        guard let menu = NSApp.mainMenu else { return }
         let accountItem = NSMenuItem(
             title: "",
             action: logoutAction.selector,
             keyEquivalent: ""
         )
+        self.accountItem = accountItem
         menu.insertItem(accountItem, at: 1)
         let accountMenu = NSMenu(title: "Account")
         accountItem.submenu = accountMenu
@@ -74,6 +78,17 @@ final class MainWindowMenuManager {
                 keyEquivalent: ""
             )
             accountMenu.insertItem(switchTeamItem, at: 2)
+            let menu = NSMenu(title: "submenu")
+            switchTeamItem.submenu = menu
+            let teamItems = teamsInfo.teamNames.map { teamName in
+                return NSMenuItem(
+                    title: teamName,
+                    action: addTeamAction.selector,
+                    keyEquivalent: ""
+                )
+            }
+            teamItems.forEach { menu.addItem($0) }
+
         }
     }
 }
