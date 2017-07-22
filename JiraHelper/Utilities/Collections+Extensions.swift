@@ -62,12 +62,6 @@ extension Dictionary {
         }
     }
 
-    func mapValues<T>(fun: (Value) throws -> T) rethrows -> [Key: T] {
-        var result = [Key: T]()
-        for elem in self { result[elem.key] = try fun(elem.value) }
-        return result
-    }
-
     init<S: Sequence>(_ sequence: S) where S.Iterator.Element == (key: Key, value: Value) {
         self = [:]
         self.merge(sequence)

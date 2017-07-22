@@ -39,35 +39,65 @@ struct SprintElementData {
     }
 }
 
+typealias IssuesStorage = [KanbanColumn : [BasicIssue]]
+
+struct FilteredData {
+    private var filter: (BasicIssue) -> Bool
+    private(set) var data: IssuesStorage = [:]
+
+    init(baseData: IssuesStorage, filter: @escaping (BasicIssue) -> Bool) {
+        data = baseData
+        self.filter = filter
+        data = applyFiltering(baseData: baseData, filter: filter)
+    }
+
+    private func applyFiltering(baseData: IssuesStorage, filter: @escaping (BasicIssue) -> Bool) -> IssuesStorage {
+        return baseData.mapValues { (array: [BasicIssue]) -> [BasicIssue] in
+            return array.filter(filter)
+        }
+    }
+
+    mutating func apply(filter: @escaping (BasicIssue) -> Bool, on baseData: IssuesStorage) {
+        self.data = applyFiltering(baseData: baseData, filter: filter)
+    }
+
+    mutating func setBaseData(baseData: IssuesStorage) {
+        self.data = applyFiltering(baseData: data, filter: filter)
+    }
+}
+
 struct SprintIssuesContainer {
     private let columns: [KanbanColumn]
 
+    private var filteredData: FilteredData
+    private var baseData: IssuesStorage = [:]
+
     init(columns: [KanbanColumn]) {
         self.columns = columns
+        filteredData = FilteredData(baseData: [:], filter: { _ in true })
     }
 
-    var data: [KanbanColumn : [BasicIssue]] = [:]
-
     mutating func update(with issues: [BasicIssue]) {
-        let keysCount = data.keys.count
-        data = [:]
-        data.reserveCapacity(keysCount)
+        let keysCount = baseData.keys.count
+        baseData = [:]
+        baseData.reserveCapacity(keysCount)
         for column in columns {
-            data[column] = []
+            baseData[column] = []
         }
 
         for issue in issues {
             let column = KanbanColumn(name: issue.status.name)
-            if let existingIssues = data[column] {
-                data[column] = existingIssues + [issue]
+            if let existingIssues = baseData[column] {
+                baseData[column] = existingIssues + [issue]
             } else {
                 fatalError("Unexpected path")
             }
         }
+        filteredData.setBaseData(baseData: baseData)
     }
 
     func issue(at indexPath: IndexPath) -> BasicIssue? {
-        return data[columns[indexPath.section]]?[indexPath.item]
+        return filteredData.data[columns[indexPath.section]]?[indexPath.item]
     }
 
     func viewModel(at indexPath: IndexPath) -> SprintElementData? {
@@ -77,10 +107,10 @@ struct SprintIssuesContainer {
     mutating func updateIssueAndGetPath(newIssue: BasicIssue) -> IndexPath? {
         let column = KanbanColumn(name: newIssue.status.name)
         if let columnIndex = columns.index(of: column),
-           var issues = data[column],
+           var issues = baseData[column],
            let index = issues.index(where: { $0.id == newIssue.id }) {
             issues[index] = newIssue
-            data[column] = issues
+            baseData[column] = issues
             return IndexPath(item: index, section: columnIndex)
         } else {
             return nil
@@ -89,19 +119,23 @@ struct SprintIssuesContainer {
 
     private mutating func removeIssue(from path: IndexPath) -> BasicIssue? {
         let column = columns[path.section]
-        var array = data[column]
+        var array = baseData[column]
         let issue = array?.remove(at: path.item)
-        data[column] = array
+        baseData[column] = array
         return issue
     }
 
     //TODO: Error handling to methods
     private mutating func insert(_ issues: [BasicIssue], at path: IndexPath) {
         let column = columns[path.section]
-        var array = data[column]
+        var array = baseData[column]
         guard array != nil && (array?.count ?? -1) >= path.item else { return }
         array?.insert(contentsOf: issues, at: path.item)
-        data[column] = array
+        baseData[column] = array
+    }
+
+    mutating func apply(filter: @escaping (BasicIssue) -> Bool) {
+        filteredData.apply(filter: filter, on: baseData)
     }
 
     mutating func moveIssues(from set: Set<IndexPath>, to path: IndexPath) {
@@ -115,10 +149,10 @@ struct SprintIssuesContainer {
     }
 
     func numbersOfSections() -> Int {
-        return data.keys.count
+        return filteredData.data.keys.count
     }
 
     func numbersOfItems(inSection section: Int) -> Int {
-        return data[columns[section]]?.count ?? 0
+        return filteredData.data[columns[section]]?.count ?? 0
     }
 }
