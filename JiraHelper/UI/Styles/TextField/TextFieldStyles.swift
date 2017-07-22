@@ -11,8 +11,9 @@ import Foundation
 struct TextFieldStyles {
     static var mainInput: NSViewStyle<NSTextField> {
         return NSViewStyle { textField in
-            textField.isBordered = false
             textField.maximumNumberOfLines = 1
+            textField.cell?.wraps = false
+            textField.cell?.isScrollable = true
             textField.layer?.cornerRadius = 6.0
             textField.focusRingType = .none
         }
