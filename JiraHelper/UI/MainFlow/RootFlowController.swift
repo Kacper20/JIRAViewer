@@ -66,6 +66,10 @@ final class RootFlowController {
                 case .logout:
                     try? self?.authenticationProvider.clearAuthentication()
                     self?.relaunchProperFlow()
+                case .changeTeam(newTeam: let team):
+                    print("Should change team!")
+                case .addNewTeam:
+                    print("Should add new team!")
                 }
             }
         )

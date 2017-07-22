@@ -14,8 +14,9 @@ struct MenuItemAction {
 }
 
 struct TeamSwitchItemsInfo {
-    let teamNames: [String]
+    let teams: [JIRATeam]
     let target: AnyObject
+    let selector: Selector
 }
 
 final class MainWindowMenuManager {
@@ -24,6 +25,7 @@ final class MainWindowMenuManager {
     private let logoutAction: MenuItemAction
     private let addTeamAction: MenuItemAction
     private let teamsInfo: TeamSwitchItemsInfo
+    private var teamSwitchItems = [NSMenuItem]()
 
     private var accountItem: NSMenuItem?
 
@@ -71,24 +73,32 @@ final class MainWindowMenuManager {
         addTeamItem.target = addTeamAction.target
         accountMenu.insertItem(addTeamItem, at: 1)
 
-        if !teamsInfo.teamNames.isEmpty {
+        if !teamsInfo.teams.isEmpty {
             let switchTeamItem = NSMenuItem(
                 title: "Switch team",
-                action: addTeamAction.selector,
+                action: teamsInfo.selector,
                 keyEquivalent: ""
             )
             accountMenu.insertItem(switchTeamItem, at: 2)
             let menu = NSMenu(title: "submenu")
             switchTeamItem.submenu = menu
-            let teamItems = teamsInfo.teamNames.map { teamName in
+            let teamItems = teamsInfo.teams.map { team in
                 return NSMenuItem(
-                    title: teamName,
-                    action: addTeamAction.selector,
+                    title: team.name,
+                    action: teamsInfo.selector,
                     keyEquivalent: ""
                 )
             }
+            self.teamSwitchItems = teamItems
             teamItems.forEach { menu.addItem($0) }
 
         }
+    }
+
+    func matchMenuItemToTeam(item: NSMenuItem) -> JIRATeam? {
+        if let index = teamSwitchItems.index(where: { $0 == item }), let team = teamsInfo.teams.element(at: index) {
+            return team
+        }
+        return nil
     }
 }

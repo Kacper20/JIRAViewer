@@ -29,6 +29,12 @@ extension Sequence {
 }
 
 extension Array {
+
+    func element(at index: Int) -> Element? {
+        guard index >= 0 && index < count else { return nil }
+        return self[index]
+    }
+
     func decomposed() -> (head: Element, tail: [Element])? {
         guard let first = first else { return nil }
         return (first, Array(dropFirst()))

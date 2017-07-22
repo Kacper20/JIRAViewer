@@ -7,6 +7,8 @@ import RxSwift
 
 enum MainWindowAction {
     case logout
+    case changeTeam(newTeam: JIRATeam)
+    case addNewTeam
 }
 
 final class MainWindowController: NSWindowController {
@@ -42,18 +44,16 @@ final class MainWindowController: NSWindowController {
 
     override func windowDidLoad() {
         super.windowDidLoad()
-        if let menu = NSApp.menu {
-            menuManager = MainWindowMenuManager(
-                menu: menu,
-                logoutAction: MenuItemAction(target: self, selector: #selector(MainWindowController.handleLogout)),
-                addTeamAction: MenuItemAction(target: self, selector: #selector(MainWindowController.handleTeamAdding)),
-                teamsInfo: TeamSwitchItemsInfo(teamNames: ["A", "B"], target: self)
-            )
-        }
     }
 
     @objc private func handleTeamAdding() {
-        actionHandler(.logout)
+        actionHandler(.addNewTeam)
+    }
+
+    @objc private func handleTeamChanging(sender: AnyObject) {
+        if let item = sender as? NSMenuItem, let team = menuManager?.matchMenuItemToTeam(item: item) {
+            actionHandler(.changeTeam(newTeam: team))
+        }
     }
 
     @objc private func handleLogout() {
@@ -82,12 +82,28 @@ final class MainWindowController: NSWindowController {
     }
 
     private func presentVC(with viewModel: MainViewModel) {
+        setupMenuItemsManager(teams: viewModel.otherTeams)
         let mainViewController = MainViewController(mainViewModel: viewModel)
         self.mainViewController = mainViewController
         window?.contentView?.addSubview(mainViewController.view)
         mainViewController.view.constraintEdgesToSuperview()
         configureToolbarManager(boardsChoice: viewModel.boardsChoice, sprintChoice: viewModel.sprintChoice)
         window?.makeKey()
+    }
+
+    private func setupMenuItemsManager(teams: [JIRATeam]) {
+        if let menu = NSApp.menu {
+            menuManager = MainWindowMenuManager(
+                menu: menu,
+                logoutAction: MenuItemAction(target: self, selector: #selector(MainWindowController.handleLogout)),
+                addTeamAction: MenuItemAction(target: self, selector: #selector(MainWindowController.handleTeamAdding)),
+                teamsInfo: TeamSwitchItemsInfo(
+                    teams: teams,
+                    target: self,
+                    selector: #selector(MainWindowController.handleTeamChanging(sender:))
+                )
+            )
+        }
     }
 
     private func subscribeToIssueDetailsPresentations(viewModel: MainViewModel) {
