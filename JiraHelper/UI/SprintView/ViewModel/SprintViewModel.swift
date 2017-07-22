@@ -24,7 +24,7 @@ final class SprintViewModel: NSObject, NSCollectionViewDataSource, KanbanCollect
     private let assignDisposeBox = SerialDisposeBox()
     private let issueExpandSubject = PublishSubject<IssueExpandRequest>()
     private let transitionDisposeBox = SerialDisposeBox()
-    private let predicates: Observable<IssuePredicate>
+    private let disposeBag = DisposeBag()
 
     private let user: User
 
@@ -60,11 +60,18 @@ final class SprintViewModel: NSObject, NSCollectionViewDataSource, KanbanCollect
         self.sprintIssuesService = sprintIssuesService
         self.boardConfiguration = boardConfiguration
         self.eventsReceiver = eventsReceiver
-        self.predicates = predicates
         self.user = user
         container = SprintIssuesContainer(columns: boardConfiguration.columns)
         super.init()
         _ = sampleItem.view
+        subscribePredicates(predicates)
+    }
+
+    private func subscribePredicates(_ predicates: Observable<IssuePredicate>) {
+        predicates.subscribe(onNext: { [unowned self] predicate in
+            self.container.apply(predicate: predicate)
+            self.collectionNonOptional { $0.reloadData() }
+        }).disposed(by: disposeBag)
     }
 
     private func processSelfAssigningOfSelectedIssues() {

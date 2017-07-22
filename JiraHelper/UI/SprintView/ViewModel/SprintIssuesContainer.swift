@@ -57,12 +57,13 @@ struct FilteredData {
         }
     }
 
-    mutating func apply(filter: @escaping IssuePredicate, on baseData: IssuesStorage) {
+    mutating func apply(predicate: @escaping IssuePredicate, on baseData: IssuesStorage) {
+        self.predicate = predicate
         self.data = applyFiltering(baseData: baseData, predicate: predicate)
     }
 
     mutating func setBaseData(baseData: IssuesStorage) {
-        self.data = applyFiltering(baseData: data, predicate: predicate)
+        self.data = applyFiltering(baseData: baseData, predicate: predicate)
     }
 }
 
@@ -135,7 +136,7 @@ struct SprintIssuesContainer {
     }
 
     mutating func apply(predicate: @escaping IssuePredicate) {
-        filteredData.apply(filter: predicate, on: baseData)
+        filteredData.apply(predicate: predicate, on: baseData)
     }
 
     mutating func moveIssues(from set: Set<IndexPath>, to path: IndexPath) {

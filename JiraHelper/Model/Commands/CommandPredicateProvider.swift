@@ -12,8 +12,14 @@ typealias IssuePredicate = (BasicIssue) -> Bool
 
 final class CommandPredicateProvider {
     func computePredicate(on command: Command) -> IssuePredicate {
-        return { _ in
-            true
+        return { issue in
+            print("Predicate run!!")
+            switch command {
+            case .filter(text: let text):
+                guard !text.isEmpty else { return true }
+                let range = issue.summary.range(of: text)
+                return range != nil
+            }
         }
     }
 }
