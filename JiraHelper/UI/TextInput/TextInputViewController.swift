@@ -4,8 +4,12 @@
 //
 
 import AppKit
+import RxSwift
 
 final class TextInputViewController: NSViewController {
+
+    private let commandInterpreter: CommandTextInterpretable
+    private let disposeBag = DisposeBag()
 
     @IBOutlet weak var inputTextField: NSTextField! {
         didSet {
@@ -13,7 +17,8 @@ final class TextInputViewController: NSViewController {
         }
     }
 
-    init() {
+    init(commandInterpreter: CommandTextInterpretable) {
+        self.commandInterpreter = commandInterpreter
         super.init(nibName: "TextInputViewController", bundle: nil)!
     }
     
@@ -25,5 +30,16 @@ final class TextInputViewController: NSViewController {
         super.viewDidLoad()
         view.wantsLayer = true
         view.layer?.backgroundColor = NSColor.white.cgColor
+        subscribeToEvents()
+    }
+
+    private func subscribeToEvents() {
+        inputTextField.rx.text
+            .asObservable()
+            .filterNils()
+            .subscribe(onNext: { [unowned self] text in
+                self.commandInterpreter.interpret(text: text)
+            })
+            .disposed(by: disposeBag)
     }
 }

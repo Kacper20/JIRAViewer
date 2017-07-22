@@ -15,6 +15,7 @@ final class MainViewController: NSViewController {
     private let sprintViewController: SprintViewController
     private let mainViewModel: MainViewModel
     private let disposeBag = DisposeBag()
+    private let commandInterpreter: CommandInterpreter
 
     private var loadingVC: LoadingContentViewController?
 
@@ -23,7 +24,8 @@ final class MainViewController: NSViewController {
     }
 
     init(mainViewModel: MainViewModel) {
-        textInputController = TextInputViewController()
+        self.commandInterpreter = mainViewModel.commandInterpreter
+        textInputController = TextInputViewController(commandInterpreter: commandInterpreter)
         sprintViewController = SprintViewController(sprintViewModel: mainViewModel.sprintViewModel)
         self.mainViewModel = mainViewModel
         super.init(nibName: nil, bundle: nil)!

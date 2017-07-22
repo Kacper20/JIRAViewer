@@ -25,6 +25,7 @@ final class SprintViewModel: NSObject, NSCollectionViewDataSource, KanbanCollect
     private let assignDisposeBox = SerialDisposeBox()
     private let issueExpandSubject = PublishSubject<IssueExpandRequest>()
     private let transitionDisposeBox = SerialDisposeBox()
+    private let commandProvider: CommandProvider
 
     private let user: User
 
@@ -53,12 +54,14 @@ final class SprintViewModel: NSObject, NSCollectionViewDataSource, KanbanCollect
         imageDownloader: ImageDownloader,
         boardConfiguration: BoardConfiguration,
         eventsReceiver: GlobalUIEventsReceiver,
+        commandProvider: CommandProvider,
         user: User
         ) {
         self.imageDownloader = imageDownloader
         self.sprintIssuesService = sprintIssuesService
         self.boardConfiguration = boardConfiguration
         self.eventsReceiver = eventsReceiver
+        self.commandProvider = commandProvider
         self.user = user
         container = SprintIssuesContainer(columns: boardConfiguration.columns)
         super.init()

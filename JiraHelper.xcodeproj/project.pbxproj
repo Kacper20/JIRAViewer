@@ -96,6 +96,8 @@
 		BB7FC21B1F0925B40032B3E2 /* LoadingContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB7FC2191F0925B40032B3E2 /* LoadingContentViewController.xib */; };
 		BB7FC21D1F09540C0032B3E2 /* IssueEditionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7FC21C1F09540C0032B3E2 /* IssueEditionService.swift */; };
 		BB92496C1EFFC0E6006CF3BD /* SprintColumnViewsLayouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB92496B1EFFC0E6006CF3BD /* SprintColumnViewsLayouter.swift */; };
+		BB9937581F238625000F5B4E /* CommandInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9937571F238625000F5B4E /* CommandInterpreter.swift */; };
+		BB99375A1F23878E000F5B4E /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9937591F23878E000F5B4E /* Command.swift */; };
 		BB99A1621F0C15220006E40D /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB99A1611F0C15220006E40D /* Animations.swift */; };
 		BB99A1651F0C18900006E40D /* LoadingPerformingFlowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB99A1641F0C18900006E40D /* LoadingPerformingFlowViewController.swift */; };
 		BB9B6CAC1F098435007FC01B /* SerialDisposeBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9B6CAB1F098435007FC01B /* SerialDisposeBox.swift */; };
@@ -300,6 +302,8 @@
 		BB7FC2191F0925B40032B3E2 /* LoadingContentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingContentViewController.xib; sourceTree = "<group>"; };
 		BB7FC21C1F09540C0032B3E2 /* IssueEditionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueEditionService.swift; sourceTree = "<group>"; };
 		BB92496B1EFFC0E6006CF3BD /* SprintColumnViewsLayouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprintColumnViewsLayouter.swift; sourceTree = "<group>"; };
+		BB9937571F238625000F5B4E /* CommandInterpreter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandInterpreter.swift; sourceTree = "<group>"; };
+		BB9937591F23878E000F5B4E /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
 		BB99A1611F0C15220006E40D /* Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
 		BB99A1641F0C18900006E40D /* LoadingPerformingFlowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingPerformingFlowViewController.swift; sourceTree = "<group>"; };
 		BB9B6CAB1F098435007FC01B /* SerialDisposeBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerialDisposeBox.swift; sourceTree = "<group>"; };
@@ -741,6 +745,15 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		BB9937561F237AE6000F5B4E /* Commands */ = {
+			isa = PBXGroup;
+			children = (
+				BB9937571F238625000F5B4E /* CommandInterpreter.swift */,
+				BB9937591F23878E000F5B4E /* Command.swift */,
+			);
+			path = Commands;
+			sourceTree = "<group>";
+		};
 		BB99A1631F0C18490006E40D /* Loading */ = {
 			isa = PBXGroup;
 			children = (
@@ -783,6 +796,7 @@
 		BBA77BA01E579D3D00C9842C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BB9937561F237AE6000F5B4E /* Commands */,
 				BBAF06B51EFE809300DF3E46 /* ImageDownloader */,
 				BBFC65481EE306BC005C1EFB /* Environment */,
 				BB12D6F11ED7815000FEA52A /* Pasteboard */,
@@ -1201,6 +1215,7 @@
 				BBA77B9B1E57922C00C9842C /* TextFieldStyles.swift in Sources */,
 				BBE003761E39534E00E1A2A4 /* AppDelegate.swift in Sources */,
 				BB12D6F31ED7825900FEA52A /* PasteboardService.swift in Sources */,
+				BB9937581F238625000F5B4E /* CommandInterpreter.swift in Sources */,
 				BB5695C01EDE0AB800B87510 /* Collections+Extensions.swift in Sources */,
 				BB12D6F01ED780A900FEA52A /* String+Extensions.swift in Sources */,
 				BB34BBA41F043C490070276D /* UserEndpoints.swift in Sources */,
@@ -1231,6 +1246,7 @@
 				BB5695A01EDB5C7000B87510 /* CheckMarkView.swift in Sources */,
 				BB5FB9A91EF3121300972AC5 /* MainViewModelCreator.swift in Sources */,
 				BBA77BA81E57A3F800C9842C /* MainView.swift in Sources */,
+				BB99375A1F23878E000F5B4E /* Command.swift in Sources */,
 				BB53D4321EDA123A00BBC607 /* JIRATeam.swift in Sources */,
 				BB503C6F1EDB0043002BDF54 /* AuthenticatedNetworkService.swift in Sources */,
 				BB92496C1EFFC0E6006CF3BD /* SprintColumnViewsLayouter.swift in Sources */,
