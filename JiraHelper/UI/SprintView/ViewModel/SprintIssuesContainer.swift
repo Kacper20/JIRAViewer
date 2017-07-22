@@ -42,27 +42,27 @@ struct SprintElementData {
 typealias IssuesStorage = [KanbanColumn : [BasicIssue]]
 
 struct FilteredData {
-    private var filter: (BasicIssue) -> Bool
+    private var predicate: IssuePredicate
     private(set) var data: IssuesStorage = [:]
 
-    init(baseData: IssuesStorage, filter: @escaping (BasicIssue) -> Bool) {
+    init(baseData: IssuesStorage, predicate: @escaping (BasicIssue) -> Bool) {
         data = baseData
-        self.filter = filter
-        data = applyFiltering(baseData: baseData, filter: filter)
+        self.predicate = predicate
+        data = applyFiltering(baseData: baseData, predicate: predicate)
     }
 
-    private func applyFiltering(baseData: IssuesStorage, filter: @escaping (BasicIssue) -> Bool) -> IssuesStorage {
+    private func applyFiltering(baseData: IssuesStorage, predicate: @escaping IssuePredicate) -> IssuesStorage {
         return baseData.mapValues { (array: [BasicIssue]) -> [BasicIssue] in
-            return array.filter(filter)
+            return array.filter(predicate)
         }
     }
 
-    mutating func apply(filter: @escaping (BasicIssue) -> Bool, on baseData: IssuesStorage) {
-        self.data = applyFiltering(baseData: baseData, filter: filter)
+    mutating func apply(filter: @escaping IssuePredicate, on baseData: IssuesStorage) {
+        self.data = applyFiltering(baseData: baseData, predicate: predicate)
     }
 
     mutating func setBaseData(baseData: IssuesStorage) {
-        self.data = applyFiltering(baseData: data, filter: filter)
+        self.data = applyFiltering(baseData: data, predicate: predicate)
     }
 }
 
@@ -74,7 +74,7 @@ struct SprintIssuesContainer {
 
     init(columns: [KanbanColumn]) {
         self.columns = columns
-        filteredData = FilteredData(baseData: [:], filter: { _ in true })
+        filteredData = FilteredData(baseData: [:], predicate: { _ in true })
     }
 
     mutating func update(with issues: [BasicIssue]) {
@@ -134,8 +134,8 @@ struct SprintIssuesContainer {
         baseData[column] = array
     }
 
-    mutating func apply(filter: @escaping (BasicIssue) -> Bool) {
-        filteredData.apply(filter: filter, on: baseData)
+    mutating func apply(predicate: @escaping IssuePredicate) {
+        filteredData.apply(filter: predicate, on: baseData)
     }
 
     mutating func moveIssues(from set: Set<IndexPath>, to path: IndexPath) {

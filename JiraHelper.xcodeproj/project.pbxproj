@@ -98,6 +98,7 @@
 		BB92496C1EFFC0E6006CF3BD /* SprintColumnViewsLayouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB92496B1EFFC0E6006CF3BD /* SprintColumnViewsLayouter.swift */; };
 		BB9937581F238625000F5B4E /* CommandInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9937571F238625000F5B4E /* CommandInterpreter.swift */; };
 		BB99375A1F23878E000F5B4E /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9937591F23878E000F5B4E /* Command.swift */; };
+		BB99375C1F23CF77000F5B4E /* CommandPredicateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB99375B1F23CF77000F5B4E /* CommandPredicateProvider.swift */; };
 		BB99A1621F0C15220006E40D /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB99A1611F0C15220006E40D /* Animations.swift */; };
 		BB99A1651F0C18900006E40D /* LoadingPerformingFlowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB99A1641F0C18900006E40D /* LoadingPerformingFlowViewController.swift */; };
 		BB9B6CAC1F098435007FC01B /* SerialDisposeBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9B6CAB1F098435007FC01B /* SerialDisposeBox.swift */; };
@@ -304,6 +305,7 @@
 		BB92496B1EFFC0E6006CF3BD /* SprintColumnViewsLayouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprintColumnViewsLayouter.swift; sourceTree = "<group>"; };
 		BB9937571F238625000F5B4E /* CommandInterpreter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandInterpreter.swift; sourceTree = "<group>"; };
 		BB9937591F23878E000F5B4E /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
+		BB99375B1F23CF77000F5B4E /* CommandPredicateProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandPredicateProvider.swift; sourceTree = "<group>"; };
 		BB99A1611F0C15220006E40D /* Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
 		BB99A1641F0C18900006E40D /* LoadingPerformingFlowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingPerformingFlowViewController.swift; sourceTree = "<group>"; };
 		BB9B6CAB1F098435007FC01B /* SerialDisposeBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerialDisposeBox.swift; sourceTree = "<group>"; };
@@ -750,6 +752,7 @@
 			children = (
 				BB9937571F238625000F5B4E /* CommandInterpreter.swift */,
 				BB9937591F23878E000F5B4E /* Command.swift */,
+				BB99375B1F23CF77000F5B4E /* CommandPredicateProvider.swift */,
 			);
 			path = Commands;
 			sourceTree = "<group>";
@@ -1308,6 +1311,7 @@
 				BBDA90931F11604D00B99C34 /* URL+Extensions.swift in Sources */,
 				BB0A2BEE1EBF8A2600A19D60 /* JIRARestAPI.swift in Sources */,
 				BB68BF8B1F1A9CB2001D96C6 /* CommentView.swift in Sources */,
+				BB99375C1F23CF77000F5B4E /* CommandPredicateProvider.swift in Sources */,
 				BB6300531F0D8F230066262E /* DateFormatterHelper.swift in Sources */,
 				BB36E1EA1EF589F80081DDAE /* IssuesEndpoints.swift in Sources */,
 				BB7AD73F1EF2E07300E436C4 /* SprintEndpoints.swift in Sources */,

@@ -17,7 +17,6 @@ struct IssueExpandRequest {
 
 //TODO: Divide data source & delegate, consider renaming
 final class SprintViewModel: NSObject, NSCollectionViewDataSource, KanbanCollectionViewLayoutDelegate, NSCollectionViewDelegate {
-
     private let sprintIssuesService: SprintIssuesService
     private let boardConfiguration: BoardConfiguration
     private let imageDownloader: ImageDownloader
@@ -25,7 +24,7 @@ final class SprintViewModel: NSObject, NSCollectionViewDataSource, KanbanCollect
     private let assignDisposeBox = SerialDisposeBox()
     private let issueExpandSubject = PublishSubject<IssueExpandRequest>()
     private let transitionDisposeBox = SerialDisposeBox()
-    private let commandProvider: CommandProvider
+    private let predicates: Observable<IssuePredicate>
 
     private let user: User
 
@@ -54,14 +53,14 @@ final class SprintViewModel: NSObject, NSCollectionViewDataSource, KanbanCollect
         imageDownloader: ImageDownloader,
         boardConfiguration: BoardConfiguration,
         eventsReceiver: GlobalUIEventsReceiver,
-        commandProvider: CommandProvider,
+        predicates: Observable<IssuePredicate>,
         user: User
         ) {
         self.imageDownloader = imageDownloader
         self.sprintIssuesService = sprintIssuesService
         self.boardConfiguration = boardConfiguration
         self.eventsReceiver = eventsReceiver
-        self.commandProvider = commandProvider
+        self.predicates = predicates
         self.user = user
         container = SprintIssuesContainer(columns: boardConfiguration.columns)
         super.init()

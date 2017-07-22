@@ -20,6 +20,7 @@ final class MainViewModel {
     let imageDownloader: ImageDownloader
     let otherTeams: [JIRATeam]
     let commandInterpreter: CommandInterpreter
+    private let predicateProvider: CommandPredicateProvider
 
     let sprintViewModel: SprintViewModel
     //TODO: Consider connecting boards choice selected with configuration to express type in a better way
@@ -41,14 +42,16 @@ final class MainViewModel {
         self.sprintChoice = sprintChoice
         self.eventsReceiver = eventsReceiver
         self.otherTeams = otherTeams
+        let predicateProvider = CommandPredicateProvider()
         self.sprintViewModel = SprintViewModel(
             sprintIssuesService: sprintsService.issuesService(for: sprintChoice.selected),
             imageDownloader: imageDownloader,
             boardConfiguration: boardConfiguration,
             eventsReceiver: eventsReceiver,
-            commandProvider: commandInterpreter,
+            predicates: commandInterpreter.commands.map(predicateProvider.computePredicate(on: )),
             user: user
         )
         self.imageDownloader = imageDownloader
+        self.predicateProvider = predicateProvider
     }
 }
