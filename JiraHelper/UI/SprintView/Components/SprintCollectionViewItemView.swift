@@ -9,6 +9,7 @@
 import Foundation
 import RxSwift
 import AppKit
+import WebKit
 
 final class SprintCollectionViewItemView: NSView {
 
@@ -19,7 +20,7 @@ final class SprintCollectionViewItemView: NSView {
 
     private let itemColorView = NSView()
 
-    private let typeImageView = NSImageView()
+    private let typeWebView = WKWebView()
     private let priorityImageView = NSImageView()
     private let assigneeImageView = NSImageView()
 
@@ -51,6 +52,10 @@ final class SprintCollectionViewItemView: NSView {
         itemNameLabel.maximumNumberOfLines = 0
         TextFieldStyles.nonEditableStandardLabel.apply(to: itemNameLabel, itemLabels, itemKeyLabel)
         TextFieldStyles.grayFootnote.apply(to: itemKeyLabel)
+        layer?.masksToBounds = false
+        layer?.shadowOffset = CGSize(width: 0, height: 1)
+        layer?.shadowRadius = 2.0
+        layer?.shadowOpacity = 0.3
     }
 
     func clearContents() {
@@ -60,6 +65,7 @@ final class SprintCollectionViewItemView: NSView {
 
     private func setupConstraints() {
         addSubview(itemColorView)
+        translatesAutoresizingMaskIntoConstraints = false
         itemColorView.widthAnchor.constraint(equalToConstant: 4).activate()
         itemColorView.leadingToSuperview()
         itemColorView.topToSuperview()
@@ -83,21 +89,21 @@ final class SprintCollectionViewItemView: NSView {
         imagesStackView.orientation = .horizontal
         imagesStackView.distribution = .fillEqually
         let imageSize: CGFloat = 24
-        imagesStackView.addArrangedSubviews(typeImageView, priorityImageView, assigneeImageView)
-        setupIconImageView(assigneeImageView, size: imageSize)
-        setupIconImageView(typeImageView, size: imageSize)
-        setupIconImageView(priorityImageView, size: imageSize)
+        imagesStackView.addArrangedSubviews(typeWebView, priorityImageView, assigneeImageView)
+        setupIconView(assigneeImageView, size: imageSize)
+        setupIconView(typeWebView, size: imageSize)
+        setupIconView(priorityImageView, size: imageSize)
         assigneeImageView.layer?.cornerRadius = imageSize / 2
 
         itemsStackView.addArrangedSubviews(itemNameLabel, itemLabels, imagesStackView, itemKeyLabel)
     }
 
-    private func setupIconImageView(_ imageView: NSImageView, size: CGFloat) {
-        imageView.wantsLayer = true
-        imageView.widthAnchor.constraint(equalToConstant: size).activate()
-        imageView.heightAnchor.constraint(equalToConstant: size).activate()
-        imageView.topToSuperview()
-        imageView.bottomToSuperview()
+    private func setupIconView(_ view: NSView, size: CGFloat) {
+        view.wantsLayer = true
+        view.widthAnchor.constraint(equalToConstant: size).activate()
+        view.heightAnchor.constraint(equalToConstant: size).activate()
+        view.topToSuperview()
+        view.bottomToSuperview()
     }
 
 
@@ -126,8 +132,11 @@ final class SprintCollectionViewItemView: NSView {
         return AnyObserver<NSImage>.next { [weak self] in self?.assigneeImageView.image = $0 }
     }
 
-    var typeImageSink: AnyObserver<NSImage> {
-        return AnyObserver<NSImage>.next { [weak self] in self?.typeImageView.image = $0 }
+    var typeURLSink: AnyObserver<URL> {
+        return AnyObserver<URL>.next { [weak self] url in
+            let request = URLRequest(url: url)
+            self?.typeWebView.load(request)
+        }
     }
 
     var priorityImageSink: AnyObserver<NSImage> {

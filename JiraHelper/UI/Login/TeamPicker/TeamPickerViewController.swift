@@ -21,6 +21,8 @@ final class TeamPickerViewController: NSViewController {
     @IBOutlet weak var inputPicker: NSTextField!
     @IBOutlet weak var processButton: NSButton!
 
+    @IBOutlet weak var imageView: NSImageView!
+
     private let disposeBag = DisposeBag()
 
     private let viewModel: TeamPickerViewModel

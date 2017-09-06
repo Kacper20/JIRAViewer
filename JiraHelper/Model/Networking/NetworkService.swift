@@ -49,7 +49,6 @@ final class NetworkService {
 
     private func setupDecoder() {
         let formatter = DateFormatter()
-//        let formatter = DateFormatter()
         decoder.dateDecodingStrategy = .custom { decoder in
             let formats = [
                 "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
@@ -146,6 +145,7 @@ final class NetworkService {
             return
         }
         guard code >= 200 && code <= 299 else {
+            print("config\(configuration)")
             observer.onError(NetworkServiceError.invalidStatusCode(
                 code: code,
                 response: response.result.value as? [String : AnyObject]

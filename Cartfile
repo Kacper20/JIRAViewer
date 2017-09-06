@@ -4,3 +4,4 @@ github "shpakovski/MASShortcut"
 github "SwiftyBeaver/SwiftyBeaver"
 github "matthewpalmer/Locksmith"
 github "onevcat/Kingfisher" ~> 3.0
+github "Kacper20/FlexibleLayout"

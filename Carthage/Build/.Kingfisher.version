@@ -1,8 +1,8 @@
 {
-  "commitish" : "3.10.3",
+  "commitish" : "3.12.2",
   "Mac" : [
     {
-      "hash" : "eaca8ac61dd9918e4d6d6cbd8fb74bf100356ebb3ec72a52076cfdf81071df2f",
+      "hash" : "444bf2f79173d35f9228c78e457d1fbaa73c8da191c66ac2ea1541abc4ed69b8",
       "name" : "Kingfisher"
     }
   ]

@@ -107,9 +107,7 @@ final class IssueDetailsView: NSView {
         }
         var views: [[NSView]] = [
             [labelWithText(text: "Details", styles: TextFieldStyles.sectionHeadline), empty],
-            [labelWithText(text: "Status"), labelWithText(text: "None")],
-            [labelWithText(text: "Status"), labelWithText(text: "None")],
-            [labelWithText(text: "Status"), labelWithText(text: "None")],
+            [labelWithText(text: "Status"), labelWithText(text: "Waiting for QA")],
             [labelWithText(text: "People", styles: TextFieldStyles.sectionHeadline), empty]
         ]
         views.append(contentsOf: personViews)

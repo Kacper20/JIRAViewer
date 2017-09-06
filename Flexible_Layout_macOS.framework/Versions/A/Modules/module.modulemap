@@ -1,0 +1,11 @@
+framework module Flexible_Layout_macOS {
+  umbrella header "Flexible_Layout_macOS.h"
+
+  export *
+  module * { export * }
+}
+
+module Flexible_Layout_macOS.Swift {
+    header "Flexible_Layout_macOS-Swift.h"
+    requires objc
+}

@@ -146,7 +146,10 @@ final class SprintViewModel: NSObject, NSCollectionViewDataSource, KanbanCollect
             getImage(from: url, bindedTo: sprintItem, sink: sprintItem.assigneeImageSink)
         }
         getImage(from: model.priorityAvatarUrl, bindedTo: sprintItem, sink: sprintItem.priorityImageSink)
-        getImage(from: model.typeAvatarUrl, bindedTo: sprintItem, sink: sprintItem.typeImageSink)
+        _ = Observable.just(model.typeAvatarUrl)
+            .filterMap { URL(string: $0) }
+            .takeUntil(sprintItem.preparedForReuse)
+            .bind(to: sprintItem.typeURLSink)
         return item
     }
 
@@ -240,7 +243,6 @@ final class SprintViewModel: NSObject, NSCollectionViewDataSource, KanbanCollect
                 self.eventsReceiver.loadingRequests.value = false
             }, onError: { [unowned self] error in
                 //TODO: Should do somethiiiing, baaack
-                fatalError("Error!!! \(error)")
             })
     }
 
